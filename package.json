@@ -1,0 +1,31 @@
+{
+  "name": "self-learning",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "learn": "tsx app/scripts/learn.ts",
+    "status": "tsx app/scripts/status.ts",
+    "validate": "tsx app/scripts/validate.ts",
+    "server": "tsx app/server/main.ts",
+    "build:web": "vite build --config app/web/vite.config.ts",
+    "dev:web": "vite --config app/web/vite.config.ts",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.125.0",
+    "@hono/node-server": "^2.1.1",
+    "hono": "^4.13.7",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "zod": "^4.6.4"
+  },
+  "devDependencies": {
+    "@types/node": "^26.5.1",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "tsx": "^4.23.13",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.0"
+  }
+}

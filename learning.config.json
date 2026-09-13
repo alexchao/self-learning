@@ -1,0 +1,6 @@
+{
+  "port": 4747,
+  "grading": { "model": "claude-opus-5", "effort": "low" },
+  "tutor": { "model": "claude-opus-5", "effort": "low" },
+  "autoPrepareNextSession": true
+}

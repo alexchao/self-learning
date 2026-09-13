@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "topicId": "zh-tw-expressiveness",
+  "sessionNumber": 1,
+  "kind": "diagnostic",
+  "title": "Where you are now",
+  "subtitle": "Seven things that are easy to say in English",
+  "estimatedMinutes": 10,
+  "createdAt": "2026-09-13T00:00:00.000Z",
+  "authorRationale": "Diagnostic before any items exist. Samples each strand (argument/epistemics ×3 incl. one respond, software, explanation frame 不是…而是…, emotional nuance, and one free-production explanation) at Stage 4–6 difficulty to find where fluency breaks down. No itemIds: nothing is scheduled yet. The next session should turn the most important gaps into the first 3–5 items and start them lower on the ladder, and should note which strands were already strong so they can advance quickly.",
+  "intro": {
+    "heading": "How this works",
+    "body": "Say each idea the way you'd **say it out loud** in Taiwan. Type it, or press **Speak** and dictate. Don't look anything up. The gaps are exactly what this session is looking for.\n\nAfter each answer you'll see a correction and more natural ways to say it. You can **try again**, **ask a follow-up question**, or **challenge the grade** if you think it's wrong. Hints are there if you're stuck, but using one caps your score for that step.\n\nAt the end, tell me how it felt and what you want more or less of. That shapes the next session."
+  },
+  "steps": [
+    {
+      "id": "burden-of-proof",
+      "type": "translate",
+      "stage": 4,
+      "context": "A friend is repeating a wild claim someone else made, and wants you to disprove it.",
+      "english": "Hold on, the burden of proof is on him, not on me.",
+      "referenceAnswers": [
+        "等一下，舉證責任在他身上，不在我。",
+        "欸等等，要拿出證據的是他，不是我吧。",
+        "等一下，應該是他要證明他說的是對的，不是我要去證明他錯。"
+      ],
+      "hints": ["burden of proof ≈ 舉證責任 (jǔzhèng zérèn)"],
+      "gradingNotes": "Diagnostic. Accept either the term 舉證責任 or a natural paraphrase that clearly places the obligation to prove on him. Note whether the learner knows the term."
+    },
+    {
+      "id": "evidence-scales-with-claim",
+      "type": "translate",
+      "stage": 4,
+      "context": "Same conversation, continuing.",
+      "english": "The more outlandish the claim, the stronger the evidence needs to be.",
+      "referenceAnswers": [
+        "說法越離譜，需要的證據就要越有力。",
+        "越誇張的主張，就需要越強的證據。",
+        "他講得越誇張，證據就要越扎實才行。"
+      ],
+      "hints": ["The more… the more… ≈ 越…越…"],
+      "gradingNotes": "Diagnostic. Key things: a 越…越… (or equivalent) proportional structure, a natural word for 'outlandish' (離譜/誇張/扯), and a natural collocation for strong evidence (證據有力/扎實/充分; NOT 強壯的證據)."
+    },
+    {
+      "id": "supplement-causation",
+      "type": "respond",
+      "stage": 5,
+      "scenario": "Your aunt is excited about a supplement she's been taking.",
+      "dialogue": [
+        {
+          "speaker": "阿姨",
+          "chinese": "我跟你說，那個保健食品真的有效欸！我上次感冒，吃了之後三天就好了。",
+          "english": "I'm telling you, that supplement really works! Last time I had a cold, I took it and was better in three days."
+        }
+      ],
+      "task": "Push back gently: getting better after taking it doesn't mean it made her better. Colds go away on their own in a few days anyway.",
+      "referenceAnswers": [
+        "可是阿姨，感冒本來就差不多幾天會自己好啊。吃了之後好了，不代表是因為吃了它才好的。",
+        "嗯…這很難說耶。感冒通常本來就會自己好，你怎麼知道不是剛好時間到了？「吃了之後好」跟「因為吃了才好」是兩回事。",
+        "我覺得不一定是它的功勞啦，感冒放著不管，大概三五天也會好。"
+      ],
+      "hints": ["doesn't mean ≈ 不代表 / 不見得", "on their own ≈ 本來就會自己…"],
+      "gradingNotes": "Diagnostic, Stage 5 (contextual use). Communicative goals: (1) colds resolve on their own, (2) sequence ≠ cause. Both needed for a 3+. Reward natural softeners appropriate for talking to an aunt, but don't grade register per se."
+    },
+    {
+      "id": "tech-debt-corners",
+      "type": "translate",
+      "stage": 4,
+      "context": "Venting to a coworker during a retro.",
+      "english": "We cut corners to hit the deadline, and now we're paying for it with all this tech debt.",
+      "referenceAnswers": [
+        "我們當初為了趕 deadline 一直抄捷徑，現在就是在還這些技術債。",
+        "之前為了趕上線走了太多捷徑，現在一堆技術債都回來找我們了。",
+        "那時候為了趕進度便宜行事，現在就要為這堆技術債付出代價。"
+      ],
+      "hints": ["tech debt = 技術債; cut corners ≈ 抄捷徑 / 便宜行事"],
+      "gradingNotes": "Diagnostic. 'Cut corners' should not be translated literally (切角). 付出代價 / 還債 / 回來找我們 are all natural for 'paying for it'. English 'deadline' is fine."
+    },
+    {
+      "id": "not-slow-called-too-often",
+      "type": "translate",
+      "stage": 4,
+      "context": "Explaining a performance problem to your team.",
+      "english": "It's not that the algorithm is slow; it's that we're calling it way more often than we need to.",
+      "referenceAnswers": [
+        "不是演算法本身慢，而是我們呼叫它的次數遠遠超過需要。",
+        "問題不在演算法慢，是我們叫它叫太多次了，根本不需要那麼頻繁。",
+        "演算法其實不慢啦，是我們呼叫得太頻繁，很多次根本是多餘的。"
+      ],
+      "hints": ["It's not that X; it's that Y ≈ 不是…而是… / 問題不在…而在…"],
+      "gradingNotes": "Diagnostic. The contrastive frame is the core (不是X而是Y, 問題不在X而在Y, or an equally natural contrast). Taiwan vocabulary: 演算法, 呼叫 (call a function). Mainland 算法/調用 are word_choice issues (minor)."
+    },
+    {
+      "id": "disappointed-not-angry",
+      "type": "translate",
+      "stage": 4,
+      "context": "To a close friend who made a decision that affected you both without checking with you.",
+      "english": "I'm not angry. I'm just disappointed that it didn't even occur to you to ask me first.",
+      "referenceAnswers": [
+        "我不是在生氣，我只是很失望，你連先問我一下都沒想到。",
+        "我沒有生氣啦，只是有點失望，你竟然根本沒想過要先問我一聲。",
+        "我不是生氣，是難過你連問都沒問我，好像完全沒想到我。"
+      ],
+      "hints": ["didn't even… ≈ 連…都沒…"],
+      "gradingNotes": "Diagnostic. Nuance to preserve: explicitly not anger; disappointment; the hurt is that asking *didn't even occur to them* (連…都沒想到), not merely that they didn't ask."
+    },
+    {
+      "id": "brooks-law-explanation",
+      "type": "free_production",
+      "stage": 6,
+      "prompt": "A non-technical friend asks why your company doesn't just hire more engineers to finish a late project faster. Explain why adding people to a late project often makes it **even later**.",
+      "lengthGuidance": "3–5 sentences, the way you'd say it out loud",
+      "referenceAnswers": [
+        "專案已經落後的時候再加人，常常只會更慢。因為新人進來要花時間熟悉程式碼跟整個系統，原本的人還得停下手邊的工作去教他們。而且人越多，要溝通協調的事情就越多，大家花在開會對齊的時間反而變長了。有些工作也沒辦法切得很細分給很多人做，就像生小孩，九個人也沒辦法一個月生出來。"
+      ],
+      "hints": ["ramp-up ≈ 熟悉 / 上手; communication overhead ≈ 溝通成本", "打個比方… (to give an analogy…)"],
+      "gradingNotes": "Diagnostic, Stage 6. Judge: coherence of the explanation (onboarding cost, communication overhead, indivisible work), use of causal/contrastive connectives (因為, 而且, 反而, 越…越…), and naturalness. Note which discourse connectives the learner reaches for spontaneously and which are missing. List the most valuable upgrades."
+    }
+  ]
+}

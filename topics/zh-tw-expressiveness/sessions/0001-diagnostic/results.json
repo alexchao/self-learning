@@ -1,0 +1,419 @@
+{
+  "schemaVersion": 1,
+  "sessionDirName": "0001-diagnostic",
+  "startedAt": "2026-09-13T15:58:03.865Z",
+  "completedAt": "2026-09-13T23:49:34.969Z",
+  "steps": {
+    "burden-of-proof": {
+      "attempts": [
+        {
+          "answer": "I honestly have no idea how to say this",
+          "inputMode": "typed",
+          "hintsRevealed": 0,
+          "submittedAt": "2026-09-13T15:58:58.330Z",
+          "timeSpentMs": 45016,
+          "grade": {
+            "score": 0,
+            "headline": "No attempt made — here's the phrasing to learn.",
+            "correctedLearnerAnswer": "等一下，舉證責任在他身上，不在我。",
+            "modelAnswers": [
+              {
+                "chinese": "等一下，舉證責任在他身上，不在我。",
+                "note": "Uses the standard legal/logic term 舉證責任 — exactly the phrase used in Taiwanese debate talk."
+              },
+              {
+                "chinese": "欸等等，要拿出證據的是他，不是我吧。",
+                "note": "Everyday paraphrase; 要拿出證據的是他 is a natural cleft that puts the obligation squarely on him."
+              },
+              {
+                "chinese": "等一下，是他要證明他說的是真的，不是我要證明他錯。",
+                "note": "Fully spelled-out version if you don't recall the term."
+              }
+            ],
+            "issues": [
+              {
+                "learnerExcerpt": "I honestly have no idea how to say this",
+                "problem": "No Chinese was produced, so nothing could be assessed.",
+                "suggestion": "等一下，舉證責任在他身上，不在我。",
+                "category": "missing_content"
+              }
+            ],
+            "strengths": [],
+            "explanation": "The key term is 舉證責任 (burden of proof), which Taiwanese speakers use in both legal and casual argument contexts: 舉證責任在他身上. If the term escapes you, the reliable fallback is a cleft with 的是: 要拿出證據的是他，不是我 — this structure is how Mandarin does English's contrastive stress (\"HE has to prove it, not me\"). Note also that 不在我 alone is enough; you don't need to repeat 身上. Next time, try a paraphrase rather than leaving it blank — producing 應該是他要證明 would already have earned credit.",
+            "targetItemIdsUsedCorrectly": [],
+            "gradedBy": "llm",
+            "model": "claude-opus-5",
+            "gradedAt": "2026-09-13T15:58:58.330Z"
+          }
+        }
+      ],
+      "followUps": [],
+      "completedAt": "2026-09-13T16:00:27.562Z"
+    },
+    "evidence-scales-with-claim": {
+      "attempts": [
+        {
+          "answer": "越誇張的聲明就需要越多的證據",
+          "inputMode": "typed",
+          "hintsRevealed": 0,
+          "submittedAt": "2026-09-13T16:01:22.170Z",
+          "timeSpentMs": 43423,
+          "grade": {
+            "score": 3,
+            "headline": "Structure is spot-on; two small word choices shift the meaning slightly.",
+            "correctedLearnerAnswer": "越誇張的說法，就需要越有力的證據。",
+            "modelAnswers": [
+              {
+                "chinese": "說法越誇張，證據就要越有力。",
+                "note": "Most idiomatic: splits into two clauses, very natural in speech."
+              },
+              {
+                "chinese": "越離譜的主張，就需要越扎實的證據。",
+                "note": "扎實 = solid/substantial evidence."
+              },
+              {
+                "chinese": "他講得越扯，證據就要越充分才行。",
+                "note": "Colloquial 扯 for 'outlandish', plus 才行 for the 'needs to be' feel."
+              }
+            ],
+            "issues": [
+              {
+                "learnerExcerpt": "聲明",
+                "problem": "聲明 means an official statement/declaration (like a press release), not a 'claim' someone makes in an argument.",
+                "suggestion": "說法 / 主張",
+                "category": "word_choice"
+              },
+              {
+                "learnerExcerpt": "越多的證據",
+                "problem": "The original is about the strength/quality of evidence, not the quantity.",
+                "suggestion": "越有力的證據 / 越扎實的證據",
+                "category": "meaning"
+              }
+            ],
+            "strengths": [
+              "越…越… proportional structure used correctly with 就",
+              "誇張 is a great natural choice for 'outlandish'"
+            ],
+            "explanation": "Your 越…越…就 frame is exactly right. The fix is collocation: for evidence, Taiwanese speakers talk about 證據有力／扎實／充分 (strength, solidity) rather than 多 — 越多的證據 says you need a bigger pile, which is a different claim. Also note 聲明 is institutional ('發表聲明'); an individual's claim in a debate is 說法 or 主張. A very natural spoken version splits it: 說法越誇張，證據就要越有力才行。",
+            "targetItemIdsUsedCorrectly": [],
+            "gradedBy": "llm",
+            "model": "claude-opus-5",
+            "gradedAt": "2026-09-13T16:01:22.170Z"
+          }
+        }
+      ],
+      "followUps": [
+        {
+          "question": "what do you mean 聲明 is institutional?",
+          "answer": "聲明 is a **formal, public announcement** — something an organization, company, or public figure issues to set the record straight: 公司發了一則聲明、藝人發聲明否認。It's an act of announcing, not the content of an assertion.\n\nWhat you wanted here is \"claim\" in the sense of *an assertion someone makes that might be true or false* — that's 說法 (what someone says/their version), 主張 (a position being argued), or colloquially just 他講的 / 他那套說法. So 他的說法很誇張 works; 他的聲明很誇張 sounds like you're critiquing a press release.\n\nRelated trap: 宣稱 is the verb \"to claim (dubiously)\" — 他宣稱自己被外星人綁架，這種說法越誇張，證據就要越有力。",
+          "askedAt": "2026-09-13T16:11:35.752Z"
+        }
+      ],
+      "completedAt": "2026-09-13T16:13:39.691Z"
+    },
+    "supplement-causation": {
+      "attempts": [
+        {
+          "answer": "你會好不代表說保健食品有效，感冒通常也是幾天後就會好",
+          "inputMode": "typed",
+          "hintsRevealed": 0,
+          "submittedAt": "2026-09-13T16:15:58.883Z",
+          "timeSpentMs": 124215,
+          "grade": {
+            "score": 3,
+            "headline": "Both key points are there and the Chinese is understandable, but the phrasing is a bit blunt and slightly off.",
+            "correctedLearnerAnswer": "阿姨，你後來好了不代表是保健食品有效啦，感冒本來就差不多幾天會自己好。",
+            "modelAnswers": [
+              {
+                "chinese": "可是阿姨，感冒本來就差不多幾天會自己好啊。吃了之後好了，不代表是因為吃了它才好的。",
+                "note": "Clearest split of the two ideas, with 本來就 and 不代表."
+              },
+              {
+                "chinese": "嗯…我覺得不一定是它的功勞啦，感冒放著不管，三五天大概也會好。",
+                "note": "Softer, very colloquial 啦 + 不一定是它的功勞."
+              }
+            ],
+            "issues": [
+              {
+                "learnerExcerpt": "你會好不代表說",
+                "problem": "你會好 (future/general 'you will get better') doesn't fit a past event; also 不代表說 is a bit loose. Talking about what already happened, use 好了 / 後來好了.",
+                "suggestion": "你後來好了不代表",
+                "category": "grammar"
+              },
+              {
+                "learnerExcerpt": "感冒通常也是幾天後就會好",
+                "problem": "Understandable but misses the 'on their own / anyway' nuance that carries the argument; 也是 is weak here.",
+                "suggestion": "感冒本來就差不多幾天會自己好",
+                "category": "naturalness"
+              },
+              {
+                "learnerExcerpt": "你會好不代表說保健食品有效",
+                "problem": "No softener at all when pushing back on an aunt — sounds abrupt. A 啦/其實/可是 makes it land much better.",
+                "suggestion": "阿姨，這其實很難說耶…",
+                "category": "naturalness"
+              }
+            ],
+            "strengths": [
+              "Hit both required points: sequence ≠ cause, and colds resolve anyway",
+              "Used 不代表 correctly to separate correlation from causation"
+            ],
+            "explanation": "The core argument is right; what's missing is the idiomatic frame. Taiwanese speakers say 「感冒本來就會自己好」— 本來就 signals 'that's just how it is anyway', which is exactly the rebuttal you need; 通常也是 doesn't carry that. Also keep tense clear: her recovery already happened, so 「你後來好了不代表…」 rather than 「你會好…」. Adding a 啦 or 耶 (「不一定是它的功勞啦」) keeps the pushback friendly.",
+            "targetItemIdsUsedCorrectly": [],
+            "gradedBy": "llm",
+            "model": "claude-opus-5",
+            "gradedAt": "2026-09-13T16:15:58.883Z"
+          }
+        }
+      ],
+      "followUps": [],
+      "completedAt": "2026-09-13T16:18:44.518Z"
+    },
+    "tech-debt-corners": {
+      "attempts": [
+        {
+          "answer": "我們為了達到期限而走了一些捷徑，現在tech debt變多了",
+          "inputMode": "typed",
+          "hintsRevealed": 0,
+          "submittedAt": "2026-09-13T16:20:19.601Z",
+          "timeSpentMs": 81887,
+          "grade": {
+            "score": 2,
+            "headline": "Understandable, but 「達到期限」 is translationese and the 'paying for it' nuance is lost.",
+            "correctedLearnerAnswer": "我們當初為了趕 deadline 走了一些捷徑，現在就是在還這些技術債。",
+            "modelAnswers": [
+              {
+                "chinese": "我們當初為了趕 deadline 一直抄捷徑，現在就是在還這些技術債。",
+                "note": "Most idiomatic: 趕 deadline + 抄捷徑 + 還債."
+              },
+              {
+                "chinese": "之前為了趕上線便宜行事，現在這堆技術債全都回來找我們了。",
+                "note": "更帶情緒，適合 retro 抱怨。"
+              }
+            ],
+            "issues": [
+              {
+                "learnerExcerpt": "為了達到期限",
+                "problem": "Literal calque of 'meet the deadline'. Chinese doesn't 達到 a 期限; the spoken form is 趕 deadline / 趕上線 / 趕進度.",
+                "suggestion": "為了趕 deadline",
+                "category": "naturalness"
+              },
+              {
+                "learnerExcerpt": "現在tech debt變多了",
+                "problem": "Loses the 'we're paying for it' nuance — it just says the debt increased. Also 技術債 is the standard Taiwanese term (though 'tech debt' in speech isn't fatal).",
+                "suggestion": "現在就是在還這些技術債／現在這堆技術債都回來找我們了",
+                "category": "meaning"
+              }
+            ],
+            "strengths": [
+              "走捷徑 correctly avoids the literal 切角 trap.",
+              "為了…而… concession/purpose framing is grammatical."
+            ],
+            "explanation": "Two things to lock in: 'meet a deadline' in Taiwanese Mandarin is 趕 deadline／趕上線／趕進度, never 達到期限 (期限 collocates with 到期, not 達到). And 'pay for it' needs a consequence frame — 還債, 付出代價, or the very colloquial 回來找我們了: 「現在就是在還技術債」. Saying only 變多了 reports a fact but drops the complaint, which is the whole point of a retro vent.",
+            "targetItemIdsUsedCorrectly": [],
+            "gradedBy": "llm",
+            "model": "claude-opus-5",
+            "gradedAt": "2026-09-13T16:20:19.601Z"
+          }
+        }
+      ],
+      "followUps": [],
+      "completedAt": "2026-09-13T16:24:41.439Z"
+    },
+    "not-slow-called-too-often": {
+      "attempts": [
+        {
+          "answer": "又不是因為算法很慢， 而是因為我們call它的次數超越需要的量\n\nI don't know how to say \"call\" in this sense",
+          "inputMode": "typed",
+          "hintsRevealed": 0,
+          "submittedAt": "2026-09-13T16:26:46.324Z",
+          "timeSpentMs": 107542,
+          "grade": {
+            "score": 2,
+            "headline": "The 不是…而是… frame works, but the vocabulary (算法, call, 超越需要的量) isn't natural Taiwanese Mandarin.",
+            "correctedLearnerAnswer": "又不是演算法本身慢，而是我們呼叫它的次數遠遠超過需要。",
+            "modelAnswers": [
+              {
+                "chinese": "不是演算法慢，是我們呼叫它的次數根本超過需要，太頻繁了。",
+                "note": "Most idiomatic: 呼叫 is the standard Taiwanese term for calling a function."
+              },
+              {
+                "chinese": "問題不在演算法，而在我們叫它叫太多次了，很多次其實是多餘的。",
+                "note": "Uses 問題不在…而在… and the colloquial 叫它叫太多次."
+              }
+            ],
+            "issues": [
+              {
+                "learnerExcerpt": "算法",
+                "problem": "Mainland term; Taiwan says 演算法.",
+                "suggestion": "演算法",
+                "category": "word_choice"
+              },
+              {
+                "learnerExcerpt": "call它",
+                "problem": "'Call a function' in Taiwan is 呼叫 (Mainland 調用). English code-switch here is possible among devs but 呼叫 is the expected word.",
+                "suggestion": "呼叫它 / 叫它",
+                "category": "word_choice"
+              },
+              {
+                "learnerExcerpt": "超越需要的量",
+                "problem": "Unnatural collocation — 超越 is for surpassing goals/limits, and 量 doesn't fit counts of calls.",
+                "suggestion": "遠遠超過需要的次數 / 比需要的多太多了",
+                "category": "naturalness"
+              },
+              {
+                "learnerExcerpt": "又不是因為算法很慢",
+                "problem": "又不是 adds a defensive 'it's not like...' tone; fine if intended, but plain 不是 is neutral. Also 因為 makes it heavier than needed.",
+                "suggestion": "不是演算法慢",
+                "category": "naturalness"
+              }
+            ],
+            "strengths": [
+              "Correctly built the contrastive frame 不是X，而是Y — that's the core of the sentence.",
+              "Kept the causal logic clear and easy to follow."
+            ],
+            "explanation": "Your structure was right; the issue is word choice. In Taiwan, a function call is 呼叫 (呼叫 API／呼叫這個函式), and the algorithm is 演算法, not 算法. For 'more often than we need', Chinese prefers counting frequency: 呼叫的次數遠遠超過需要 or the very colloquial 叫太多次了, rather than 超越…的量 (超越 pairs with 極限、自我、目標, not counts). Also, 又不是 carries a rebuttal tone ('it's not like the algorithm is slow!'), so use plain 不是 for neutral diagnosis.",
+            "targetItemIdsUsedCorrectly": [],
+            "gradedBy": "llm",
+            "model": "claude-opus-5",
+            "gradedAt": "2026-09-13T16:26:46.324Z"
+          }
+        }
+      ],
+      "followUps": [],
+      "completedAt": "2026-09-13T16:28:56.732Z"
+    },
+    "disappointed-not-angry": {
+      "attempts": [
+        {
+          "answer": "我不是生氣的，只是因為你都沒有想過可以先問我讓我有點失望",
+          "inputMode": "typed",
+          "hintsRevealed": 0,
+          "submittedAt": "2026-09-13T16:32:11.161Z",
+          "timeSpentMs": 179843,
+          "grade": {
+            "score": 3,
+            "headline": "Meaning comes through, but a couple of phrasings are slightly off and the 連…都 punch is missing.",
+            "correctedLearnerAnswer": "我不是在生氣，只是你連想都沒想過要先問我一下，讓我有點失望。",
+            "modelAnswers": [
+              {
+                "chinese": "我不是在生氣，我只是很失望，你連先問我一下都沒想到。",
+                "note": "連…都沒想到 nails the 'didn't even occur to you' nuance."
+              },
+              {
+                "chinese": "我沒有生氣啦，只是有點失望，你竟然根本沒想過要先問我一聲。",
+                "note": "啦 + 竟然 sounds very natural and slightly softer in speech."
+              }
+            ],
+            "issues": [
+              {
+                "learnerExcerpt": "我不是生氣的",
+                "problem": "The 是…的 frame here sounds like you're denying a fact/identity rather than a current state. For 'I'm not angry (right now)' Taiwanese speakers say 我不是在生氣 or 我沒有生氣啦.",
+                "suggestion": "我不是在生氣 / 我沒有生氣啦",
+                "category": "naturalness"
+              },
+              {
+                "learnerExcerpt": "你都沒有想過可以先問我",
+                "problem": "都沒有想過 conveys 'you never thought of it' but loses the 'didn't EVEN occur to you' emphasis; 連…都 is the natural intensifier.",
+                "suggestion": "你連想都沒想過要先問我一下",
+                "category": "target_item"
+              },
+              {
+                "learnerExcerpt": "只是因為你…讓我有點失望",
+                "problem": "因為…讓我有點失望 is a bit clunky/translationese as one long clause; spoken Mandarin usually states the feeling first, then the reason.",
+                "suggestion": "只是有點失望，你連問都沒問我一聲",
+                "category": "naturalness"
+              }
+            ],
+            "strengths": [
+              "Clearly separated 'not angry' from 'disappointed' — the key nuance survived.",
+              "有點失望 is a nice, natural hedge for a friend."
+            ],
+            "explanation": "Two things to lock in. First, denying a current emotional state uses 我沒有生氣 / 我不是在生氣, not 我不是生氣的 — the 的 makes it sound like you're refuting a claim about your character. Second, 連…都 is what carries 'even': 你連問都沒問 (you didn't even ask) or 你連先問我一下都沒想到 (it didn't even occur to you to ask). Also, spoken Mandarin prefers feeling-then-reason: 我只是有點失望，你連問都沒問我，rather than stuffing the reason into a 因為…讓我… frame.",
+            "targetItemIdsUsedCorrectly": [],
+            "gradedBy": "llm",
+            "model": "claude-opus-5",
+            "gradedAt": "2026-09-13T16:32:11.161Z"
+          }
+        }
+      ],
+      "followUps": [],
+      "completedAt": "2026-09-13T23:02:37.037Z"
+    },
+    "brooks-law-explanation": {
+      "attempts": [
+        {
+          "answer": "因為那些新加入的工程師需要跟上我們的進度，也不一定來得及跟上，所以這個學習feature的implementation details的過程很有可能會拉長我們做完的時間",
+          "inputMode": "typed",
+          "hintsRevealed": 0,
+          "submittedAt": "2026-09-13T23:06:00.734Z",
+          "timeSpentMs": 182905,
+          "grade": {
+            "score": 2,
+            "headline": "You got the ramp-up idea across, but it's one long run-on sentence that misses the other main reasons and reads a bit awkwardly.",
+            "correctedLearnerAnswer": "因為新加入的工程師要花時間跟上我們的進度，也不一定跟得上。他們要花時間熟悉功能的實作細節，原本的人還得停下來教他們，反而會拉長我們完成的時間。而且人越多，溝通成本就越高。",
+            "modelAnswers": [
+              {
+                "chinese": "專案已經落後的時候再加人，常常只會更慢。新人進來要花時間熟悉程式碼，原本的人還得停下手邊的工作去帶他們。而且人越多，要溝通協調的事情就越多，開會對齊的時間反而變長。有些工作也沒辦法無限切細，打個比方，九個媽媽也沒辦法一個月就生出小孩。",
+                "note": "Uses 因為/而且/反而/越…越… and an analogy — exactly what the prompt is fishing for."
+              },
+              {
+                "chinese": "加人不是加速，通常是加亂。新人上手要時間，老鳥被拉去教學就沒辦法產出；人一多，溝通成本又直線上升，所以進度只會更落後。",
+                "note": "Punchier, more colloquial spoken version."
+              }
+            ],
+            "issues": [
+              {
+                "learnerExcerpt": "這個學習feature的implementation details的過程",
+                "problem": "Stacking 的 twice around English nouns makes it clunky; also a 'process' noun phrase where Chinese prefers a verb clause.",
+                "suggestion": "熟悉這些功能的實作細節（要花不少時間）",
+                "category": "naturalness"
+              },
+              {
+                "learnerExcerpt": "需要跟上我們的進度，也不一定來得及跟上",
+                "problem": "跟上 repeated, and 來得及跟上 is redundant; 進度 here is more about 上手/熟悉 than catching up on a schedule.",
+                "suggestion": "要花時間上手，也不一定跟得上",
+                "category": "word_choice"
+              },
+              {
+                "learnerExcerpt": "(whole answer)",
+                "problem": "Only the onboarding cost is mentioned. Communication overhead (溝通成本／人越多越難協調) and indivisible work are missing, and it's one run-on sentence instead of 3–5.",
+                "suggestion": "而且人越多，要溝通協調的事情就越多，反而更慢。有些工作也沒辦法切得很細分給很多人做。",
+                "category": "missing_content"
+              },
+              {
+                "learnerExcerpt": "拉長我們做完的時間",
+                "problem": "Slightly awkward collocation.",
+                "suggestion": "拉長完成的時間 / 讓專案更晚做完",
+                "category": "naturalness"
+              }
+            ],
+            "strengths": [
+              "因為…所以 causal frame is used correctly",
+              "有可能 hedging is appropriate for a probabilistic claim"
+            ],
+            "explanation": "The core lesson is discourse structure: for an explanation like this, Taiwanese speakers chunk it into short clauses with connectives rather than one long chain — 因為… / 而且… / 反而… / 越…越… Note especially 反而 ('contrary to what you'd expect'), which is the exact word for 'adding people makes it slower': 人越多，開會的時間反而越長. Also avoid stacking 的 around English terms: say 熟悉實作細節 instead of 學習…implementation details的過程. Finally, an analogy (打個比方…) makes this kind of explanation land much better with a non-technical friend.",
+            "targetItemIdsUsedCorrectly": [
+              ""
+            ],
+            "gradedBy": "llm",
+            "model": "claude-opus-5",
+            "gradedAt": "2026-09-13T23:06:00.734Z"
+          }
+        }
+      ],
+      "followUps": [],
+      "completedAt": "2026-09-13T23:46:54.793Z"
+    }
+  },
+  "endOfSessionFeedback": {
+    "difficulty": "about_right",
+    "steeringNote": "I think this was appropriate, and I think I need review on this stuff. \n\nFor now, let's keep the pace slow and reiterate or rehash this content, because I don't think I've mastered it yet.",
+    "processFeedback": "So at least with this one, the format was: I get asked a question, I try to answer it, and then I get a bunch of feedback and sentence constructions for how to improve my answer.\n\nIt would be great if there was a next step after that, that then utilized those things that I learned in sort of micro-examples, basically forcing me to apply what I just learned in maybe two or three quick examples. So I'm thinking it gives me an English sentence, and I have to translate it using the new pattern, right? \n\nIt would be cool because if we're doing repetition on those in later sessions, those examples can become the repeated exercise that I have to demonstrate mastery of (in addition to the original question that I was asked).",
+    "submittedAt": "2026-09-13T23:49:34.969Z"
+  },
+  "itemScheduleChanges": [],
+  "nextSessionPreparation": {
+    "triggeredAt": "2026-09-13T23:49:34.999Z",
+    "logPath": "topics/zh-tw-expressiveness/.prep/2026-09-13T23-49-34-974Z-after-0001-diagnostic.log"
+  }
+}

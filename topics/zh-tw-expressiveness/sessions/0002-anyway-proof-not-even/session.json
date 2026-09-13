@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "topicId": "zh-tw-expressiveness",
+  "sessionNumber": 2,
+  "kind": "regular",
+  "title": "It would have happened anyway",
+  "subtitle": "本來就, who has to prove it, and \"not even\"",
+  "estimatedMinutes": 9,
+  "createdAt": "2026-09-13T23:51:42.000Z",
+  "authorRationale": "First regular session, built entirely from diagnostic gaps. STEERING (after 0001, open): 'keep the pace slow and rehash this content'. Honored by introducing no new curriculum: the three items are the clearest missing pieces from the diagnostic itself (本來就 from the supplement rebuttal, 舉證責任/的是-cleft from the blank burden-of-proof step, 連…都 from disappointed-not-angry), and drills reuse diagnostic situations and corrections (說法 not 聲明, 我不是在生氣, the aunt). Remaining diagnostic gaps are queued in learner-model.md for 0003+ (反而 + chunked explanations, 趕 deadline/還技術債, 說法/主張 + 證據有力, 問題不在…而在… with 演算法/呼叫). PROCESS FEEDBACK (open): learner wants, after a correction, 2–3 quick translation drills applying what was just learned, which later become the repeated exercises. Honored within existing step types by shaping each item as teach → cloze (stage 2) → short guided translate (stage 3; context explicitly asks for the construction, gradingNotes cap a missing construction at 2). The fuller request (auto-generating micro-drills right after a graded free-response step, and persisting them as SRS review material) needs a runtime change, so the process-feedback note is left open for the interactive agent. STAGES: no reviews are due (deck was empty). Guided translates are tagged stage 3, not 4, because the construction is named; with the scheduler taking the max stage tested, a good session moves items to stage 4, a slow ramp that matches the steering. The final respond step deliberately has no itemIds: same-session priming makes it an unfair Stage 5 test, and tagging it would promote items to stage 6 on day one. Its result should inform 0003 (if all three moves appear unprompted, items can be verified at stage 5 sooner). Difficulty of 0001 was 'about right' but average ≈2.1; kept 3 items, lots of short steps, ~9 minutes.",
+  "intro": {
+    "heading": "Three things from last time",
+    "body": "This session goes back over the diagnostic, slowly. You'll get three small constructions you were missing. Each one is taught, then used right away in a couple of quick drills. At the end, one real situation where you'll want all three.\n\nThey'll come back in later sessions, in new sentences, until you reach for them without thinking."
+  },
+  "steps": [
+    {
+      "id": "teach-benlai-jiu",
+      "type": "teach",
+      "itemIds": ["benlai-jiu-anyway"],
+      "heading": "本來就: it would have happened anyway",
+      "body": "With your aunt and her supplement, you had the right idea (不代表), but 感冒通常也是幾天後就會好 didn't land the rebuttal. **本來就** marks the baseline: it's true *regardless* of the thing getting the credit.\n\nPut it right before the verb phrase: 感冒**本來就**會自己好. Pair it with **不代表** and the argument is complete.",
+      "examples": [
+        { "chinese": "可是阿姨，感冒本來就會自己好啊。", "english": "But auntie, colds get better on their own anyway.", "pinyin": "běnlái jiù" },
+        { "chinese": "吃了之後好了，不代表是因為吃了它才好的。", "english": "Getting better after taking it doesn't mean you got better because of it." },
+        { "chinese": "這本來就是你的責任，不用謝我。", "english": "This was your responsibility to begin with; no need to thank me.", "note": "The same word also means 'obviously / to begin with'." }
+      ]
+    },
+    {
+      "id": "cloze-benlai-jiu-aunt",
+      "type": "cloze",
+      "itemIds": ["benlai-jiu-anyway"],
+      "stage": 2,
+      "sentenceWithBlank": "可是阿姨，感冒___會自己好啊，你後來好了不代表是那個保健食品的功勞。",
+      "englishMeaning": "But auntie, colds go away on their own anyway. You getting better doesn't mean the supplement did it.",
+      "acceptableFills": ["本來就"],
+      "referenceAnswers": ["可是阿姨，感冒本來就會自己好啊，你後來好了不代表是那個保健食品的功勞。"],
+      "hints": ["běnlái jiù"],
+      "gradingNotes": "Target is 本來就. 通常 / 自然 / 自己 fit grammatically but lose the 'regardless' rebuttal: cap at 2 and point to 本來就."
+    },
+    {
+      "id": "translate-benlai-jiu-flaky-test",
+      "type": "translate",
+      "itemIds": ["benlai-jiu-anyway"],
+      "stage": 3,
+      "context": "A junior engineer is panicking that their PR broke CI. Reassure them, using the construction you just learned.",
+      "english": "Relax, that test fails randomly anyway. It's not your PR.",
+      "referenceAnswers": [
+        "放心啦，那個測試本來就會隨機失敗，不是你 PR 的問題。",
+        "別緊張，那個 test 本來就很不穩，常常自己掛掉，跟你的 PR 沒關係。",
+        "沒事啦，那個測試本來就時好時壞，不代表是你改壞的。"
+      ],
+      "hints": ["fails randomly ≈ 隨機失敗 / 很不穩 / 時好時壞 / 自己掛掉"],
+      "gradingNotes": "Guided drill: the context asks for the construction, so treat it like a rewrite step: missing 本來就 caps the score at 2. Core move: 本來就 before the 'fails randomly' predicate, plus clearly clearing the PR (不是你 PR 的問題 / 跟你的 PR 沒關係 / 不代表是你改壞的). English 'test', 'PR', 'CI' are natural. 掛掉 is normal dev slang for failing."
+    },
+    {
+      "id": "teach-burden-of-proof",
+      "type": "teach",
+      "itemIds": ["burden-of-proof"],
+      "heading": "Who has to prove it?",
+      "body": "This was the one you left blank. Two natural ways to say it:\n\n**舉證責任在他身上，不在我。** The term itself. It comes from law, but people use it in everyday arguments too.\n\n**要拿出證據的是他，不是我。** A cleft with **的是**, which is how Chinese stresses *HE* has to prove it. If the term slips your mind, this one always works.",
+      "examples": [
+        { "chinese": "等一下，舉證責任在他身上，不在我。", "english": "Hold on, the burden of proof is on him, not me.", "pinyin": "jǔzhèng zérèn" },
+        { "chinese": "說這個套件比較快的是你，要拿出數據的也是你。", "english": "You're the one saying this package is faster, so you're the one who has to show the numbers." },
+        { "chinese": "他的說法那麼誇張，應該是他要證明，不是我要去證明他錯。", "english": "His claim is that outlandish; he should be the one proving it, not me proving him wrong.", "note": "說法 for someone's claim, not 聲明 (an official statement)." }
+      ]
+    },
+    {
+      "id": "cloze-burden-of-proof-outlandish",
+      "type": "cloze",
+      "itemIds": ["burden-of-proof"],
+      "stage": 2,
+      "sentenceWithBlank": "他的說法那麼離譜，___在他身上，不在我。",
+      "englishMeaning": "His claim is that outlandish, so the burden of proof is on him, not me.",
+      "acceptableFills": ["舉證責任"],
+      "referenceAnswers": ["他的說法那麼離譜，舉證責任在他身上，不在我。"],
+      "hints": ["jǔzhèng zérèn"],
+      "gradingNotes": "Target is 舉證責任. 證明的責任 is understandable but not the set term: 2. 責任 alone loses the meaning: 1."
+    },
+    {
+      "id": "translate-burden-of-proof-moon-landing",
+      "type": "translate",
+      "itemIds": ["burden-of-proof"],
+      "stage": 3,
+      "context": "Your cousin insists the moon landing was faked and demands that you prove it wasn't. Use either form you just learned.",
+      "english": "Wait, you're the one saying it was faked. So you're the one who has to prove it, not me.",
+      "referenceAnswers": [
+        "等一下，說它是假的人是你耶，所以要拿出證據的是你，不是我。",
+        "欸，是你說登月是假的吧？那舉證責任在你身上，不是我要證明它是真的。",
+        "不對啊，提出這個說法的是你，該證明的當然是你，不是我。"
+      ],
+      "hints": ["you're the one who… ≈ …的是你", "prove it ≈ 證明 / 拿出證據"],
+      "gradingNotes": "Guided drill. Core move: put the obligation on the cousin, contrasted with 'not me', via 舉證責任在你(身上) or a 的是 cleft (要拿出證據的是你 / 該證明的是你). Either form earns full credit. A bare 你要證明 without the not-me contrast or either construction is a 2. 'The moon landing' can be 登月 or just 它."
+    },
+    {
+      "id": "teach-lian-dou",
+      "type": "teach",
+      "itemIds": ["lian-dou-not-even"],
+      "heading": "連…都: not even",
+      "body": "Last time you wrote 你都沒有想過可以先問我. It's understandable, but flat. What hurts is that asking **didn't even** occur to them, and that's **連…都**.\n\nWith a verb, say the verb twice: 連**問**都沒**問**, 連**想**都沒**想**過.\n\nOne more fix from the same answer: for \"I'm not angry\" (right now), say **我不是在生氣** or **我沒有生氣啦**, not 我不是生氣的.",
+      "examples": [
+        { "chinese": "我不是在生氣，只是很失望，你連先問我一下都沒想到。", "english": "I'm not angry, just disappointed that it didn't even occur to you to ask me first.", "pinyin": "lián … dōu" },
+        { "chinese": "他要搬去台中，連跟我說一聲都沒有。", "english": "He's moving to Taichung and didn't even tell me." },
+        { "chinese": "你連 benchmark 都沒跑，怎麼知道比較快？", "english": "You didn't even run a benchmark. How do you know it's faster?" }
+      ]
+    },
+    {
+      "id": "cloze-lian-dou-decided-for-me",
+      "type": "cloze",
+      "itemIds": ["lian-dou-not-even"],
+      "stage": 2,
+      "sentenceWithBlank": "你___都沒問我，就直接幫我決定了？",
+      "englishMeaning": "You didn't even ask me? You just decided for me?",
+      "acceptableFills": ["連問"],
+      "referenceAnswers": ["你連問都沒問我，就直接幫我決定了？"],
+      "hints": ["lián … dōu, and say the verb twice"],
+      "gradingNotes": "Target is 連問 (verb-copy: 連問都沒問). 連 alone (你連都沒問我) is ungrammatical: 1. 根本 fits the blank but misses the construction: cap at 2."
+    },
+    {
+      "id": "translate-lian-dou-birthday-dinner",
+      "type": "translate",
+      "itemIds": ["lian-dou-not-even"],
+      "stage": 3,
+      "context": "Your friends had a birthday dinner and nobody told you. One of them notices you've gone quiet. Use the construction you just learned.",
+      "english": "I'm not mad. It just stings a little that nobody even thought to invite me.",
+      "referenceAnswers": [
+        "我沒有生氣啦，只是有點難過，連一個人都沒想到要約我。",
+        "我不是在生氣，只是有點受傷，你們連問都沒問我要不要來。",
+        "沒有生氣啦，只是心裡有點不舒服，大家連想都沒想到要找我。"
+      ],
+      "hints": ["stings a little ≈ 有點難過 / 有點受傷 / 心裡有點不舒服"],
+      "gradingNotes": "Guided drill. Two things: (1) 'not mad' as a current state: 我沒有生氣 / 我不是在生氣 (flag 我不是生氣的, the learner's diagnostic error). (2) 連…都 for 'even': 連想都沒想到 / 連問都沒問 / 連一個人都沒…. Missing 連…都 caps the score at 2 for this guided drill. Feeling-then-reason order is more natural than 因為…讓我….",
+      "authorNotes": "Deliberately mirrors the diagnostic sentence (not angry / didn't even think to) in a new situation, per the learner's rehash request."
+    },
+    {
+      "id": "respond-new-package-feels-faster",
+      "type": "respond",
+      "stage": 5,
+      "scenario": "After standup. Your coworker 小陳 swapped in a new JSON parsing package last night and now wants to switch every service over.",
+      "dialogue": [
+        {
+          "speaker": "小陳",
+          "chinese": "欸我跟你說，我昨天晚上把 JSON parser 換成那個新的套件，API 整個快超多！我覺得我們所有服務都應該換掉。",
+          "english": "Hey, so last night I swapped the JSON parser for that new package and the API got way faster! I think we should switch every service over."
+        },
+        {
+          "speaker": "你",
+          "chinese": "真的喔？你怎麼測的？",
+          "english": "Really? How did you test it?"
+        },
+        {
+          "speaker": "小陳",
+          "chinese": "就…我半夜打開來點一點，感覺超順的啊。你如果覺得沒有比較快，那你證明給我看啊。",
+          "english": "I mean… I clicked around at midnight and it felt super smooth. If you don't think it's faster, prove it."
+        }
+      ],
+      "task": "Push back, friendly but firm. Get across three things: at midnight there's barely any traffic, so everything feels fast regardless; he's the one who wants to change every service, so it's on him to show it's faster, not on you to show it isn't; and he didn't even run a benchmark.",
+      "referenceAnswers": [
+        "欸等一下，半夜本來就沒什麼流量啊，什麼都會很順。而且要把全部服務都換掉的是你耶，要拿出數據的應該是你，不是我吧。你連 benchmark 都還沒跑欸。",
+        "我不是說它一定沒比較快啦，可是半夜流量本來就很低，這樣測不準。你想要全部換，舉證責任在你身上，不是我要證明它沒差。你連一次 benchmark 都沒跑耶，先跑再說吧。",
+        "你連 benchmark 都沒跑，只靠感覺喔？半夜負載本來就很低，當然快啊。要大家全部換的是你，那你要先拿出證據說服我們啊。"
+      ],
+      "hints": ["barely any traffic ≈ 沒什麼流量 / 負載很低", "benchmark can stay in English"],
+      "gradingNotes": "Stage 5 stretch; the constructions are deliberately not named. Communicative goals, all three needed for a 3+: (1) low midnight traffic is the baseline explanation (ideal: 本來就), (2) the obligation to prove is on him because he's proposing the change, not on the learner (ideal: 舉證責任在你身上 or a 的是 cleft), (3) he didn't even run a benchmark (ideal: 連 benchmark 都沒跑). Conveying a point naturally without the ideal construction is fine for a 3; mention the construction as an upgrade. A 4 uses most of the constructions naturally and keeps it friendly (啦/耶/吧). English dev terms (benchmark, API, parser) are fine.",
+      "authorNotes": "No itemIds on purpose: same-session priming makes this an unfair Stage 5 test, and because the scheduler uses the max stage tested, tagging it would promote items to stage 6 on day one, against the slow-pace steering. When preparing 0003, check which of the three moves appeared here unprompted."
+    }
+  ]
+}

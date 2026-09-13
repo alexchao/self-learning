@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "items": [
+    {
+      "id": "benlai-jiu-anyway",
+      "kind": "expression",
+      "headword": "本來就…",
+      "pinyin": "běnlái jiù",
+      "gloss": "…anyway / that's just how it is / would have happened regardless",
+      "explanation": "Marks something as the baseline: true regardless of the thing being credited or blamed. The core rebuttal to 'I did X and then Y happened': 感冒本來就會自己好. Pairs naturally with 不代表 (A 了之後 B，不代表是因為 A). Also common for 'of course, obviously': 這本來就是你的責任.",
+      "examples": [
+        { "chinese": "感冒本來就會自己好，吃了之後好了不代表是它有效。", "english": "Colds go away on their own anyway. Getting better after taking it doesn't mean it worked." },
+        { "chinese": "那個測試本來就不太穩，不是你的 PR 弄壞的。", "english": "That test is flaky anyway; your PR didn't break it." }
+      ],
+      "tags": ["argument", "causation", "discourse-frame"],
+      "createdAt": "2026-09-13T23:51:42.000Z",
+      "introducedInSession": null,
+      "stage": 0,
+      "spacedRepetition": { "dueAt": null, "intervalDays": 0, "ease": 2.5, "reps": 0, "lapses": 0, "lastReviewedAt": null },
+      "history": []
+    },
+    {
+      "id": "burden-of-proof",
+      "kind": "concept_vocabulary",
+      "headword": "舉證責任在…（身上）／要拿出證據的是…",
+      "pinyin": "jǔzhèng zérèn",
+      "gloss": "the burden of proof is on … / … is the one who has to prove it",
+      "explanation": "舉證責任在他身上，不在我 is the term (used in law and everyday debate). The equally natural spoken fallback is a cleft with 的是, which does the job of English stress: 要拿出證據的是他，不是我. 身上 is optional in the negative half (不在我).",
+      "examples": [
+        { "chinese": "等一下，舉證責任在他身上，不在我。", "english": "Hold on, the burden of proof is on him, not me." },
+        { "chinese": "說有鬼的是你，要拿出證據的也是你吧。", "english": "You're the one saying there's a ghost, so you're the one who has to prove it." }
+      ],
+      "tags": ["argument", "epistemics"],
+      "createdAt": "2026-09-13T23:51:42.000Z",
+      "introducedInSession": null,
+      "stage": 0,
+      "spacedRepetition": { "dueAt": null, "intervalDays": 0, "ease": 2.5, "reps": 0, "lapses": 0, "lastReviewedAt": null },
+      "history": []
+    },
+    {
+      "id": "lian-dou-not-even",
+      "kind": "pattern",
+      "headword": "連 X 都（沒）…",
+      "pinyin": "lián … dōu",
+      "gloss": "not even X / even X",
+      "explanation": "Puts X at the extreme end of a scale: 'not even the minimum'. With verbs, copy the verb: 連問都沒問 (didn't even ask), 連想都沒想過 (didn't even think of it). With a noun phrase: 你連先問我一下都沒想到. This is what carries the hurt in 'it didn't even occur to you'; plain 都沒有 loses the punch.",
+      "examples": [
+        { "chinese": "我不是在生氣，只是很失望，你連先問我一下都沒想到。", "english": "I'm not angry, just disappointed that it didn't even occur to you to ask me first." },
+        { "chinese": "你連 benchmark 都沒跑，怎麼知道比較快？", "english": "You didn't even run a benchmark. How do you know it's faster?" }
+      ],
+      "tags": ["emotion", "discourse-frame"],
+      "createdAt": "2026-09-13T23:51:42.000Z",
+      "introducedInSession": null,
+      "stage": 0,
+      "spacedRepetition": { "dueAt": null, "intervalDays": 0, "ease": 2.5, "reps": 0, "lapses": 0, "lastReviewedAt": null },
+      "history": []
+    }
+  ]
+}
