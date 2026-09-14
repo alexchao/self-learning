@@ -27,7 +27,11 @@ if (process.argv.includes("--json")) {
     if (status.invalidSessionDirNames.length > 0) console.log(`  ⚠ Invalid session files: ${status.invalidSessionDirNames.join(", ")} (run npm run validate)`);
     console.log(`  Items: ${status.items.total} total · ${status.items.unstudied} unstudied · ${status.items.dueNow} due now · ${status.items.overdueByMoreThan3Days} overdue >3d · by stage ${JSON.stringify(status.items.countByStage)}`);
     console.log(`  Open steering notes: ${status.openSteeringNoteCount}`);
-    if (status.preparationInProgress) console.log(`  Preparation running since ${status.preparationInProgress.startedAt} → ${status.preparationInProgress.logPath}`);
+    console.log(`  Practice bank: ${status.practiceBankEntryCount} sentence(s)`);
+    if (status.preparationInProgress) {
+      console.log(`  Preparation running since ${status.preparationInProgress.startedAt} → ${status.preparationInProgress.logPath}`);
+      if (status.preparationInProgress.lastLogLine) console.log(`    latest: ${status.preparationInProgress.lastLogLine}`);
+    }
   }
   console.log("");
 }

@@ -57,6 +57,15 @@ export function createSessionApiRoutes(repository: TopicRepository, config: Lear
     return results;
   };
 
+  /** Mutates results.json atomically; rejects if the session is not in progress. */
+  const updateStartedResults = (topicId: string, sessionDirName: string, mutateResults: (results: SessionResults) => void) =>
+    repository.updateSessionResults(topicId, sessionDirName, (currentResults) => {
+      if (!currentResults) throw new HttpError(409, "Session not started");
+      if (currentResults.completedAt) throw new HttpError(409, "Session already completed");
+      mutateResults(currentResults);
+      return currentResults;
+    });
+
   api.get("/health", (context) => context.json({ ok: true, hasApiKey: hasAnthropicCredentials() }));
 
   api.get("/topics", (context) => context.json({ topics: statusReporter.reportAllTopics(), hasApiKey: hasAnthropicCredentials() }));
@@ -77,16 +86,11 @@ export function createSessionApiRoutes(repository: TopicRepository, config: Lear
   api.post("/topics/:topicId/sessions/:sessionDirName/start", async (context) => {
     const { topicId, sessionDirName } = context.req.param();
     repository.readSessionDefinition(topicId, sessionDirName);
-    const existing = repository.readSessionResults(topicId, sessionDirName);
-    if (existing) return context.json({ results: existing });
-    const results: SessionResults = {
-      schemaVersion: 1,
+    const results = await repository.updateSessionResults(
+      topicId,
       sessionDirName,
-      startedAt: new Date().toISOString(),
-      steps: {},
-      itemScheduleChanges: [],
-    };
-    await repository.writeSessionResults(topicId, sessionDirName, results);
+      (existingResults) => existingResults ?? { schemaVersion: 1, sessionDirName, startedAt: new Date().toISOString(), steps: {}, itemScheduleChanges: [] },
+    );
     return context.json({ results });
   });
 
@@ -125,12 +129,14 @@ export function createSessionApiRoutes(repository: TopicRepository, config: Lear
       timeSpentMs: body.timeSpentMs,
       grade,
     };
-    const latestResults = requireStartedResults(topicId, sessionDirName);
-    const latestStepResult = latestResults.steps[stepId] ?? { attempts: [], followUps: [] };
-    latestStepResult.attempts.push(attempt);
-    latestResults.steps[stepId] = latestStepResult;
-    await repository.writeSessionResults(topicId, sessionDirName, latestResults);
-    return context.json({ attempt, attemptIndex: latestStepResult.attempts.length - 1 });
+    let attemptIndex = 0;
+    await updateStartedResults(topicId, sessionDirName, (latestResults) => {
+      const latestStepResult = latestResults.steps[stepId] ?? { attempts: [], followUps: [] };
+      latestStepResult.attempts.push(attempt);
+      latestResults.steps[stepId] = latestStepResult;
+      attemptIndex = latestStepResult.attempts.length - 1;
+    });
+    return context.json({ attempt, attemptIndex });
   });
 
   api.post("/topics/:topicId/sessions/:sessionDirName/steps/:stepId/attempts/:attemptIndex/dispute", async (context) => {
@@ -156,18 +162,18 @@ export function createSessionApiRoutes(repository: TopicRepository, config: Lear
       dispute: { originalGrade: attempt.grade, learnerArgument },
     });
 
-    const latestResults = requireStartedResults(topicId, sessionDirName);
-    const latestAttempt = latestResults.steps[stepId]?.attempts[Number(attemptIndex)];
-    if (!latestAttempt) throw new HttpError(404, "No such attempt");
-    latestAttempt.dispute = {
-      learnerArgument,
-      disputedAt: new Date().toISOString(),
-      originalGrade: latestAttempt.grade,
-      upheldLearner: regrade.score > latestAttempt.grade.score,
-    };
-    latestAttempt.grade = regrade;
-    await repository.writeSessionResults(topicId, sessionDirName, latestResults);
-    return context.json({ attempt: latestAttempt });
+    const updatedResults = await updateStartedResults(topicId, sessionDirName, (latestResults) => {
+      const latestAttempt = latestResults.steps[stepId]?.attempts[Number(attemptIndex)];
+      if (!latestAttempt) throw new HttpError(404, "No such attempt");
+      latestAttempt.dispute = {
+        learnerArgument,
+        disputedAt: new Date().toISOString(),
+        originalGrade: latestAttempt.grade,
+        upheldLearner: regrade.score > latestAttempt.grade.score,
+      };
+      latestAttempt.grade = regrade;
+    });
+    return context.json({ attempt: updatedResults.steps[stepId]!.attempts[Number(attemptIndex)] });
   });
 
   api.post("/topics/:topicId/sessions/:sessionDirName/steps/:stepId/follow-ups", async (context) => {
@@ -181,11 +187,11 @@ export function createSessionApiRoutes(repository: TopicRepository, config: Lear
     const answer = await tutor.answerFollowUp({ topicId, step, targetItems: itemsForStep(step, deck.items), stepResult, question });
     const exchange = { question, answer, askedAt: new Date().toISOString() };
 
-    const latestResults = requireStartedResults(topicId, sessionDirName);
-    const latestStepResult = latestResults.steps[stepId] ?? { attempts: [], followUps: [] };
-    latestStepResult.followUps.push(exchange);
-    latestResults.steps[stepId] = latestStepResult;
-    await repository.writeSessionResults(topicId, sessionDirName, latestResults);
+    await updateStartedResults(topicId, sessionDirName, (latestResults) => {
+      const latestStepResult = latestResults.steps[stepId] ?? { attempts: [], followUps: [] };
+      latestStepResult.followUps.push(exchange);
+      latestResults.steps[stepId] = latestStepResult;
+    });
     return context.json({ exchange });
   });
 
@@ -193,11 +199,11 @@ export function createSessionApiRoutes(repository: TopicRepository, config: Lear
     const { topicId, sessionDirName, stepId } = context.req.param();
     const { session } = loadSessionContext(topicId, sessionDirName);
     findStep(session.steps, stepId);
-    const results = requireStartedResults(topicId, sessionDirName);
-    const stepResult = results.steps[stepId] ?? { attempts: [], followUps: [] };
-    stepResult.completedAt ??= new Date().toISOString();
-    results.steps[stepId] = stepResult;
-    await repository.writeSessionResults(topicId, sessionDirName, results);
+    await updateStartedResults(topicId, sessionDirName, (latestResults) => {
+      const stepResult = latestResults.steps[stepId] ?? { attempts: [], followUps: [] };
+      stepResult.completedAt ??= new Date().toISOString();
+      latestResults.steps[stepId] = stepResult;
+    });
     return context.json({ ok: true });
   });
 
@@ -208,15 +214,14 @@ export function createSessionApiRoutes(repository: TopicRepository, config: Lear
 
     if (config.autoPrepareNextSession && !results.nextSessionPreparation) {
       const preparation = preparer.startPreparation(topicId, sessionDirName);
-      results = {
-        ...results,
+      results = await repository.updateSessionResults(topicId, sessionDirName, (latestResults) => ({
+        ...latestResults!,
         nextSessionPreparation: {
           triggeredAt: new Date().toISOString(),
           logPath: "logPath" in preparation ? preparation.logPath : "",
           skippedReason: "skippedReason" in preparation ? preparation.skippedReason : undefined,
         },
-      };
-      await repository.writeSessionResults(topicId, sessionDirName, results);
+      }));
     }
     return context.json({ results });
   });

@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { StepGradeSchema } from "./gradingSchema.ts";
+import { PracticeDrillSetSchema } from "./practiceDrillSchema.ts";
 
 /** Schema for topics/<topic>/sessions/<dir>/results.json. Written only by the server. */
 
@@ -29,6 +30,8 @@ export const FollowUpExchangeSchema = z.object({
 export const StepResultSchema = z.object({
   attempts: z.array(StepAttemptSchema).default([]),
   followUps: z.array(FollowUpExchangeSchema).default([]),
+  /** Quick practice sentences generated after feedback (see practiceDrillSchema.ts). */
+  practiceDrills: PracticeDrillSetSchema.optional(),
   completedAt: z.string().optional(),
 });
 

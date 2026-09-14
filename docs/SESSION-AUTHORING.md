@@ -16,7 +16,9 @@ interactive "I'm ready" conversation, the steps are the same.
    - Never modify a session that has a `results.json` (it's in progress or done).
 2. **Read the evidence** for the last completed session (`sessions/<dir>/`):
    - `session.json` (what was asked, with `authorRationale`) and `results.json` (every attempt, grade, retry,
-     follow-up question, dispute, time spent, end-of-session difficulty rating and notes).
+     follow-up question, dispute, time spent, end-of-session difficulty rating and notes). Each step may also have
+     `practiceDrills`: the "Apply it" sentences generated after feedback, with the learner's answers and grades.
+     Drills that went well show a lesson landed; drills that failed show it needs another pass.
    - Look for *patterns*: which moves came out naturally, which produced translationese, what they asked follow-ups about
      (curiosity or confusion), where they used hints, retries that improved (learning happened), disputes (grader
      miscalibration: consider updating `grading.md`).
@@ -33,6 +35,10 @@ interactive "I'm ready" conversation, the steps are the same.
      capped at `maxReviewStepsPerSession` from `topic.json`. Items that aren't due can still be reused inside stretch tasks.
    - **New items**: 1–3, fewer if the last session was rated too hard or many items are due, more if too easy.
    - **One stretch task** at Stage 5–6 that combines several items.
+   - **Reuse practiced sentences** from `practice-bank.json` for reviews (the learner explicitly wants this): pick entries
+     whose `itemIds` include the item being reviewed (or whose `targetExpression` matches), preferring ones they scored ≤ 2.
+     Turn one into a `translate` step, set `sourcePracticeBankEntryId` to the entry id, and pitch it at the item's current stage
+     (e.g. at stage 5 wrap it in a `respond` scenario instead of reusing it verbatim).
 7. **Create or update items** in `items.json` for anything new (see §D). New items start at `stage: 0` with
    `introducedInSession: null` and an unstudied schedule (the server sets these on completion).
 8. **Write `sessions/<NNNN-slug>/session.json`** (next number, kebab-case slug), following §B and §E.
@@ -86,6 +92,11 @@ Fields (see schema for exact types):
 - **respond**: `scenario`, `dialogue[] {speaker, chinese, english?}`, `task`, `referenceAnswers[]`, `hints[]`, `gradingNotes?`
 - **free_production**: `prompt`, `lengthGuidance?`, `referenceAnswers[]`, `hints[]`, `gradingNotes?`
 
+Also on free-response steps:
+- `practiceDrillCount` (0–3): "Apply it" sentences generated after feedback. Omit for the default (2). Ignored on `cloze`.
+  Use 0 when the step is itself a quick drill in a long session, or 3 for the key new item of the session.
+- `sourcePracticeBankEntryId`: set when the step reuses a sentence from `practice-bank.json` (validated).
+
 `image` (optional on teach/free-response steps and intro): `{ "path": "assets/<file>.png", "alt": "…" }` relative to the session dir.
 
 ---
@@ -100,6 +111,8 @@ Fields (see schema for exact types):
 5. Stretch: one `respond` or `free_production` that naturally calls for 2–3 items (new + old), not naming them.
 
 **Time budget (including reading feedback):** teach ~1 min · choice ~0.5 · cloze ~0.5 · rewrite ~1 · translate ~1–1.5 · respond ~1.5 · free_production ~2–3.
+Add ~1–1.5 min per drill-eligible step (translate/rewrite/respond/free_production) for its practice drills, unless the learner
+is likely to score 4 on it (drills are skipped then) or you set `practiceDrillCount: 0`. With drills, 4–5 eligible steps is plenty.
 
 **The ladder rule.** An item's review step should be at its current `stage` from `items.json` (or one above, if it's been
 scored 4 twice at this stage). Never keep testing an item at a stage it has already passed. Stage 5–6 is the goal.

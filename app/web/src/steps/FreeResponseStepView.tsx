@@ -1,13 +1,22 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import type { PracticeDrillSet } from "../../../shared/practiceDrillSchema.ts";
 import type { StepAttempt, StepResult } from "../../../shared/sessionResultsSchema.ts";
-import type { FreeResponseStep } from "../../../shared/sessionSchema.ts";
-import type { AttemptInputMode, LearningApiClient } from "../apiClient.ts";
+import { PRACTICE_DRILL_STEP_TYPES, type FreeResponseStep } from "../../../shared/sessionSchema.ts";
+import { AnswerComposer, type ComposedAnswer } from "../AnswerComposer.tsx";
+import type { LearningApiClient } from "../apiClient.ts";
 import { FollowUpConversation } from "../FollowUpConversation.tsx";
 import { GradeFeedbackPanel, ScoreSeal } from "../GradeFeedbackPanel.tsx";
-import { useSpeechDictation } from "../speechServices.ts";
+import { PracticeDrillSequence } from "../PracticeDrillSequence.tsx";
 import { FreeResponsePromptView } from "./FreeResponsePromptView.tsx";
 
-type Phase = "answering" | "grading" | "feedback";
+type Phase = "answering" | "grading" | "feedback" | "practice";
+type PracticeDrillStatus = "not_applicable" | "loading" | "available" | "finished" | "failed";
+
+function derivePracticeDrillStatus(drillSet: PracticeDrillSet | undefined): PracticeDrillStatus | null {
+  if (!drillSet) return null;
+  if (drillSet.skippedAt || drillSet.drills.length === 0) return "not_applicable";
+  return drillSet.drills.every((drill) => drill.attempts.length > 0) ? "finished" : "available";
+}
 
 export function FreeResponseStepView({
   step,
@@ -24,56 +33,68 @@ export function FreeResponseStepView({
 }) {
   const [attempts, setAttempts] = useState<StepAttempt[]>(stepResult?.attempts ?? []);
   const [phase, setPhase] = useState<Phase>(attempts.length > 0 ? "feedback" : "answering");
-  const [answerText, setAnswerText] = useState("");
-  const [hasTyped, setHasTyped] = useState(false);
-  const [hasSpoken, setHasSpoken] = useState(false);
-  const [hintsRevealed, setHintsRevealed] = useState(0);
+  const [composerKey, setComposerKey] = useState(0);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [isDisputeOpen, setIsDisputeOpen] = useState(false);
   const [disputeArgument, setDisputeArgument] = useState("");
   const [isDisputeSubmitting, setIsDisputeSubmitting] = useState(false);
-  const answeringStartedAtRef = useRef(Date.now());
-  const answerInputRef = useRef<HTMLTextAreaElement>(null);
-
-  const dictation = useSpeechDictation(speechLanguage, (transcript) => {
-    setHasSpoken(true);
-    setAnswerText((previous) => `${previous}${transcript}`);
-  });
+  const [practiceDrillSet, setPracticeDrillSet] = useState<PracticeDrillSet | undefined>(stepResult?.practiceDrills);
+  const [practiceDrillStatus, setPracticeDrillStatus] = useState<PracticeDrillStatus>(
+    derivePracticeDrillStatus(stepResult?.practiceDrills) ?? ((PRACTICE_DRILL_STEP_TYPES as readonly string[]).includes(step.type) ? "loading" : "not_applicable"),
+  );
 
   const latestAttempt = attempts[attempts.length - 1];
   const latestAttemptIndex = attempts.length - 1;
-  const inputMode: AttemptInputMode = hasTyped && hasSpoken ? "mixed" : hasSpoken ? "spoken" : "typed";
   const clozeParts = step.type === "cloze" ? step.sentenceWithBlank.split("___") : null;
+  const hasPracticeToDo = practiceDrillStatus === "loading" || practiceDrillStatus === "available";
 
-  const submitAnswer = useCallback(async () => {
-    if (!answerText.trim() || phase !== "answering") return;
-    dictation.stopListening();
+  // Start generating practice drills as soon as the first feedback is on screen.
+  useEffect(() => {
+    if (attempts.length === 0 || practiceDrillSet || practiceDrillStatus !== "loading") return;
+    let isCancelled = false;
+    apiClient
+      .requestPracticeDrills(step.id)
+      .then((drillSet) => {
+        if (isCancelled) return;
+        setPracticeDrillSet(drillSet);
+        setPracticeDrillStatus(derivePracticeDrillStatus(drillSet) ?? "not_applicable");
+      })
+      .catch(() => !isCancelled && setPracticeDrillStatus("failed"));
+    return () => {
+      isCancelled = true;
+    };
+  }, [apiClient, attempts.length, practiceDrillSet, practiceDrillStatus, step.id]);
+
+  const submitAnswer = async (composedAnswer: ComposedAnswer) => {
     setPhase("grading");
     setErrorMessage(null);
     try {
-      const attempt = await apiClient.submitAttempt(step.id, {
-        answer: answerText,
-        inputMode,
-        hintsRevealed,
-        timeSpentMs: Date.now() - answeringStartedAtRef.current,
-      });
+      const attempt = await apiClient.submitAttempt(step.id, composedAnswer);
       setAttempts((previous) => [...previous, attempt]);
       setPhase("feedback");
     } catch (error) {
       setErrorMessage((error as Error).message);
       setPhase("answering");
     }
-  }, [answerText, apiClient, dictation, hintsRevealed, inputMode, phase, step.id]);
+  };
 
   const startRetry = () => {
-    setAnswerText("");
-    setHasTyped(false);
-    setHasSpoken(false);
-    setHintsRevealed(0);
     setIsDisputeOpen(false);
-    answeringStartedAtRef.current = Date.now();
+    setComposerKey((key) => key + 1);
     setPhase("answering");
   };
+
+  const skipPractice = async () => {
+    if (practiceDrillSet && practiceDrillSet.drills.length > 0) {
+      await apiClient.skipPracticeDrills(step.id).catch(() => undefined);
+    }
+    onContinue();
+  };
+
+  const primaryFeedbackAction = useCallback(() => {
+    if (hasPracticeToDo) setPhase("practice");
+    else onContinue();
+  }, [hasPracticeToDo, onContinue]);
 
   const submitDispute = async () => {
     if (!disputeArgument.trim()) return;
@@ -91,20 +112,62 @@ export function FreeResponseStepView({
   };
 
   useEffect(() => {
-    if (phase === "answering") answerInputRef.current?.focus();
-  }, [phase]);
-
-  useEffect(() => {
     if (phase !== "feedback") return;
     const handleKeyDown = (event: KeyboardEvent) => {
       const target = event.target as HTMLElement;
       if ((event.metaKey || event.ctrlKey) && event.key === "Enter" && target.tagName !== "TEXTAREA" && target.tagName !== "INPUT") {
-        onContinue();
+        primaryFeedbackAction();
       }
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [phase, onContinue]);
+  }, [phase, primaryFeedbackAction]);
+
+  if (phase === "practice") {
+    return (
+      <section className={`step step-free-response step-${step.type}`}>
+        {practiceDrillStatus === "loading" && (
+          <div className="practice">
+            <div className="practice-header">
+              <p className="step-eyebrow">Apply it</p>
+              <button type="button" className="button-quiet" onClick={() => void skipPractice()}>
+                Skip practice
+              </button>
+            </div>
+            <p className="session-subtitle">Writing a few sentences that use what you just learned…</p>
+            <div className="grading-indicator" />
+          </div>
+        )}
+        {practiceDrillStatus === "failed" && (
+          <div className="practice">
+            <p className="error-message">Couldn't generate practice sentences for this step.</p>
+            <div className="step-actions">
+              <button type="button" className="button-primary" onClick={onContinue} autoFocus>
+                Continue
+              </button>
+            </div>
+          </div>
+        )}
+        {(practiceDrillStatus === "available" || practiceDrillStatus === "finished") && practiceDrillSet && (
+          <PracticeDrillSequence
+            stepId={step.id}
+            initialDrills={practiceDrillSet.drills}
+            apiClient={apiClient}
+            speechLanguage={speechLanguage}
+            onFinished={onContinue}
+            onSkip={() => void skipPractice()}
+          />
+        )}
+        {practiceDrillStatus === "not_applicable" && (
+          <div className="step-actions">
+            <button type="button" className="button-primary" onClick={onContinue} autoFocus>
+              Continue
+            </button>
+          </div>
+        )}
+      </section>
+    );
+  }
 
   return (
     <section className={`step step-free-response step-${step.type}`}>
@@ -122,62 +185,16 @@ export function FreeResponseStepView({
       )}
 
       {phase !== "feedback" && (
-        <div className="answer-area">
-          <textarea
-            ref={answerInputRef}
-            className={`chinese answer-input ${step.type === "cloze" ? "answer-input-short" : ""}`}
-            value={answerText + (dictation.isListening ? dictation.interimTranscript : "")}
-            placeholder={step.type === "cloze" ? "The missing words" : "用中文回答…"}
-            rows={step.type === "cloze" ? 1 : step.type === "free_production" ? 5 : 3}
-            disabled={phase === "grading"}
-            onChange={(event) => {
-              setHasTyped(true);
-              setAnswerText(event.target.value);
-            }}
-            onKeyDown={(event) => {
-              if (event.nativeEvent.isComposing) return;
-              if (event.key === "Enter" && (event.metaKey || event.ctrlKey || step.type === "cloze")) {
-                event.preventDefault();
-                void submitAnswer();
-              }
-            }}
-          />
-
-          {hintsRevealed > 0 && (
-            <ul className="hint-list">
-              {step.hints.slice(0, hintsRevealed).map((hint, index) => (
-                <li key={index}>{hint}</li>
-              ))}
-            </ul>
-          )}
-
-          <div className="answer-toolbar">
-            <div className="answer-toolbar-left">
-              {dictation.isSupported && (
-                <button
-                  type="button"
-                  className={`button-quiet mic-button ${dictation.isListening ? "is-listening" : ""}`}
-                  onClick={dictation.isListening ? dictation.stopListening : dictation.startListening}
-                  disabled={phase === "grading"}
-                >
-                  <span className="mic-dot" aria-hidden="true" />
-                  {dictation.isListening ? "Stop" : "Speak"}
-                </button>
-              )}
-              {hintsRevealed < step.hints.length && (
-                <button type="button" className="button-quiet" onClick={() => setHintsRevealed((count) => count + 1)} disabled={phase === "grading"}>
-                  Hint {hintsRevealed + 1}/{step.hints.length}
-                </button>
-              )}
-            </div>
-            <button type="button" className="button-primary" onClick={() => void submitAnswer()} disabled={!answerText.trim() || phase === "grading"}>
-              {phase === "grading" ? "Reading…" : "Check"}
-              {phase !== "grading" && <kbd>⌘↵</kbd>}
-            </button>
-          </div>
-          {dictation.errorMessage && <p className="error-message">{dictation.errorMessage}</p>}
-          {phase === "grading" && <div className="grading-indicator" aria-label="Grading" />}
-        </div>
+        <AnswerComposer
+          key={composerKey}
+          speechLanguage={speechLanguage}
+          placeholder={step.type === "cloze" ? "The missing words" : "用中文回答…"}
+          rows={step.type === "cloze" ? 1 : step.type === "free_production" ? 5 : 3}
+          isSingleLine={step.type === "cloze"}
+          hints={step.hints}
+          isSubmitting={phase === "grading"}
+          onSubmit={(composedAnswer) => void submitAnswer(composedAnswer)}
+        />
       )}
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
@@ -230,8 +247,8 @@ export function FreeResponseStepView({
                 </button>
               )}
             </div>
-            <button type="button" className="button-primary" onClick={onContinue}>
-              Continue <kbd>⌘↵</kbd>
+            <button type="button" className="button-primary" onClick={primaryFeedbackAction}>
+              {hasPracticeToDo ? "Practice it" : "Continue"} <kbd>⌘↵</kbd>
             </button>
           </div>
         </>

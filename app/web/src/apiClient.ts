@@ -1,4 +1,5 @@
 import type { LearningItem } from "../../shared/learningItemSchema.ts";
+import type { PracticeDrillAttempt, PracticeDrillSet } from "../../shared/practiceDrillSchema.ts";
 import type { FollowUpExchange, SessionResults, StepAttempt } from "../../shared/sessionResultsSchema.ts";
 import type { SessionDefinition } from "../../shared/sessionSchema.ts";
 import type { TopicDefinition } from "../../shared/topicSchema.ts";
@@ -65,6 +66,25 @@ export class LearningApiClient {
 
   public async askFollowUp(stepId: string, question: string): Promise<FollowUpExchange> {
     return (await requestJson<{ exchange: FollowUpExchange }>(this.sessionUrl(`/steps/${stepId}/follow-ups`), { method: "POST", body: { question } })).exchange;
+  }
+
+  /** Generates (or returns existing) practice drills for a step. Empty drills means none apply. */
+  public async requestPracticeDrills(stepId: string): Promise<PracticeDrillSet> {
+    return (await requestJson<{ practiceDrills: PracticeDrillSet }>(this.sessionUrl(`/steps/${stepId}/practice-drills`), { method: "POST", body: {} })).practiceDrills;
+  }
+
+  public async submitPracticeDrillAttempt(
+    stepId: string,
+    drillId: string,
+    attempt: { answer: string; inputMode: "typed" | "spoken" | "mixed"; timeSpentMs: number },
+  ): Promise<PracticeDrillAttempt> {
+    return (
+      await requestJson<{ attempt: PracticeDrillAttempt }>(this.sessionUrl(`/steps/${stepId}/practice-drills/${drillId}/attempts`), { method: "POST", body: attempt })
+    ).attempt;
+  }
+
+  public async skipPracticeDrills(stepId: string): Promise<void> {
+    await requestJson(this.sessionUrl(`/steps/${stepId}/practice-drills/skip`), { method: "POST", body: {} });
   }
 
   public async markStepComplete(stepId: string): Promise<void> {

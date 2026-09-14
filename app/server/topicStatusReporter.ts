@@ -26,7 +26,8 @@ export interface TopicStatus {
   invalidSessionDirNames: string[];
   items: { total: number; unstudied: number; dueNow: number; overdueByMoreThan3Days: number; countByStage: Record<string, number> };
   openSteeringNoteCount: number;
-  preparationInProgress: { startedAt: string; logPath: string } | null;
+  preparationInProgress: { startedAt: string; logPath: string; lastLogLine: string | null } | null;
+  practiceBankEntryCount: number;
 }
 
 export class TopicStatusReporter {
@@ -103,7 +104,8 @@ export class TopicStatusReporter {
         countByStage,
       },
       openSteeringNoteCount,
-      preparationInProgress: lock ? { startedAt: lock.startedAt, logPath: lock.logPath } : null,
+      preparationInProgress: lock ? { startedAt: lock.startedAt, logPath: lock.logPath, lastLogLine: this.preparer.readLastLogLine(lock.logPath) } : null,
+      practiceBankEntryCount: this.repository.readPracticeBank(topicId).entries.length,
     };
   }
 }

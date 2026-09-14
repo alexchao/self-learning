@@ -2,6 +2,7 @@ import path from "node:path";
 import type { EndOfSessionFeedback, ItemScheduleChange, SessionResults } from "../shared/sessionResultsSchema.ts";
 import type { SessionDefinition } from "../shared/sessionSchema.ts";
 import { isGradedStep } from "../shared/sessionSchema.ts";
+import { PracticeBankRecorder } from "./practiceBankRecorder.ts";
 import { PROCESS_FEEDBACK_FILE_PATH, topicDirectory } from "./repositoryPaths.ts";
 import { SpacedRepetitionScheduler } from "./spacedRepetitionScheduler.ts";
 import type { TopicRepository } from "./topicRepository.ts";
@@ -18,8 +19,11 @@ const DIFFICULTY_LABELS: Record<string, string> = {
  */
 export class SessionCompletionService {
   private readonly scheduler = new SpacedRepetitionScheduler();
+  private readonly practiceBankRecorder: PracticeBankRecorder;
 
-  public constructor(private readonly repository: TopicRepository) {}
+  public constructor(private readonly repository: TopicRepository) {
+    this.practiceBankRecorder = new PracticeBankRecorder(repository);
+  }
 
   public async completeSession(
     topicId: string,
@@ -34,13 +38,13 @@ export class SessionCompletionService {
     const completedAt = new Date();
     const itemScheduleChanges = await this.applySpacedRepetitionUpdates(topicId, sessionDirName, session, results, completedAt);
 
-    const finalizedResults: SessionResults = {
-      ...results,
+    const finalizedResults = await this.repository.updateSessionResults(topicId, sessionDirName, (latestResults) => ({
+      ...(latestResults ?? results),
       completedAt: completedAt.toISOString(),
       endOfSessionFeedback: { ...feedback, submittedAt: completedAt.toISOString() },
       itemScheduleChanges,
-    };
-    await this.repository.writeSessionResults(topicId, sessionDirName, finalizedResults);
+    }));
+    await this.practiceBankRecorder.recordSessionDrills(topicId, sessionDirName, session, finalizedResults);
     await this.appendLearnerNotes(topicId, sessionDirName, feedback, completedAt);
     return finalizedResults;
   }
@@ -106,7 +110,7 @@ export class SessionCompletionService {
     if (hasSteering) {
       const lines = [`## ${dateLabel} · after ${sessionDirName}`];
       if (feedback.difficulty) lines.push(`- Difficulty: ${DIFFICULTY_LABELS[feedback.difficulty]}`);
-      if (feedback.steeringNote.trim()) lines.push(`- Note: ${feedback.steeringNote.trim()}`);
+      if (feedback.steeringNote.trim()) lines.push(`- Note: ${indentContinuationLines(feedback.steeringNote.trim())}`);
       lines.push("- Status: open");
       await this.repository.appendToMarkdownFile(
         path.join(topicDirectory(topicId), "steering.md"),
@@ -117,9 +121,17 @@ export class SessionCompletionService {
     if (feedback.processFeedback.trim()) {
       await this.repository.appendToMarkdownFile(
         PROCESS_FEEDBACK_FILE_PATH,
-        `## ${dateLabel} · ${topicId}/${sessionDirName}\n- Feedback: ${feedback.processFeedback.trim()}\n- Status: open\n`,
+        `## ${dateLabel} · ${topicId}/${sessionDirName}\n- Feedback: ${indentContinuationLines(feedback.processFeedback.trim())}\n- Status: open\n`,
         "# Process feedback\n\nLearner's feedback about the learning system itself. Agents: act on it, update docs/SYSTEM.md, then mark `Status: addressed (<what changed>)`.",
       );
     }
   }
+}
+
+/** Keeps multi-paragraph notes inside their Markdown bullet (and keeps `- Status:` lines unambiguous). */
+function indentContinuationLines(text: string): string {
+  return text
+    .split("\n")
+    .map((line, index) => (index === 0 || line.trim() === "" ? line.trim() : `  ${line.trim()}`))
+    .join("\n");
 }

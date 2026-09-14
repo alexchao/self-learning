@@ -29,7 +29,8 @@ export function GradeFeedbackPanel({
   const [areAllIssuesVisible, setAreAllIssuesVisible] = useState(false);
   const learnerFullAnswer = answerPrefix ? `${answerPrefix.before}${attempt.answer.trim()}${answerPrefix.after}` : attempt.answer.trim();
   const correctedAnswer = grade.correctedLearnerAnswer.trim();
-  const needsCorrection = correctedAnswer.length > 0 && correctedAnswer !== learnerFullAnswer;
+  // Punctuation-only differences (e.g. a trailing 。) aren't worth showing as a correction.
+  const needsCorrection = correctedAnswer.length > 0 && stripPunctuationAndSpace(correctedAnswer) !== stripPunctuationAndSpace(learnerFullAnswer);
   const diffSegments = needsCorrection ? diffCharacters(learnerFullAnswer, correctedAnswer) : [];
   const visibleIssues = areAllIssuesVisible ? grade.issues : grade.issues.slice(0, 3);
 
@@ -106,4 +107,8 @@ export function GradeFeedbackPanel({
       )}
     </div>
   );
+}
+
+function stripPunctuationAndSpace(text: string): string {
+  return text.replace(/[\s\p{P}]/gu, "");
 }

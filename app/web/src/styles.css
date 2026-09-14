@@ -1105,3 +1105,47 @@ a:focus-visible {
     transition: none !important;
   }
 }
+
+/* ---------- Practice drills ---------- */
+
+.practice {
+  animation: step-enter 360ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.practice-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.practice-header .step-eyebrow {
+  margin-bottom: 0.5rem;
+}
+
+.practice-lesson {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.75rem;
+  margin: 0 0 1.5rem;
+  padding: 0.6rem 0.9rem;
+  border-left: 2px solid var(--seal);
+  background: var(--paper-raised);
+}
+
+.practice-target {
+  font-size: 1.2rem;
+  color: var(--seal);
+}
+
+.practice-lesson-text {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+
+.summary-row-practice {
+  font-size: 0.8rem;
+  color: var(--ink-faint);
+  white-space: nowrap;
+}

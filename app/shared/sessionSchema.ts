@@ -35,6 +35,8 @@ const StepBaseFields = {
   stage: BloomStageSchema.optional(),
   /** Notes for the grader and future agents; never shown to the learner. */
   authorNotes: z.string().optional(),
+  /** Set when this step reuses a sentence from topics/<topic>/practice-bank.json. */
+  sourcePracticeBankEntryId: z.string().optional(),
 };
 
 export const TeachStepSchema = z.object({
@@ -72,6 +74,11 @@ const FreeResponseFields = {
   /** Rubric notes specific to this step (e.g. "must use 與其…不如"). */
   gradingNotes: z.string().optional(),
   image: ImageReferenceSchema.optional(),
+  /**
+   * Quick practice sentences to generate after feedback (0–3). Omit to use the config default.
+   * Only translate/rewrite/respond/free_production steps get drills; cloze steps never do.
+   */
+  practiceDrillCount: z.number().int().min(0).max(3).optional(),
 };
 
 export const ClozeStepSchema = z.object({
@@ -181,6 +188,8 @@ export const FREE_RESPONSE_STEP_TYPES = ["cloze", "translate", "rewrite", "respo
 export function isFreeResponseStep(step: SessionStep): step is FreeResponseStep {
   return (FREE_RESPONSE_STEP_TYPES as readonly string[]).includes(step.type);
 }
+
+export const PRACTICE_DRILL_STEP_TYPES = ["translate", "rewrite", "respond", "free_production"] as const;
 
 export function isGradedStep(step: SessionStep): boolean {
   return step.type !== "teach";

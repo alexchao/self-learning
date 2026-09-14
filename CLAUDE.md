@@ -11,7 +11,7 @@ This repo is a personal learning system. The learner drives it through Claude Co
   1. `npm run status`
   2. If a suitable session is prepared: `npm run learn -- --topic <id>`, then tell the learner in one or two lines what it covers.
   3. Otherwise prepare one (SESSION-AUTHORING.md §A), validate, then launch.
-  4. If background preparation is still running (status shows it), wait for it or check its log in `topics/<id>/.prep/`.
+  4. If background preparation is still running (status shows it and its latest log line), wait for it or read its live log in `topics/<id>/.prep/`.
 - **Steering** ("next time, more X"): append to `topics/<id>/steering.md` as an open note; revise the prepared session if one exists and isn't started.
 - **Process feedback** about the system: append to `docs/process-feedback.md`, make the change, update `docs/SYSTEM.md` (including the decision log).
 - **New topic**: create `topics/<id>/` with `topic.json`, `TOPIC.md`, `grading.md`, `learner-model.md`, `items.json`; ask the learner about their level and goal first (or start with a diagnostic session).
@@ -21,6 +21,7 @@ This repo is a personal learning system. The learner drives it through Claude Co
 - `npm run status`: topics, next session, due items, open steering, background prep
 - `npm run learn [-- --topic <id>] [--restart] [--no-open]`: build if needed, start server (port 4747), open browser
 - `npm run validate [-- <session.json | topic dir>]`: schema + cross-reference checks
+- `npm run prepare-session -- --topic <id> --after <completed session dir>`: run next-session prep by hand (the server does this automatically on completion; live log in `topics/<id>/.prep/`)
 - `npm run typecheck`
 
 ## Rules

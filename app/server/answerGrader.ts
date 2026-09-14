@@ -1,13 +1,11 @@
-import fs from "node:fs";
-import path from "node:path";
 import { betaZodOutputFormat } from "@anthropic-ai/sdk/helpers/beta/zod";
 import { LlmGradeOutputSchema, type StepGrade } from "../shared/gradingSchema.ts";
 import type { LearningItem } from "../shared/learningItemSchema.ts";
 import type { ChoiceStep, ClozeStep, FreeResponseStep } from "../shared/sessionSchema.ts";
 import { ClaudeRefusalError, getClaudeClient, refusalFallbackRequestFields } from "./claudeClientFactory.ts";
 import { assertAnthropicCredentialsConfigured, type LearningConfig } from "./learningConfig.ts";
-import { topicDirectory } from "./repositoryPaths.ts";
 import { describeStepForModel } from "./stepPromptDescriber.ts";
+import { readTopicGradingRubric } from "./topicGradingRubricReader.ts";
 
 const GENERAL_GRADER_INSTRUCTIONS = `You are the grader inside a personal learning app. The learner just attempted an exercise and will see your feedback immediately.
 
@@ -50,7 +48,7 @@ export class AnswerGrader {
       output_config: { effort: this.config.grading.effort, format: betaZodOutputFormat(LlmGradeOutputSchema) },
       system: [
         { type: "text", text: GENERAL_GRADER_INSTRUCTIONS },
-        { type: "text", text: this.readTopicGradingRubric(request.topicId), cache_control: { type: "ephemeral" } },
+        { type: "text", text: readTopicGradingRubric(request.topicId), cache_control: { type: "ephemeral" } },
       ],
       messages: [{ role: "user", content: this.buildGradingMessage(request) }],
     });
@@ -140,10 +138,6 @@ export class AnswerGrader {
     return sections.join("\n");
   }
 
-  private readTopicGradingRubric(topicId: string): string {
-    const rubricPath = path.join(topicDirectory(topicId), "grading.md");
-    return fs.existsSync(rubricPath) ? `<topic_grading_rubric>\n${fs.readFileSync(rubricPath, "utf8")}\n</topic_grading_rubric>` : "(no topic-specific rubric)";
-  }
 }
 
 function normalizeForComparison(text: string): string {

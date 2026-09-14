@@ -79,6 +79,7 @@ export function SessionSummaryView({
       <ol className="summary-list">
         {gradedSteps.map((step) => {
           const attempts = results?.steps[step.id]?.attempts ?? [];
+          const practiceDrills = results?.steps[step.id]?.practiceDrills?.drills ?? [];
           const firstAttempt = attempts[0];
           const bestScore = attempts.reduce((best, attempt) => Math.max(best, attempt.grade.score), -1);
           return (
@@ -86,6 +87,11 @@ export function SessionSummaryView({
               {firstAttempt ? <ScoreSeal score={firstAttempt.grade.score} size="small" /> : <span className="score-seal score-seal-small score-skipped">–</span>}
               <span className="summary-row-text">{describeStepForSummary(step)}</span>
               {attempts.length > 1 && bestScore > (firstAttempt?.grade.score ?? -1) && <span className="summary-row-retry">→ {bestScore} on retry</span>}
+              {practiceDrills.length > 0 && (
+                <span className="summary-row-practice">
+                  practice {practiceDrills.filter((drill) => (drill.attempts[0]?.grade.score ?? 0) >= 3).length}/{practiceDrills.length}
+                </span>
+              )}
             </li>
           );
         })}

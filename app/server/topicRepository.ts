@@ -2,6 +2,7 @@ import fs from "node:fs";
 import fsPromises from "node:fs/promises";
 import path from "node:path";
 import { LearningItemDeckSchema, type LearningItemDeck } from "../shared/learningItemSchema.ts";
+import { PracticeBankSchema, type PracticeBank } from "../shared/practiceDrillSchema.ts";
 import { SessionResultsSchema, type SessionResults } from "../shared/sessionResultsSchema.ts";
 import { SessionDefinitionSchema, type SessionDefinition } from "../shared/sessionSchema.ts";
 import { TopicDefinitionSchema, type TopicDefinition } from "../shared/topicSchema.ts";
@@ -61,6 +62,27 @@ export class TopicRepository {
     await this.writeJsonFileAtomically(filePath, SessionResultsSchema.parse(results));
   }
 
+  /**
+   * Read → mutate → write results.json inside the per-file write lock, so concurrent requests
+   * (e.g. drill generation finishing while a follow-up answer is saved) never overwrite each other.
+   */
+  public async updateSessionResults(
+    topicId: string,
+    sessionDirName: string,
+    mutateResults: (results: SessionResults | null) => SessionResults,
+  ): Promise<SessionResults> {
+    const filePath = path.join(sessionDirectory(topicId, sessionDirName), "results.json");
+    let updatedResults: SessionResults | null = null;
+    await this.serializeWrite(filePath, async () => {
+      const currentResults = fs.existsSync(filePath) ? SessionResultsSchema.parse(this.readJsonFile(filePath)) : null;
+      updatedResults = SessionResultsSchema.parse(mutateResults(currentResults));
+      const temporaryPath = `${filePath}.${process.pid}.tmp`;
+      await fsPromises.writeFile(temporaryPath, `${JSON.stringify(updatedResults, null, 2)}\n`, "utf8");
+      await fsPromises.rename(temporaryPath, filePath);
+    });
+    return updatedResults!;
+  }
+
   public readLearningItemDeck(topicId: string): LearningItemDeck {
     const filePath = path.join(topicDirectory(topicId), "items.json");
     if (!fs.existsSync(filePath)) return { schemaVersion: 1, items: [] };
@@ -69,6 +91,16 @@ export class TopicRepository {
 
   public async writeLearningItemDeck(topicId: string, deck: LearningItemDeck): Promise<void> {
     await this.writeJsonFileAtomically(path.join(topicDirectory(topicId), "items.json"), LearningItemDeckSchema.parse(deck));
+  }
+
+  public readPracticeBank(topicId: string): PracticeBank {
+    const filePath = path.join(topicDirectory(topicId), "practice-bank.json");
+    if (!fs.existsSync(filePath)) return { schemaVersion: 1, entries: [] };
+    return PracticeBankSchema.parse(this.readJsonFile(filePath));
+  }
+
+  public async writePracticeBank(topicId: string, bank: PracticeBank): Promise<void> {
+    await this.writeJsonFileAtomically(path.join(topicDirectory(topicId), "practice-bank.json"), PracticeBankSchema.parse(bank));
   }
 
   public async appendToMarkdownFile(filePath: string, markdown: string, headerIfNew: string): Promise<void> {

@@ -8,6 +8,10 @@ const LearningConfigSchema = z.object({
   port: z.number().int(),
   grading: z.object({ model: z.string(), effort: EffortSchema }),
   tutor: z.object({ model: z.string(), effort: EffortSchema }),
+  practiceDrills: z.object({
+    defaultCountPerStep: z.number().int().min(0).max(3),
+    skipWhenFirstAttemptScoreAtLeast: z.number().int().min(0).max(5),
+  }),
   autoPrepareNextSession: z.boolean(),
 });
 

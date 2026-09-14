@@ -9,4 +9,4 @@ It would be great if there was a next step after that, that then utilized those 
 
 It would be cool because if we're doing repetition on those in later sessions, those examples can become the repeated exercise that I have to demonstrate mastery of (in addition to the original question that I was asked).
 - Note (headless prep agent, 2026-09-13): partly honored in content only. zh-tw-expressiveness/0002 shapes each item as teach → quick cloze → quick guided translate. Still needs a runtime change: after a graded free-response step, generate 2–3 micro-drills from the correction and persist them so later reviews can reuse them.
-- Status: open
+- Status: addressed (runtime "Apply it" practice drills after translate/rewrite/respond/free_production feedback; saved in results.json and topics/<id>/practice-bank.json; authoring guide tells future sessions to reuse them. See docs/SYSTEM.md § Practice drills)

@@ -10,11 +10,9 @@ export interface PreparationLock {
   logPath: string;
 }
 
-const ALLOWED_TOOLS = ["Read", "Write", "Edit", "Glob", "Grep", "Bash(npm run validate:*)", "Bash(npm run status:*)", "Bash(ls:*)", "Bash(mkdir:*)"];
-
 /**
- * Spawns a headless Claude Code run that prepares the next session for a topic.
- * Runs detached so it survives the server; a lock file prevents concurrent runs per topic.
+ * Launches app/scripts/prepareNextSession.ts detached (so it survives server restarts).
+ * That script runs headless Claude Code, writes a live readable log, and holds the per-topic lock.
  */
 export class NextSessionPreparer {
   public readActivePreparationLock(topicId: string): PreparationLock | null {
@@ -26,6 +24,12 @@ export class NextSessionPreparer {
     return null;
   }
 
+  public readLastLogLine(logPath: string): string | null {
+    if (!fs.existsSync(logPath)) return null;
+    const lines = fs.readFileSync(logPath, "utf8").trimEnd().split("\n");
+    return lines[lines.length - 1] ?? null;
+  }
+
   public startPreparation(topicId: string, completedSessionDirName: string): { logPath: string } | { skippedReason: string } {
     const activeLock = this.readActivePreparationLock(topicId);
     if (activeLock) return { skippedReason: `preparation already running (pid ${activeLock.pid})` };
@@ -34,33 +38,18 @@ export class NextSessionPreparer {
     fs.mkdirSync(logsDirectory, { recursive: true });
     const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
     const logPath = path.join(logsDirectory, `${timestamp}-after-${completedSessionDirName}.log`);
-    const logFileDescriptor = fs.openSync(logPath, "a");
 
-    const prompt = [
-      `Prepare the next learning session for topic "${topicId}". The learner just completed "${completedSessionDirName}".`,
-      "Follow the 'Preparing the next session' checklist in docs/SESSION-AUTHORING.md exactly (read docs/SYSTEM.md first).",
-      "This is a headless background run: do not launch the server or browser, and do not ask questions. Make reasonable decisions and record them in authorRationale.",
-      "Finish by running `npm run validate` on the new session and fixing any errors.",
-    ].join("\n");
+    const preparationProcess = spawn(
+      path.join(REPOSITORY_ROOT, "node_modules", ".bin", "tsx"),
+      ["app/scripts/prepareNextSession.ts", "--topic", topicId, "--after", completedSessionDirName, "--log", logPath],
+      { cwd: REPOSITORY_ROOT, detached: true, stdio: "ignore" },
+    );
+    preparationProcess.on("error", (error) => fs.appendFileSync(logPath, `[preparer] failed to launch: ${error.message}\n`));
+    preparationProcess.unref();
 
-    // Strip API credentials so the CLI uses the learner's Claude Code login, not the app's API key.
-    const childEnvironment = { ...process.env };
-    delete childEnvironment.ANTHROPIC_API_KEY;
-    delete childEnvironment.ANTHROPIC_AUTH_TOKEN;
-
-    const child = spawn("claude", ["-p", prompt, "--permission-mode", "acceptEdits", "--allowedTools", ...ALLOWED_TOOLS], {
-      cwd: REPOSITORY_ROOT,
-      env: childEnvironment,
-      detached: true,
-      stdio: ["ignore", logFileDescriptor, logFileDescriptor],
-    });
-    child.on("error", (error) => fs.appendFileSync(logPath, `\n[preparer] failed to start claude: ${error.message}\n`));
-    child.on("exit", () => fs.rmSync(this.lockFilePath(topicId), { force: true }));
-    child.unref();
-    fs.closeSync(logFileDescriptor);
-
-    if (child.pid) {
-      const lock: PreparationLock = { pid: child.pid, startedAt: new Date().toISOString(), afterSessionDirName: completedSessionDirName, logPath };
+    // Write the lock immediately so status reflects the run before the script starts; the script rewrites it with the same pid.
+    if (preparationProcess.pid) {
+      const lock: PreparationLock = { pid: preparationProcess.pid, startedAt: new Date().toISOString(), afterSessionDirName: completedSessionDirName, logPath };
       fs.writeFileSync(this.lockFilePath(topicId), JSON.stringify(lock, null, 2));
     }
     return { logPath: path.relative(REPOSITORY_ROOT, logPath) };

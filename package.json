@@ -6,6 +6,7 @@
     "learn": "tsx app/scripts/learn.ts",
     "status": "tsx app/scripts/status.ts",
     "validate": "tsx app/scripts/validate.ts",
+    "prepare-session": "tsx app/scripts/prepareNextSession.ts",
     "server": "tsx app/server/main.ts",
     "build:web": "vite build --config app/web/vite.config.ts",
     "dev:web": "vite --config app/web/vite.config.ts",

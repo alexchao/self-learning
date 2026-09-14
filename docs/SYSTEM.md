@@ -30,6 +30,9 @@ a series of sessions tailored to the learner's goal and past performance.
   but items must **ramp up** to Apply / Analyze / Evaluate / Create. For example, for a Chinese
   sentence pattern, the learner should eventually be translating whole complex English sentences
   into Chinese and using the pattern unprompted in argument/explanation, not filling in one word.
+- **Apply the correction immediately** (learner feedback after 0001). After feedback on an answer, give 2–3 quick
+  sentences that force applying what was just learned (e.g. translate an English sentence using the new pattern).
+  Those sentences become review material in later sessions, alongside the original question.
 - **Spaced repetition** (the learner uses Anki heavily). Loosely Anki-like scheduling is expected.
 - **Liberal use of LLMs**: grading free-form answers, explaining corrections, follow-up questions, conversation.
 
@@ -62,7 +65,7 @@ self-learning/
 │   ├── server/                   # Hono server: serves sessions, grades via Claude API, persists results, SRS
 │   ├── web/                      # React (Vite) front-end that renders sessions
 │   ├── shared/                   # zod schemas shared by server, web, and CLI scripts
-│   └── scripts/                  # CLI: learn, status, validate
+│   └── scripts/                  # CLI: learn, status, validate, prepare-session
 ├── learning.config.json          # model, effort, port, auto-prepare toggle
 ├── .env                          # API keys (learner-created; gitignored; agents never read it)
 └── topics/
@@ -73,6 +76,7 @@ self-learning/
         ├── learner-model.md      # agent-maintained: strengths, recurring errors, what to focus on next
         ├── steering.md           # learner's steering notes for this topic (append-only, marked when addressed)
         ├── items.json            # spaced-repetition learning items (+ Bloom stage), updated by the server
+        ├── practice-bank.json    # "Apply it" practice sentences from past sessions, for reuse in reviews (server-written)
         └── sessions/
             └── 0001-<slug>/
                 ├── session.json  # authored content (validated against the schema)
@@ -94,7 +98,10 @@ self-learning/
 ### When the next session gets created: "prepare on completion, verify on start"
 1. When the learner finishes a session (and submits end-of-session feedback), the server spawns a
    headless Claude Code run (`claude -p`) that analyzes the results and **prepares the next session** in
-   the background. Toggle: `autoPrepareNextSession` in `learning.config.json`. Logs: `topics/<id>/.prep/`.
+   the background. Toggle: `autoPrepareNextSession` in `learning.config.json`. It runs via
+   `app/scripts/prepareNextSession.ts` (also `npm run prepare-session -- --topic <id> --after <dir>`), which streams
+   Claude Code's events into a **live, readable log** in `topics/<id>/.prep/` (one line per file read/write/command, then a
+   summary with duration and cost). `npm run status` shows the latest log line while it runs.
 2. When the learner says "ready", the agent runs `npm run status`. If a prepared session exists and is
    still appropriate (no newer steering, not badly stale), launch it immediately. Otherwise
    (re)generate it right there, then launch.
@@ -126,6 +133,17 @@ Free-form answers are graded by the Claude API (model/effort in `learning.config
 output: score, minimally corrected version of the learner's answer, model answers, specific issues,
 and an explanation. The prompt includes the topic's `grading.md`. The learner can **retry**, **ask a
 follow-up question**, or **dispute** a grade (re-graded with their argument). All of it is saved.
+
+### Practice drills ("Apply it")
+After feedback on a `translate`, `rewrite`, `respond`, or `free_production` step, the server generates quick
+practice sentences (default 2, per-step `practiceDrillCount` 0–3) that apply the most important lesson from that
+feedback, usually the step's target item or the construction behind the biggest issue. Generation starts while the
+learner reads the feedback. Each drill is graded quickly on whether the target was applied naturally (missing the
+target caps it at 2). Drills are skipped when the first attempt scored 4 (`learning.config.json` → `practiceDrills`).
+- Drill results live in `results.json` under the step's `practiceDrills`. They do **not** change spaced-repetition
+  scheduling (that stays the step's first-attempt score): drills are immediate practice, not delayed recall.
+- On completion, drills are copied to the topic's `practice-bank.json`. Session authors reuse them as review steps
+  (`sourcePracticeBankEntryId`), so the sentences the learner practiced come back later, as the learner asked.
 
 ---
 
@@ -171,4 +189,7 @@ act on it, update this spec, and log the decision below.
 | 2026-09-13 | Items climb a 6-stage Bloom ladder coupled to SRS intervals | Learner explicitly wants escalation beyond recall |
 | 2026-09-13 | Real-time grading via Claude API (`claude-opus-5`), structured output | Immediate correction is the core mechanism; nuance in Chinese needs a strong model |
 | 2026-09-13 | Browser speech APIs (zh-TW) for listen/speak in v1 | Topic is conversational; zero extra keys; upgrade to better TTS/STT or a realtime voice agent later |
+| 2026-09-13 | Runtime "Apply it" practice drills after graded free-response steps, banked for later reviews | Learner process feedback after 0001. Drills don't affect SRS (immediate practice ≠ delayed recall); skipped when the first attempt scores 4 to protect session length |
+| 2026-09-13 | Prep runs through a wrapper that streams Claude Code events to a readable live log | `claude -p` text output only appears at the end, so the log looked empty while prep was actually running |
+| 2026-09-13 | All results.json writes go through one locked read-modify-write | Concurrent requests (drill generation + follow-ups) could otherwise overwrite each other |
 | 2026-09-13 | Grading effort `low` (was `medium`) | Measured one translate grade: 19.0s at medium vs 11.4s at low with the same score and correction. Future option: stream feedback so the verdict appears sooner |

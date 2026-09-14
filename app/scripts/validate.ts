@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { LearningItemDeckSchema } from "../shared/learningItemSchema.ts";
+import { PracticeBankSchema } from "../shared/practiceDrillSchema.ts";
 import { SessionDefinitionSchema } from "../shared/sessionSchema.ts";
 import { TopicDefinitionSchema } from "../shared/topicSchema.ts";
 import { REPOSITORY_ROOT, TOPICS_DIRECTORY } from "../server/repositoryPaths.ts";
@@ -28,7 +29,7 @@ function readJson(filePath: string): unknown {
   }
 }
 
-function validateSessionFile(sessionFilePath: string, knownItemIds: Set<string>): void {
+function validateSessionFile(sessionFilePath: string, knownItemIds: Set<string>, knownPracticeBankEntryIds: Set<string>): void {
   checkedFileCount += 1;
   const json = readJson(sessionFilePath);
   if (json === undefined) return;
@@ -51,6 +52,9 @@ function validateSessionFile(sessionFilePath: string, knownItemIds: Set<string>)
   for (const step of parsed.data.steps) {
     for (const itemId of step.itemIds) {
       if (!knownItemIds.has(itemId)) problems.push(`${path.relative(REPOSITORY_ROOT, sessionFilePath)}: step "${step.id}" references unknown item "${itemId}"`);
+    }
+    if (step.sourcePracticeBankEntryId && !knownPracticeBankEntryIds.has(step.sourcePracticeBankEntryId)) {
+      problems.push(`${path.relative(REPOSITORY_ROOT, sessionFilePath)}: step "${step.id}" references unknown practice bank entry "${step.sourcePracticeBankEntryId}"`);
     }
     if (step.type !== "teach" && step.itemIds.length > 0 && !step.stage) {
       problems.push(`${path.relative(REPOSITORY_ROOT, sessionFilePath)}: step "${step.id}" targets items but has no stage`);
@@ -82,15 +86,25 @@ function validateTopicDirectory(topicDirectoryPath: string, onlySessionFilePath?
     }
   }
 
+  const knownPracticeBankEntryIds = new Set<string>();
+  const practiceBankFilePath = path.join(topicDirectoryPath, "practice-bank.json");
+  if (fs.existsSync(practiceBankFilePath)) {
+    checkedFileCount += 1;
+    const bankJson = readJson(practiceBankFilePath);
+    const parsedBank = bankJson === undefined ? undefined : PracticeBankSchema.safeParse(bankJson);
+    if (parsedBank && !parsedBank.success) problems.push(...formatZodIssues(practiceBankFilePath, parsedBank.error.issues));
+    if (parsedBank?.success) for (const entry of parsedBank.data.entries) knownPracticeBankEntryIds.add(entry.id);
+  }
+
   if (onlySessionFilePath) {
-    validateSessionFile(onlySessionFilePath, knownItemIds);
+    validateSessionFile(onlySessionFilePath, knownItemIds, knownPracticeBankEntryIds);
     return;
   }
   const sessionsDirectoryPath = path.join(topicDirectoryPath, "sessions");
   if (!fs.existsSync(sessionsDirectoryPath)) return;
   for (const entry of fs.readdirSync(sessionsDirectoryPath).sort()) {
     const sessionFilePath = path.join(sessionsDirectoryPath, entry, "session.json");
-    if (fs.existsSync(sessionFilePath)) validateSessionFile(sessionFilePath, knownItemIds);
+    if (fs.existsSync(sessionFilePath)) validateSessionFile(sessionFilePath, knownItemIds, knownPracticeBankEntryIds);
   }
 }
 
