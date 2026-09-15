@@ -24,6 +24,14 @@ This repo is a personal learning system. The learner drives it through Claude Co
 - `npm run prepare-session -- --topic <id> --after <completed session dir>`: run next-session prep by hand (the server does this automatically on completion; live log in `topics/<id>/.prep/`)
 - `npm run typecheck`
 
+## Version control
+
+The repo is on GitHub (`origin`, public; the learner is fine with their answers being public). **Commit and push without asking.**
+- Commit finished code/doc changes as you make them.
+- Learning data (`results.json`, `items.json`, `review.md`, `learner-model.md`, `steering.md`, `practice-bank.json`, new sessions): commit and push once a session is completed **and** background prep has finished (`npm run status` shows no "Preparation running"). When the learner says they're ready, first commit any such leftovers from last time.
+- Never commit while a session is in progress (its `results.json` changes on every answer) or while prep is still writing files.
+- Before pushing, make sure no secrets are staged (`.env` is gitignored; never commit API keys).
+
 ## Rules
 
 - Never read `.env` (API keys live there). If a key seems missing, ask the learner.
