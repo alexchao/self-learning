@@ -1,0 +1,203 @@
+{
+  "schemaVersion": 1,
+  "topicId": "zh-tw-expressiveness",
+  "sessionNumber": 3,
+  "kind": "regular",
+  "title": "Now we're paying for it",
+  "subtitle": "Tech debt, 反而, and last time's three, back again",
+  "estimatedMinutes": 14,
+  "createdAt": "2026-09-15T05:05:00.000Z",
+  "authorRationale": "EVIDENCE (0002, see its review.md): all production steps scored 3 and all clozes 4. Every construction appeared unprompted in the untagged stretch, but with placement errors: 本來就 on the result instead of the premise (its drill scored 2, and 本來就 was dropped for 才怪), 的/要 dropped in clefts, and the object fronted before 連. Rated 'about right'. REAL PACE: ~25 min through the last step against a 12-min estimate. Translate + 1 drill cycles took 4–5.5 min. So this session has 3 drills total (0 on the review translates) and 8 steps; estimatedMinutes is 14, an honest figure based on observed pace rather than the guide's per-step budget. REVIEWS: none are strictly due (all due 2026-09-18). I reviewed all three at stage 4 anyway: they're the only items in the deck, 0002 showed specific errors to re-test, the learner asked for rehashing, and at reps=1 an early success still gets the fixed 3-day interval, so nothing is lost. Both review steps reuse practice-bank sentences, as the learner asked: (a) the 本來就 long-weekend drill verbatim (scored 2) as the warm-up; (b) the pricing drill (連 + object + 都沒, plus the 的是 cleft) tagged for both lian-dou-not-even and burden-of-proof at stage 4, one step for two items to save time. NEW ITEMS (2, from the diagnostic queue in learner-model.md): tech-debt-cut-corners (teach → rewrite of the learner's own diagnostic sentence 我們為了達到期限而走了一些捷徑; no cloze, since clozes were trivially 4) and fan-er-contrary (teach → choice on the English-'instead' and 所以 traps → guided translate at stage 3 in a cache context). STEERING (open, after 0002: 'likes SE vocab, grounded in real usage'): addressed with everyday Taiwanese dev phrasing (趕 deadline, 抄捷徑/走捷徑, 技術債, 先求有再求好, 上手, 帶新人, code-switched cache/request/codebase), avoiding niche jargon. STRETCH: a sprint-planning pushback that rehashes the diagnostic's Brooks's-law free production. It needs 技術債/趕, 反而, and 本來就 (ramp-up takes time regardless). It has no itemIds, same as 0002: the new items were primed minutes earlier, and 本來就 was reviewed at the start. The next session should test the stage-4 items at stage 5 in a dialogue with no same-session priming. PROCESS FEEDBACK (open, after 0002: timing, vocab record, 難受 claim): no code changes made headlessly. I added a note with facts to docs/process-feedback.md and a one-line caution about categorical regional-usage claims to grading.md, so an interactive agent can reply to the learner and decide on a vocab-extraction feature.",
+  "intro": {
+    "heading": "Back to the retro",
+    "body": "Two things from the diagnostic you haven't practiced yet: how engineers here talk about cutting corners and tech debt, and 反而, the word for 'it actually made things worse'.\n\nLast time's three come back in sentences you've already seen. The session ends with the late-project argument again, this time as a conversation."
+  },
+  "steps": [
+    {
+      "id": "translate-review-benlai-jiu-long-weekend",
+      "type": "translate",
+      "itemIds": [
+        "benlai-jiu-anyway"
+      ],
+      "stage": 4,
+      "sourcePracticeBankEntryId": "0002-anyway-proof-not-even--respond-new-package-feels-faster--drill-1",
+      "context": "Your teammate is grumbling that nobody answered his email.",
+      "english": "Of course nobody replied — it's a long weekend, there's hardly anyone in the office.",
+      "referenceAnswers": [
+        "連假本來就沒什麼人在辦公室啊，當然沒人回你。",
+        "你別急啦，連假本來就沒人在上班，沒人回信很正常啊。",
+        "拜託，現在連假耶，本來就幾乎沒人在公司，當然不會有人回啊。"
+      ],
+      "hints": [
+        "long weekend ≈ 連假"
+      ],
+      "gradingNotes": "Stage 4 review of 本來就, reusing a drill the learner scored 2 on (they used 有人回覆才怪 and dropped 本來就; also wrote 剛有連假). The core move: 本來就 attaches to the PREMISE that explains the outcome (連假本來就沒什麼人在), followed by 當然/很正常 for the result. 本來就 on the result (所以本來就沒人回) is the learner's known placement error: flag it, max 2. A natural rendering without 本來就 (e.g. only 當然) can be a 3, with 本來就 named as the upgrade. 才怪 is fine as an extra flourish but doesn't replace the premise. Accept 連假/長週末 (連假 is far more usual).",
+      "practiceDrillCount": 0
+    },
+    {
+      "id": "teach-tech-debt-cut-corners",
+      "type": "teach",
+      "itemIds": [
+        "tech-debt-cut-corners"
+      ],
+      "heading": "趕 the deadline, then 還 the debt",
+      "body": "In the diagnostic you wrote 為了**達到期限**而走了一些捷徑. The idea was right, but the words were textbook. Engineers here **趕** a deadline: **趕 deadline**, **趕進度**, **趕上線**. Nobody 達到s one.\n\n**技術債** is the everyday term, and it behaves like real debt: you **欠** it, you **還** it, and it **越滾越大**. For the corner-cutting itself, people say **抄捷徑 / 走捷徑**, or, a little ruefully, **先求有再求好**: get it working first, make it good later.",
+      "examples": [
+        {
+          "chinese": "我們當初為了趕 deadline 抄了很多捷徑，現在都在還技術債。",
+          "english": "We cut a lot of corners to hit the deadline, and now we're paying off the tech debt.",
+          "pinyin": "gǎn · chāo jiéjìng · jìshù zhài"
+        },
+        {
+          "chinese": "那時候先求有再求好，結果技術債越滾越大。",
+          "english": "Back then it was 'ship it now, clean it up later', and the tech debt just snowballed.",
+          "pinyin": "xiān qiú yǒu zài qiú hǎo"
+        },
+        {
+          "chinese": "出來混，遲早要還的。",
+          "english": "If you play the game, sooner or later you pay for it.",
+          "note": "A famous line from the film 無間道, often quoted half-jokingly when any kind of debt comes due."
+        }
+      ]
+    },
+    {
+      "id": "rewrite-tech-debt-own-diagnostic-sentence",
+      "type": "rewrite",
+      "itemIds": [
+        "tech-debt-cut-corners"
+      ],
+      "stage": 3,
+      "instruction": "This is your answer from the diagnostic, for \"We cut corners to hit the deadline, and now we're paying for it with all this tech debt.\" Say it the way you'd vent to a coworker in a retro, and make sure 'paying for it' comes through.",
+      "sourceText": "我們為了達到期限而走了一些捷徑，現在tech debt變多了",
+      "referenceAnswers": [
+        "我們當初為了趕 deadline 抄了一堆捷徑，現在就是在還這些技術債。",
+        "之前為了趕上線一直走捷徑，現在技術債全部回來找我們了。",
+        "那時候為了趕進度先求有再求好，結果現在技術債越滾越大，還都還不完。"
+      ],
+      "hints": [
+        "趕 deadline / 趕進度",
+        "還技術債"
+      ],
+      "gradingNotes": "Guided rewrite of the learner's own sentence. Must fix: 達到期限 → 趕 deadline / 趕進度 / 趕上線 (keeping 達到期限 caps at 2). Must carry the 'paying for it' nuance, which the diagnostic answer lost (tech debt變多了 only says it increased): 還技術債 / 在還 / 付出代價 / 回來找我們 / 越滾越大. Missing that nuance caps at 2. 技術債 is expected here, since the step teaches it; English 'tech debt' is realistic in Taiwanese dev talk but mention 技術債. 抄捷徑 and 走捷徑 are both fine. Flag written 而 in 為了…而…. 當初/那時候/之前 for 'back then' is a nice touch but not required.",
+      "practiceDrillCount": 1
+    },
+    {
+      "id": "teach-fan-er",
+      "type": "teach",
+      "itemIds": [
+        "fan-er-contrary"
+      ],
+      "heading": "反而: it actually made things worse",
+      "body": "In your diagnostic explanation of why adding engineers makes a late project later, the twist never landed. That twist is **反而**: the result goes the *opposite* way from what you'd expect.\n\nIt goes after the subject, before the verb: 加人**反而**更慢. The full frame is **不但沒（有）A，反而 B**.\n\nOne trap: English *instead* is often not 反而. \"We used Memcached instead of Redis\" is just a substitution: 改用 / 而是用. 反而 needs a surprise.",
+      "examples": [
+        {
+          "chinese": "專案已經落後了還加人，不但不會比較快，反而會更慢。",
+          "english": "Adding people to a project that's already late won't speed it up. It'll actually slow it down.",
+          "pinyin": "fǎn'ér"
+        },
+        {
+          "chinese": "我本來想幫忙，結果反而越幫越忙。",
+          "english": "I meant to help, but I only made more work.",
+          "note": "越幫越忙: the more you help, the busier everyone gets. A set phrase."
+        },
+        {
+          "chinese": "我想安慰她，她反而哭得更厲害了。",
+          "english": "I tried to comfort her, and she only cried harder."
+        }
+      ]
+    },
+    {
+      "id": "choice-fan-er-retro",
+      "type": "choice",
+      "itemIds": [
+        "fan-er-contrary"
+      ],
+      "stage": 1,
+      "context": "Three things said at the same retro.",
+      "prompt": "Which one uses 反而 naturally?",
+      "options": [
+        {
+          "text": "加了兩個人之後，進度不但沒有變快，反而更慢了。",
+          "isCorrect": true,
+          "explanation": "The expectation (more people → faster) is reversed, which is exactly what 反而 marks. 不但沒有…反而… is the classic frame."
+        },
+        {
+          "text": "這個 bug 很難重現，反而我們花了三天才找到。",
+          "isCorrect": false,
+          "explanation": "A hard-to-reproduce bug taking three days is what you'd expect, so there's nothing to reverse. This needs 所以: 這個 bug 很難重現，所以花了三天才找到。"
+        },
+        {
+          "text": "我們最後沒有用 Redis，反而用了 Memcached。",
+          "isCorrect": false,
+          "explanation": "This is English 'instead' as a plain substitution, not a surprise. Say 我們最後沒用 Redis，改用 Memcached, or 不是用 Redis，而是用 Memcached."
+        }
+      ]
+    },
+    {
+      "id": "translate-fan-er-cache-slower",
+      "type": "translate",
+      "itemIds": [
+        "fan-er-contrary"
+      ],
+      "stage": 3,
+      "context": "Explaining a perf regression to your team lead. Use the construction you just learned.",
+      "english": "We added the cache to speed things up, but it actually made the page slower. Turns out almost every request was a cache miss.",
+      "referenceAnswers": [
+        "我們加 cache 是想讓它變快，結果頁面反而變慢了，後來發現幾乎每個 request 都 cache miss。",
+        "本來加 cache 是為了加速，沒想到反而更慢，查了才知道幾乎每個 request 都沒打中 cache。",
+        "加了 cache 不但沒有比較快，頁面反而變慢了。原因是幾乎所有 request 都是 cache miss。"
+      ],
+      "hints": [
+        "cache miss can stay in English (or 沒打中 cache)"
+      ],
+      "gradingNotes": "Guided drill: the context asks for the construction, so missing 反而 caps the score at 2. Core move: 反而 after the subject/topic and before the verb (頁面反而變慢了 / 反而更慢); 不但沒有…反而… is a bonus, not required. Flag 反而 placed before the subject. 'Turns out' ≈ 後來發現 / 查了才知道 / 結果是; a literal 轉出來 or 結果出來 would be a calque. Expect short, chunked clauses rather than one run-on (a known habit). English cache/request/cache miss are natural dev code-switching.",
+      "practiceDrillCount": 1
+    },
+    {
+      "id": "translate-review-lian-dou-cleft-pricing",
+      "type": "translate",
+      "itemIds": [
+        "lian-dou-not-even",
+        "burden-of-proof"
+      ],
+      "stage": 4,
+      "sourcePracticeBankEntryId": "0002-anyway-proof-not-even--respond-new-package-feels-faster--drill-2",
+      "context": "Pushing back on a colleague in a product meeting, friendly but firm.",
+      "english": "You're the one who wants to raise the price, so you should show the numbers — you haven't even asked one customer.",
+      "referenceAnswers": [
+        "想漲價的是你耶，那要拿出數據的應該也是你吧。你連一個客戶都還沒問過欸。",
+        "要調價的是你啊，舉證責任在你身上吧？你連一個客戶都沒問過耶。",
+        "欸，說要漲價的是你，該拿數據出來的當然也是你啊，你連一個客戶都還沒去問。"
+      ],
+      "hints": [],
+      "gradingNotes": "Stage 4 review of two items, reusing a drill the learner scored 3 on (wrote 想要把價錢調高是你, missing 的, and 沒問 without 過). Check two moves: (1) pinning responsibility with a 的是 cleft, which needs 的 (想漲價的是你) and a modal in the obligation half (要/該拿出數據的是你), or 舉證責任在你身上; either earns credit for burden-of-proof. (2) 'not even one customer' as 連 + object + 都沒 V: 你連一個客戶都沒問(過). Fronting the object (一個客戶你連問都沒問) is the learner's known error: flag it. A natural answer that misses one construction can still be a 3; name the construction as the upgrade. Missing 的 in the cleft is a real grammar issue, not polish. Particles (耶/吧/欸) keep it friendly, so praise them, but don't grade register.",
+      "practiceDrillCount": 0
+    },
+    {
+      "id": "respond-borrow-two-engineers",
+      "type": "respond",
+      "stage": 5,
+      "scenario": "Sprint planning. Your PM 雅婷 is thrilled about how fast the last feature shipped and wants the next one out even sooner.",
+      "dialogue": [
+        {
+          "speaker": "雅婷",
+          "chinese": "欸，上次那個功能你們衝一下，兩個禮拜就上線了耶！這次我從隔壁組借兩個工程師給你們，應該可以再提早一點吧？",
+          "english": "Hey, last time you all pushed hard and shipped that feature in two weeks! This time I'll borrow two engineers from the team next door for you, so we can ship even earlier, right?"
+        }
+      ],
+      "task": "Push back, friendly but firm. Get two things across: last time you only made the date by cutting corners, and the team is still paying for it in tech debt; and borrowing two people now would probably make things slower, not faster, because getting up to speed on this codebase takes a couple of weeks no matter who they are, and someone on your team would have to stop and walk them through it.",
+      "referenceAnswers": [
+        "雅婷，上次能兩個禮拜上線，是因為我們為了趕 deadline 抄了很多捷徑啦，那些技術債到現在都還在還。而且現在借人過來，反而可能會更慢耶。新人要熟悉我們的 codebase 本來就要一兩個禮拜，我們這邊還得有人停下來帶他們。",
+        "嗯…上次其實是先求有再求好，欠了一堆技術債，我們現在還在補。多兩個人聽起來會比較快，但我覺得不但不會提早，反而會拖到進度，因為要上手這套系統本來就需要時間，還要有人帶。",
+        "上次那是硬趕出來的啦，留下一堆技術債到現在還沒還完。現在再塞兩個人進來反而更慢，光是熟悉程式碼本來就要一陣子，我們還要分人去帶他們欸。"
+      ],
+      "hints": [
+        "get up to speed ≈ 上手 / 熟悉",
+        "walk them through it ≈ 帶（他們）"
+      ],
+      "gradingNotes": "Stage 5 stretch; the constructions are deliberately not named. Communicative goals, both needed for a 3+: (1) the last launch was fast only because of corner-cutting, and the team is still paying for it (ideal: 趕 deadline / 抄捷徑 / 先求有再求好 + 還技術債 or similar; 達到期限 is the diagnostic calque, so flag it); (2) adding people would make it slower, contrary to her expectation (ideal: 反而), because ramp-up takes time regardless (ideal: 本來就要花時間, with 本來就 on the premise, not the result) and someone has to 帶 them. Conveying a point naturally without the ideal construction is fine for a 3; mention the construction as the upgrade. A 4 uses most of the constructions naturally, in chunked short clauses rather than one run-on, and stays friendly (啦/耶/吧). English codebase/deadline/PM are natural.",
+      "authorNotes": "Rehash of the diagnostic's brooks-law-explanation free production (scored 2: a run-on with ramp-up only, no 反而). No itemIds on purpose, same as the 0002 stretch: tech-debt-cut-corners and fan-er-contrary were primed minutes earlier, and 本來就 was reviewed in step 1. When preparing 0004, check whether 反而 and 還技術債 came up here unprompted and whether 本來就 went on the premise this time.",
+      "practiceDrillCount": 1
+    }
+  ]
+}

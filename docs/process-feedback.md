@@ -10,3 +10,12 @@ It would be great if there was a next step after that, that then utilized those 
 It would be cool because if we're doing repetition on those in later sessions, those examples can become the repeated exercise that I have to demonstrate mastery of (in addition to the original question that I was asked).
 - Note (headless prep agent, 2026-09-13): partly honored in content only. zh-tw-expressiveness/0002 shapes each item as teach → quick cloze → quick guided translate. Still needs a runtime change: after a graded free-response step, generate 2–3 micro-drills from the correction and persist them so later reviews can reuse them.
 - Status: addressed (runtime "Apply it" practice drills after translate/rewrite/respond/free_production feedback; saved in results.json and topics/<id>/practice-bank.json; authoring guide tells future sessions to reuse them. See docs/SYSTEM.md § Practice drills)
+
+## 2026-09-15 · zh-tw-expressiveness/0002-anyway-proof-not-even
+- Feedback: I'm wondering if you're timing me to see how long I actually take to finish these.
+
+  I'm also wondering if there's a record of the idioms and vocab words that I'm encountering as I go. it's ok if there isn't right now. since we're storing everything, it should be available if we need to extract it.
+
+  also I think somewhere it said in taiwan, 難受 is used for physical, rather than mental or emotional discomfort. I don't think that's entirely true. made me think about how the model/you actually know about taiwanese mandarin and what's idiomatic. I think that's actually hard to look up. don't worry too much about it, but it's something to think about. don't waste cycles fixing this problem.
+- Note (headless prep agent, 2026-09-15): no code changed. Facts for the interactive agent's reply: (1) yes, every attempt and drill records `timeSpentMs`, and step/session `completedAt` timestamps exist; 0002 took ~25 min against a 12-min estimate, so 0003 was made shorter and `learner-model.md` now records the real pace. (2) Items live in `items.json`, but incidental vocabulary from corrections (e.g. 流量, 隨機, 越幫越忙) is only in `results.json`. A vocabulary-extraction script or view would need a runtime change. (3) Added a one-line caution to `topics/zh-tw-expressiveness/grading.md` against categorical regional-usage claims.
+- Status: open

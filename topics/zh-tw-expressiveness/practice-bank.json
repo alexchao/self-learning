@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "0002-anyway-proof-not-even--translate-benlai-jiu-flaky-test--drill-1",
+      "createdAt": "2026-09-15T04:27:51.787Z",
+      "sourceSessionDirName": "0002-anyway-proof-not-even",
+      "sourceStepId": "translate-benlai-jiu-flaky-test",
+      "itemIds": [
+        "benlai-jiu-anyway"
+      ],
+      "lesson": "'…anyway / that's just how it is' with a habitual event (note 本來就會)",
+      "targetExpression": "本來就會…",
+      "english": "Don't blame yourself — old phones slow down over time anyway. It's not because you installed that app.",
+      "context": "Comforting a friend who thinks an app ruined their phone",
+      "referenceAnswers": [
+        "你別自責啦，舊手機本來就會愈用愈慢，不是你裝那個 app 害的。",
+        "不用怪自己啦，手機用久了本來就會變慢，跟你裝那個 app 沒關係。"
+      ],
+      "firstAttempt": {
+        "answer": "不要怪自己，舊手機本來就會變得很慢，跟你安裝的app沒有關係",
+        "score": 3
+      }
+    },
+    {
+      "id": "0002-anyway-proof-not-even--translate-burden-of-proof-moon-landing--drill-1",
+      "createdAt": "2026-09-15T04:33:03.490Z",
+      "sourceSessionDirName": "0002-anyway-proof-not-even",
+      "sourceStepId": "translate-burden-of-proof-moon-landing",
+      "itemIds": [
+        "burden-of-proof"
+      ],
+      "lesson": "put the burden of proof on the other side, with a 'not me' contrast",
+      "targetExpression": "舉證責任在…（身上）／要…的是…，不是…",
+      "english": "You're the one claiming our service is slower than theirs, so you should be the one bringing the data, not asking me to disprove it.",
+      "context": "In a team meeting, pushing back on a colleague's claim",
+      "referenceAnswers": [
+        "這個說法是你提出來的啊，舉證責任在你身上，不在我，要拿出數據的是你，不是叫我去證明沒有。",
+        "欸，說我們服務比他們慢的人是你耶，所以要拿數據出來的是你，不是我。"
+      ],
+      "firstAttempt": {
+        "answer": "說我們服務比他們慢的人是你，所以要拿出證據的是你，不應該要我推翻它",
+        "score": 3
+      }
+    },
+    {
+      "id": "0002-anyway-proof-not-even--translate-lian-dou-birthday-dinner--drill-1",
+      "createdAt": "2026-09-15T04:39:48.243Z",
+      "sourceSessionDirName": "0002-anyway-proof-not-even",
+      "sourceStepId": "translate-lian-dou-birthday-dinner",
+      "itemIds": [
+        "lian-dou-not-even"
+      ],
+      "lesson": "state the feeling first, then the reason; 'didn't even…' with verb copying",
+      "targetExpression": "（有點…，）連 V 都沒 V",
+      "english": "I'm not upset with you. I'm just a bit disappointed — you didn't even tell me you were changing the plan.",
+      "context": "To a coworker who rewrote your part of the proposal",
+      "referenceAnswers": [
+        "我不是在生你的氣，只是有點失望，你連講都沒跟我講一聲就把計畫改掉了。",
+        "我沒有生氣啦，只是心裡有點不舒服，你要改計畫連問都沒問我一下。"
+      ],
+      "firstAttempt": {
+        "answer": "我不是對你不爽，我只是有點失望，你連說都沒跟我說要改計劃",
+        "score": 3
+      }
+    },
+    {
+      "id": "0002-anyway-proof-not-even--respond-new-package-feels-faster--drill-1",
+      "createdAt": "2026-09-15T04:45:43.281Z",
+      "sourceSessionDirName": "0002-anyway-proof-not-even",
+      "sourceStepId": "respond-new-package-feels-faster",
+      "itemIds": [],
+      "lesson": "attach 'obviously/all along' to the given premise that explains the result",
+      "targetExpression": "本來就…",
+      "english": "Of course nobody replied — it's a long weekend, there's hardly anyone in the office.",
+      "context": "To a teammate who's annoyed that his email got no response",
+      "referenceAnswers": [
+        "連假本來就沒什麼人在辦公室啊，當然沒人回你",
+        "你別急啦，連假期間本來就沒人在上班，當然不會有人回信啊"
+      ],
+      "firstAttempt": {
+        "answer": "有人回覆才怪，剛有連假，幾乎沒人在上班",
+        "score": 2
+      }
+    },
+    {
+      "id": "0002-anyway-proof-not-even--respond-new-package-feels-faster--drill-2",
+      "createdAt": "2026-09-15T04:45:43.281Z",
+      "sourceSessionDirName": "0002-anyway-proof-not-even",
+      "sourceStepId": "respond-new-package-feels-faster",
+      "itemIds": [],
+      "lesson": "'didn't even do X' with the object right after 連, plus a 的是你 cleft to pin responsibility",
+      "targetExpression": "連…都沒… ／ …的是你",
+      "english": "You're the one who wants to raise the price, so you should show the numbers — you haven't even asked one customer.",
+      "context": "Pushing back on a colleague in a product meeting, friendly but firm",
+      "referenceAnswers": [
+        "想漲價的是你耶，那要拿出數據的應該也是你吧。你連一個客戶都還沒問欸",
+        "要調價格的是你啊，所以要說服大家的當然是你。你連一個用戶都沒訪談過欸，先去問再說啦"
+      ],
+      "firstAttempt": {
+        "answer": "想要把價錢調高是你，所以要拿出數據的人也應該是你吧，你連一個客戶都沒問",
+        "score": 3
+      }
+    }
+  ]
+}

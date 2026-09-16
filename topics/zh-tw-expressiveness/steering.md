@@ -8,3 +8,8 @@ Learner's steering for upcoming sessions. Agents: when a note is acted on, chang
 
 For now, let's keep the pace slow and reiterate or rehash this content, because I don't think I've mastered it yet.
 - Status: addressed in 0002-anyway-proof-not-even (no new curriculum; three items drawn from diagnostic gaps, reusing its situations; slow ramp to stage 4; remaining diagnostic gaps queued in learner-model.md)
+
+## 2026-09-15 · after 0002-anyway-proof-not-even
+- Difficulty: about right
+- Note: I like the software engineering vocab. I rarely run into this stuff. just make sure it's grounded in real usage.
+- Status: addressed in 0003-paying-for-it-later (both new items are software-flavored and use everyday dev phrasing: 趕 deadline, 抄捷徑, 技術債, 先求有再求好, code-switched cache/request/codebase; the stretch is a sprint-planning pushback. Kept to widely used phrases rather than niche jargon.)

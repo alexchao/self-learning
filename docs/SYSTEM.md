@@ -18,7 +18,9 @@ a series of sessions tailored to the learner's goal and past performance.
 
 ### The loop
 - The learner opens Claude Code in this folder and says something like *"ok I'm ready for the next session."*
-- They get a **5–10 minute session** in the **browser** (or another medium if it's clearly better).
+- They get a session in the **browser** (or another medium if it's clearly better). Originally specified as 5–10 minutes;
+  **revised 2026-09-15 to 15–25 real minutes** (see decision log) — the learner prefers more material per sitting.
+  Per-topic target lives in `topic.json` → `targetSessionMinutes`.
 - On completion, **everything is persisted**: inputs, grading, outcomes, feedback.
 - The next session for that topic is created from that history so it matches progress, pace, and goal.
 - The learner does **not** study every day; gaps of days or weeks are normal and must be handled gracefully.
@@ -189,6 +191,7 @@ act on it, update this spec, and log the decision below.
 | 2026-09-13 | Items climb a 6-stage Bloom ladder coupled to SRS intervals | Learner explicitly wants escalation beyond recall |
 | 2026-09-13 | Real-time grading via Claude API (`claude-opus-5`), structured output | Immediate correction is the core mechanism; nuance in Chinese needs a strong model |
 | 2026-09-13 | Browser speech APIs (zh-TW) for listen/speak in v1 | Topic is conversational; zero extra keys; upgrade to better TTS/STT or a realtime voice agent later |
+| 2026-09-15 | Session target raised from 5–10 min to 15–25 real minutes (`topic.json` → `targetSessionMinutes`) | Session 0002 was estimated at 12 min and took ~25; asked, the learner chose to keep the material rather than trim. Estimates must reflect *observed* pace, not the per-step budget |
 | 2026-09-13 | Runtime "Apply it" practice drills after graded free-response steps, banked for later reviews | Learner process feedback after 0001. Drills don't affect SRS (immediate practice ≠ delayed recall); skipped when the first attempt scores 4 to protect session length |
 | 2026-09-13 | Prep runs through a wrapper that streams Claude Code events to a readable live log | `claude -p` text output only appears at the end, so the log looked empty while prep was actually running |
 | 2026-09-13 | All results.json writes go through one locked read-modify-write | Concurrent requests (drill generation + follow-ups) could otherwise overwrite each other |

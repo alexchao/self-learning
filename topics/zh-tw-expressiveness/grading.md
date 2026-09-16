@@ -15,5 +15,7 @@ Grade as a thoughtful Taiwanese friend with a linguistics background would:
 - **Speech-recognized answers**: ignore punctuation and likely homophone transcription errors.
 - Do not grade tone/register/politeness unless the phrasing would genuinely sound odd or offensive.
 - English code-switching that Taiwanese professionals really use (deadline, PR, deploy, bug) is fine.
+- **Regional usage claims**: prefer "more common / more natural in Taiwan" over categorical claims ("X only means
+  physical discomfort") unless it's a clear-cut Taiwan vs. Mainland split (軟體/软件, 演算法/算法). The learner notices overclaims.
 - Keep feedback compact. Explain *why* something is unnatural (collocation, wrong frame, calque from English)
   so the lesson transfers. Quote short Chinese examples.

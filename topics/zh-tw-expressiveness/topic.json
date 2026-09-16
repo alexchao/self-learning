@@ -4,7 +4,10 @@
   "title": "Expressive Conversational Mandarin (繁體)",
   "goal": "Say nuanced, complex things in spoken Taiwanese Mandarin (arguments, explanations of science and software, subtle emotional states) with the same precision I have in English.",
   "status": "active",
-  "targetSessionMinutes": { "min": 5, "max": 10 },
+  "targetSessionMinutes": {
+    "min": 15,
+    "max": 25
+  },
   "maxReviewStepsPerSession": 4,
   "speechLanguage": "zh-TW",
   "createdAt": "2026-09-13T00:00:00.000Z"

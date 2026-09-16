@@ -9,15 +9,45 @@
       "gloss": "…anyway / that's just how it is / would have happened regardless",
       "explanation": "Marks something as the baseline: true regardless of the thing being credited or blamed. The core rebuttal to 'I did X and then Y happened': 感冒本來就會自己好. Pairs naturally with 不代表 (A 了之後 B，不代表是因為 A). Also common for 'of course, obviously': 這本來就是你的責任.",
       "examples": [
-        { "chinese": "感冒本來就會自己好，吃了之後好了不代表是它有效。", "english": "Colds go away on their own anyway. Getting better after taking it doesn't mean it worked." },
-        { "chinese": "那個測試本來就不太穩，不是你的 PR 弄壞的。", "english": "That test is flaky anyway; your PR didn't break it." }
+        {
+          "chinese": "感冒本來就會自己好，吃了之後好了不代表是它有效。",
+          "english": "Colds go away on their own anyway. Getting better after taking it doesn't mean it worked."
+        },
+        {
+          "chinese": "那個測試本來就不太穩，不是你的 PR 弄壞的。",
+          "english": "That test is flaky anyway; your PR didn't break it."
+        }
       ],
-      "tags": ["argument", "causation", "discourse-frame"],
+      "tags": [
+        "argument",
+        "causation",
+        "discourse-frame"
+      ],
       "createdAt": "2026-09-13T23:51:42.000Z",
-      "introducedInSession": null,
-      "stage": 0,
-      "spacedRepetition": { "dueAt": null, "intervalDays": 0, "ease": 2.5, "reps": 0, "lapses": 0, "lastReviewedAt": null },
-      "history": []
+      "introducedInSession": "0002-anyway-proof-not-even",
+      "stage": 4,
+      "spacedRepetition": {
+        "dueAt": "2026-09-18T04:56:23.710Z",
+        "intervalDays": 3,
+        "ease": 2.65,
+        "reps": 1,
+        "lapses": 0,
+        "lastReviewedAt": "2026-09-15T04:56:23.710Z"
+      },
+      "history": [
+        {
+          "sessionDirName": "0002-anyway-proof-not-even",
+          "stepIds": [
+            "cloze-benlai-jiu-aunt",
+            "translate-benlai-jiu-flaky-test"
+          ],
+          "stageTested": 3,
+          "score": 4,
+          "reviewedAt": "2026-09-15T04:56:23.710Z",
+          "stageAfter": 4,
+          "intervalDaysAfter": 3
+        }
+      ]
     },
     {
       "id": "burden-of-proof",
@@ -27,15 +57,44 @@
       "gloss": "the burden of proof is on … / … is the one who has to prove it",
       "explanation": "舉證責任在他身上，不在我 is the term (used in law and everyday debate). The equally natural spoken fallback is a cleft with 的是, which does the job of English stress: 要拿出證據的是他，不是我. 身上 is optional in the negative half (不在我).",
       "examples": [
-        { "chinese": "等一下，舉證責任在他身上，不在我。", "english": "Hold on, the burden of proof is on him, not me." },
-        { "chinese": "說有鬼的是你，要拿出證據的也是你吧。", "english": "You're the one saying there's a ghost, so you're the one who has to prove it." }
+        {
+          "chinese": "等一下，舉證責任在他身上，不在我。",
+          "english": "Hold on, the burden of proof is on him, not me."
+        },
+        {
+          "chinese": "說有鬼的是你，要拿出證據的也是你吧。",
+          "english": "You're the one saying there's a ghost, so you're the one who has to prove it."
+        }
       ],
-      "tags": ["argument", "epistemics"],
+      "tags": [
+        "argument",
+        "epistemics"
+      ],
       "createdAt": "2026-09-13T23:51:42.000Z",
-      "introducedInSession": null,
-      "stage": 0,
-      "spacedRepetition": { "dueAt": null, "intervalDays": 0, "ease": 2.5, "reps": 0, "lapses": 0, "lastReviewedAt": null },
-      "history": []
+      "introducedInSession": "0002-anyway-proof-not-even",
+      "stage": 4,
+      "spacedRepetition": {
+        "dueAt": "2026-09-18T04:56:23.710Z",
+        "intervalDays": 3,
+        "ease": 2.65,
+        "reps": 1,
+        "lapses": 0,
+        "lastReviewedAt": "2026-09-15T04:56:23.710Z"
+      },
+      "history": [
+        {
+          "sessionDirName": "0002-anyway-proof-not-even",
+          "stepIds": [
+            "cloze-burden-of-proof-outlandish",
+            "translate-burden-of-proof-moon-landing"
+          ],
+          "stageTested": 3,
+          "score": 4,
+          "reviewedAt": "2026-09-15T04:56:23.710Z",
+          "stageAfter": 4,
+          "intervalDaysAfter": 3
+        }
+      ]
     },
     {
       "id": "lian-dou-not-even",
@@ -45,14 +104,112 @@
       "gloss": "not even X / even X",
       "explanation": "Puts X at the extreme end of a scale: 'not even the minimum'. With verbs, copy the verb: 連問都沒問 (didn't even ask), 連想都沒想過 (didn't even think of it). With a noun phrase: 你連先問我一下都沒想到. This is what carries the hurt in 'it didn't even occur to you'; plain 都沒有 loses the punch.",
       "examples": [
-        { "chinese": "我不是在生氣，只是很失望，你連先問我一下都沒想到。", "english": "I'm not angry, just disappointed that it didn't even occur to you to ask me first." },
-        { "chinese": "你連 benchmark 都沒跑，怎麼知道比較快？", "english": "You didn't even run a benchmark. How do you know it's faster?" }
+        {
+          "chinese": "我不是在生氣，只是很失望，你連先問我一下都沒想到。",
+          "english": "I'm not angry, just disappointed that it didn't even occur to you to ask me first."
+        },
+        {
+          "chinese": "你連 benchmark 都沒跑，怎麼知道比較快？",
+          "english": "You didn't even run a benchmark. How do you know it's faster?"
+        }
       ],
-      "tags": ["emotion", "discourse-frame"],
+      "tags": [
+        "emotion",
+        "discourse-frame"
+      ],
       "createdAt": "2026-09-13T23:51:42.000Z",
+      "introducedInSession": "0002-anyway-proof-not-even",
+      "stage": 4,
+      "spacedRepetition": {
+        "dueAt": "2026-09-18T04:56:23.710Z",
+        "intervalDays": 3,
+        "ease": 2.65,
+        "reps": 1,
+        "lapses": 0,
+        "lastReviewedAt": "2026-09-15T04:56:23.710Z"
+      },
+      "history": [
+        {
+          "sessionDirName": "0002-anyway-proof-not-even",
+          "stepIds": [
+            "cloze-lian-dou-decided-for-me",
+            "translate-lian-dou-birthday-dinner"
+          ],
+          "stageTested": 3,
+          "score": 4,
+          "reviewedAt": "2026-09-15T04:56:23.710Z",
+          "stageAfter": 4,
+          "intervalDaysAfter": 3
+        }
+      ]
+    },
+    {
+      "id": "tech-debt-cut-corners",
+      "kind": "concept_vocabulary",
+      "headword": "為了趕 deadline 抄捷徑／還技術債",
+      "pinyin": "gǎn · chāo jiéjìng · jìshù zhài",
+      "gloss": "cut corners to hit a deadline / pay for it with tech debt",
+      "explanation": "You 趕 a deadline (趕 deadline / 趕進度 / 趕上線), you don't 達到期限. Cutting corners: 抄捷徑 / 走捷徑, or 先求有再求好 (get it working first, make it good later). 技術債 works like real debt: 欠了一堆技術債, 還技術債, 技術債越滾越大. 'Paying for it now' ≈ 現在在還 / 現在要付出代價. Drop the written 而 in 為了…而….",
+      "examples": [
+        {
+          "chinese": "我們當初為了趕 deadline 抄了很多捷徑，現在都在還技術債。",
+          "english": "We cut a lot of corners to hit the deadline, and now we're paying off the tech debt."
+        },
+        {
+          "chinese": "那時候先求有再求好，結果技術債越滾越大。",
+          "english": "Back then it was 'ship it now, clean it up later', and the tech debt just snowballed."
+        }
+      ],
+      "tags": [
+        "software-engineering",
+        "collocation"
+      ],
+      "createdAt": "2026-09-15T05:05:00.000Z",
       "introducedInSession": null,
       "stage": 0,
-      "spacedRepetition": { "dueAt": null, "intervalDays": 0, "ease": 2.5, "reps": 0, "lapses": 0, "lastReviewedAt": null },
+      "spacedRepetition": {
+        "dueAt": null,
+        "intervalDays": 0,
+        "ease": 2.5,
+        "reps": 0,
+        "lapses": 0,
+        "lastReviewedAt": null
+      },
+      "history": []
+    },
+    {
+      "id": "fan-er-contrary",
+      "kind": "pattern",
+      "headword": "（不但沒…，）反而…",
+      "pinyin": "fǎn'ér",
+      "gloss": "actually (the opposite of what you'd expect) / if anything",
+      "explanation": "Marks a result that goes against the expectation the context sets up: 加人反而更慢. Goes after the subject, before the verb. Fullest form: 不但沒(有) A，反而 B. Trap: English 'instead' as a plain substitution is not 反而 (我們沒用 Redis，改用 Memcached / 而是用 Memcached). 反而 needs a reversal of expectation.",
+      "examples": [
+        {
+          "chinese": "專案已經落後了還加人，不但不會比較快，反而會更慢。",
+          "english": "Adding people to a project that's already late won't speed it up. It'll actually slow it down."
+        },
+        {
+          "chinese": "加了 cache 之後反而變慢了，一定是哪裡設定錯了。",
+          "english": "It actually got slower after we added the cache. Something must be misconfigured."
+        }
+      ],
+      "tags": [
+        "discourse-frame",
+        "explanation",
+        "software-engineering"
+      ],
+      "createdAt": "2026-09-15T05:05:00.000Z",
+      "introducedInSession": null,
+      "stage": 0,
+      "spacedRepetition": {
+        "dueAt": null,
+        "intervalDays": 0,
+        "ease": 2.5,
+        "reps": 0,
+        "lapses": 0,
+        "lastReviewedAt": null
+      },
       "history": []
     }
   ]

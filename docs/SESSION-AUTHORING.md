@@ -30,7 +30,7 @@ interactive "I'm ready" conversation, the steps are the same.
    Mark topic steering notes `Status: addressed in <new session dir>` once your session addresses them.
    Process feedback requires changing the system (docs/code). If you're headless and it needs code changes,
    leave it open and mention it in `authorRationale` so the interactive agent handles it.
-6. **Choose content** (see §C) for a 5–10 minute session:
+6. **Choose content** (see §C) for a session that fits `topic.json` → `targetSessionMinutes` (zh-tw: 15–25 real minutes):
    - **Reviews**: items whose `spacedRepetition.dueAt` ≤ the expected session time, most overdue / lowest stage first,
      capped at `maxReviewStepsPerSession` from `topic.json`. Items that aren't due can still be reused inside stretch tasks.
    - **New items**: 1–3, fewer if the last session was rated too hard or many items are due, more if too easy.
@@ -103,7 +103,11 @@ Also on free-response steps:
 
 ## C. Composing a good session
 
-**Shape (typical 8-minute session, 6–9 steps):**
+**Calibrate against the learner's real pace, not the budget below.** Compare past `estimatedMinutes` with the actual
+time in `results.json` (step `timeSpentMs` plus the gap between `startedAt` and `completedAt`) and say in `authorRationale`
+what you assumed. For zh-tw as of 0002: a translate + 1 drill cycle runs 4–5.5 min, a respond + 2 drills ~8 min.
+
+**Shape (typical session, 6–9 steps):**
 1. Warm-up review: 1–2 due items at their current stage (quick wins first).
 2. New item A: `teach` → a low-stage check (`choice` or `cloze`) → `rewrite` or `translate`.
 3. New item B: same, but it can start one stage higher if it's close to something they know.
