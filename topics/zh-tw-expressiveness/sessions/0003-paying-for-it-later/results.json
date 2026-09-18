@@ -1,0 +1,527 @@
+{
+  "schemaVersion": 1,
+  "sessionDirName": "0003-paying-for-it-later",
+  "startedAt": "2026-09-16T04:34:17.702Z",
+  "completedAt": "2026-09-16T05:03:41.909Z",
+  "steps": {
+    "translate-review-benlai-jiu-long-weekend": {
+      "attempts": [
+        {
+          "answer": "有人回覆才怪，剛有連假，本來就幾乎沒人在辦公室",
+          "inputMode": "typed",
+          "hintsRevealed": 0,
+          "submittedAt": "2026-09-16T04:35:25.333Z",
+          "timeSpentMs": 52607,
+          "grade": {
+            "score": 3,
+            "headline": "Good use of 本來就 on the premise this time — just fix 剛有連假.",
+            "correctedLearnerAnswer": "有人回覆才怪，現在連假耶，本來就幾乎沒人在辦公室。",
+            "modelAnswers": [
+              {
+                "chinese": "拜託，現在連假耶，本來就幾乎沒人在辦公室，當然沒人回你。",
+                "note": "Premise + 本來就, then 當然 for the result — the most idiomatic order."
+              },
+              {
+                "chinese": "連假本來就沒什麼人在上班，沒人回信很正常啊。",
+                "note": "Softer, with 很正常 instead of 才怪."
+              }
+            ],
+            "issues": [
+              {
+                "learnerExcerpt": "剛有連假",
+                "problem": "Unnatural. 剛 suggests 'just happened / just now', and 有連假 isn't a normal collocation for describing the current situation.",
+                "suggestion": "現在連假耶／現在是連假／遇到連假",
+                "category": "naturalness"
+              },
+              {
+                "learnerExcerpt": "有人回覆才怪",
+                "problem": "Fine as a flourish, but putting it first before the explanation is slightly abrupt; Taiwanese speakers usually state the premise then land the 才怪／當然 conclusion.",
+                "suggestion": "現在連假耶，本來就幾乎沒人在辦公室，有人回你才怪。",
+                "category": "naturalness"
+              }
+            ],
+            "strengths": [
+              "本來就 correctly attached to the premise (連假…本來就幾乎沒人在辦公室) — the exact fix from last time",
+              "幾乎沒人在辦公室 is a natural collocation",
+              "才怪 used appropriately for the sarcastic tone"
+            ],
+            "explanation": "You fixed the key placement problem: 本來就 now marks the baseline fact that explains the outcome (連假本來就幾乎沒人在辦公室), not the outcome itself. The remaining issue is 剛有連假 — for a currently ongoing situation Taiwanese speakers say 現在連假耶 or 現在是連假, while 剛 would mean the holiday just ended. Also, the rhetorical punch (才怪／當然沒人回你) lands better *after* the explanation rather than before it.",
+            "targetItemIdsUsedCorrectly": [],
+            "gradedBy": "llm",
+            "model": "claude-opus-5",
+            "gradedAt": "2026-09-16T04:35:25.333Z"
+          }
+        }
+      ],
+      "followUps": [],
+      "practiceDrills": {
+        "drills": []
+      },
+      "completedAt": "2026-09-16T04:36:04.806Z"
+    },
+    "teach-tech-debt-cut-corners": {
+      "attempts": [],
+      "followUps": [],
+      "completedAt": "2026-09-16T04:37:31.806Z"
+    },
+    "rewrite-tech-debt-own-diagnostic-sentence": {
+      "attempts": [
+        {
+          "answer": "我們為了趕deadline抄捷徑了，現在技術債都在還了",
+          "inputMode": "typed",
+          "hintsRevealed": 0,
+          "submittedAt": "2026-09-16T04:39:17.002Z",
+          "timeSpentMs": 88907,
+          "grade": {
+            "score": 3,
+            "headline": "Both target moves are there; just two small word-order/aspect slips make it sound slightly off.",
+            "correctedLearnerAnswer": "我們當初為了趕 deadline 抄了一堆捷徑，現在都在還技術債。",
+            "modelAnswers": [
+              {
+                "chinese": "我們當初為了趕 deadline 抄了一堆捷徑，現在就是在還這些技術債。",
+                "note": "Most idiomatic vent: 當初 sets the past frame, 就是在還 delivers the \"paying for it\" punch."
+              },
+              {
+                "chinese": "之前為了趕上線一直走捷徑，結果技術債越滾越大，現在根本還不完。",
+                "note": "Adds the snowballing image — very natural in a retro."
+              }
+            ],
+            "issues": [
+              {
+                "learnerExcerpt": "抄捷徑了",
+                "problem": "With a verb-object phrase, 了 goes after the verb, not after the object, when you're narrating a past action: 抄了捷徑. Bare 抄了捷徑 also sounds thin — natives add a quantity.",
+                "suggestion": "抄了一堆捷徑 / 抄了不少捷徑",
+                "category": "grammar"
+              },
+              {
+                "learnerExcerpt": "技術債都在還了",
+                "problem": "The final 了 after 在還 is redundant and makes it sound like the debt is already repaid; also 技術債都在還 as a topic-fronted object is a bit awkward here.",
+                "suggestion": "現在都在還技術債 / 現在就是在還這些技術債",
+                "category": "naturalness"
+              }
+            ],
+            "strengths": [
+              "Fixed 達到期限 → 趕 deadline, exactly the Taiwanese collocation",
+              "Used 技術債 with the 還 verb, so 'paying for it' comes through",
+              "Dropped the written 而 from 為了…而…"
+            ],
+            "explanation": "The two target moves landed: you 趕 a deadline (not 達到期限), and 技術債 behaves like real debt, so 還 carries the \"paying for it\" nuance. What's left is aspect placement — in a past narration the 了 attaches to the verb and usually wants a quantity: 抄了一堆捷徑, not 抄捷徑了. And 在+V already marks ongoing action, so adding 了 (在還了) muddies it; say 現在都在還 or, for extra bite, 現在就是在還這些技術債. Adding 當初/之前 up front would make the before-and-after contrast even sharper.",
+            "targetItemIdsUsedCorrectly": [
+              "tech-debt-cut-corners"
+            ],
+            "gradedBy": "llm",
+            "model": "claude-opus-5",
+            "gradedAt": "2026-09-16T04:39:17.002Z"
+          }
+        }
+      ],
+      "followUps": [],
+      "practiceDrills": {
+        "drills": [
+          {
+            "id": "drill-1",
+            "lesson": "past narration: 了 attaches to the verb with a quantity, and 在+V marks the ongoing consequence without 了",
+            "targetExpression": "V 了一堆… ，現在就是在…",
+            "english": "Back then we skipped a ton of tests to ship early, and now we're stuck fixing bugs every single day.",
+            "context": "Venting to a teammate during a sprint retro",
+            "referenceAnswers": [
+              "我們當初為了趕上線省了一堆測試，現在就是在天天修bug。",
+              "之前為了提早上線少寫了一堆測試，結果現在每天都在修bug，根本修不完。"
+            ],
+            "generatedAt": "2026-09-16T04:39:23.388Z",
+            "generatedFromAttemptIndex": 0,
+            "attempts": [
+              {
+                "answer": "我們當初為了早點部署，跳過了很多測驗，害我們現在每天都在修錯誤",
+                "inputMode": "typed",
+                "submittedAt": "2026-09-16T04:42:11.811Z",
+                "timeSpentMs": 118279,
+                "grade": {
+                  "score": 2,
+                  "headline": "Structure is close but 一堆 is missing and 測驗/錯誤 are the wrong words.",
+                  "correctedLearnerAnswer": "我們當初為了早點上線，跳過了一堆測試，害我們現在每天都在修bug",
+                  "modelAnswers": [
+                    {
+                      "chinese": "我們當初為了趕上線省了一堆測試，現在就是在天天修bug。",
+                      "note": ""
+                    }
+                  ],
+                  "issues": [],
+                  "strengths": [],
+                  "explanation": "The drill wants 「V 了一堆」, so 很多 → 一堆 (more colloquial and more vented-sounding). Also 測驗 means quiz/exam — software tests are 測試, and Taiwanese devs say 修bug, not 修錯誤; 部署 is fine but 上線 is more idiomatic here.",
+                  "targetItemIdsUsedCorrectly": [],
+                  "gradedBy": "llm",
+                  "model": "claude-opus-5",
+                  "gradedAt": "2026-09-16T04:42:11.811Z"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "completedAt": "2026-09-16T04:42:48.940Z"
+    },
+    "teach-fan-er": {
+      "attempts": [],
+      "followUps": [],
+      "completedAt": "2026-09-16T04:43:25.538Z"
+    },
+    "choice-fan-er-retro": {
+      "attempts": [
+        {
+          "answer": "加了兩個人之後，進度不但沒有變快，反而更慢了。",
+          "inputMode": "choice",
+          "hintsRevealed": 0,
+          "submittedAt": "2026-09-16T04:43:45.816Z",
+          "timeSpentMs": 20265,
+          "grade": {
+            "score": 4,
+            "headline": "Correct.",
+            "correctedLearnerAnswer": "加了兩個人之後，進度不但沒有變快，反而更慢了。",
+            "modelAnswers": [
+              {
+                "chinese": "加了兩個人之後，進度不但沒有變快，反而更慢了。",
+                "note": "The expectation (more people → faster) is reversed, which is exactly what 反而 marks. 不但沒有…反而… is the classic frame."
+              }
+            ],
+            "issues": [],
+            "strengths": [],
+            "explanation": "The expectation (more people → faster) is reversed, which is exactly what 反而 marks. 不但沒有…反而… is the classic frame.",
+            "targetItemIdsUsedCorrectly": [
+              "fan-er-contrary"
+            ],
+            "gradedBy": "choice",
+            "gradedAt": "2026-09-16T04:43:45.816Z"
+          }
+        }
+      ],
+      "followUps": [],
+      "completedAt": "2026-09-16T04:43:54.334Z"
+    },
+    "translate-fan-er-cache-slower": {
+      "attempts": [
+        {
+          "answer": "我們為了加速而加了cache，但它反而變慢了，原來幾乎每一個要求都是cache miss",
+          "inputMode": "typed",
+          "hintsRevealed": 0,
+          "submittedAt": "2026-09-16T04:45:20.134Z",
+          "timeSpentMs": 70176,
+          "grade": {
+            "score": 3,
+            "headline": "Correct use of 反而 and clear meaning; a couple of wordings sound a bit written.",
+            "correctedLearnerAnswer": "我們加 cache 是為了加速，結果頁面反而變慢了，後來發現幾乎每個 request 都是 cache miss。",
+            "modelAnswers": [
+              {
+                "chinese": "我們加 cache 本來是想加速，結果頁面反而變慢了，後來查才發現幾乎每個 request 都 cache miss。",
+                "note": "本來…結果…反而 is the most natural spoken frame for a defeated expectation."
+              },
+              {
+                "chinese": "加了 cache 不但沒變快，頁面反而更慢，原因是幾乎所有 request 都沒打中 cache。",
+                "note": "Uses the fuller 不但沒…反而… form."
+              }
+            ],
+            "issues": [
+              {
+                "learnerExcerpt": "為了加速而加了cache",
+                "problem": "The 為了…而… frame is written/formal. In speech you'd topicalize: 加 cache 是為了加速 / 本來是想加速.",
+                "suggestion": "我們加 cache 本來是想加速",
+                "category": "naturalness"
+              },
+              {
+                "learnerExcerpt": "每一個要求",
+                "problem": "要求 means 'demand/requirement', not an HTTP request. Taiwanese devs just say request (or 請求 in writing).",
+                "suggestion": "幾乎每個 request",
+                "category": "word_choice"
+              },
+              {
+                "learnerExcerpt": "但它反而變慢了",
+                "problem": "它 is vague; naming the subject (頁面) is clearer and more idiomatic, and 結果 pairs better with 反而 than 但.",
+                "suggestion": "結果頁面反而變慢了",
+                "category": "naturalness"
+              },
+              {
+                "learnerExcerpt": "原來幾乎每一個",
+                "problem": "原來 works for 'turns out', but here you discovered it by investigating, so 後來發現 / 查了才知道 sounds more natural in a post-mortem.",
+                "suggestion": "後來發現幾乎每個 request 都是 cache miss",
+                "category": "word_choice"
+              }
+            ],
+            "strengths": [
+              "反而 correctly placed after the subject and before the verb",
+              "Kept clauses short and chunked",
+              "Natural code-switching with cache / cache miss"
+            ],
+            "explanation": "Your 反而 is right where it belongs — after the topic, before the verb: 頁面反而變慢了. To make it sound fully spoken, set up the expectation with 本來/原本 and land the reversal with 結果…反而…: 「本來是想加速，結果反而更慢」. Watch 要求 vs request: 要求 is a demand, not a network request — devs in Taiwan just say request. And for 'turns out' after digging into logs, 後來發現 / 查了才知道 beats 原來 alone.",
+            "targetItemIdsUsedCorrectly": [],
+            "gradedBy": "llm",
+            "model": "claude-opus-5",
+            "gradedAt": "2026-09-16T04:45:20.133Z"
+          }
+        }
+      ],
+      "followUps": [],
+      "practiceDrills": {
+        "drills": [
+          {
+            "id": "drill-1",
+            "lesson": "set up the expectation, then land the reversal",
+            "targetExpression": "本來…，結果…反而…",
+            "english": "We hired two more people to ship faster, but if anything the project slowed down — turns out nobody knew who owned what.",
+            "context": "Venting to a friend about your team",
+            "referenceAnswers": [
+              "本來多找兩個人是想快一點交出去，結果進度反而更慢，後來才發現根本沒人知道誰負責哪一塊。",
+              "我們本來想說多兩個人會比較快，結果專案反而拖更久，查了才知道大家都搞不清楚誰負責什麼。"
+            ],
+            "generatedAt": "2026-09-16T04:45:25.690Z",
+            "generatedFromAttemptIndex": 0,
+            "attempts": [
+              {
+                "answer": "我們本來多請了兩個人，是為了早點上線，結果專案反而變慢了，後來發現我們都不清楚誰負責哪一塊",
+                "inputMode": "typed",
+                "submittedAt": "2026-09-16T04:48:27.229Z",
+                "timeSpentMs": 132780,
+                "grade": {
+                  "score": 4,
+                  "headline": "Natural, well-structured use of 本來…結果…反而….",
+                  "correctedLearnerAnswer": "我們本來多請了兩個人，是為了早點上線，結果專案反而變慢了，後來才發現根本沒人知道誰負責哪一塊。",
+                  "modelAnswers": [
+                    {
+                      "chinese": "我們本來多請兩個人，就是想早點上線，結果進度反而更慢，後來才發現根本沒人知道誰負責哪一塊。",
+                      "note": ""
+                    }
+                  ],
+                  "issues": [],
+                  "strengths": [],
+                  "explanation": "Only polish: 後來才發現 (with 才) and 根本沒人知道 land the \"turns out\" discovery more sharply than 後來發現我們都不清楚.",
+                  "targetItemIdsUsedCorrectly": [
+                    "fan-er-contrary"
+                  ],
+                  "gradedBy": "llm",
+                  "model": "claude-opus-5",
+                  "gradedAt": "2026-09-16T04:48:27.229Z"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "completedAt": "2026-09-16T04:49:01.751Z"
+    },
+    "translate-review-lian-dou-cleft-pricing": {
+      "attempts": [
+        {
+          "answer": "想要漲價的人是你，所以要拿出數據也應該是你，你連一個客戶都沒問過",
+          "inputMode": "typed",
+          "hintsRevealed": 0,
+          "submittedAt": "2026-09-16T04:50:04.477Z",
+          "timeSpentMs": 50425,
+          "grade": {
+            "score": 3,
+            "headline": "Very close to native — just one missing 的 in the second cleft.",
+            "correctedLearnerAnswer": "想要漲價的人是你，所以要拿出數據的也應該是你啊，你連一個客戶都沒問過耶。",
+            "modelAnswers": [
+              {
+                "chinese": "想漲價的是你耶，那要拿出數據的應該也是你吧。你連一個客戶都還沒問過欸。",
+                "note": "Particles 耶/吧/欸 keep it friendly-but-firm."
+              },
+              {
+                "chinese": "要調價的是你啊，舉證責任在你身上吧？你連一個客戶都沒問過。",
+                "note": "Uses the set phrase 舉證責任在你身上."
+              }
+            ],
+            "issues": [
+              {
+                "learnerExcerpt": "所以要拿出數據也應該是你",
+                "problem": "The second cleft needs 的 to nominalize 'the one who has to show the numbers'; without it the sentence reads as 'having to show data should also be you', which is ungrammatical.",
+                "suggestion": "所以要拿出數據的也應該是你",
+                "category": "grammar"
+              },
+              {
+                "learnerExcerpt": "你連一個客戶都沒問過",
+                "problem": "Fine as is; adding 還 and a particle sounds more spoken and more pointed.",
+                "suggestion": "你連一個客戶都還沒問過耶",
+                "category": "naturalness"
+              }
+            ],
+            "strengths": [
+              "First cleft 想要漲價的人是你 correctly pins responsibility",
+              "連一個客戶都沒問過 is exactly the right 連…都沒 V 過 pattern, object not fronted",
+              "Natural connective 所以…也應該是你 carries the burden-of-proof logic"
+            ],
+            "explanation": "The 的是 cleft always needs 的 on the whole predicate you're nominalizing: 想漲價的是你 / 要拿出數據的是你. You got it right the first time but dropped it the second time — remember that 要拿出數據 is itself the relative clause, so 的 comes after 數據: 要拿出數據的也應該是你. Also note you avoided your old fronting error (一個客戶你連問都沒問) and produced 連一個客戶都沒問過 cleanly. For extra force you could swap in the set phrase: 舉證責任在你身上吧？",
+            "targetItemIdsUsedCorrectly": [
+              "lian-dou-not-even",
+              "burden-of-proof"
+            ],
+            "gradedBy": "llm",
+            "model": "claude-opus-5",
+            "gradedAt": "2026-09-16T04:50:04.474Z"
+          }
+        }
+      ],
+      "followUps": [],
+      "practiceDrills": {
+        "drills": []
+      },
+      "completedAt": "2026-09-16T04:50:50.356Z"
+    },
+    "respond-borrow-two-engineers": {
+      "attempts": [
+        {
+          "answer": "我們上次能夠準時上線，只是因為抄了一堆捷徑，現在還在還這些技術債。多加兩個人不見得會加速，反而會變慢，不管是誰加入，都需要你們team其中一個人停下來帶他們",
+          "inputMode": "typed",
+          "hintsRevealed": 0,
+          "submittedAt": "2026-09-16T04:55:19.887Z",
+          "timeSpentMs": 253002,
+          "grade": {
+            "score": 3,
+            "headline": "Both points land clearly and 反而 is well used; a couple of wording slips and the ramp-up time is only half-stated.",
+            "correctedLearnerAnswer": "我們上次能準時上線，只是因為抄了一堆捷徑，那些技術債我們到現在還在還。多兩個人不見得會加速，反而可能更慢啦——不管是誰來，熟悉我們的 codebase 本來就要一兩個禮拜，我們這邊還得有人停下來帶他們。",
+            "modelAnswers": [
+              {
+                "chinese": "雅婷，上次能兩個禮拜上線，是因為我們為了趕 deadline 抄了很多捷徑啦，那些技術債到現在都還在還。而且現在借人過來反而可能更慢耶——新人要上手我們的 codebase 本來就要一兩個禮拜，我們這邊還得有人停下來帶他們。",
+                "note": "Chunked short clauses, 反而 + 本來就 on the premise, friendly 啦/耶."
+              },
+              {
+                "chinese": "上次那是硬趕出來的啦，留下一堆技術債現在還沒還完。再塞兩個人進來反而更慢，光是熟悉程式碼就要一陣子，我們還得分人去帶他們欸。",
+                "note": "Blunter, very colloquial."
+              }
+            ],
+            "issues": [
+              {
+                "learnerExcerpt": "你們team其中一個人",
+                "problem": "Perspective slip — it's your own team, so 你們 is wrong; also 其中一個人 is stiff.",
+                "suggestion": "我們這邊還得有人停下來帶他們",
+                "category": "word_choice"
+              },
+              {
+                "learnerExcerpt": "不管是誰加入",
+                "problem": "You imply ramp-up is unavoidable but never say how long it takes, which is the核心 of the argument.",
+                "suggestion": "不管是誰來，熟悉我們的 codebase 本來就要一兩個禮拜",
+                "category": "missing_content"
+              },
+              {
+                "learnerExcerpt": "不見得會加速，反而會變慢",
+                "problem": "加速/變慢 are fine but slightly written; spoken Taiwanese would hedge with 可能 and a particle to keep it friendly.",
+                "suggestion": "不見得會比較快，反而可能更慢啦",
+                "category": "naturalness"
+              }
+            ],
+            "strengths": [
+              "抄了一堆捷徑 + 現在還在還這些技術債 — exactly the right frame",
+              "反而 used correctly against her expectation",
+              "停下來帶他們 is the idiomatic way to say 'walk them through it'"
+            ],
+            "explanation": "Your two arguments are both there and 反而 is well placed. The upgrade is 本來就 on the *premise*: 熟悉我們的 codebase 本來就要一兩個禮拜 ('it inherently takes two weeks'), which is what makes the 'no matter who' claim persuasive — without the time estimate, 不管是誰加入 hangs a bit. Also watch the pronoun: it's 我們這邊, not 你們team. Finally, spoken pushback in Taiwan usually breaks into short chunks with 啦/耶 (…反而可能更慢耶) rather than one long chain of clauses.",
+            "targetItemIdsUsedCorrectly": [],
+            "gradedBy": "llm",
+            "model": "claude-opus-5",
+            "gradedAt": "2026-09-16T04:55:19.887Z"
+          }
+        }
+      ],
+      "followUps": [],
+      "practiceDrills": {
+        "drills": [
+          {
+            "id": "drill-1",
+            "lesson": "state an inherent, unavoidable premise (with a concrete amount) to back up a counter-intuitive claim, plus 'on the contrary'",
+            "targetExpression": "本來就… + 反而…",
+            "english": "Cutting the review time won't help — reading a big PR properly takes an hour anyway, so rushing it actually creates more bugs.",
+            "context": "To a colleague who wants to speed up code review",
+            "referenceAnswers": [
+              "砍 review 的時間沒用啦，好好看完一個大 PR 本來就要一個小時，趕著看反而會多出更多 bug 耶。",
+              "你把 review 時間壓短其實沒幫助，認真看一個大 PR 本來就要一小時，硬趕反而會漏掉東西，bug 更多啦。"
+            ],
+            "generatedAt": "2026-09-16T04:55:26.809Z",
+            "generatedFromAttemptIndex": 0,
+            "attempts": [
+              {
+                "answer": "簡短審查時間不會有幫助，看大PR本來就需要一個小時的時間，很趕反而會造成更多bug",
+                "inputMode": "typed",
+                "submittedAt": "2026-09-16T04:59:26.493Z",
+                "timeSpentMs": 148518,
+                "grade": {
+                  "score": 3,
+                  "headline": "Target nailed; a couple of phrasings sound written/translated rather than spoken.",
+                  "correctedLearnerAnswer": "縮短 review 的時間不會有幫助，好好看完一個大 PR 本來就需要一個小時，趕著看反而會造成更多 bug。",
+                  "modelAnswers": [
+                    {
+                      "chinese": "砍 review 時間沒用啦，認真看完一個大 PR 本來就要一個小時，硬趕反而會多一堆 bug。",
+                      "note": ""
+                    }
+                  ],
+                  "issues": [],
+                  "strengths": [],
+                  "explanation": "「簡短」doesn't collocate with time — use 縮短/壓縮/砍; and Taiwanese devs just say review/PR rather than 審查. 「很趕反而」is better as 「趕著看反而」or「硬趕反而」.",
+                  "targetItemIdsUsedCorrectly": [],
+                  "gradedBy": "llm",
+                  "model": "claude-opus-5",
+                  "gradedAt": "2026-09-16T04:59:26.493Z"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "completedAt": "2026-09-16T05:00:24.405Z"
+    }
+  },
+  "endOfSessionFeedback": {
+    "difficulty": "about_right",
+    "steeringNote": "",
+    "processFeedback": "it might be nice to be able to page back through the screens just to review what I just looked at. doesn't need to reset state or be interactive. not a big deal though.\n\nwhen are we going to add imagery? some simple accompanying cartoons or pictures or graphics might be a nice touch. I know you probably need an API key for that though.",
+    "submittedAt": "2026-09-16T05:03:41.909Z"
+  },
+  "itemScheduleChanges": [
+    {
+      "itemId": "benlai-jiu-anyway",
+      "score": 3,
+      "stageBefore": 4,
+      "stageAfter": 5,
+      "intervalDaysBefore": 3,
+      "intervalDaysAfter": 3,
+      "dueAt": "2026-09-19T05:03:41.909Z"
+    },
+    {
+      "itemId": "burden-of-proof",
+      "score": 3,
+      "stageBefore": 4,
+      "stageAfter": 5,
+      "intervalDaysBefore": 3,
+      "intervalDaysAfter": 3,
+      "dueAt": "2026-09-19T05:03:41.909Z"
+    },
+    {
+      "itemId": "lian-dou-not-even",
+      "score": 3,
+      "stageBefore": 4,
+      "stageAfter": 5,
+      "intervalDaysBefore": 3,
+      "intervalDaysAfter": 3,
+      "dueAt": "2026-09-19T05:03:41.909Z"
+    },
+    {
+      "itemId": "tech-debt-cut-corners",
+      "score": 3,
+      "stageBefore": 0,
+      "stageAfter": 4,
+      "intervalDaysBefore": 0,
+      "intervalDaysAfter": 1,
+      "dueAt": "2026-09-17T05:03:41.909Z"
+    },
+    {
+      "itemId": "fan-er-contrary",
+      "score": 3.5,
+      "stageBefore": 0,
+      "stageAfter": 4,
+      "intervalDaysBefore": 0,
+      "intervalDaysAfter": 3,
+      "dueAt": "2026-09-19T05:03:41.909Z"
+    }
+  ],
+  "nextSessionPreparation": {
+    "triggeredAt": "2026-09-16T05:03:41.928Z",
+    "logPath": "topics/zh-tw-expressiveness/.prep/2026-09-16T05-03-41-926Z-after-0003-paying-for-it-later.log"
+  }
+}

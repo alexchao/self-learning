@@ -13,3 +13,11 @@ For now, let's keep the pace slow and reiterate or rehash this content, because 
 - Difficulty: about right
 - Note: I like the software engineering vocab. I rarely run into this stuff. just make sure it's grounded in real usage.
 - Status: addressed in 0003-paying-for-it-later (both new items are software-flavored and use everyday dev phrasing: 趕 deadline, 抄捷徑, 技術債, 先求有再求好, code-switched cache/request/codebase; the stretch is a sprint-planning pushback. Kept to widely used phrases rather than niche jargon.)
+
+## 2026-09-16 · after 0003-paying-for-it-later
+- Difficulty: about right
+- Note: (no steering note left)
+- Status: addressed in 0004-how-big-is-the-claim (kept the same shape and difficulty that has been rated "about right"
+  three times: 2 new items, 3 drills, one stage-5 stretch. Length budgeted from 0003's measured pace rather than the
+  guide's estimates. The standing "software vocab, grounded in real usage" steering from 0002 is honored by the
+  warm-up and 光是 steps; the rest rotates to argument and family strands so three sessions don't run all-software.)

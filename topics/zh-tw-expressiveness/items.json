@@ -25,14 +25,14 @@
       ],
       "createdAt": "2026-09-13T23:51:42.000Z",
       "introducedInSession": "0002-anyway-proof-not-even",
-      "stage": 4,
+      "stage": 5,
       "spacedRepetition": {
-        "dueAt": "2026-09-18T04:56:23.710Z",
+        "dueAt": "2026-09-19T05:03:41.909Z",
         "intervalDays": 3,
         "ease": 2.65,
-        "reps": 1,
+        "reps": 2,
         "lapses": 0,
-        "lastReviewedAt": "2026-09-15T04:56:23.710Z"
+        "lastReviewedAt": "2026-09-16T05:03:41.909Z"
       },
       "history": [
         {
@@ -45,6 +45,17 @@
           "score": 4,
           "reviewedAt": "2026-09-15T04:56:23.710Z",
           "stageAfter": 4,
+          "intervalDaysAfter": 3
+        },
+        {
+          "sessionDirName": "0003-paying-for-it-later",
+          "stepIds": [
+            "translate-review-benlai-jiu-long-weekend"
+          ],
+          "stageTested": 4,
+          "score": 3,
+          "reviewedAt": "2026-09-16T05:03:41.909Z",
+          "stageAfter": 5,
           "intervalDaysAfter": 3
         }
       ]
@@ -72,14 +83,14 @@
       ],
       "createdAt": "2026-09-13T23:51:42.000Z",
       "introducedInSession": "0002-anyway-proof-not-even",
-      "stage": 4,
+      "stage": 5,
       "spacedRepetition": {
-        "dueAt": "2026-09-18T04:56:23.710Z",
+        "dueAt": "2026-09-19T05:03:41.909Z",
         "intervalDays": 3,
         "ease": 2.65,
-        "reps": 1,
+        "reps": 2,
         "lapses": 0,
-        "lastReviewedAt": "2026-09-15T04:56:23.710Z"
+        "lastReviewedAt": "2026-09-16T05:03:41.909Z"
       },
       "history": [
         {
@@ -92,6 +103,17 @@
           "score": 4,
           "reviewedAt": "2026-09-15T04:56:23.710Z",
           "stageAfter": 4,
+          "intervalDaysAfter": 3
+        },
+        {
+          "sessionDirName": "0003-paying-for-it-later",
+          "stepIds": [
+            "translate-review-lian-dou-cleft-pricing"
+          ],
+          "stageTested": 4,
+          "score": 3,
+          "reviewedAt": "2026-09-16T05:03:41.909Z",
+          "stageAfter": 5,
           "intervalDaysAfter": 3
         }
       ]
@@ -119,14 +141,14 @@
       ],
       "createdAt": "2026-09-13T23:51:42.000Z",
       "introducedInSession": "0002-anyway-proof-not-even",
-      "stage": 4,
+      "stage": 5,
       "spacedRepetition": {
-        "dueAt": "2026-09-18T04:56:23.710Z",
+        "dueAt": "2026-09-19T05:03:41.909Z",
         "intervalDays": 3,
         "ease": 2.65,
-        "reps": 1,
+        "reps": 2,
         "lapses": 0,
-        "lastReviewedAt": "2026-09-15T04:56:23.710Z"
+        "lastReviewedAt": "2026-09-16T05:03:41.909Z"
       },
       "history": [
         {
@@ -139,6 +161,17 @@
           "score": 4,
           "reviewedAt": "2026-09-15T04:56:23.710Z",
           "stageAfter": 4,
+          "intervalDaysAfter": 3
+        },
+        {
+          "sessionDirName": "0003-paying-for-it-later",
+          "stepIds": [
+            "translate-review-lian-dou-cleft-pricing"
+          ],
+          "stageTested": 4,
+          "score": 3,
+          "reviewedAt": "2026-09-16T05:03:41.909Z",
+          "stageAfter": 5,
           "intervalDaysAfter": 3
         }
       ]
@@ -165,17 +198,29 @@
         "collocation"
       ],
       "createdAt": "2026-09-15T05:05:00.000Z",
-      "introducedInSession": null,
-      "stage": 0,
+      "introducedInSession": "0003-paying-for-it-later",
+      "stage": 4,
       "spacedRepetition": {
-        "dueAt": null,
-        "intervalDays": 0,
+        "dueAt": "2026-09-17T05:03:41.909Z",
+        "intervalDays": 1,
         "ease": 2.5,
-        "reps": 0,
+        "reps": 1,
         "lapses": 0,
-        "lastReviewedAt": null
+        "lastReviewedAt": "2026-09-16T05:03:41.909Z"
       },
-      "history": []
+      "history": [
+        {
+          "sessionDirName": "0003-paying-for-it-later",
+          "stepIds": [
+            "rewrite-tech-debt-own-diagnostic-sentence"
+          ],
+          "stageTested": 3,
+          "score": 3,
+          "reviewedAt": "2026-09-16T05:03:41.909Z",
+          "stageAfter": 4,
+          "intervalDaysAfter": 1
+        }
+      ]
     },
     {
       "id": "fan-er-contrary",
@@ -200,6 +245,98 @@
         "software-engineering"
       ],
       "createdAt": "2026-09-15T05:05:00.000Z",
+      "introducedInSession": "0003-paying-for-it-later",
+      "stage": 4,
+      "spacedRepetition": {
+        "dueAt": "2026-09-19T05:03:41.909Z",
+        "intervalDays": 3,
+        "ease": 2.65,
+        "reps": 1,
+        "lapses": 0,
+        "lastReviewedAt": "2026-09-16T05:03:41.909Z"
+      },
+      "history": [
+        {
+          "sessionDirName": "0003-paying-for-it-later",
+          "stepIds": [
+            "choice-fan-er-retro",
+            "translate-fan-er-cache-slower"
+          ],
+          "stageTested": 3,
+          "score": 4,
+          "reviewedAt": "2026-09-16T05:03:41.909Z",
+          "stageAfter": 4,
+          "intervalDaysAfter": 3
+        }
+      ]
+    },
+    {
+      "id": "guang-shi-jiu-alone",
+      "kind": "pattern",
+      "headword": "光是…就…",
+      "pinyin": "guāng shì … jiù",
+      "gloss": "just X alone already takes / costs …",
+      "explanation": "Isolates one part of a job and prices it, so the listener works out that the whole thing is worse: 光是熟悉 codebase 就要兩個禮拜. 光是 takes the isolated thing (a noun phrase or a verb phrase), and 就 sits before the verb that states the cost, which needs a concrete amount to land — 光是…就很多 is weak, 光是…就三天 bites. 光 alone is common in speech (光搬資料就要三天). Often followed by 更不用說… or 何況… for 'let alone'.",
+      "examples": [
+        {
+          "chinese": "光是熟悉我們的 codebase 就要兩個禮拜，更不用說開始寫功能了。",
+          "english": "Just getting familiar with our codebase takes two weeks, let alone starting to write features."
+        },
+        {
+          "chinese": "光是那張表就有三千萬筆資料，你全部撈出來當然會爆。",
+          "english": "That one table alone has thirty million rows. Of course it blows up if you pull all of them."
+        },
+        {
+          "chinese": "光是通勤就花掉我每天兩個小時。",
+          "english": "The commute alone eats two hours of my day."
+        }
+      ],
+      "tags": [
+        "discourse-frame",
+        "explanation",
+        "scale"
+      ],
+      "createdAt": "2026-09-16T05:10:00.000Z",
+      "introducedInSession": null,
+      "stage": 0,
+      "spacedRepetition": {
+        "dueAt": null,
+        "intervalDays": 0,
+        "ease": 2.5,
+        "reps": 0,
+        "lapses": 0,
+        "lastReviewedAt": null
+      },
+      "history": []
+    },
+    {
+      "id": "claim-evidence-strength",
+      "kind": "concept_vocabulary",
+      "headword": "說法／主張＋證據夠不夠力（越誇張的說法，證據就要越強）",
+      "pinyin": "shuōfǎ · zhǔzhāng · zhèngjù yǒulì",
+      "gloss": "claim / assertion, and whether the evidence is strong enough to carry it",
+      "explanation": "說法 is the everyday word for what someone is claiming (你這個說法站不住腳). 主張 is a position you actively argue for (他主張…). Evidence is 有力／夠力／扎實, and when it's weak, 薄弱／不夠力 — not 強大, which doesn't collocate with 證據. The learner's target move, 'the evidence has to scale with the claim', is 越誇張的說法，需要的證據就要越扎實, built on the 越…越… frame they already handle. Also useful: 說服力 (persuasive force) and 這種證據的證據力很低.",
+      "examples": [
+        {
+          "chinese": "越誇張的說法，需要的證據就要越扎實，這很基本吧。",
+          "english": "The more outlandish the claim, the more solid the evidence has to be. That's pretty basic."
+        },
+        {
+          "chinese": "你這個主張太大了，就要拿出相對有力的證據才行。",
+          "english": "That's a huge claim to make; you need evidence that's strong in proportion.",
+          "note": "相對 here = 'correspondingly', not 'relatively'."
+        },
+        {
+          "chinese": "他的說法根本站不住腳，證據太薄弱了。",
+          "english": "His claim doesn't hold up at all — the evidence is far too thin."
+        }
+      ],
+      "tags": [
+        "argument",
+        "epistemics",
+        "collocation"
+      ],
+      "createdAt": "2026-09-16T05:10:00.000Z",
       "introducedInSession": null,
       "stage": 0,
       "spacedRepetition": {

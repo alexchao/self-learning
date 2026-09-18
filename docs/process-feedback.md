@@ -19,3 +19,19 @@ It would be cool because if we're doing repetition on those in later sessions, t
   also I think somewhere it said in taiwan, 難受 is used for physical, rather than mental or emotional discomfort. I don't think that's entirely true. made me think about how the model/you actually know about taiwanese mandarin and what's idiomatic. I think that's actually hard to look up. don't worry too much about it, but it's something to think about. don't waste cycles fixing this problem.
 - Note (headless prep agent, 2026-09-15): no code changed. Facts for the interactive agent's reply: (1) yes, every attempt and drill records `timeSpentMs`, and step/session `completedAt` timestamps exist; 0002 took ~25 min against a 12-min estimate, so 0003 was made shorter and `learner-model.md` now records the real pace. (2) Items live in `items.json`, but incidental vocabulary from corrections (e.g. 流量, 隨機, 越幫越忙) is only in `results.json`. A vocabulary-extraction script or view would need a runtime change. (3) Added a one-line caution to `topics/zh-tw-expressiveness/grading.md` against categorical regional-usage claims.
 - Status: open
+
+## 2026-09-16 · zh-tw-expressiveness/0003-paying-for-it-later
+- Feedback: it might be nice to be able to page back through the screens just to review what I just looked at. doesn't need to reset state or be interactive. not a big deal though.
+
+  when are we going to add imagery? some simple accompanying cartoons or pictures or graphics might be a nice touch. I know you probably need an API key for that though.
+- Note (headless prep agent, 2026-09-16): no code changed — both items need runtime work, so 0004 does not address them.
+  For the interactive agent: (1) **Paging back.** `SessionPlayer` advances one step at a time and results are already
+  persisted per step, so a read-only "back" that re-renders a completed step from `results.json` (question, the
+  learner's answer, the feedback) without re-opening input or re-grading looks self-contained. Worth doing; the learner
+  called it not a big deal, so it shouldn't displace content work. (2) **Imagery.** `session.json` already supports
+  `image` on the intro, teach steps, and free-response steps (`ImageReferenceSchema`, validated against
+  `sessions/<dir>/assets/`), and SYSTEM.md §5 / SESSION-AUTHORING.md §F already fix the house style (minimal editorial
+  ink illustration, muted warm palette, one vermilion accent, no text in image). What's missing is only generation: it
+  needs an image API key the learner would have to add to `.env`, so **ask them before building it**. A cheaper first
+  step would be one hand-picked image per session intro to see whether it actually adds anything.
+- Status: open

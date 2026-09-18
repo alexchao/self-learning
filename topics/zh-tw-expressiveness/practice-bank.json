@@ -101,6 +101,67 @@
         "answer": "想要把價錢調高是你，所以要拿出數據的人也應該是你吧，你連一個客戶都沒問",
         "score": 3
       }
+    },
+    {
+      "id": "0003-paying-for-it-later--rewrite-tech-debt-own-diagnostic-sentence--drill-1",
+      "createdAt": "2026-09-16T04:39:23.388Z",
+      "sourceSessionDirName": "0003-paying-for-it-later",
+      "sourceStepId": "rewrite-tech-debt-own-diagnostic-sentence",
+      "itemIds": [
+        "tech-debt-cut-corners"
+      ],
+      "lesson": "past narration: 了 attaches to the verb with a quantity, and 在+V marks the ongoing consequence without 了",
+      "targetExpression": "V 了一堆… ，現在就是在…",
+      "english": "Back then we skipped a ton of tests to ship early, and now we're stuck fixing bugs every single day.",
+      "context": "Venting to a teammate during a sprint retro",
+      "referenceAnswers": [
+        "我們當初為了趕上線省了一堆測試，現在就是在天天修bug。",
+        "之前為了提早上線少寫了一堆測試，結果現在每天都在修bug，根本修不完。"
+      ],
+      "firstAttempt": {
+        "answer": "我們當初為了早點部署，跳過了很多測驗，害我們現在每天都在修錯誤",
+        "score": 2
+      }
+    },
+    {
+      "id": "0003-paying-for-it-later--translate-fan-er-cache-slower--drill-1",
+      "createdAt": "2026-09-16T04:45:25.690Z",
+      "sourceSessionDirName": "0003-paying-for-it-later",
+      "sourceStepId": "translate-fan-er-cache-slower",
+      "itemIds": [
+        "fan-er-contrary"
+      ],
+      "lesson": "set up the expectation, then land the reversal",
+      "targetExpression": "本來…，結果…反而…",
+      "english": "We hired two more people to ship faster, but if anything the project slowed down — turns out nobody knew who owned what.",
+      "context": "Venting to a friend about your team",
+      "referenceAnswers": [
+        "本來多找兩個人是想快一點交出去，結果進度反而更慢，後來才發現根本沒人知道誰負責哪一塊。",
+        "我們本來想說多兩個人會比較快，結果專案反而拖更久，查了才知道大家都搞不清楚誰負責什麼。"
+      ],
+      "firstAttempt": {
+        "answer": "我們本來多請了兩個人，是為了早點上線，結果專案反而變慢了，後來發現我們都不清楚誰負責哪一塊",
+        "score": 4
+      }
+    },
+    {
+      "id": "0003-paying-for-it-later--respond-borrow-two-engineers--drill-1",
+      "createdAt": "2026-09-16T04:55:26.809Z",
+      "sourceSessionDirName": "0003-paying-for-it-later",
+      "sourceStepId": "respond-borrow-two-engineers",
+      "itemIds": [],
+      "lesson": "state an inherent, unavoidable premise (with a concrete amount) to back up a counter-intuitive claim, plus 'on the contrary'",
+      "targetExpression": "本來就… + 反而…",
+      "english": "Cutting the review time won't help — reading a big PR properly takes an hour anyway, so rushing it actually creates more bugs.",
+      "context": "To a colleague who wants to speed up code review",
+      "referenceAnswers": [
+        "砍 review 的時間沒用啦，好好看完一個大 PR 本來就要一個小時，趕著看反而會多出更多 bug 耶。",
+        "你把 review 時間壓短其實沒幫助，認真看一個大 PR 本來就要一小時，硬趕反而會漏掉東西，bug 更多啦。"
+      ],
+      "firstAttempt": {
+        "answer": "簡短審查時間不會有幫助，看大PR本來就需要一個小時的時間，很趕反而會造成更多bug",
+        "score": 3
+      }
     }
   ]
 }

@@ -1,0 +1,205 @@
+{
+  "schemaVersion": 1,
+  "topicId": "zh-tw-expressiveness",
+  "sessionNumber": 4,
+  "kind": "regular",
+  "title": "How big is the claim?",
+  "subtitle": "Putting a number on it, evidence that has to match, and saying no to family",
+  "estimatedMinutes": 20,
+  "createdAt": "2026-09-16T05:10:00.000Z",
+  "authorRationale": "EVIDENCE (0003, see its review.md): every first attempt scored 3, the choice 4, no hints, no retries, no disputes, rated 'about right'. Both errors flagged after 0002 were fixed (本來就 on the premise; 連 + object + 都沒 V unfronted), and 反而 was placed correctly on first contact and reused unprompted in the stretch. What is holding production at 3 is no longer structure but (a) written/textbook register — 要求 for a request, 測驗 for 測試, 修錯誤 for 修 bug, 部署 for 上線, 為了…而…, 加速/變慢 — (b) aspect and quantity in past narration (抄捷徑了 for 抄了一堆捷徑, redundant 了 on 在還了, 很多 for 一堆), and (c) arguing without a number: in the stretch they said 不管是誰加入 but never said how long ramp-up takes, which is what the grader had to supply. REAL PACE: 0003 estimated 14, took ~26 min through the last step — the same ~1.85× gap as 0002. Budgeted from 0003's measured per-step times (review translate no drill 1.8 · teach 0.6–1.5 · choice 0.5 · translate/rewrite + 1 drill 5.2 · stretch respond + 1 drill 9.6): 8 steps, 3 drills, about 23 real minutes, which lands in the topic's 15–25 window. estimatedMinutes is set to 20 only because that is the schema maximum; the honest figure is ~23. REVIEWS (3 steps, cap is 4): tech-debt-cut-corners is due 2026-09-17 and reruns the one banked sentence scored 2, verbatim, as a fast warm-up (bank entry 0003…rewrite-tech-debt…drill-1) — the failed drill is the highest-value sentence in the bank. fan-er-contrary at stage 4, moved out of software into an emotional context so the frame 本來…結果…反而… (its own drill, scored 4) transfers domains. The three 0002 items (all now stage 5, due 2026-09-19) are tested together in the closing respond at stage 5 with NO same-session priming — that was the explicit instruction left in 0003's authorNotes, and it is the first time a stretch step carries itemIds, so those stage-5 promotions finally get real evidence. If the learner returns on 09-17 or 09-18 those three are 1–2 days early; with a five-item deck that costs almost nothing, since a slightly early success just earns a slightly shorter interval. NEW ITEMS (2, both aimed at the gaps above rather than at fresh curriculum): guang-shi-jiu-alone (光是…就…) is the missing tool for gap (c) — isolate one cost and price it — and would have rescued the 0003 stretch; claim-evidence-strength (說法/主張 + 證據有力/扎實, 越誇張越要…) is the queued item from learner-model.md and is literally the learner's headline goal sentence from TOPIC.md, and it targets gap (a), since the structure 越…越… is already easy for them and only the collocations are new. That is why it gets a choice built entirely out of collocation traps (證據強大, a 被 passive calque) and then a stage-4 translate with no scaffolding, while 光是 — a placement pattern on first contact — gets a stage-3 guided translate instead. STRANDS: 0003 ran three software steps in a row, so this session rotates: software warm-up → 光是 in a migration → argument/epistemics → a family argument about a supplement. STEERING: the 0003 note was difficulty-only ('about right', no note), so the shape that has now been rated about right three times is kept unchanged. PROCESS FEEDBACK (open, after 0003: paging back through completed screens, and imagery): both need runtime changes, so nothing is done here; I left a note in docs/process-feedback.md with what each would take, including that imagery needs an image API key the learner must add to .env — the interactive agent should ask before building it.",
+  "intro": {
+    "heading": "Two ways to make an argument land",
+    "body": "Last time you argued that new people wouldn't speed the project up, and you were right — but you never said how long it actually takes someone to get up to speed. The number is what makes the argument stick. 光是…就… is how you say it.\n\nThen the sentence you said you wanted from the start: the evidence has to match the size of the claim. It ends with your cousin and a bottle of supplements."
+  },
+  "steps": [
+    {
+      "id": "translate-review-tech-debt-skipped-tests",
+      "type": "translate",
+      "itemIds": [
+        "tech-debt-cut-corners"
+      ],
+      "stage": 4,
+      "sourcePracticeBankEntryId": "0003-paying-for-it-later--rewrite-tech-debt-own-diagnostic-sentence--drill-1",
+      "context": "Venting to a teammate during a retro.",
+      "english": "Back then we skipped a ton of tests to ship early, and now we're stuck fixing bugs every single day.",
+      "referenceAnswers": [
+        "我們當初為了趕上線省了一堆測試，現在就是在天天修 bug。",
+        "之前為了提早上線少寫了一堆測試，結果現在每天都在修 bug，根本修不完。",
+        "那時候為了趕進度跳過了一堆測試，現在每天都在修 bug，還都還不完。"
+      ],
+      "hints": [],
+      "gradingNotes": "Stage 4 review, rerunning a drill the learner scored 2 on last session (they wrote 我們當初為了早點部署，跳過了很多測驗，害我們現在每天都在修錯誤). Three things to check, all of them corrections they have already been given: (1) past narration puts 了 on the verb with a quantity — 跳過了一堆測試 / 省了一堆測試 — not 了 after the object and not 很多, which sounds flat where venting wants 一堆; (2) 測試, not 測驗 (a quiz/exam), and 修 bug, not 修錯誤; (3) 上線 is the everyday word for shipping, 部署 is fine but stiffer. The ongoing consequence is 現在(就是)在 + V or 現在每天都在 + V, with no trailing 了 (在還了 was last session's slip). 害我們現在… is a good natural touch. Repeating last time's vocabulary is a word_choice issue worth naming explicitly; structure right but vocabulary repeated is a 3, both right is a 4, the 了/quantity structure wrong again is a 2.",
+      "practiceDrillCount": 0
+    },
+    {
+      "id": "translate-review-fan-er-clearing-the-air",
+      "type": "translate",
+      "itemIds": [
+        "fan-er-contrary"
+      ],
+      "stage": 4,
+      "context": "Telling a friend how it went after you finally brought up the thing that was bothering you.",
+      "english": "I only brought it up so we could clear the air, but it just made things more awkward between us.",
+      "referenceAnswers": [
+        "我會提這件事本來是想把話講開，結果反而更尷尬。",
+        "我本來以為講開就沒事了，結果講完反而更尷尬，兩個人都不知道要說什麼。",
+        "本來想說把話講清楚比較好，沒想到反而更僵了。"
+      ],
+      "hints": [
+        "clear the air ≈ 把話講開 / 把話說清楚"
+      ],
+      "gradingNotes": "Stage 4 review of 反而, deliberately out of the software domain it was learned in. Core move: set the expectation up first (本來想／本來以為／我會提是想…) and land the reversal with 結果…反而… — that is the frame from their own drill, which they scored 4 on. 反而 goes after the subject/topic and before the verb; flag it if it lands before the subject. 更尷尬 / 更僵 / 氣氛更奇怪 all work for 'more awkward'. 但 instead of 結果 is acceptable but 結果 pairs better with 反而 and is worth mentioning. A natural answer that conveys the reversal without 反而 can still be a 3, with 反而 named as the upgrade. Watch for a written 為了…而… opening, which is a standing habit.",
+      "practiceDrillCount": 0
+    },
+    {
+      "id": "teach-guang-shi-jiu",
+      "type": "teach",
+      "itemIds": [
+        "guang-shi-jiu-alone"
+      ],
+      "heading": "光是…就…: and that's just one part of it",
+      "body": "Last session you told your PM that adding people wouldn't help because ramp-up takes time **no matter who it is**. True — but you never said *how long*, and without the number the argument is just an opinion.\n\n**光是 X 就 Y**: take one piece of the job, price it, and let the listener do the rest. 光是熟悉我們的 codebase **就**要兩個禮拜. 光是 grabs the isolated piece; **就** goes right before the cost.\n\nIt lives on the number. 光是這個就很麻煩 is weak; 光是這個就要三天 is an argument. Add **更不用說…** for \"let alone\" if you want to twist the knife.",
+      "examples": [
+        {
+          "chinese": "光是熟悉我們的 codebase 就要兩個禮拜，更不用說開始寫功能了。",
+          "english": "Just getting familiar with our codebase takes two weeks, let alone starting to write features.",
+          "pinyin": "guāng shì … jiù"
+        },
+        {
+          "chinese": "光是那張表就有三千萬筆資料，你全部撈出來當然會爆。",
+          "english": "That one table alone has thirty million rows. Of course it blows up if you pull all of them."
+        },
+        {
+          "chinese": "光通勤就花掉我每天兩個小時。",
+          "english": "The commute alone eats two hours of my day.",
+          "note": "In speech 光 on its own is just as common as 光是."
+        }
+      ]
+    },
+    {
+      "id": "translate-guang-shi-jiu-migration",
+      "type": "translate",
+      "itemIds": [
+        "guang-shi-jiu-alone"
+      ],
+      "stage": 3,
+      "context": "Your PM thinks the migration is a one-day job. Use the construction from the last screen.",
+      "english": "It's not a one-day thing. Just moving the old data across takes three days, and that's before anyone has written a line of the new code.",
+      "referenceAnswers": [
+        "這不是一天就能搞定的事。光是把舊資料搬過去就要三天，而且那還沒開始寫新的程式碼。",
+        "哪有可能一天做完，光是搬舊資料就三天跑不掉了，更不用說新的 code 都還沒開始寫。",
+        "一天絕對做不完啦。光是把舊的資料轉過去就要三天，新的程式都還沒動到。"
+      ],
+      "hints": [
+        "\"that's before anyone has…\" ≈ 更不用說… / …都還沒開始"
+      ],
+      "gradingNotes": "Guided drill: the context asks for the construction, so missing 光是／光 caps the score at 2. Core move: 光是 + the isolated task (把舊資料搬過去 / 搬舊資料), then 就 immediately before the cost, with the three days kept concrete — 就要三天 / 就三天跑不掉. Flag 就 dropped (光是搬舊資料要三天 loses the point) or 就 placed after the amount. Taiwan usage: 資料, not 數據; 程式碼 / code, not 代碼. 搬 / 轉 / 移 are all fine for moving data. The last clause should carry 'before anyone has even started': 更不用說…／…都還沒開始／…都還沒動, and a literal 在那之前 would be a calque. Short chunked clauses are expected rather than one chain.",
+      "practiceDrillCount": 1
+    },
+    {
+      "id": "teach-claim-evidence-strength",
+      "type": "teach",
+      "itemIds": [
+        "claim-evidence-strength"
+      ],
+      "heading": "證據要配得上你的說法",
+      "body": "This is the sentence you named on day one: *the evidence has to scale with the outlandishness of the claim*. The structure is already yours — 越…越… — so what's left is the words.\n\nThe claim itself is a **說法** (everyday: what someone is claiming) or a **主張** (a position you're arguing for). Evidence is **有力**, **夠力**, or **扎實**; weak evidence is **薄弱** or **不夠力**. Evidence is never 強大 — that's for armies and countries.\n\nSo: 越誇張的說法，需要的證據就要越扎實. And when it doesn't hold up: 你這個說法站不住腳。",
+      "examples": [
+        {
+          "chinese": "越誇張的說法，需要的證據就要越扎實，這很基本吧。",
+          "english": "The more outlandish the claim, the more solid the evidence has to be. That's pretty basic.",
+          "pinyin": "shuōfǎ · zhèngjù zhāshí"
+        },
+        {
+          "chinese": "你這個主張太大了，就要拿出相對有力的證據才行。",
+          "english": "That's a huge claim to make, so you need evidence that's strong in proportion.",
+          "note": "相對 here means \"correspondingly\", not \"relatively\"."
+        },
+        {
+          "chinese": "他的說法根本站不住腳，證據太薄弱了。",
+          "english": "His claim doesn't hold up at all — the evidence is far too thin."
+        }
+      ]
+    },
+    {
+      "id": "choice-claim-evidence-collocations",
+      "type": "choice",
+      "itemIds": [
+        "claim-evidence-strength"
+      ],
+      "stage": 1,
+      "context": "Three ways of saying someone's claim isn't backed up. Only one sounds like a Taiwanese speaker.",
+      "prompt": "Which one is natural?",
+      "options": [
+        {
+          "text": "越誇張的說法，需要的證據就要越扎實。",
+          "isCorrect": true,
+          "explanation": "The 越…越… frame you already use, with the right collocation: 證據 is 扎實 (solid), 有力, or 夠力."
+        },
+        {
+          "text": "你的主張很誇張，所以你的證據需要很強大。",
+          "isCorrect": false,
+          "explanation": "強大 is for armies, economies and engines, not evidence. Say 證據要夠有力 / 要夠力 / 要夠扎實."
+        },
+        {
+          "text": "他的說法沒有被證據支持。",
+          "isCorrect": false,
+          "explanation": "Grammatical, but it's an English passive wearing a 被. Spoken Chinese puts it the other way round: 他的說法根本沒有證據支持 — or just 他那個說法根本沒證據啊."
+        }
+      ]
+    },
+    {
+      "id": "translate-claim-evidence-youtube-returns",
+      "type": "translate",
+      "itemIds": [
+        "claim-evidence-strength"
+      ],
+      "stage": 4,
+      "context": "A friend is convinced he's found a guaranteed way to make money.",
+      "english": "The bigger the claim, the stronger the evidence has to be. Some guy on YouTube saying he makes thirty percent a year is about the weakest evidence you could possibly offer.",
+      "referenceAnswers": [
+        "說法越誇張，就越需要有力的證據啊。YouTube 上有個人說他一年賺三成，這種根本是最弱的證據。",
+        "主張越大，證據就要越扎實。一個 YouTuber 說他年報酬有 30%，這種說法的證據力根本是最低的。",
+        "你講得越誇張，要拿出來的證據就要越強。光是一個人在 YouTube 上說他一年賺 30%，這完全沒有說服力啊。"
+      ],
+      "hints": [
+        "strong evidence ≈ 有力 / 扎實 (never 強大)",
+        "thirty percent a year ≈ 一年賺三成 / 年報酬 30%"
+      ],
+      "gradingNotes": "Stage 4, no scaffolding, right after the teach. Two halves. First: the scaling claim, built on 越…越… (説法越誇張，證據就要越…) — the frame is already easy for them, so grade the collocations: 說法／主張 for the claim (聲稱/宣稱 are written), and 有力／夠力／扎實／強 for the evidence. 強大 with 證據 is the trap from the choice step; flag it if it comes back. Second: the YouTube example has to be dismissed as the *weakest kind* of evidence — 最弱的證據／證據力最低／最沒有說服力／這根本不算證據. Just saying it's wrong loses the point of the sentence. A natural answer that conveys both halves without the taught vocabulary can still be a 3, with the collocations named as the upgrade. Bonus if they reach for 不代表 or 本來就 from earlier sessions. Expect a spoken register (啊/耶/啦) and short clauses; YouTube / YouTuber / % stay in English or digits, which is what people actually say.",
+      "practiceDrillCount": 1
+    },
+    {
+      "id": "respond-cousin-supplement-insomnia",
+      "type": "respond",
+      "itemIds": [
+        "benlai-jiu-anyway",
+        "burden-of-proof",
+        "lian-dou-not-even"
+      ],
+      "stage": 5,
+      "scenario": "Your cousin 佳蓉 has been pushing an expensive supplement in the family group chat. Your mum's insomnia happened to improve after she started taking it, and now 佳蓉 is treating that as proof — and is a little hurt that you're not on board.",
+      "dialogue": [
+        {
+          "speaker": "佳蓉",
+          "chinese": "你看，阿姨吃了兩個禮拜就睡得好好的啊！我早就說這個有效了，你們年輕人就是什麼都不信，這個是我朋友她婆婆吃了也有用的耶。",
+          "english": "Look, two weeks on it and your mum is sleeping fine! I told you it works. You young people just don't believe in anything — my friend's mother-in-law took it too and it worked for her."
+        }
+      ],
+      "task": "Push back, gently — she's family and she means well, so you don't want a fight. Get across that your mum's sleep has always come and gone, so improving after starting it doesn't prove the supplement did anything; and that if she's the one saying it works, she's the one who needs something better than a couple of stories — she hasn't even looked at what's in the bottle.",
+      "referenceAnswers": [
+        "佳蓉姐，我不是不信啦。只是我媽的失眠本來就時好時壞，吃了之後有比較好，不代表就是它有效耶。而且說它有效的是你，那要拿出證據的應該也是你吧？你連裡面有什麼成分都還沒看過。",
+        "我沒有要吵啦，我知道你是關心她。可是我媽的睡眠本來就起起伏伏，剛好那兩個禮拜比較好，真的證明不了什麼。你說它有效，舉證責任在你身上啊，不能只靠兩個人的經驗。你連罐子後面的成分表都沒翻過吧？",
+        "我懂你是為她好。不過失眠本來就會時好時壞，吃完剛好好轉，跟有沒有效是兩回事。要說它真的有用，要拿出證據的是你，你朋友婆婆那個也只是一個例子。而且你連它裡面有什麼都不知道欸。"
+      ],
+      "hints": [
+        "comes and goes ≈ 時好時壞 / 起起伏伏",
+        "what's in it ≈ 成分 / 成分表"
+      ],
+      "gradingNotes": "Stage 5 stretch for three items that were all promoted to stage 5 last session; the constructions are deliberately not named, and nothing earlier in this session primes them. Three moves, and the score should say which ones appeared unprompted. (1) benlai-jiu-anyway: 本來就 on the PREMISE that explains the outcome — 失眠本來就時好時壞 / 本來就會起起伏伏 — not on the result. Putting it on the result is their old error from 0002, fixed in 0003; flag a relapse. 不代表 as the follow-on is a good carry-over. (2) burden-of-proof: pinning it with a 的是 cleft that keeps 的 (說它有效的是你 / 要拿出證據的是你) or with 舉證責任在你身上. In 0003 they got the first cleft right and dropped 的 in the second — check every cleft in the answer, not just the first. (3) lian-dou-not-even: 連 + object + 都沒 V (連成分都沒看過), object not fronted. It is fine — good, even — to dismiss the friend's mother-in-law as 一個例子 / 個案 rather than data. Grade communicative success first: landing all three goals naturally while missing one construction is a 3, with the construction named as the upgrade; a 4 uses most of them naturally, in short chunks, and stays warm with family (啦/耶/欸/吧, 我知道你是關心她). Don't grade politeness beyond that, but do flag anything that would actually sting a relative.",
+      "authorNotes": "First stretch step in this topic that carries itemIds: 0002's and 0003's stretches were untagged because the items had been primed minutes earlier, and 0003 left an explicit instruction to test these three at stage 5 with no priming. The result here is the first real stage-5 evidence for all three. Deliberately outside the software domain (the emotional/argument strands) to check that the moves transfer. When preparing 0005, check which of the three arrived unprompted and whether 的 survived in the second cleft.",
+      "practiceDrillCount": 1
+    }
+  ]
+}
