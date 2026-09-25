@@ -5,8 +5,8 @@
   "goal": "Say nuanced, complex things in spoken Taiwanese Mandarin (arguments, explanations of science and software, subtle emotional states) with the same precision I have in English.",
   "status": "active",
   "targetSessionMinutes": {
-    "min": 15,
-    "max": 25
+    "min": 12,
+    "max": 20
   },
   "maxReviewStepsPerSession": 4,
   "speechLanguage": "zh-TW",

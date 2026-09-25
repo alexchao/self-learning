@@ -35,3 +35,12 @@ It would be cool because if we're doing repetition on those in later sessions, t
   needs an image API key the learner would have to add to `.env`, so **ask them before building it**. A cheaper first
   step would be one hand-picked image per session intro to see whether it actually adds anything.
 - Status: open
+
+## 2026-09-21 · zh-tw-expressiveness/0004-how-big-is-the-claim
+- Feedback: try to make each day's exercise slightly shorter, and stay on the same vocabulary for longer (even across sessions) so it sinks in better, and so there are more opportunities to see a given vocab in different contexts/situations
+- Note (headless prep agent, 2026-09-21): 0004 actually took ~39 active min over three sittings (label 20). A related runtime
+  issue for the interactive agent: a stretch step scoring 3 promotes every tagged item even when the grader's
+  `targetItemIdsUsedCorrectly` is empty (all three 0002 items jumped to stage 6 in 0004, though the 的是 cleft never appeared).
+  Consider gating promotion per item on that list in `sessionCompletionService.ts`.
+- Status: addressed (zh-tw `targetSessionMinutes` 15–25 → 12–20; "consolidate before expanding" rule in SESSION-AUTHORING.md §A.6;
+  SYSTEM.md requirements + decision log; 0005-says-who is a 4-step, no-new-items review session built on it)

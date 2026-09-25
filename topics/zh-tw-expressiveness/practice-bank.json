@@ -162,6 +162,71 @@
         "answer": "簡短審查時間不會有幫助，看大PR本來就需要一個小時的時間，很趕反而會造成更多bug",
         "score": 3
       }
+    },
+    {
+      "id": "0004-how-big-is-the-claim--translate-guang-shi-jiu-migration--drill-1",
+      "createdAt": "2026-09-19T03:01:55.255Z",
+      "sourceSessionDirName": "0004-how-big-is-the-claim",
+      "sourceStepId": "translate-guang-shi-jiu-migration",
+      "itemIds": [
+        "guang-shi-jiu-alone"
+      ],
+      "lesson": "isolate one sub-task and price it ('just X alone takes…'), then cap it with 'let alone'",
+      "targetExpression": "光是…就…（＋更不用說…）",
+      "english": "It's way more than a weekend project. Just setting up the test environment alone takes two days, let alone the actual migration.",
+      "context": "To a friend who thinks you can finish a side project over the weekend",
+      "referenceAnswers": [
+        "這哪是一個週末能搞定的，光是把測試環境架起來就要兩天，更不用說真正要搬的東西。",
+        "一個週末根本做不完啦，光架測試環境就兩天跑不掉，真正的搬移都還沒開始。"
+      ],
+      "firstAttempt": {
+        "answer": "這不是一個週末就可以完成的事情，光是做好測試環境就要兩天，更不用說migration本身",
+        "score": 3
+      }
+    },
+    {
+      "id": "0004-how-big-is-the-claim--translate-claim-evidence-youtube-returns--drill-1",
+      "createdAt": "2026-09-21T03:47:03.573Z",
+      "sourceSessionDirName": "0004-how-big-is-the-claim",
+      "sourceStepId": "translate-claim-evidence-youtube-returns",
+      "itemIds": [
+        "claim-evidence-strength"
+      ],
+      "lesson": "scaling claim to evidence, with 就 in the second clause and 這種+評價 to dismiss a whole category",
+      "targetExpression": "…越…，就越…／這種…根本…",
+      "english": "The more unbelievable the theory, the more solid the data has to be. One anonymous post on Reddit is basically no evidence at all.",
+      "context": "Arguing with a friend who believes a conspiracy theory",
+      "referenceAnswers": [
+        "理論越離譜，資料就要越扎實啊。Reddit 上一篇匿名的貼文，這種根本不算證據。",
+        "說法越誇張，證據就得越有力。光是 Reddit 上一個匿名的人講的，這種根本沒什麼說服力啦。"
+      ],
+      "firstAttempt": {
+        "answer": "越誇張的說法，就需要越紮實的證據，Reddit上隨便一個po文根本不算什麼證據",
+        "score": 3
+      }
+    },
+    {
+      "id": "0004-how-big-is-the-claim--respond-cousin-supplement-insomnia--drill-1",
+      "createdAt": "2026-09-21T03:57:23.560Z",
+      "sourceSessionDirName": "0004-how-big-is-the-claim",
+      "sourceStepId": "respond-cousin-supplement-insomnia",
+      "itemIds": [
+        "benlai-jiu-anyway",
+        "burden-of-proof",
+        "lian-dou-not-even"
+      ],
+      "lesson": "pin who has to prove it, using a 的是 cleft (keep 的 in both halves)",
+      "targetExpression": "要拿出證據的是…／舉證責任在…身上",
+      "english": "You're the one claiming the new framework is faster, so you're the one who has to show the numbers — I don't have to prove it isn't.",
+      "context": "To a teammate in a design review, half-joking",
+      "referenceAnswers": [
+        "說新框架比較快的是你，那要拿出數據的也是你啊，不是我要證明它不快耶。",
+        "舉證責任在你身上啦，你說它比較快，那要拿出證據的就是你，不是我。"
+      ],
+      "firstAttempt": {
+        "answer": "說新框架比較快的人是你，所以要拿出數據也應該是你吧，而不是我需要否認",
+        "score": 2
+      }
     }
   ]
 }

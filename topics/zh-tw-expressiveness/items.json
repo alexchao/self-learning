@@ -25,14 +25,14 @@
       ],
       "createdAt": "2026-09-13T23:51:42.000Z",
       "introducedInSession": "0002-anyway-proof-not-even",
-      "stage": 5,
+      "stage": 6,
       "spacedRepetition": {
-        "dueAt": "2026-09-19T05:03:41.909Z",
-        "intervalDays": 3,
+        "dueAt": "2026-10-04T06:26:33.240Z",
+        "intervalDays": 13.1,
         "ease": 2.65,
-        "reps": 2,
+        "reps": 3,
         "lapses": 0,
-        "lastReviewedAt": "2026-09-16T05:03:41.909Z"
+        "lastReviewedAt": "2026-09-21T04:02:33.240Z"
       },
       "history": [
         {
@@ -57,6 +57,17 @@
           "reviewedAt": "2026-09-16T05:03:41.909Z",
           "stageAfter": 5,
           "intervalDaysAfter": 3
+        },
+        {
+          "sessionDirName": "0004-how-big-is-the-claim",
+          "stepIds": [
+            "respond-cousin-supplement-insomnia"
+          ],
+          "stageTested": 5,
+          "score": 3,
+          "reviewedAt": "2026-09-21T04:02:33.240Z",
+          "stageAfter": 6,
+          "intervalDaysAfter": 13.1
         }
       ]
     },
@@ -83,14 +94,14 @@
       ],
       "createdAt": "2026-09-13T23:51:42.000Z",
       "introducedInSession": "0002-anyway-proof-not-even",
-      "stage": 5,
+      "stage": 6,
       "spacedRepetition": {
-        "dueAt": "2026-09-19T05:03:41.909Z",
-        "intervalDays": 3,
+        "dueAt": "2026-10-04T06:26:33.240Z",
+        "intervalDays": 13.1,
         "ease": 2.65,
-        "reps": 2,
+        "reps": 3,
         "lapses": 0,
-        "lastReviewedAt": "2026-09-16T05:03:41.909Z"
+        "lastReviewedAt": "2026-09-21T04:02:33.240Z"
       },
       "history": [
         {
@@ -115,6 +126,17 @@
           "reviewedAt": "2026-09-16T05:03:41.909Z",
           "stageAfter": 5,
           "intervalDaysAfter": 3
+        },
+        {
+          "sessionDirName": "0004-how-big-is-the-claim",
+          "stepIds": [
+            "respond-cousin-supplement-insomnia"
+          ],
+          "stageTested": 5,
+          "score": 3,
+          "reviewedAt": "2026-09-21T04:02:33.240Z",
+          "stageAfter": 6,
+          "intervalDaysAfter": 13.1
         }
       ]
     },
@@ -141,14 +163,14 @@
       ],
       "createdAt": "2026-09-13T23:51:42.000Z",
       "introducedInSession": "0002-anyway-proof-not-even",
-      "stage": 5,
+      "stage": 6,
       "spacedRepetition": {
-        "dueAt": "2026-09-19T05:03:41.909Z",
-        "intervalDays": 3,
+        "dueAt": "2026-10-04T06:26:33.240Z",
+        "intervalDays": 13.1,
         "ease": 2.65,
-        "reps": 2,
+        "reps": 3,
         "lapses": 0,
-        "lastReviewedAt": "2026-09-16T05:03:41.909Z"
+        "lastReviewedAt": "2026-09-21T04:02:33.240Z"
       },
       "history": [
         {
@@ -173,6 +195,17 @@
           "reviewedAt": "2026-09-16T05:03:41.909Z",
           "stageAfter": 5,
           "intervalDaysAfter": 3
+        },
+        {
+          "sessionDirName": "0004-how-big-is-the-claim",
+          "stepIds": [
+            "respond-cousin-supplement-insomnia"
+          ],
+          "stageTested": 5,
+          "score": 3,
+          "reviewedAt": "2026-09-21T04:02:33.240Z",
+          "stageAfter": 6,
+          "intervalDaysAfter": 13.1
         }
       ]
     },
@@ -199,14 +232,14 @@
       ],
       "createdAt": "2026-09-15T05:05:00.000Z",
       "introducedInSession": "0003-paying-for-it-later",
-      "stage": 4,
+      "stage": 5,
       "spacedRepetition": {
-        "dueAt": "2026-09-17T05:03:41.909Z",
-        "intervalDays": 1,
-        "ease": 2.5,
-        "reps": 1,
+        "dueAt": "2026-09-27T04:02:33.240Z",
+        "intervalDays": 6,
+        "ease": 2.65,
+        "reps": 2,
         "lapses": 0,
-        "lastReviewedAt": "2026-09-16T05:03:41.909Z"
+        "lastReviewedAt": "2026-09-21T04:02:33.240Z"
       },
       "history": [
         {
@@ -219,6 +252,17 @@
           "reviewedAt": "2026-09-16T05:03:41.909Z",
           "stageAfter": 4,
           "intervalDaysAfter": 1
+        },
+        {
+          "sessionDirName": "0004-how-big-is-the-claim",
+          "stepIds": [
+            "translate-review-tech-debt-skipped-tests"
+          ],
+          "stageTested": 4,
+          "score": 4,
+          "reviewedAt": "2026-09-21T04:02:33.240Z",
+          "stageAfter": 5,
+          "intervalDaysAfter": 6
         }
       ]
     },
@@ -228,7 +272,7 @@
       "headword": "（不但沒…，）反而…",
       "pinyin": "fǎn'ér",
       "gloss": "actually (the opposite of what you'd expect) / if anything",
-      "explanation": "Marks a result that goes against the expectation the context sets up: 加人反而更慢. Goes after the subject, before the verb. Fullest form: 不但沒(有) A，反而 B. Trap: English 'instead' as a plain substitution is not 反而 (我們沒用 Redis，改用 Memcached / 而是用 Memcached). 反而 needs a reversal of expectation.",
+      "explanation": "Marks a result that goes against the expectation the context sets up: 加人反而更慢. Goes after the subject, before the verb. Fullest form: 不但沒(有) A，反而 B. Trap: English 'instead' as a plain substitution is not 反而 (我們沒用 Redis，改用 Memcached / 而是用 Memcached). 反而 needs a reversal of expectation. The most portable spoken frame sets the expectation up first: 本來想說…，結果反而… — and 可是 / 只讓 on their own lose the 'the opposite of what I expected' flavour.",
       "examples": [
         {
           "chinese": "專案已經落後了還加人，不但不會比較快，反而會更慢。",
@@ -237,6 +281,10 @@
         {
           "chinese": "加了 cache 之後反而變慢了，一定是哪裡設定錯了。",
           "english": "It actually got slower after we added the cache. Something must be misconfigured."
+        },
+        {
+          "chinese": "我本來想說把話講開就沒事了，結果反而更尷尬。",
+          "english": "I thought clearing the air would fix it, but it just made things more awkward."
         }
       ],
       "tags": [
@@ -248,12 +296,12 @@
       "introducedInSession": "0003-paying-for-it-later",
       "stage": 4,
       "spacedRepetition": {
-        "dueAt": "2026-09-19T05:03:41.909Z",
-        "intervalDays": 3,
-        "ease": 2.65,
-        "reps": 1,
+        "dueAt": "2026-09-27T01:38:33.240Z",
+        "intervalDays": 5.9,
+        "ease": 2.5,
+        "reps": 2,
         "lapses": 0,
-        "lastReviewedAt": "2026-09-16T05:03:41.909Z"
+        "lastReviewedAt": "2026-09-21T04:02:33.240Z"
       },
       "history": [
         {
@@ -267,6 +315,17 @@
           "reviewedAt": "2026-09-16T05:03:41.909Z",
           "stageAfter": 4,
           "intervalDaysAfter": 3
+        },
+        {
+          "sessionDirName": "0004-how-big-is-the-claim",
+          "stepIds": [
+            "translate-review-fan-er-clearing-the-air"
+          ],
+          "stageTested": 4,
+          "score": 2,
+          "reviewedAt": "2026-09-21T04:02:33.240Z",
+          "stageAfter": 4,
+          "intervalDaysAfter": 5.9
         }
       ]
     },
@@ -297,17 +356,29 @@
         "scale"
       ],
       "createdAt": "2026-09-16T05:10:00.000Z",
-      "introducedInSession": null,
-      "stage": 0,
+      "introducedInSession": "0004-how-big-is-the-claim",
+      "stage": 4,
       "spacedRepetition": {
-        "dueAt": null,
-        "intervalDays": 0,
+        "dueAt": "2026-09-22T04:02:33.240Z",
+        "intervalDays": 1,
         "ease": 2.5,
-        "reps": 0,
+        "reps": 1,
         "lapses": 0,
-        "lastReviewedAt": null
+        "lastReviewedAt": "2026-09-21T04:02:33.240Z"
       },
-      "history": []
+      "history": [
+        {
+          "sessionDirName": "0004-how-big-is-the-claim",
+          "stepIds": [
+            "translate-guang-shi-jiu-migration"
+          ],
+          "stageTested": 3,
+          "score": 3,
+          "reviewedAt": "2026-09-21T04:02:33.240Z",
+          "stageAfter": 4,
+          "intervalDaysAfter": 1
+        }
+      ]
     },
     {
       "id": "claim-evidence-strength",
@@ -315,10 +386,10 @@
       "headword": "說法／主張＋證據夠不夠力（越誇張的說法，證據就要越強）",
       "pinyin": "shuōfǎ · zhǔzhāng · zhèngjù yǒulì",
       "gloss": "claim / assertion, and whether the evidence is strong enough to carry it",
-      "explanation": "說法 is the everyday word for what someone is claiming (你這個說法站不住腳). 主張 is a position you actively argue for (他主張…). Evidence is 有力／夠力／扎實, and when it's weak, 薄弱／不夠力 — not 強大, which doesn't collocate with 證據. The learner's target move, 'the evidence has to scale with the claim', is 越誇張的說法，需要的證據就要越扎實, built on the 越…越… frame they already handle. Also useful: 說服力 (persuasive force) and 這種證據的證據力很低.",
+      "explanation": "說法 is the everyday word for what someone is claiming (你這個說法站不住腳). 主張 is a position you actively argue for (他主張…). Evidence is 有力／夠力／扎實, and when it's weak, 薄弱／不夠力 — not 強大, which doesn't collocate with 證據. The learner's target move, 'the evidence has to scale with the claim', is 說法越誇張，證據就要越扎實, built on the 越…越… frame they already handle. In speech, predicate both halves and put 就 in the second (說法越誇張，證據就要越…); the prenominal 越誇張的說法，需要越有力的證據 is correct but sounds written. To dismiss a whole kind of evidence, front the example and judge it with 這種: 隨便一個人在網路上說的，這種根本不算證據. Also useful: 說服力 (persuasive force); 證據力 is legal register.",
       "examples": [
         {
-          "chinese": "越誇張的說法，需要的證據就要越扎實，這很基本吧。",
+          "chinese": "說法越誇張，證據就要越扎實，這很基本吧。",
           "english": "The more outlandish the claim, the more solid the evidence has to be. That's pretty basic."
         },
         {
@@ -337,17 +408,30 @@
         "collocation"
       ],
       "createdAt": "2026-09-16T05:10:00.000Z",
-      "introducedInSession": null,
-      "stage": 0,
+      "introducedInSession": "0004-how-big-is-the-claim",
+      "stage": 5,
       "spacedRepetition": {
-        "dueAt": null,
-        "intervalDays": 0,
-        "ease": 2.5,
-        "reps": 0,
+        "dueAt": "2026-09-24T04:02:33.240Z",
+        "intervalDays": 3,
+        "ease": 2.65,
+        "reps": 1,
         "lapses": 0,
-        "lastReviewedAt": null
+        "lastReviewedAt": "2026-09-21T04:02:33.240Z"
       },
-      "history": []
+      "history": [
+        {
+          "sessionDirName": "0004-how-big-is-the-claim",
+          "stepIds": [
+            "choice-claim-evidence-collocations",
+            "translate-claim-evidence-youtube-returns"
+          ],
+          "stageTested": 4,
+          "score": 4,
+          "reviewedAt": "2026-09-21T04:02:33.240Z",
+          "stageAfter": 5,
+          "intervalDaysAfter": 3
+        }
+      ]
     }
   ]
 }

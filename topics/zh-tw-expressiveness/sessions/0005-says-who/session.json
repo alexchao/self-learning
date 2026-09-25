@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "topicId": "zh-tw-expressiveness",
+  "sessionNumber": 5,
+  "kind": "review",
+  "title": "Ten times faster, says who?",
+  "subtitle": "Same moves as last time, new rooms: a renovation, your sister, and a vendor's demo",
+  "estimatedMinutes": 20,
+  "createdAt": "2026-09-21T04:15:00.000Z",
+  "authorRationale": "PROCESS FEEDBACK after 0004 (the governing constraint here): 'make each day's exercise slightly shorter, and stay on the same vocabulary for longer (even across sessions) … more opportunities to see a given vocab in different contexts'. So this is a consolidation session: NO NEW ITEMS, no teach steps, 4 steps, 2 drills. Every step re-sees something from 0003–0004 in a domain it hasn't appeared in yet, and recycles the incidental words from 0004's corrections (把話講開, 更不用說, 這種…根本…, 隨便一個人, 程式碼, 廠商/demo). I also updated the docs (topic target 15–25 → 12–20 min; a 'consolidate before expanding' rule in SESSION-AUTHORING.md; a SYSTEM.md decision-log entry) and marked that feedback addressed, because honoring it needs no code change. REAL PACE: 0004 was labelled 20 (honest ~23), took ~39 active minutes, and was done in three sittings, which backs up 'shorter'. Budget from 0004's measured steps: review translate with no drill ~3.2 min, translate + 1 drill ~7–9 (the drill answer alone took 1.6–3.9 min), respond + 1 drill ~8.6. That gives 2.5 + 3.2 + ~7 + ~8.6 ≈ 21 real minutes. I set the label to 20 rather than shaving it, so it doesn't mislead again. STEPS: (1) Untagged warm-up: rerun the cleft drill the learner scored 2 in 0004, verbatim (bank entry …respond-cousin-supplement-insomnia--drill-1), because the learner wants failed practice sentences back. It's untagged on purpose: burden-of-proof sits at stage 6 in items.json, and a stage-4 translate tagged to it would break the ladder rule. That stage 6 overstates it. The 0004 stretch scored 3 overall, so the server promoted all three tagged items even though targetItemIdsUsedCorrectly was empty, and the cleft never appeared (the drill dropped 的 again). Worth flagging to the interactive agent: stretch promotions probably shouldn't apply to items the grader says weren't used. That's a code change, so I haven't made it here. (2) guang-shi-jiu-alone, due 09-22, stage 4: moved out of software into a home renovation (管委會, 師傅) with 更不用說 recycled from its own correction. (3) fan-er-contrary, stage 4, due 09-27 but reviewed early. It scored 2 the moment it left software, so it's back in an emotional context with 1 drill. The item now names the 本來想說…結果反而… frame. (4) Stretch respond at stage 5 for claim-evidence-strength (due 09-24, a couple of days early, which costs little). It's a vendor pitch of '10× productivity', back in the software strand the learner likes, and it naturally invites 說法越誇張，證據就要越…, the 這種…根本… dismissal, and 隨便一個人 (their own follow-up question in 0004). 光是 and 反而 fit as untagged bonuses, so the learner meets them twice in one session in different settings. Items not due until 09-27 / 10-04 (tech-debt, 本來就, 連…都) aren't tagged, though the stretch leaves room for 本來就. ITEMS.JSON: explanation/examples refined only (predicated 說法越誇張，證據就要越…; 本來想說…結果反而…), no schedule fields touched. STEERING: the 0004 note was difficulty-only ('about right'). The standing 'software vocab grounded in real usage' request is honored by steps 1 and 4. STILL OPEN for the interactive agent: paging back, imagery (needs an API key, so ask first), and a vocabulary record (0002 feedback).",
+  "intro": {
+    "heading": "Nothing new today",
+    "body": "You asked to stay with the same words longer, so this session is only things you've already met: 光是…就…, 反而, the evidence-has-to-match-the-claim sentence, and the 的是 cleft. Each one comes back in a situation it hasn't been in yet.\n\nFour steps. It ends with a vendor promising your team ten times the productivity."
+  },
+  "steps": [
+    {
+      "id": "translate-review-cleft-new-framework",
+      "type": "translate",
+      "itemIds": [],
+      "sourcePracticeBankEntryId": "0004-how-big-is-the-claim--respond-cousin-supplement-insomnia--drill-1",
+      "context": "To a teammate in a design review, half-joking.",
+      "english": "You're the one claiming the new framework is faster, so you're the one who has to show the numbers — I don't have to prove it isn't.",
+      "referenceAnswers": [
+        "說新框架比較快的是你，那要拿出數據的也是你啊，又不是我要證明它不快。",
+        "舉證責任在你身上啦，你說它比較快，那要拿出數據的就是你，不是我。",
+        "欸，說它比較快的人是你耶，要拿數字出來的當然也是你，我幹嘛要證明它不快？"
+      ],
+      "hints": [],
+      "gradingNotes": "Verbatim rerun of a drill the learner scored 2 on in 0004. They wrote 說新框架比較快的人是你，所以要拿出數據也應該是你吧，而不是我需要否認. The first cleft was right; the second dropped 的 (要拿出數據也應該是你). Core move: BOTH halves are 的是 clefts — 說…的(人)是你 / 要拿出數據的(也)是你. Check the second one specifically; 的 missing there again is a 2. 舉證責任在你身上 is an equally good way to pin it. For the last clause, 又不是我要證明它不快 / 不是我要證明它不快 is natural; 我需要否認 and 而不是 are written and were flagged last time, so name them if they come back. 數據 and 數字 are both fine for 'numbers' here. A spoken particle (啊/啦/耶/吧) fits the half-joking tone. Both clefts right plus a natural last clause is a 4.",
+      "practiceDrillCount": 0
+    },
+    {
+      "id": "translate-review-guang-shi-jiu-kitchen",
+      "type": "translate",
+      "itemIds": [
+        "guang-shi-jiu-alone"
+      ],
+      "stage": 4,
+      "context": "Your partner thinks the kitchen renovation will be done in a month.",
+      "english": "A month? No chance. Just getting the building management committee to sign off takes three weeks, never mind finding a contractor who actually picks up the phone.",
+      "referenceAnswers": [
+        "一個月？不可能啦。光是等管委會同意就要三個禮拜，更不用說找一個真的會接電話的師傅了。",
+        "哪有可能一個月，光管委會那關就要三週，更何況還要找到肯接電話的工班。",
+        "一個月根本不夠啦，光是管委會簽名就三個禮拜跑不掉了，師傅都還沒找到咧。"
+      ],
+      "hints": [
+        "building management committee ≈ 管委會 · contractor ≈ 師傅 / 工班"
+      ],
+      "gradingNotes": "Stage 4 review of 光是…就…, deliberately outside software (it was learned on a data migration). Core move: 光是／光 + the isolated sub-task (等管委會同意 / 管委會那關 / 管委會簽名), then 就 immediately before a CONCRETE cost (就要三個禮拜 / 就三週跑不掉). Flag 就 dropped or placed after the amount. The last clause should carry 'never mind / let alone': 更不用說…(了) / 更何況… / …都還沒找到. That was the correction from their own 0004 answer (they stacked 甚至連…也都), so reward it if it's clean. 更不用說…了 with the final 了 is a nice touch the drill grader mentioned. Openers like 一個月？不可能啦 / 哪有可能 are natural. 師傅, 工班, 包商 and 廠商 are all fine for 'contractor'. Structure right and phrasing natural is a 4.",
+      "practiceDrillCount": 0
+    },
+    {
+      "id": "translate-review-fan-er-lending-money",
+      "type": "translate",
+      "itemIds": [
+        "fan-er-contrary"
+      ],
+      "stage": 4,
+      "context": "Telling a close friend about you and your sister.",
+      "english": "I lent my sister the money because I thought it'd take some of the pressure off her, but if anything it's made things more tense between us. Now she kind of avoids me.",
+      "referenceAnswers": [
+        "我本來想說借她錢可以讓她壓力小一點，結果反而搞得我們之間更僵，她現在好像有點在躲我。",
+        "我借她錢本來是想幫她減輕一點壓力，沒想到反而變得更尷尬，她最近都有點避著我。",
+        "本來以為借錢給她她會輕鬆一點，結果我們兩個反而變得怪怪的，她現在都在躲我。"
+      ],
+      "hints": [
+        "avoids me ≈ 躲著我 / 避著我"
+      ],
+      "gradingNotes": "Stage 4 review of 反而 in an emotional context. It scored 2 on exactly this kind of sentence in 0004 (可是只讓我們變得更尷尬了, opened by a written 為了澄清才提起). Core move: set the expectation up first (本來想說… / 本來以為… / …本來是想…), then land the reversal with 結果／沒想到 + 反而 before the verb or predicate (反而更僵 / 反而搞得更尷尬 / 反而變得怪怪的). 可是 alone, or a calqued 只讓 for 'just made', misses the point of the step: name 反而 as the fix and cap at 2 if it's a near-repeat of last time's answer. Watch for 為了…才／為了…而… openers; they're a standing habit. 'take the pressure off' ≈ 讓她壓力小一點 / 減輕她的壓力 / 讓她輕鬆一點. 'more tense' ≈ 更僵 / 更尷尬 / 怪怪的. 'kind of avoids me' ≈ 好像有點在躲我 / 有點避著我. Short chunked clauses are expected.",
+      "practiceDrillCount": 1
+    },
+    {
+      "id": "respond-vendor-ten-times-productivity",
+      "type": "respond",
+      "itemIds": [
+        "claim-evidence-strength"
+      ],
+      "stage": 5,
+      "scenario": "Your team lead 志豪 just came out of a vendor meeting, very excited about an AI coding tool. The budget decision is basically his, and he's leaning toward buying it for everyone today.",
+      "dialogue": [
+        {
+          "speaker": "志豪",
+          "chinese": "欸你看這個！廠商說用了他們的 AI 工具，工程師效率可以提升十倍耶。demo 超猛的，而且我在 LinkedIn 上看到有人說他們團隊出貨速度快了一倍。我在想乾脆全組都買 license，下禮拜就開始用。",
+          "english": "Hey, look at this! The vendor says their AI tool makes engineers ten times more productive. The demo was insane, and I saw someone on LinkedIn say their team is shipping twice as fast. I'm thinking we just buy licenses for the whole team and start next week."
+        }
+      ],
+      "task": "Slow him down without killing the idea. Ten times is an enormous claim, so it needs evidence to match, and the vendor's own demo plus some random guy's LinkedIn post is about as weak as evidence gets. Suggest two or three people try it for a couple of weeks first.",
+      "referenceAnswers": [
+        "十倍耶，這說法也太誇張了吧。說法越誇張，證據就要越扎實啊。廠商自己做的 demo，加上 LinkedIn 上隨便一個人講的，這種根本不算什麼證據。不然我們先找兩三個人試用兩個禮拜，看實際差多少再說？",
+        "我不是反對啦，只是十倍這種說法，要有相對有力的證據才行。光是一個廠商 demo，根本證明不了什麼，demo 本來就是挑最好看的給你看。要不要先讓兩三個人用兩週，有數字再決定全組要不要買？",
+        "欸先等一下。主張越大，證據就要越夠力，廠商自己講的、網路上不知道哪來的一篇文，這種根本沒什麼說服力。而且全組一下子換工具，搞不好反而更慢。先讓兩三個人試兩週，看到底快多少啦。"
+      ],
+      "hints": [
+        "vendor ≈ 廠商 · try it out ≈ 試用"
+      ],
+      "gradingNotes": "Stage 5 for claim-evidence-strength; the item is not named, and nothing earlier in the session primes it. Three goals: (1) The scaling point: 十倍 is a huge 說法／主張, so the evidence has to be proportionally 扎實／有力／夠力. Best form is predicated with 就: 說法越誇張，證據就要越扎實. The prenominal 越誇張的說法，需要越有力的證據 is fine but was flagged as written-sounding in 0004; mention it as the upgrade. 證據強大 and 證據力 (legal register, flagged last time) are traps. (2) Dismiss the evidence as a CATEGORY: 廠商自己的 demo / LinkedIn 上隨便一個人講的, then 這種根本不算證據／沒什麼說服力. 隨便一個人／不知道哪來的 is what the learner asked about in a 0004 follow-up; reward it. (3) A concrete low-cost proposal: 先找兩三個人試用兩個禮拜. The target item counts as used if (1) is there with a right collocation. Bonus, untagged: 光是一個 demo 就…, demo 本來就是挑過的, 搞不好反而更慢. Grade communicative success first. All three goals landing naturally but without the claim/evidence vocabulary is a 3, with the collocation named as the upgrade. A 4 hits all three in short chunks and keeps it collegial (啦/耶/吧, 我不是反對啦). He's the lead and he's excited, so flag anything that sounds like a lecture. Taiwan usage: 程式碼 not 代碼, 資料 not 數據 for data (數據/數字 both fine for metrics).",
+      "authorNotes": "Consolidation stretch: the same claim/evidence move from 0004's YouTube translate, now in a workplace decision instead of a friend's investment tip. When preparing 0006, check whether 說法越…，證據就要越… came out predicated, whether 這種…根本… appeared unprompted, and whether 光是 or 反而 showed up as bonuses; that's the cross-context evidence the learner asked for.",
+      "practiceDrillCount": 1
+    }
+  ]
+}

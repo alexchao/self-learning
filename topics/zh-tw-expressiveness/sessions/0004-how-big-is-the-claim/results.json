@@ -1,0 +1,566 @@
+{
+  "schemaVersion": 1,
+  "sessionDirName": "0004-how-big-is-the-claim",
+  "startedAt": "2026-09-18T05:40:09.142Z",
+  "completedAt": "2026-09-21T04:02:33.240Z",
+  "steps": {
+    "translate-review-tech-debt-skipped-tests": {
+      "attempts": [
+        {
+          "answer": "當初我們為了早點上線跳過了一堆測試，害我們每天都要修bug",
+          "inputMode": "typed",
+          "hintsRevealed": 0,
+          "submittedAt": "2026-09-18T05:41:27.144Z",
+          "timeSpentMs": 64907,
+          "grade": {
+            "score": 4,
+            "headline": "Structure and vocabulary both fixed — this is what a Taiwanese dev would actually say.",
+            "correctedLearnerAnswer": "當初我們為了早點上線跳過了一堆測試，害我們現在每天都在修 bug。",
+            "modelAnswers": [
+              {
+                "chinese": "我們當初為了趕上線省了一堆測試，現在就是在天天修 bug。",
+                "note": "趕上線 + 省了一堆測試 is very idiomatic venting."
+              },
+              {
+                "chinese": "當初為了早點上線抄捷徑跳過一堆測試，現在每天都在還技術債。",
+                "note": "Uses 抄捷徑／還技術債 if you want the tech-debt framing."
+              }
+            ],
+            "issues": [
+              {
+                "learnerExcerpt": "害我們每天都要修bug",
+                "problem": "The 'now' contrast is what makes the complaint land; without 現在 the clause floats in time. Also 都在修 is more vivid for an ongoing grind than 都要修.",
+                "suggestion": "害我們現在每天都在修 bug",
+                "category": "naturalness"
+              }
+            ],
+            "strengths": [
+              "跳過了一堆測試 — 了 on the verb with a quantity, exactly right this time",
+              "一堆 instead of flat 很多, which suits venting",
+              "測試 (not 測驗), 修 bug (not 修錯誤), 上線 (not 部署) — all three lexical fixes stuck",
+              "害我們… is a nicely natural blame construction"
+            ],
+            "explanation": "You cleared all three things that were wrong last session: 跳過了一堆測試 (了 on the verb, quantity after), the tech vocabulary (測試／修 bug／上線), and no stray trailing 了. The only thing left is the time contrast — the whole point of the vent is 當初 vs 現在, so keep 現在 in the second clause: 害我們現在每天都在修 bug。For an upgrade, the tech-debt frame is ready-made for this: 當初抄捷徑，現在每天在還技術債。",
+            "targetItemIdsUsedCorrectly": [
+              "tech-debt-cut-corners"
+            ],
+            "gradedBy": "llm",
+            "model": "claude-opus-5",
+            "gradedAt": "2026-09-18T05:41:27.144Z"
+          }
+        }
+      ],
+      "followUps": [],
+      "practiceDrills": {
+        "drills": []
+      },
+      "completedAt": "2026-09-18T05:42:19.838Z"
+    },
+    "translate-review-fan-er-clearing-the-air": {
+      "attempts": [
+        {
+          "answer": "我是為了澄清才提起這件事，可是只讓我們變得更尷尬了",
+          "inputMode": "typed",
+          "hintsRevealed": 0,
+          "submittedAt": "2026-09-18T05:43:52.295Z",
+          "timeSpentMs": 77589,
+          "grade": {
+            "score": 2,
+            "headline": "Understandable, but it reads written rather than spoken, and the 反而 reversal is missing.",
+            "correctedLearnerAnswer": "我會提這件事本來是想把話講開，結果反而讓我們之間更尷尬。",
+            "modelAnswers": [
+              {
+                "chinese": "我會提這件事本來是想把話講開，結果反而更尷尬。",
+                "note": "Sets up the expectation first, lands the reversal with 結果…反而…。"
+              },
+              {
+                "chinese": "我本來想說講開就沒事了，結果反而搞得兩個人更尷尬。",
+                "note": "本來想說 is very colloquial in Taiwan; 搞得 adds the 'it ended up making' feel."
+              }
+            ],
+            "issues": [
+              {
+                "learnerExcerpt": "可是只讓我們變得更尷尬了",
+                "problem": "The exercise targets 反而, and 可是 alone states a contrast without marking that the result went against expectation. Also 只讓 is a literal calque of 'only made'.",
+                "suggestion": "結果反而讓我們之間更尷尬",
+                "category": "target_item"
+              },
+              {
+                "learnerExcerpt": "我是為了澄清才提起這件事",
+                "problem": "為了…才… sounds written/formal here, and 澄清 suggests clearing up a factual misunderstanding or a public statement, not easing tension between friends.",
+                "suggestion": "我會提這件事本來是想把話講開",
+                "category": "naturalness"
+              }
+            ],
+            "strengths": [
+              "更尷尬 is exactly the right way to render 'more awkward'.",
+              "Sentence is grammatical and the basic meaning comes across."
+            ],
+            "explanation": "Two things: spoken Taiwanese Mandarin sets up the expectation with 本來想／本來以為／我會提是想…, then flips it with 結果…反而…。 可是 only signals contrast; 反而 signals 'the opposite of what I expected' — that's the nuance the English 'but it just made things more awkward' carries. Also, 把話講開 is the idiom for clearing the air between people; 澄清 is for clarifying facts or rumours (澄清謠言). Finally, 為了…才… in speech tends to sound like a written justification; 本來是想… is warmer and more natural here.",
+            "targetItemIdsUsedCorrectly": [],
+            "gradedBy": "llm",
+            "model": "claude-opus-5",
+            "gradedAt": "2026-09-18T05:43:52.295Z"
+          }
+        }
+      ],
+      "followUps": [],
+      "practiceDrills": {
+        "drills": []
+      },
+      "completedAt": "2026-09-18T05:46:35.892Z"
+    },
+    "teach-guang-shi-jiu": {
+      "attempts": [],
+      "followUps": [],
+      "completedAt": "2026-09-19T02:58:58.677Z"
+    },
+    "translate-guang-shi-jiu-migration": {
+      "attempts": [
+        {
+          "answer": "不是一天的事，光是把舊data轉過去就要三天，甚至連一行新代碼也都沒開始寫",
+          "inputMode": "typed",
+          "hintsRevealed": 0,
+          "submittedAt": "2026-09-19T03:01:49.339Z",
+          "timeSpentMs": 154632,
+          "grade": {
+            "score": 3,
+            "headline": "光是…就… nailed; main fix is 代碼 → 程式碼/code and a smoother final clause.",
+            "correctedLearnerAnswer": "這不是一天就能搞定的事，光是把舊資料轉過去就要三天，更不用說新的 code 連一行都還沒寫。",
+            "modelAnswers": [
+              {
+                "chinese": "這哪是一天的事，光是把舊資料轉過去就要三天，更不用說新的 code 一行都還沒寫。",
+                "note": "Most idiomatic: 哪是…的事 for the pushback, 光是…就要三天, then 更不用說 for 'before anyone has even…'."
+              },
+              {
+                "chinese": "一天絕對做不完啦。光搬舊資料就三天跑不掉，新的程式碼根本都還沒動。",
+                "note": "Shorter 光 in speech, 就三天跑不掉 makes the cost bite."
+              }
+            ],
+            "issues": [
+              {
+                "learnerExcerpt": "新代碼",
+                "problem": "代碼 is Mainland usage; Taiwan says 程式碼 or just English code.",
+                "suggestion": "新的程式碼 / 新的 code",
+                "category": "word_choice"
+              },
+              {
+                "learnerExcerpt": "舊data",
+                "problem": "Taiwanese engineers do code-switch, but 資料 is far more common than bare 'data' here, and mixing it right next to 舊 reads oddly.",
+                "suggestion": "舊資料",
+                "category": "naturalness"
+              },
+              {
+                "learnerExcerpt": "甚至連一行新代碼也都沒開始寫",
+                "problem": "也都 is redundant and 沒開始寫 after 連一行 is clunky; the 'let alone' flavour is better carried by 更不用說 or a plain 都還沒.",
+                "suggestion": "更不用說新的 code 連一行都還沒寫",
+                "category": "naturalness"
+              },
+              {
+                "learnerExcerpt": "不是一天的事",
+                "problem": "Understandable but flat; spoken Taiwanese Mandarin usually adds a 這/哪 and a resultative.",
+                "suggestion": "這不是一天就能搞定的事 / 這哪是一天的事",
+                "category": "naturalness"
+              }
+            ],
+            "strengths": [
+              "光是…就要三天 is textbook-correct: 就 sits right before the cost with a concrete amount.",
+              "Chunked short clauses instead of one long chain — exactly the spoken rhythm.",
+              "轉過去 is a natural verb for migrating data."
+            ],
+            "explanation": "The core construction is right: 光是把舊資料轉過去就要三天 — 光是 isolates the sub-task, 就 immediately prices it, and 三天 is concrete enough to bite. Two things to polish: use 程式碼 or English code in Taiwan (代碼 is Mainland), and let the final clause land as a 'let alone': 更不用說新的 code 一行都還沒寫 or simply 新的程式碼都還沒動. Stacking 甚至連…也都 piles up three emphasis markers; one is enough.",
+            "targetItemIdsUsedCorrectly": [
+              "guang-shi-jiu-alone"
+            ],
+            "gradedBy": "llm",
+            "model": "claude-opus-5",
+            "gradedAt": "2026-09-19T03:01:49.339Z"
+          }
+        }
+      ],
+      "followUps": [],
+      "practiceDrills": {
+        "drills": [
+          {
+            "id": "drill-1",
+            "lesson": "isolate one sub-task and price it ('just X alone takes…'), then cap it with 'let alone'",
+            "targetExpression": "光是…就…（＋更不用說…）",
+            "english": "It's way more than a weekend project. Just setting up the test environment alone takes two days, let alone the actual migration.",
+            "context": "To a friend who thinks you can finish a side project over the weekend",
+            "referenceAnswers": [
+              "這哪是一個週末能搞定的，光是把測試環境架起來就要兩天，更不用說真正要搬的東西。",
+              "一個週末根本做不完啦，光架測試環境就兩天跑不掉，真正的搬移都還沒開始。"
+            ],
+            "generatedAt": "2026-09-19T03:01:55.255Z",
+            "generatedFromAttemptIndex": 0,
+            "attempts": [
+              {
+                "answer": "這不是一個週末就可以完成的事情，光是做好測試環境就要兩天，更不用說migration本身",
+                "inputMode": "typed",
+                "submittedAt": "2026-09-19T03:09:17.670Z",
+                "timeSpentMs": 233069,
+                "grade": {
+                  "score": 3,
+                  "headline": "Target used correctly; phrasing is fine but slightly written-sounding.",
+                  "correctedLearnerAnswer": "這不是一個週末就可以完成的事情，光是把測試環境架好就要兩天，更不用說 migration 本身了。",
+                  "modelAnswers": [
+                    {
+                      "chinese": "這哪是一個週末就能搞定的，光是把測試環境架起來就要兩天，更不用說真正的 migration 了。",
+                      "note": ""
+                    }
+                  ],
+                  "issues": [],
+                  "strengths": [],
+                  "explanation": "「做好測試環境」is a weak collocation—Taiwanese engineers say 架/建測試環境. Adding 了 at the end of 更不用說… and using 哪是…能搞定 makes it sound more spoken.",
+                  "targetItemIdsUsedCorrectly": [
+                    "guang-shi-jiu-alone"
+                  ],
+                  "gradedBy": "llm",
+                  "model": "claude-opus-5",
+                  "gradedAt": "2026-09-19T03:09:17.670Z"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "completedAt": "2026-09-19T03:10:14.598Z"
+    },
+    "teach-claim-evidence-strength": {
+      "attempts": [],
+      "followUps": [],
+      "completedAt": "2026-09-21T03:43:29.419Z"
+    },
+    "choice-claim-evidence-collocations": {
+      "attempts": [
+        {
+          "answer": "越誇張的說法，需要的證據就要越扎實。",
+          "inputMode": "choice",
+          "hintsRevealed": 0,
+          "submittedAt": "2026-09-21T03:43:49.332Z",
+          "timeSpentMs": 19899,
+          "grade": {
+            "score": 4,
+            "headline": "Correct.",
+            "correctedLearnerAnswer": "越誇張的說法，需要的證據就要越扎實。",
+            "modelAnswers": [
+              {
+                "chinese": "越誇張的說法，需要的證據就要越扎實。",
+                "note": "The 越…越… frame you already use, with the right collocation: 證據 is 扎實 (solid), 有力, or 夠力."
+              }
+            ],
+            "issues": [],
+            "strengths": [],
+            "explanation": "The 越…越… frame you already use, with the right collocation: 證據 is 扎實 (solid), 有力, or 夠力.",
+            "targetItemIdsUsedCorrectly": [
+              "claim-evidence-strength"
+            ],
+            "gradedBy": "choice",
+            "gradedAt": "2026-09-21T03:43:49.332Z"
+          }
+        }
+      ],
+      "followUps": [],
+      "completedAt": "2026-09-21T03:43:51.070Z"
+    },
+    "translate-claim-evidence-youtube-returns": {
+      "attempts": [
+        {
+          "answer": "越誇張的說法，需要越有力的證據，一個人在youtube上說他一年賺30趴，這個證據再薄弱也不過了",
+          "inputMode": "typed",
+          "hintsRevealed": 0,
+          "submittedAt": "2026-09-21T03:46:55.992Z",
+          "timeSpentMs": 163990,
+          "grade": {
+            "score": 3,
+            "headline": "Both halves land, with good collocations; just the final idiom and a couple of small touches need polishing.",
+            "correctedLearnerAnswer": "越誇張的說法，就需要越有力的證據。一個人在 YouTube 上說他一年賺 30 趴，這種證據根本再薄弱不過了吧。",
+            "modelAnswers": [
+              {
+                "chinese": "說法越誇張，證據就要越有力啊。一個人在 YouTube 上說他一年賺三成，這種根本是最弱的證據。",
+                "note": "Splits 越…越… across two clauses, which sounds more spoken; ends with a flat dismissal."
+              },
+              {
+                "chinese": "你講得越大，要拿出來的證據就得越扎實。光是某個人在 YouTube 上說他年報酬 30%，這根本沒什麼證據力。",
+                "note": "Uses 光是…就 to underline how thin the evidence is."
+              }
+            ],
+            "issues": [
+              {
+                "learnerExcerpt": "再薄弱也不過了",
+                "problem": "The idiom is 再…不過了 (\"couldn't be more…\"); inserting 也 makes it sound like the concessive 再…也… pattern and reads slightly off. Also 再…不過了 usually attaches to a positive/neutral evaluation of a thing, so with 薄弱 it works but sounds a bit bookish here.",
+                "suggestion": "這種證據根本再薄弱不過了 / 這根本是最弱的證據 / 這種說法的證據力根本是最低的",
+                "category": "naturalness"
+              },
+              {
+                "learnerExcerpt": "這個證據",
+                "problem": "You're dismissing a *type* of evidence, not one specific item.",
+                "suggestion": "這種證據",
+                "category": "word_choice"
+              },
+              {
+                "learnerExcerpt": "需要越有力的證據，一個人在youtube上",
+                "problem": "The two halves are separate thoughts; running them together with a comma blurs the jump. Spoken Mandarin would also drop a 就 into the second half of 越…越… and add a particle.",
+                "suggestion": "就需要越有力的證據啊。一個人在 YouTube 上…",
+                "category": "naturalness"
+              }
+            ],
+            "strengths": [
+              "越誇張的說法…越有力的證據 — exactly the target collocation, and you avoided the 強大 trap.",
+              "薄弱 for weak evidence is the right word.",
+              "一年賺 30 趴 is authentically Taiwanese spoken usage."
+            ],
+            "explanation": "Your collocations are spot on — 說法/有力/薄弱 all pair correctly with 證據. Two things to tighten: 越…越… almost always takes 就 in the second clause in speech (說法越誇張，證據就要越有力), and the idiom is 再…不過了 without 也 (再薄弱不過了 = \"couldn't be weaker\"). For dismissing the YouTube guy, the punchiest spoken options are 這種根本是最弱的證據 or 這根本沒什麼說服力啊 — short, flat, and clearly about the *category* of evidence.",
+            "targetItemIdsUsedCorrectly": [
+              "claim-evidence-strength"
+            ],
+            "gradedBy": "llm",
+            "model": "claude-opus-5",
+            "gradedAt": "2026-09-21T03:46:55.992Z"
+          }
+        }
+      ],
+      "followUps": [
+        {
+          "question": "how do you express the arbitrariness of \"some guy on youtube\". 一個人在YouTube上 sounds like \"someone on youtube\" and is less powerful than \"some guy\"",
+          "answer": "Good instinct — 一個人 is neutral; Chinese marks the dismissiveness with a quantifier or a vague-identity phrase. The most natural spoken options in Taiwan:\n\n**隨便一個人**在 YouTube 上說他一年賺 30 趴 — \"just any random guy,\" the closest match to \"some guy.\"\n**不知道哪來的**一個 YouTuber 說… — \"some YouTuber out of nowhere,\" adds suspicion about credibility.\n**網路上某個人**說…／**YouTube 上隨便一個鄉民**說… — 某個 is vaguer and cooler than 一個.\n\nYou can also stack a dismissive 就 or 而已: 只是 YouTube 上隨便一個人講的而已，這樣也算證據？ And 阿貓阿狗 works if you want it really contemptuous: 阿貓阿狗在 YouTube 上都嘛可以說自己年賺三成.",
+          "askedAt": "2026-09-21T03:49:49.873Z"
+        }
+      ],
+      "practiceDrills": {
+        "drills": [
+          {
+            "id": "drill-1",
+            "lesson": "scaling claim to evidence, with 就 in the second clause and 這種+評價 to dismiss a whole category",
+            "targetExpression": "…越…，就越…／這種…根本…",
+            "english": "The more unbelievable the theory, the more solid the data has to be. One anonymous post on Reddit is basically no evidence at all.",
+            "context": "Arguing with a friend who believes a conspiracy theory",
+            "referenceAnswers": [
+              "理論越離譜，資料就要越扎實啊。Reddit 上一篇匿名的貼文，這種根本不算證據。",
+              "說法越誇張，證據就得越有力。光是 Reddit 上一個匿名的人講的，這種根本沒什麼說服力啦。"
+            ],
+            "generatedAt": "2026-09-21T03:47:03.573Z",
+            "generatedFromAttemptIndex": 0,
+            "attempts": [
+              {
+                "answer": "越誇張的說法，就需要越紮實的證據，Reddit上隨便一個po文根本不算什麼證據",
+                "inputMode": "typed",
+                "submittedAt": "2026-09-21T03:51:52.550Z",
+                "timeSpentMs": 97157,
+                "grade": {
+                  "score": 3,
+                  "headline": "Natural and clear, but the 這種 dismissal is missing and the first clause reads a bit written.",
+                  "correctedLearnerAnswer": "說法越誇張，證據就要越紮實。Reddit 上隨便一篇匿名 po 文，這種根本不算什麼證據。",
+                  "modelAnswers": [
+                    {
+                      "chinese": "說法越誇張，證據就得越紮實啊。Reddit 上隨便一個匿名 po 文，這種根本不算證據。",
+                      "note": ""
+                    }
+                  ],
+                  "issues": [],
+                  "strengths": [],
+                  "explanation": "越…就越… works better with the adjective predicated (說法越誇張，證據就要越紮實) than stacked prenominally (越誇張的說法…). Add 這種根本… as taught — fronting the example then dismissing it with 這種 is the punchy spoken pattern.",
+                  "targetItemIdsUsedCorrectly": [
+                    "claim-evidence-strength"
+                  ],
+                  "gradedBy": "llm",
+                  "model": "claude-opus-5",
+                  "gradedAt": "2026-09-21T03:51:52.550Z"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "completedAt": "2026-09-21T03:52:22.450Z"
+    },
+    "respond-cousin-supplement-insomnia": {
+      "attempts": [
+        {
+          "answer": "我媽的睡眠本來就一直都不是很穩定的，吃了之後馬上就好不能證明是有效的，如果你要說它有效的話，兩個故事根本不夠有證據力，連瓶子上的資料都還沒看過",
+          "inputMode": "typed",
+          "hintsRevealed": 0,
+          "submittedAt": "2026-09-21T03:57:17.173Z",
+          "timeSpentMs": 268468,
+          "grade": {
+            "score": 3,
+            "headline": "All three points land and 本來就 is on the right clause, but the burden-of-proof cleft is missing and the wording is stiff in places.",
+            "correctedLearnerAnswer": "佳蓉姐，我不是不信啦。只是我媽的睡眠本來就時好時壞，吃了之後有比較好，不代表就是它有效耶。你說它有效，那要拿出證據的就是你啊，兩個人的經驗真的不夠。而且你連瓶子上的成分都還沒看過吧？",
+            "modelAnswers": [
+              {
+                "chinese": "我知道你是關心她啦。可是我媽的失眠本來就時好時壞，剛好那兩個禮拜比較好，不代表是藥的關係耶。說它有效的是你，那要拿出證據的也是你吧？你朋友婆婆那個只是一個例子，而且你連裡面有什麼成分都沒看過欸。",
+                "note": "Keeps it warm with 啦/耶/吧/欸 while pinning the burden of proof with two 的是 clefts."
+              },
+              {
+                "chinese": "不是不信你啦。失眠本來就會起起伏伏，吃完剛好好轉，跟有沒有效是兩回事。要說它真的有用，舉證責任在你身上啊，不能只靠兩個案例——你連成分表都還沒翻過吧。",
+                "note": "Uses the technical 舉證責任在你身上 and 個案 framing."
+              }
+            ],
+            "issues": [
+              {
+                "learnerExcerpt": "如果你要說它有效的話，兩個故事根本不夠有證據力",
+                "problem": "The burden-of-proof move is implied but not pinned. The point is *who* has to prove it, which Chinese marks with a 的是 cleft or 舉證責任.",
+                "suggestion": "說它有效的是你，那要拿出證據的也是你吧？／舉證責任在你身上啊",
+                "category": "target_item"
+              },
+              {
+                "learnerExcerpt": "兩個故事根本不夠有證據力",
+                "problem": "兩個故事 is a calque of 'two stories'; 有證據力 is legal-document register, odd in a family chat.",
+                "suggestion": "兩個人的經驗真的證明不了什麼／那只是兩個個案",
+                "category": "naturalness"
+              },
+              {
+                "learnerExcerpt": "連瓶子上的資料都還沒看過",
+                "problem": "連…都沒 is well formed, but 資料 is vague here — the point is the ingredient list.",
+                "suggestion": "連瓶子上的成分（表）都還沒看過吧",
+                "category": "word_choice"
+              },
+              {
+                "learnerExcerpt": "本來就一直都不是很穩定的",
+                "problem": "Correct placement, but 一直都…的 is wordy; spoken Taiwanese Mandarin prefers a set phrase here.",
+                "suggestion": "本來就時好時壞／本來就會起起伏伏",
+                "category": "naturalness"
+              },
+              {
+                "learnerExcerpt": "吃了之後馬上就好不能證明是有效的",
+                "problem": "Slightly clunky and 馬上就好 overstates it; also no softeners anywhere, so it reads colder than you want with a relative.",
+                "suggestion": "吃了之後有比較好，不代表就是它有效耶",
+                "category": "naturalness"
+              }
+            ],
+            "strengths": [
+              "本來就 is on the premise (my mum's sleep), not on the result — the 0002 error did not come back",
+              "連…都還沒看過 with the object in place, unprompted",
+              "All three content goals are present: baseline variability, anecdotes aren't enough, hasn't checked the ingredients"
+            ],
+            "explanation": "Two upgrades. First, spoken Chinese pins responsibility with a 的是 cleft, which carries the English stress: 說它有效的是你，那要拿出證據的也是你吧 — keep the 的 in *both* halves. Second, pair 本來就 with 不代表 for the full rebuttal shape: A 了之後 B，不代表是因為 A（吃了之後有比較好，不代表就是它有效）. And since 佳蓉 is family and already a bit hurt, sprinkle 啦/耶/吧 and one concession (我知道你是關心她) — without them the same content sounds like a cross-examination.",
+            "targetItemIdsUsedCorrectly": [],
+            "gradedBy": "llm",
+            "model": "claude-opus-5",
+            "gradedAt": "2026-09-21T03:57:17.173Z"
+          }
+        }
+      ],
+      "followUps": [],
+      "practiceDrills": {
+        "drills": [
+          {
+            "id": "drill-1",
+            "lesson": "pin who has to prove it, using a 的是 cleft (keep 的 in both halves)",
+            "targetExpression": "要拿出證據的是…／舉證責任在…身上",
+            "english": "You're the one claiming the new framework is faster, so you're the one who has to show the numbers — I don't have to prove it isn't.",
+            "context": "To a teammate in a design review, half-joking",
+            "referenceAnswers": [
+              "說新框架比較快的是你，那要拿出數據的也是你啊，不是我要證明它不快耶。",
+              "舉證責任在你身上啦，你說它比較快，那要拿出證據的就是你，不是我。"
+            ],
+            "generatedAt": "2026-09-21T03:57:23.560Z",
+            "generatedFromAttemptIndex": 0,
+            "attempts": [
+              {
+                "answer": "說新框架比較快的人是你，所以要拿出數據也應該是你吧，而不是我需要否認",
+                "inputMode": "typed",
+                "submittedAt": "2026-09-21T04:00:38.730Z",
+                "timeSpentMs": 118446,
+                "grade": {
+                  "score": 2,
+                  "headline": "First half nails the cleft, but the second half drops the required 的, which is exactly where the target lives.",
+                  "correctedLearnerAnswer": "說新框架比較快的人是你，所以要拿出數據的也是你吧，而不是我要證明它不快。",
+                  "modelAnswers": [
+                    {
+                      "chinese": "說新框架比較快的是你，那要拿出數據的也是你啊，又不是我要證明它不快。",
+                      "note": ""
+                    }
+                  ],
+                  "issues": [],
+                  "strengths": [],
+                  "explanation": "Keep 的 in both halves: 要拿出數據的也是你 (not 要拿出數據也應該是你). Also 我需要否認 is translationese — say 我要證明它不快 or 又不是我要舉證.",
+                  "targetItemIdsUsedCorrectly": [],
+                  "gradedBy": "llm",
+                  "model": "claude-opus-5",
+                  "gradedAt": "2026-09-21T04:00:38.730Z"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "completedAt": "2026-09-21T04:00:56.920Z"
+    }
+  },
+  "endOfSessionFeedback": {
+    "difficulty": "about_right",
+    "steeringNote": "",
+    "processFeedback": "try to make each day's exercise slightly shorter, and stay on the same vocabulary for longer (even across sessions) so it sinks in better, and so there are more opportunities to see a given vocab in different contexts/situations",
+    "submittedAt": "2026-09-21T04:02:33.240Z"
+  },
+  "itemScheduleChanges": [
+    {
+      "itemId": "benlai-jiu-anyway",
+      "score": 3,
+      "stageBefore": 5,
+      "stageAfter": 6,
+      "intervalDaysBefore": 3,
+      "intervalDaysAfter": 13.1,
+      "dueAt": "2026-10-04T06:26:33.240Z"
+    },
+    {
+      "itemId": "burden-of-proof",
+      "score": 3,
+      "stageBefore": 5,
+      "stageAfter": 6,
+      "intervalDaysBefore": 3,
+      "intervalDaysAfter": 13.1,
+      "dueAt": "2026-10-04T06:26:33.240Z"
+    },
+    {
+      "itemId": "lian-dou-not-even",
+      "score": 3,
+      "stageBefore": 5,
+      "stageAfter": 6,
+      "intervalDaysBefore": 3,
+      "intervalDaysAfter": 13.1,
+      "dueAt": "2026-10-04T06:26:33.240Z"
+    },
+    {
+      "itemId": "tech-debt-cut-corners",
+      "score": 4,
+      "stageBefore": 4,
+      "stageAfter": 5,
+      "intervalDaysBefore": 1,
+      "intervalDaysAfter": 6,
+      "dueAt": "2026-09-27T04:02:33.240Z"
+    },
+    {
+      "itemId": "fan-er-contrary",
+      "score": 2,
+      "stageBefore": 4,
+      "stageAfter": 4,
+      "intervalDaysBefore": 3,
+      "intervalDaysAfter": 5.9,
+      "dueAt": "2026-09-27T01:38:33.240Z"
+    },
+    {
+      "itemId": "guang-shi-jiu-alone",
+      "score": 3,
+      "stageBefore": 0,
+      "stageAfter": 4,
+      "intervalDaysBefore": 0,
+      "intervalDaysAfter": 1,
+      "dueAt": "2026-09-22T04:02:33.240Z"
+    },
+    {
+      "itemId": "claim-evidence-strength",
+      "score": 3.5,
+      "stageBefore": 0,
+      "stageAfter": 5,
+      "intervalDaysBefore": 0,
+      "intervalDaysAfter": 3,
+      "dueAt": "2026-09-24T04:02:33.240Z"
+    }
+  ],
+  "nextSessionPreparation": {
+    "triggeredAt": "2026-09-21T04:02:33.263Z",
+    "logPath": "topics/zh-tw-expressiveness/.prep/2026-09-21T04-02-33-250Z-after-0004-how-big-is-the-claim.log"
+  }
+}

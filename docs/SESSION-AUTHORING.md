@@ -30,10 +30,14 @@ interactive "I'm ready" conversation, the steps are the same.
    Mark topic steering notes `Status: addressed in <new session dir>` once your session addresses them.
    Process feedback requires changing the system (docs/code). If you're headless and it needs code changes,
    leave it open and mention it in `authorRationale` so the interactive agent handles it.
-6. **Choose content** (see §C) for a session that fits `topic.json` → `targetSessionMinutes` (zh-tw: 15–25 real minutes):
+6. **Choose content** (see §C) for a session that fits `topic.json` → `targetSessionMinutes` (zh-tw: 12–20 real minutes):
    - **Reviews**: items whose `spacedRepetition.dueAt` ≤ the expected session time, most overdue / lowest stage first,
      capped at `maxReviewStepsPerSession` from `topic.json`. Items that aren't due can still be reused inside stretch tasks.
-   - **New items**: 1–3, fewer if the last session was rated too hard or many items are due, more if too easy.
+   - **Consolidate before expanding** (learner request, 2026-09-21): keep recent items in rotation across several sessions,
+     each time in a *new* context/domain, and recycle incidental vocabulary from the last session's corrections into new
+     prompts. Introduce a new item only once the current ones have been seen in 2–3 different contexts. A session with no
+     new items (`kind: "review"`) is fine.
+   - **New items**: 0–2, fewer if the last session was rated too hard or many items are due, more if too easy.
    - **One stretch task** at Stage 5–6 that combines several items.
    - **Reuse practiced sentences** from `practice-bank.json` for reviews (the learner explicitly wants this): pick entries
      whose `itemIds` include the item being reviewed (or whose `targetExpression` matches), preferring ones they scored ≤ 2.
@@ -105,7 +109,8 @@ Also on free-response steps:
 
 **Calibrate against the learner's real pace, not the budget below.** Compare past `estimatedMinutes` with the actual
 time in `results.json` (step `timeSpentMs` plus the gap between `startedAt` and `completedAt`) and say in `authorRationale`
-what you assumed. For zh-tw as of 0002: a translate + 1 drill cycle runs 4–5.5 min, a respond + 2 drills ~8 min.
+what you assumed. For zh-tw as of 0004: review translate with no drill ~3 min, translate + 1 drill 7–11 min, respond + 1 drill ~9 min
+(each drill answer alone takes 1.5–4 min). At 12–20 minutes, that means about 4 steps and 2 drills.
 
 **Shape (typical session, 6–9 steps):**
 1. Warm-up review: 1–2 due items at their current stage (quick wins first).

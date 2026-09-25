@@ -20,7 +20,10 @@ a series of sessions tailored to the learner's goal and past performance.
 - The learner opens Claude Code in this folder and says something like *"ok I'm ready for the next session."*
 - They get a session in the **browser** (or another medium if it's clearly better). Originally specified as 5–10 minutes;
   **revised 2026-09-15 to 15–25 real minutes** (see decision log) — the learner prefers more material per sitting.
+  **Revised again 2026-09-21: "slightly shorter"** — zh-tw now targets 12–20 real minutes.
   Per-topic target lives in `topic.json` → `targetSessionMinutes`.
+- **Stay on the same vocabulary longer** (learner, 2026-09-21): items recur across sessions in different contexts before new
+  ones are added, so each gets seen in several situations.
 - On completion, **everything is persisted**: inputs, grading, outcomes, feedback.
 - The next session for that topic is created from that history so it matches progress, pace, and goal.
 - The learner does **not** study every day; gaps of days or weeks are normal and must be handled gracefully.
@@ -195,4 +198,5 @@ act on it, update this spec, and log the decision below.
 | 2026-09-13 | Runtime "Apply it" practice drills after graded free-response steps, banked for later reviews | Learner process feedback after 0001. Drills don't affect SRS (immediate practice ≠ delayed recall); skipped when the first attempt scores 4 to protect session length |
 | 2026-09-13 | Prep runs through a wrapper that streams Claude Code events to a readable live log | `claude -p` text output only appears at the end, so the log looked empty while prep was actually running |
 | 2026-09-13 | All results.json writes go through one locked read-modify-write | Concurrent requests (drill generation + follow-ups) could otherwise overwrite each other |
+| 2026-09-21 | zh-tw target 15–25 → 12–20 real min; "consolidate before expanding" rule (recent items recur in new contexts; 0–2 new items; review-only sessions allowed) | Learner process feedback after 0004, which took ~39 active min over three sittings against a label of 20. Content/docs change only; no runtime change |
 | 2026-09-13 | Grading effort `low` (was `medium`) | Measured one translate grade: 19.0s at medium vs 11.4s at low with the same score and correction. Future option: stream feedback so the verdict appears sooner |

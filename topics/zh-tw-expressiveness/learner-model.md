@@ -1,53 +1,50 @@
 # Learner model: Expressive Conversational Mandarin
 
 Maintained by the agent that prepares each session. Keep it short and current: rewrite sections, don't just append.
-Last updated: 2026-09-16 (after 0003-paying-for-it-later, preparing 0004)
+Last updated: 2026-09-21 (after 0004-how-big-is-the-claim, preparing 0005)
 
 ## Summary
-Solidly conversational, with sound reasoning. New constructions land on first contact and come back unprompted within
-the same session (反而 did this in 0003, as 本來就 / the 的是 cleft / 連…都 did in 0002). Corrections stick across
-sessions: both placement errors flagged after 0002 were fixed in 0003. Production scores have plateaued at a
-consistent 3 (diagnostic ≈2.1, 0002 ≈3.0, 0003 ≈3.0) and what holds them there is no longer structure — it's
-**spoken register and collocation**, plus arguments that state a claim without a number behind it.
+Solidly conversational, with sound reasoning. New constructions usually land on first contact (光是…就… in 0004, 反而 in
+0003), and corrections to a specific sentence stick (the 技術債 rerun went from 2 to 4). What doesn't happen yet is
+**transfer**: a move learned in one domain doesn't come back automatically in another (反而 scored 2 once it left software),
+and a move learned in isolation often doesn't show up unprompted in a stretch (no 的是 cleft in the 0004 stretch). Production
+has held at a steady 3 since 0002. What keeps it there is spoken register and collocation, not structure.
+The learner asked (after 0004) to **stay on the same vocabulary longer, across sessions and contexts**, which fits this evidence.
 
 ## Strengths
-- Picks up a taught construction fast and reuses it unprompted later in the same session.
+- Picks up a taught construction fast; fixes a specific corrected sentence reliably on the rerun.
 - Keeps the logical content intact: every communicative goal gets across, even when the phrasing is rough.
-- Builds contrastive and proportional frames without help (越…越…, 不是X而是Y, 不代表, 本來…結果…反而…).
-- Retains corrections between sessions (本來就 on the premise; 連 + object + 都沒 V without fronting).
-- Reaches for idiomatic collocations when they've been heard once (停下來帶他們, 抄了一堆捷徑, 還技術債).
+- Builds contrastive and proportional frames without help (越…越…, 不是X而是Y, 不代表, 光是…就…).
+- 本來就 on the premise and 連 + object + 都沒 V are now stable, including outside software (0004 stretch).
+- Picks up authentic colloquial touches once heard: 一堆, 害我們…, 30 趴, 隨便一個 po 文, 轉過去.
+- Curious about expressive nuance, e.g. asked how to say the dismissive "some guy on YouTube" (隨便一個人／不知道哪來的／阿貓阿狗).
 
 ## Recurring errors / gaps
-- **Written / textbook register in speech** (now the top issue): 為了…而…, 要求 for an HTTP request, 測驗 for 測試,
-  修錯誤 for 修 bug, 審查 for review, 簡短 for 縮短, 部署 for 上線, 加速／變慢 where 比較快／更慢 is spoken,
-  earlier 而不是, 安裝, 推翻, 達到期限.
-- **Aspect and quantity in past narration**: 了 after the object (抄捷徑了) instead of on the verb with a quantity
-  (抄了一堆捷徑); redundant 了 on 在+V (在還了); 很多 where a vented 一堆 belongs. Drilled in 0003, scored 2.
-- **Claims without a quantity.** Says "it takes time no matter who" but never says how long, which is exactly what
-  would make the argument land. No frame yet for isolating one cost and pricing it (光是…就…).
-- **Small function words under load**: dropped 的 in the *second* cleft of a sentence after getting the first right;
-  earlier 要/該 for obligation and 會 with habitual predicates.
-- **Few sentence-final particles** (啦/耶/欸/吧), so pushback comes out flat; occasional perspective slips (你們team
-  for their own team) and one long run-on chain instead of short chunks.
-- **Vocabulary gaps**, usually filled with English or a written synonym: argument nouns (說法/主張, 證據有力/扎實),
-  tech talk (上線, 流量, 演算法/呼叫), 隨意 vs 隨機.
+- **Transfer across domains.** 反而 was fine for code (加 cache 反而變慢) but in a relationship context came out
+  可是只讓我們變得更尷尬. The expectation → reversal frame 本來想說…結果反而… isn't automatic yet.
+- **The 的是 cleft under load**: gets the first half right, drops 的 in the second (要拿出數據也應該是你). This happened in 0003 and again in 0004.
+  Unprompted, it didn't appear at all. The SRS record says stage 6; treat it as closer to 4–5.
+- **Written / legal / textbook register**: 為了…而…/為了…才…, 澄清 for clearing the air, 有證據力, 一直都…的, 測驗, 修錯誤,
+  部署, 審查, 我需要否認. Calques: 兩個故事, 只讓. Mainland 代碼 for 程式碼.
+- **越…越… prenominal** (越誇張的說法，需要越有力的證據) where speech predicates it with 就 (說法越誇張，證據就要越扎實).
+- Weak collocations for tech actions (做好測試環境 → 架測試環境).
+- **Few sentence-final particles** (啦/耶/欸/吧), so pushback comes out flat, especially with family.
 
 ## Current focus
-- Items at stage 5 (from 0002): `benlai-jiu-anyway`, `burden-of-proof`, `lian-dou-not-even`. 0004 tests all three at
-  stage 5 in one respond with no same-session priming — the first time a stretch step carries their itemIds.
-- Items at stage 4 (from 0003): `tech-debt-cut-corners` (re-run the failed drill sentence), `fan-er-contrary`.
-- 0004 new: `guang-shi-jiu-alone` (光是…就…), `claim-evidence-strength` (說法/主張 + 證據夠力/扎實, 越誇張越要…).
-- Queue: 問題不在…而在… with 演算法/呼叫; chunked explanation habits (打個比方, 而且, 退一步說); a register-focused
-  step on spoken vs written word choice; then new curriculum from the strands (falsifiability, correlation vs
-  causation, moving the goalposts, 與其…不如…).
+- **Consolidate, don't expand** (learner's request). 0005 introduces no new items and re-sees:
+  `guang-shi-jiu-alone` (stage 4), `fan-er-contrary` (stage 4, failed transfer), `claim-evidence-strength` (stage 5),
+  and the burden-of-proof cleft (untagged rerun of the failed drill).
+- Carry incidental vocabulary from corrections into later prompts: 把話講開, 更不用說, 這種…根本…, 隨便一個人, 架環境, 程式碼, 時好時壞, 成分.
+- Next new item only once the current ones have been seen in 2–3 different contexts. Queue: 問題不在…而在…; 與其…不如…;
+  correlation vs causation (相關不等於因果); falsifiability; moving the goalposts; 打個比方.
 
 ## Pace & preferences observed
-- Rated 0001, 0002 and 0003 all "about right". Never uses hints, never retries, never disputes.
-- **Actual time runs ~1.85–2× the estimate.** Measured in 0003: a translate/rewrite + 1 drill ≈ 5.2 min; a review
-  translate with no drill ≈ 1.8 min; a teach 0.6–1.5; a choice 0.5; the stretch respond + 1 drill 9.6 min (4.2 of
-  those just typing). Budget from these numbers, not the guide's per-step table. 3 drills per session is the ceiling.
+- Rated all four sessions "about right". Never uses hints, never retries, never disputes. Asks the occasional sharp follow-up.
+- **Real time is ~2× the label.** 0004 took ~39 active min in three sittings (label 20). Measured in 0004: review translate
+  with no drill ~3.2 min · translate + 1 drill 8.5–11 · respond + 1 drill ~8.6 · each drill answer 1.6–3.9 min of typing.
+  Asked for shorter sessions: budget ~20 real min from these numbers, with at most 2 drills.
 - Likes software-engineering vocabulary grounded in how Taiwanese engineers really talk; mixes English in when a word
-  is missing (tech debt, traffic, call) — a reliable signal of a gap worth teaching.
+  is missing, which reliably signals a gap worth teaching.
 - Wants immediate application (drills) and wants practiced sentences to come back as reviews.
-- Notices when the grader overstates a regional-usage claim (難受). Keep Taiwan-usage claims hedged and accurate.
-- Asked about paging back through completed screens and about adding imagery — both open in docs/process-feedback.md.
+- Notices when the grader overstates a regional-usage claim. Keep Taiwan-usage claims hedged.
+- Open process requests: paging back through screens; imagery (needs an API key, so ask first); a vocabulary record.

@@ -21,3 +21,8 @@ For now, let's keep the pace slow and reiterate or rehash this content, because 
   three times: 2 new items, 3 drills, one stage-5 stretch. Length budgeted from 0003's measured pace rather than the
   guide's estimates. The standing "software vocab, grounded in real usage" steering from 0002 is honored by the
   warm-up and 光是 steps; the rest rotates to argument and family strands so three sessions don't run all-software.)
+
+## 2026-09-21 · after 0004-how-big-is-the-claim
+- Difficulty: about right
+- Status: addressed in 0005-says-who (difficulty kept; length cut and no new items per the same-day process feedback
+  "shorter, stay on the same vocabulary longer")
