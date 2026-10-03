@@ -65,13 +65,14 @@ self-learning/
 ├── docs/
 │   ├── SYSTEM.md                 # this file (living spec)
 │   ├── SESSION-AUTHORING.md      # how to author a session (schema, exercise types, quality bar)
-│   └── process-feedback.md       # learner's general feedback about the system (append-only log)
+│   ├── process-feedback.md       # learner's general feedback about the system (append-only log)
+│   └── plans/                    # multi-step engineering plans with status checkboxes (e.g. cloud-deployment.md)
 ├── app/                          # the session runtime (TypeScript)
-│   ├── server/                   # Hono server: serves sessions, grades via Claude API, persists results, SRS
+│   ├── server/                   # Hono server: serves sessions, grades via Claude (LearningLlmClient), persists results, SRS
 │   ├── web/                      # React (Vite) front-end that renders sessions
 │   ├── shared/                   # zod schemas shared by server, web, and CLI scripts
-│   └── scripts/                  # CLI: learn, status, validate, prepare-session
-├── learning.config.json          # model, effort, port, auto-prepare toggle
+│   └── scripts/                  # CLI: learn, status, validate, prepare-session, compare-llm-backends
+├── learning.config.json          # LLM backend, model, effort, port, auto-prepare toggle
 ├── .env                          # optional API key for the anthropic-api backend (gitignored; agents never read it)
 └── topics/
     └── <topic-id>/
@@ -139,7 +140,12 @@ All model calls go through `LearningLlmClient` with two backends, picked by `llm
 - `claude-cli` (default): headless `claude -p --json-schema` on the learner's **subscription** (local login, or
   `CLAUDE_CODE_OAUTH_TOKEN` in the cloud). Isolated per call: no tools, settings, hooks, MCP, or CLAUDE.md. ~250 MB per
   process, at most 3 at once.
-- `anthropic-api`: the Messages API, pay-per-use with `ANTHROPIC_API_KEY` in `.env`.
+- `anthropic-api`: the Messages API, pay-per-use with `ANTHROPIC_API_KEY` in `.env`. Keeps prompt caching and the
+  server-side refusal fallback, which the CLI path doesn't have.
+
+Differences to know about on `claude-cli`: the tutor's multi-turn chat is replayed as one transcript prompt (`claude -p`
+takes a single prompt); a refusal surfaces as `ClaudeRefusalError` with no automatic fallback model; usage counts
+against the subscription's limits. `npm run compare-llm-backends` re-grades a past session on both backends.
 
 The grade contains: score, minimally corrected version of the learner's answer, model answers, specific issues,
 and an explanation. The prompt includes the topic's `grading.md`. The learner can **retry**, **ask a

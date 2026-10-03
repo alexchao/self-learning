@@ -10,7 +10,8 @@
     "server": "tsx app/server/main.ts",
     "build:web": "vite build --config app/web/vite.config.ts",
     "dev:web": "vite --config app/web/vite.config.ts",
-    "typecheck": "tsc --noEmit -p tsconfig.json"
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "compare-llm-backends": "tsx app/scripts/compareLlmBackends.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.125.0",

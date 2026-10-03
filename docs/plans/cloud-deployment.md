@@ -64,6 +64,12 @@ Things I can do myself with tools you're already logged in to: GitHub deploy key
 
 The only other thing needing you is the phone test at the end (Phase 6).
 
+**State as of 2026-10-03:** Fly app exists (no machines, no volume yet). Secrets `CLAUDE_CODE_OAUTH_TOKEN` and
+`ACCESS_PASSPHRASE` are **staged** (`fly secrets list -a quiet-lantern-4747`); they take effect on the first deploy.
+The learner has the passphrase; it is deliberately not written anywhere in this repo. The laptop's `fly` and `gh` CLIs
+are logged in as the learner. An earlier setup token leaked and was replaced; if the learner hasn't confirmed revoking
+the old one, remind them.
+
 ---
 
 ## Phase 1: LLM calls on the subscription (local first; pays off even before the cloud)
@@ -80,6 +86,17 @@ The only other thing needing you is the phone test at the end (Phase 6).
 - [x] Verify (`app/scripts/compareLlmBackends.ts`): 5 recorded 0004 answers, same score on 4, one borderline 3 vs 2;
       CLI ~20 s avg vs API ~15 s; ~250 MB RSS per CLI process → use a 2 GB machine.
 - [x] Commit; SYSTEM.md decision log.
+
+Findings worth knowing (Phase 1):
+- Isolation flags in `claudeCliLlmClient.ts`: `--system-prompt` (replaces Claude Code's own), `--tools ""`,
+  `--setting-sources ""` (also skips user hooks), `--strict-mcp-config`, `--no-session-persistence`,
+  `--disable-slash-commands`, cwd = an empty temp dir (no CLAUDE.md discovery). Prompt goes in on stdin.
+- **Don't use `--bare`**: it ignores OAuth/keychain and only accepts `ANTHROPIC_API_KEY`, i.e. it defeats the point.
+- `--output-format json` gives `structured_output`, `stop_reason`, `is_error`, `subtype`, `modelUsage` (model name).
+  `total_cost_usd` is reported even on the subscription; it's notional, not billed.
+- Cold start ~1.3–2 s per call; ~250 MB RSS per process; capped at 3 concurrent in the client.
+- Checked through the CLI: answer grading (5 answers), drill generation, drill grading, and multi-turn tutor replies.
+  Not yet checked through the live app UI (session 0006 was waiting unstarted); its first graded answer is the check.
 
 ## Phase 2: make the server safe and usable remotely
 

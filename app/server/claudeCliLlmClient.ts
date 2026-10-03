@@ -152,6 +152,8 @@ export class ClaudeCliLlmClient implements LearningLlmClient {
         clearTimeout(timeout);
         resolve({ stdout, stderr, exitCode });
       });
+      // If the CLI exits before reading stdin, the write fails with EPIPE; without a handler that crashes the server.
+      child.stdin.on("error", () => {});
       child.stdin.end(standardInput);
     });
   }
