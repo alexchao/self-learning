@@ -71,7 +71,8 @@ self-learning/
 │   ├── server/                   # Hono server: serves sessions, grades via Claude (LearningLlmClient), persists results, SRS
 │   ├── web/                      # React (Vite) front-end that renders sessions
 │   ├── shared/                   # zod schemas shared by server, web, and CLI scripts
-│   └── scripts/                  # CLI: learn, status, validate, prepare-session, compare-llm-backends
+│   └── scripts/                  # CLI: learn, status, validate, prepare-session, cloud, compare-llm-backends
+├── Dockerfile, fly.toml, deploy/ # cloud image (toolchain only), Fly config, boot scripts (see "Running in the cloud")
 ├── learning.config.json          # LLM backend, model, effort, port, auto-prepare toggle
 ├── .env                          # optional API key for the anthropic-api backend (gitignored; agents never read it)
 └── topics/
@@ -114,6 +115,28 @@ self-learning/
 
 This makes "ready" usually instant, and keeps gaps (days/weeks) harmless: nothing runs on a cron, and
 spaced-repetition due dates are just dates. Overdue items stay due until reviewed.
+
+### Running in the cloud (Fly.io app `quiet-lantern-4747`)
+Sessions happen at **https://quiet-lantern-4747.fly.dev** (any device; passphrase once per browser). Plan, history,
+and setup details: `docs/plans/cloud-deployment.md`.
+- **One always-on machine** (shared-cpu-1x, 2 GB, region sjc) runs the same server plus next-session prep. All LLM
+  calls use the learner's subscription (`CLAUDE_CODE_OAUTH_TOKEN`, a Fly secret).
+- **The app runs from a git clone on the volume** (`/data/repo`), not from the image. The image (`Dockerfile`) only
+  holds Node, git, and a pinned Claude Code CLI. `deploy/entrypoint.sh` installs the GitHub deploy key (Fly secret
+  `GIT_DEPLOY_KEY_BASE64`) and drops to the `node` user; `deploy/server-loop.sh` clones/pulls, runs `npm ci` and the
+  web build when their inputs changed, and restarts the server whenever it exits (exit 75 = "new code pulled").
+- **Git sync** (`gitSyncService.ts`, on only when `GIT_SYNC=on`): the cloud commits learning data as "study server"
+  (`topics/**`, `docs/process-feedback.md`; never a `results.json` of an unfinished session), rebases on GitHub, and
+  pushes. Prep does this at its start (records the finished session, pulls the laptop's latest docs) and its end
+  (pushes the new session). The server stays out of git while a prep lock is held.
+- **Code updates**: the server polls `main` every 2 minutes (`cloudUpdateService.ts`). Docs-only changes are just
+  pulled; code changes (`app/`, `package*.json`, `learning.config.json`, `tsconfig.json`) trigger a restart once no
+  request is in flight and no prep is running. `npm run cloud -- update` does it immediately.
+- **Admin endpoints** (`adminApiRoutes.ts`: status, update, steering/reprepare) answer only loopback connections, so
+  they don't exist on the public URL. The laptop reaches them with `npm run cloud -- …`, which runs curl inside the
+  machine over `fly ssh console`.
+- **Changing the image** (Dockerfile, deploy/, fly.toml, CLI version) needs `fly deploy` from the laptop. Everything
+  else ships by pushing to `main`.
 
 ### Spaced repetition + Bloom ladder (`app/server/spacedRepetition*.ts`)
 Each **learning item** (a sentence pattern, expression, concept-chunk) has a **Bloom stage** and an
@@ -181,18 +204,25 @@ moving per-topic wording into `topic.json`/`grading.md` rather than adding `if (
 
 ## 4. The session loop (operational)
 
-**"I'm ready for the next session"**
-1. `npm run status`: see topics, prepared sessions, due items, pending steering.
+**"I'm ready for the next session"** (the cloud is the live system; the laptop's copy is for authoring code/docs)
+1. `npm run cloud -- status` (the cloud's view: topics, prepared sessions, due items, prep progress, sync log).
 2. If several topics are active, pick the one with the most due/overdue work (or ask).
-3. If the prepared session is fine, `npm run learn -- --topic <id>` (starts the server if needed, opens the browser).
-4. Otherwise, author the session per `docs/SESSION-AUTHORING.md`, `npm run validate`, then launch.
+3. If the prepared session is fine, point the learner at https://quiet-lantern-4747.fly.dev (Start/Resume is on the home page).
+4. Otherwise: `npm run cloud -- steer --topic <id> --note "…" --reprepare` to have the cloud prepare it again, or
+   author it on the laptop (`git pull` first, SESSION-AUTHORING.md, `npm run validate`), commit, push, then
+   `npm run cloud -- update`.
+
+Local mode (`npm run learn`) still works for development, but never run a session locally against real data while
+the cloud is live: the two copies would diverge.
 
 **Preparing a session** (headless or interactive). Full checklist in SESSION-AUTHORING.md:
 read the last results → write `review.md` → update `learner-model.md` → read `steering.md` → pick
 due items + new material → author `session.json` → validate.
 
-**Steering from chat.** If the learner steers in Claude Code ("next time, more software engineering"),
-append it to that topic's `steering.md` and, if a prepared session exists, revise it.
+**Steering from chat.** If the learner steers in Claude Code ("next time, more software engineering"):
+`npm run cloud -- steer --topic <id> --note "…"` appends it to that topic's `steering.md` in the cloud (and pushes);
+add `--reprepare` to also redo the prepared-but-unstarted next session. Don't edit `steering.md` on the laptop: the
+cloud owns it.
 
 **Process feedback.** If the learner comments on the system itself, append to `docs/process-feedback.md`,
 act on it, update this spec, and log the decision below.
@@ -229,3 +259,7 @@ act on it, update this spec, and log the decision below.
 | 2026-09-13 | Grading effort `low` (was `medium`) | Measured one translate grade: 19.0s at medium vs 11.4s at low with the same score and correction. Future option: stream feedback so the verdict appears sooner |
 | 2026-10-03 | All in-app LLM calls default to Claude Code CLI on the subscription (`llmBackend: claude-cli`); API kept as a switch | Learner won't pay per-use API costs to run this in the cloud. Measured on 5 recorded 0004 answers: same score on 4, one borderline 3→2; CLI ~20 s avg vs API ~15 s. See docs/plans/cloud-deployment.md |
 | 2026-10-03 | Passphrase gate (cookie = HMAC of `ACCESS_PASSPHRASE`) on `/api/*` and assets only; web shell public | The cloud server spends the learner's subscription; strangers must not reach the API. One shared secret is enough for one learner; the shell holds nothing private |
+| 2026-10-03 | Cloud runs the app from a git clone on its volume; the image is toolchain only | "What's deployed" == what's on `main`, and data and code share one tree exactly as locally. Code ships by `git push`; only image changes need `fly deploy` |
+| 2026-10-03 | Ownership split: cloud commits learning data (`topics/**`, `process-feedback.md`), laptop commits code/docs/topic config | Two writers on one branch without conflicts. The cloud never commits an unfinished session's `results.json` |
+| 2026-10-03 | Cloud polls `main` every 2 min instead of a GitHub Action calling it | No Fly token in GitHub, no public trigger endpoint; ≤2 min lag is fine, and `npm run cloud -- update` is immediate |
+| 2026-10-03 | Admin endpoints are loopback-only, reached via `fly ssh console` | Nothing operator-facing on the public URL; auth is the laptop's existing `fly` login |

@@ -22,6 +22,7 @@ ENV REPOSITORY_DIRECTORY=/data/repo \
     GIT_SYNC=on \
     DISABLE_AUTOUPDATER=1
 
-# tini reaps the detached prep processes and forwards stop signals to the whole process group.
-ENTRYPOINT ["/usr/bin/tini", "-g", "--"]
+# tini reaps the detached prep processes (-s: Fly's own init is PID 1, so tini must register as subreaper) and
+# forwards stop signals to the whole process group (-g).
+ENTRYPOINT ["/usr/bin/tini", "-s", "-g", "--"]
 CMD ["/usr/local/bin/entrypoint.sh"]

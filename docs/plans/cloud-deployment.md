@@ -1,6 +1,6 @@
 # Plan: run the learning system in the cloud, on the Claude subscription
 
-Status: **proposed** (2026-10-03). Work through the phases in order; tick boxes as they land.
+Status: **live** since 2026-10-03 (phases 0–5 done; Phase 6, the learner's phone test, pending).
 
 ## Goal
 
@@ -25,7 +25,7 @@ Do sessions from any device (phone included) with the Mac off, without paying fo
                                                               ▼
                                                       GitHub alexchao/self-learning
                                                               ▲
- laptop: interactive Claude ── push code/docs ────────────────┘   (push to main → Action → cloud pulls + restarts)
+ laptop: interactive Claude ── push code/docs ────────────────┘   (cloud polls main every 2 min; pulls + restarts)
 ```
 
 The code runs from the git working tree on the volume, not from code baked into the image. The image only provides
@@ -36,7 +36,7 @@ one tree, exactly like local.
 
 | Files | Written by | Reaches the other side via |
 |---|---|---|
-| `app/`, `docs/`, `CLAUDE.md`, `topics/*/{TOPIC.md,grading.md,topic.json}` | laptop | push → GitHub Action → cloud `git pull` + restart |
+| `app/`, `docs/`, `CLAUDE.md`, `topics/*/{TOPIC.md,grading.md,topic.json}` | laptop | push → cloud polls `main`, pulls, restarts if code changed |
 | `results.json`, `items.json`, `review.md`, `learner-model.md`, `practice-bank.json`, new sessions, `steering.md`, `docs/process-feedback.md` | cloud | cloud commits + pushes; laptop `git pull` |
 
 Exceptions (steering from a chat, fixing bad SRS data) go through an admin endpoint or a laptop commit that the cloud
@@ -60,7 +60,7 @@ Everything that needs you happens here, so the rest can run unattended.
       Your browser remembers it, so you type it once per device.
 
 Things I can do myself with tools you're already logged in to: GitHub deploy key (`gh repo deploy-key add
---allow-write`), the Fly deploy token for GitHub Actions (`fly tokens create deploy` + `gh secret set`).
+--allow-write`). (A Fly deploy token for GitHub Actions turned out unnecessary; see Phase 3.)
 
 The only other thing needing you is the phone test at the end (Phase 6).
 
@@ -121,38 +121,60 @@ Found, not fixed (out of scope): single-asterisk `*emphasis*` in authored text r
 
 ## Phase 3: git sync and admin endpoints
 
-- [ ] New `gitSyncService.ts` (serialized, one git operation at a time):
-  - `pull --rebase` before every prep and before every admin-triggered update;
-  - commit + push learning data after a session completes **and** its prep finishes (same rule as CLAUDE.md);
-    never while a session is in progress; commit author "study server".
-  - On push rejection: pull --rebase and retry once, then log and leave it for the laptop.
-- [ ] Admin endpoints (same passphrase gate):
-  - `POST /api/admin/update`: pull; if code changed, rebuild web and restart (deferred until no prep is running).
-  - `POST /api/admin/reprepare?topic=…`: discard the unstarted next session and run prep again (for steering given
-    in chat after a session was already prepared).
-  - `GET /api/admin/status`: the `npm run status` output plus prep log tail, so the laptop can see cloud state.
-- [ ] `npm run status -- --remote` and `npm run cloud -- <update|reprepare|logs>` wrappers for the laptop agent.
+- [x] `gitSyncService.ts` (one git operation at a time per process; only when `GIT_SYNC=on`):
+  - stages `topics/**` + `docs/process-feedback.md`, unstages any `results.json` whose session has no `completedAt`,
+    commits as "study server", `pull --rebase --autostash`, pushes; a rejected push gets one more pull + push;
+    a rebase conflict is aborted and logged (`.runtime/git-sync.log`), and the commit waits for the next sync.
+  - Prep (`prepareNextSession.ts`) syncs at its start ("Record … learning data", also pulls the laptop's latest docs)
+    and at its end ("Prepare the … session"), even if Claude failed. The server does no git work while a prep lock is held.
+- [x] **Changed from the original plan:** no GitHub Action. The server polls `main` every 2 min
+  (`cloudUpdateService.ts`): docs-only changes are pulled; code changes (`app/`, `package*.json`,
+  `learning.config.json`, `tsconfig.json`, compared against the commit the process started from) make it exit with
+  code 75 once no request is in flight and no prep is running, and `deploy/server-loop.sh` reinstalls/rebuilds as
+  needed and starts it again. Why: no Fly token in GitHub and no public trigger endpoint; ≤2 min lag is fine.
+- [x] Admin endpoints (`adminApiRoutes.ts`), **loopback only** (404 from anywhere else, so not on the public URL):
+  `GET /api/admin/status`, `POST /api/admin/update`, `POST /api/admin/steering {topicId, note, reprepare}`.
+  Reprepare deletes the unstarted next session and reruns prep after the last completed one; refused (409) while prep runs.
+- [x] Laptop wrappers: `npm run cloud -- status | prep-log | update | steer | server-logs` and `npm run status -- --remote`
+  (`cloud.ts` / `cloudAdminClient.ts`: curl inside the machine over `fly ssh console`, JSON body base64-encoded).
+- [x] Tested against a local bare repo standing in for GitHub (scratch clones, stub `claude`): unfinished results
+  excluded, code changes left alone, laptop commits rebased under, docs-only pull without restart, code pull → exit 75,
+  steering commit + push, reprepare (note + deletion committed, new session pushed), update and steering refused while
+  prep runs, admin 404 over the LAN IP.
 
 ## Phase 4: container and Fly
 
-- [ ] `Dockerfile`: Node 22 slim, git, `@anthropic-ai/claude-code` (pinned), non-root user.
-- [ ] `deploy/entrypoint.sh`: first boot clones the repo into `/data/repo` with the deploy key; later boots `git pull`;
-      `npm ci`, build web, start server.
-- [ ] `fly.toml`: one machine, auto-stop **off** (prep runs in the background after you close the tab), volume at
-      `/data`, health check on `/healthz`.
-- [ ] Deploy key with write access → Fly secret `GIT_DEPLOY_KEY`.
-- [ ] `fly deploy`; smoke test over the public URL with `/browse`: login, open a session, one graded answer, finish a
-      throwaway session on a scratch topic to confirm prep runs on the subscription and the commit reaches GitHub
-      (then revert the scratch commit).
-- [ ] `.github/workflows/cloud-update.yml`: on push to main touching `app/`, `docs/`, `package*.json`, or topic config,
-      call `/api/admin/update` (skips commits authored by the server).
+- [x] `Dockerfile`: `node:22-bookworm-slim`, git, openssh-client, curl, tini (`-s -g`: Fly's init is PID 1),
+      `@anthropic-ai/claude-code@2.1.288` pinned, `deploy/github_known_hosts` (from `gh api meta`, fingerprints checked).
+      `.dockerignore` sends only `deploy/` to the builder (never `.env`).
+- [x] `deploy/entrypoint.sh` (root: writes the deploy key for `node`, drops privileges with `setpriv`, removes the key
+      from the env) → `deploy/server-loop.sh` (clone/pull `/data/repo`, `npm ci` when `package-lock.json` changed,
+      web build when `app/web`/`app/shared` changed, run, restart on exit).
+- [x] `fly.toml`: 1 machine, sjc, shared-cpu-1x 2 GB, auto-stop off, volume `data` (1 GB) at `/data`, `/healthz` check.
+- [x] Deploy key "study server (Fly quiet-lantern-4747)", read-write, on the GitHub repo; private half only in the Fly
+      secret `GIT_DEPLOY_KEY_BASE64` (local copy deleted). To rotate: new key, `gh repo deploy-key add --allow-write`,
+      `fly secrets set GIT_DEPLOY_KEY_BASE64=$(base64 < key | tr -d '\n')`, delete the old key on GitHub.
+- [x] Deployed 2026-10-03; first boot (clone + npm ci + build) ~13 s. Smoke tests:
+  - public: `/healthz` 200, `/api/*` 401 without cookie, wrong passphrase 401, `/api/admin/*` 404, http → https 301;
+  - in the machine: server env has the OAuth token and passphrase but not the deploy key; deploy key can push
+    (`git push --dry-run` reached receive-pack); `claude -p` with a Bash tool call works on the subscription;
+  - a graded answer through the server (login → start → attempt, 23 s) on a throwaway copy of the topic;
+  - a full real prep run (as `node`, `GIT_SYNC=off`) on a throwaway copy: exit 0, new session written, `validate` passes.
+  The throwaway copies were deleted; the real 0006 was never started. Prep + push together get their first real run
+  when the learner finishes 0006 (check `npm run cloud -- status` afterwards).
+
+Operational notes:
+- Shell in the machine: `fly ssh console` (root). Run git as the repo owner: `su node -s /bin/sh -c "git …"` in `/data/repo`.
+- A stuck sync (rebase conflict, e.g. both sides appended to `process-feedback.md`): resolve by hand in the machine as
+  `node` (`git pull --rebase`, fix, `git rebase --continue`, `git push`).
+- Cost: shared-cpu-1x 2 GB always on + 1 GB volume ≈ $11–12/month.
 
 ## Phase 5: cutover
 
-- [ ] Finish or leave any in-progress local session; commit and push all local learning data.
-- [ ] Cloud pulls; the local server is retired (`npm run learn` stays as dev mode; never run both against real data).
-- [ ] Update `CLAUDE.md` (the loop now points to the cloud URL; "pull first" rule; steering via reprepare), `SYSTEM.md`
-      (architecture, decision log), and save the URL in memory.
+- [x] No local session in progress; all local learning data was already committed (0006 prepared, unstarted).
+- [x] The local server is stopped; `npm run learn` stays as dev mode. Never run a real session on both.
+- [x] `CLAUDE.md` (loop → cloud URL, `git pull` first, steering via `npm run cloud -- steer`, HTTPS push fallback),
+      `SYSTEM.md` ("Running in the cloud", loop, decision log), URL saved in memory.
 
 ## Phase 6: your part again
 
