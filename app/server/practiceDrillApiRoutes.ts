@@ -4,6 +4,7 @@ import type { PracticeDrillAttempt, PracticeDrillSet } from "../shared/practiceD
 import type { SessionResults } from "../shared/sessionResultsSchema.ts";
 import { isFreeResponseStep } from "../shared/sessionSchema.ts";
 import type { LearningConfig } from "./learningConfig.ts";
+import type { LearningLlmClient } from "./learningLlmClient.ts";
 import { PracticeDrillGenerator } from "./practiceDrillGenerator.ts";
 import { PracticeDrillGrader } from "./practiceDrillGrader.ts";
 import { resolvePracticeDrillCount } from "./practiceDrillPolicy.ts";
@@ -21,10 +22,10 @@ const DrillAttemptRequestSchema = z.object({
  * - POST "/skip"                → learner skipped the drills
  * - POST "/:drillId/attempts"   → grade an answer to one drill
  */
-export function createPracticeDrillApiRoutes(repository: TopicRepository, config: LearningConfig): Hono {
+export function createPracticeDrillApiRoutes(repository: TopicRepository, config: LearningConfig, llmClient: LearningLlmClient): Hono {
   const api = new Hono();
-  const generator = new PracticeDrillGenerator(config);
-  const grader = new PracticeDrillGrader(config);
+  const generator = new PracticeDrillGenerator(config, llmClient);
+  const grader = new PracticeDrillGrader(config, llmClient);
   const pendingGenerationsByStepKey = new Map<string, Promise<PracticeDrillSet>>();
 
   const readActiveResults = (topicId: string, sessionDirName: string): SessionResults => {

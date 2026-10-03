@@ -4,7 +4,8 @@ import type { LearningItem } from "../shared/learningItemSchema.ts";
 import type { SessionResults, StepAttempt } from "../shared/sessionResultsSchema.ts";
 import { isFreeResponseStep, type SessionStep } from "../shared/sessionSchema.ts";
 import { AnswerGrader } from "./answerGrader.ts";
-import { hasAnthropicCredentials, type LearningConfig } from "./learningConfig.ts";
+import type { LearningConfig } from "./learningConfig.ts";
+import type { LearningLlmClient } from "./learningLlmClient.ts";
 import { NextSessionPreparer } from "./nextSessionPreparer.ts";
 import { SessionCompletionService } from "./sessionCompletionService.ts";
 import type { TopicRepository } from "./topicRepository.ts";
@@ -27,10 +28,10 @@ const CompleteSessionRequestSchema = z.object({
   processFeedback: z.string().default(""),
 });
 
-export function createSessionApiRoutes(repository: TopicRepository, config: LearningConfig): Hono {
+export function createSessionApiRoutes(repository: TopicRepository, config: LearningConfig, llmClient: LearningLlmClient): Hono {
   const api = new Hono();
-  const grader = new AnswerGrader(config);
-  const tutor = new TutorFollowUpResponder(config);
+  const grader = new AnswerGrader(config, llmClient);
+  const tutor = new TutorFollowUpResponder(config, llmClient);
   const completionService = new SessionCompletionService(repository);
   const statusReporter = new TopicStatusReporter(repository);
   const preparer = new NextSessionPreparer();
@@ -66,11 +67,13 @@ export function createSessionApiRoutes(repository: TopicRepository, config: Lear
       return currentResults;
     });
 
-  api.get("/health", (context) => context.json({ ok: true, hasApiKey: hasAnthropicCredentials() }));
+  api.get("/health", async (context) => context.json({ ok: true, llmUnavailableReason: await llmClient.describeUnavailability() }));
 
-  api.get("/topics", (context) => context.json({ topics: statusReporter.reportAllTopics(), hasApiKey: hasAnthropicCredentials() }));
+  api.get("/topics", async (context) =>
+    context.json({ topics: statusReporter.reportAllTopics(), llmUnavailableReason: await llmClient.describeUnavailability() }),
+  );
 
-  api.get("/topics/:topicId/sessions/:sessionDirName", (context) => {
+  api.get("/topics/:topicId/sessions/:sessionDirName", async (context) => {
     const { topicId, sessionDirName } = context.req.param();
     const { session, deck } = loadSessionContext(topicId, sessionDirName);
     const referencedItemIds = new Set(session.steps.flatMap((step) => step.itemIds));
@@ -79,7 +82,7 @@ export function createSessionApiRoutes(repository: TopicRepository, config: Lear
       session,
       results: repository.readSessionResults(topicId, sessionDirName),
       items: deck.items.filter((item) => referencedItemIds.has(item.id)),
-      hasApiKey: hasAnthropicCredentials(),
+      llmUnavailableReason: await llmClient.describeUnavailability(),
     });
   });
 

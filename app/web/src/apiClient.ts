@@ -10,7 +10,8 @@ export interface SessionPayload {
   session: SessionDefinition;
   results: SessionResults | null;
   items: LearningItem[];
-  hasApiKey: boolean;
+  /** Null when grading can run; otherwise what to fix. */
+  llmUnavailableReason: string | null;
 }
 
 export type AttemptInputMode = "typed" | "spoken" | "mixed" | "choice";
@@ -32,7 +33,7 @@ export class LearningApiClient {
     private readonly sessionDirName: string,
   ) {}
 
-  public static async fetchTopicStatuses(): Promise<{ topics: TopicStatus[]; hasApiKey: boolean }> {
+  public static async fetchTopicStatuses(): Promise<{ topics: TopicStatus[]; llmUnavailableReason: string | null }> {
     return requestJson("/api/topics");
   }
 

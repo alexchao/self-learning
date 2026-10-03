@@ -1,9 +1,8 @@
-import type Anthropic from "@anthropic-ai/sdk";
 import type { LearningItem } from "../shared/learningItemSchema.ts";
 import type { StepResult } from "../shared/sessionResultsSchema.ts";
 import type { SessionStep } from "../shared/sessionSchema.ts";
-import { ClaudeRefusalError, getClaudeClient, refusalFallbackRequestFields } from "./claudeClientFactory.ts";
-import { assertAnthropicCredentialsConfigured, type LearningConfig } from "./learningConfig.ts";
+import type { LearningConfig } from "./learningConfig.ts";
+import type { LearningLlmClient, LlmConversationTurn } from "./learningLlmClient.ts";
 import { describeStepForModel } from "./stepPromptDescriber.ts";
 import { readTopicGradingRubric } from "./topicGradingRubricReader.ts";
 
@@ -20,7 +19,10 @@ export interface FollowUpRequest {
 }
 
 export class TutorFollowUpResponder {
-  public constructor(private readonly config: LearningConfig) {}
+  public constructor(
+    private readonly config: LearningConfig,
+    private readonly llmClient: LearningLlmClient,
+  ) {}
 
   public async answerFollowUp(request: FollowUpRequest): Promise<string> {
     const contextLines = ["<exercise>", describeStepForModel(request.step, request.targetItems), "</exercise>"];
@@ -35,7 +37,7 @@ export class TutorFollowUpResponder {
       );
     }
 
-    const messages: Anthropic.MessageParam[] = [];
+    const messages: LlmConversationTurn[] = [];
     request.stepResult.followUps.forEach((exchange, index) => {
       messages.push({ role: "user", content: index === 0 ? `${contextLines.join("\n")}\n\n${exchange.question}` : exchange.question });
       messages.push({ role: "assistant", content: exchange.answer });
@@ -45,25 +47,12 @@ export class TutorFollowUpResponder {
       content: request.stepResult.followUps.length === 0 ? `${contextLines.join("\n")}\n\n${request.question}` : request.question,
     });
 
-    assertAnthropicCredentialsConfigured();
-    const response = await getClaudeClient().beta.messages.create({
+    return this.llmClient.requestText({
+      systemPromptSections: [TUTOR_INSTRUCTIONS, readTopicGradingRubric(request.topicId)],
+      conversation: messages,
       model: this.config.tutor.model,
-      max_tokens: 16000,
-      ...refusalFallbackRequestFields(),
-      thinking: { type: "adaptive" },
-      output_config: { effort: this.config.tutor.effort },
-      system: [
-        { type: "text", text: TUTOR_INSTRUCTIONS },
-        { type: "text", text: readTopicGradingRubric(request.topicId), cache_control: { type: "ephemeral" } },
-      ],
-      messages,
+      effort: this.config.tutor.effort,
     });
-
-    if (response.stop_reason === "refusal") throw new ClaudeRefusalError(response.stop_details?.explanation);
-    return response.content
-      .flatMap((block) => (block.type === "text" ? [block.text] : []))
-      .join("\n")
-      .trim();
   }
 
 }

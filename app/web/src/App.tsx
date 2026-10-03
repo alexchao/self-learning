@@ -13,7 +13,7 @@ export function App() {
 
 function HomePage() {
   const [topics, setTopics] = useState<TopicStatus[] | null>(null);
-  const [hasApiKey, setHasApiKey] = useState(true);
+  const [llmUnavailableReason, setLlmUnavailableReason] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ function HomePage() {
     LearningApiClient.fetchTopicStatuses()
       .then((response) => {
         setTopics(response.topics);
-        setHasApiKey(response.hasApiKey);
+        setLlmUnavailableReason(response.llmUnavailableReason);
       })
       .catch((error: Error) => setErrorMessage(error.message));
   }, []);
@@ -35,11 +35,7 @@ function HomePage() {
         <section className="step">
           <p className="step-eyebrow">Study</p>
           <h1 className="session-title">Topics</h1>
-          {!hasApiKey && (
-            <p className="notice">
-              No Anthropic API key found. Add <code>ANTHROPIC_API_KEY</code> to <code>.env</code>, then <code>npm run learn -- --restart</code>.
-            </p>
-          )}
+          {llmUnavailableReason && <p className="notice">{llmUnavailableReason}</p>}
           <ul className="topic-list">
             {topics.map((topic) => (
               <li key={topic.topicId} className="topic-card">

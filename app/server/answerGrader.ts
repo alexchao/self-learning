@@ -1,9 +1,8 @@
-import { betaZodOutputFormat } from "@anthropic-ai/sdk/helpers/beta/zod";
 import { LlmGradeOutputSchema, type StepGrade } from "../shared/gradingSchema.ts";
 import type { LearningItem } from "../shared/learningItemSchema.ts";
 import type { ChoiceStep, ClozeStep, FreeResponseStep } from "../shared/sessionSchema.ts";
-import { ClaudeRefusalError, getClaudeClient, refusalFallbackRequestFields } from "./claudeClientFactory.ts";
-import { assertAnthropicCredentialsConfigured, type LearningConfig } from "./learningConfig.ts";
+import type { LearningConfig } from "./learningConfig.ts";
+import type { LearningLlmClient } from "./learningLlmClient.ts";
 import { describeStepForModel } from "./stepPromptDescriber.ts";
 import { readTopicGradingRubric } from "./topicGradingRubricReader.ts";
 
@@ -30,7 +29,10 @@ export interface GradeRequest {
 }
 
 export class AnswerGrader {
-  public constructor(private readonly config: LearningConfig) {}
+  public constructor(
+    private readonly config: LearningConfig,
+    private readonly llmClient: LearningLlmClient,
+  ) {}
 
   public async gradeFreeResponse(request: GradeRequest): Promise<StepGrade> {
     if (request.step.type === "cloze" && !request.dispute) {
@@ -38,35 +40,20 @@ export class AnswerGrader {
       if (exactMatchGrade) return exactMatchGrade;
     }
 
-    assertAnthropicCredentialsConfigured();
-    const client = getClaudeClient();
-    const response = await client.beta.messages.parse({
+    const { output, model } = await this.llmClient.requestStructuredOutput({
+      systemPromptSections: [GENERAL_GRADER_INSTRUCTIONS, readTopicGradingRubric(request.topicId)],
+      userMessage: this.buildGradingMessage(request),
+      outputSchema: LlmGradeOutputSchema,
       model: this.config.grading.model,
-      max_tokens: 16000,
-      ...refusalFallbackRequestFields(),
-      thinking: { type: "adaptive" },
-      output_config: { effort: this.config.grading.effort, format: betaZodOutputFormat(LlmGradeOutputSchema) },
-      system: [
-        { type: "text", text: GENERAL_GRADER_INSTRUCTIONS },
-        { type: "text", text: readTopicGradingRubric(request.topicId), cache_control: { type: "ephemeral" } },
-      ],
-      messages: [{ role: "user", content: this.buildGradingMessage(request) }],
+      effort: this.config.grading.effort,
     });
 
-    if (response.stop_reason === "refusal") {
-      throw new ClaudeRefusalError(response.stop_details?.explanation);
-    }
-    if (!response.parsed_output) {
-      throw new Error(`Grader returned no parseable output (stop_reason: ${response.stop_reason})`);
-    }
-
-    const output = response.parsed_output;
     const maximumScore = request.hintsRevealed > 0 ? 3 : 4;
     return {
       ...output,
       score: Math.max(0, Math.min(maximumScore, Math.round(output.score))),
       gradedBy: "llm",
-      model: response.model,
+      model,
       gradedAt: new Date().toISOString(),
     };
   }

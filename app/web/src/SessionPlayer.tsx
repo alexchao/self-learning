@@ -60,7 +60,7 @@ export function SessionPlayer({ topicId, sessionDirName }: { topicId: string; se
   const totalSteps = session.steps.length;
   const isCompleted = Boolean(results?.completedAt);
   const assetUrl = (relativePath: string) => apiClient.assetUrl(relativePath);
-  const needsApiKey = session.steps.some(isFreeResponseStep) && !payload.hasApiKey;
+  const gradingUnavailableReason = session.steps.some(isFreeResponseStep) ? payload.llmUnavailableReason : null;
 
   return (
     <div className="page">
@@ -79,11 +79,7 @@ export function SessionPlayer({ topicId, sessionDirName }: { topicId: string; se
       </header>
 
       <main className="column">
-        {needsApiKey && (
-          <p className="notice">
-            Grading needs an Anthropic API key. Add <code>ANTHROPIC_API_KEY</code> to <code>.env</code> in the project root, then run <code>npm run learn -- --restart</code>.
-          </p>
-        )}
+        {gradingUnavailableReason && <p className="notice">Grading is unavailable. {gradingUnavailableReason}</p>}
         {errorMessage && <p className="error-message">{errorMessage}</p>}
 
         {currentStepIndex === null && (

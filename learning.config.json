@@ -1,5 +1,6 @@
 {
   "port": 4747,
+  "llmBackend": "claude-cli",
   "grading": { "model": "claude-opus-5", "effort": "low" },
   "tutor": { "model": "claude-opus-5", "effort": "low" },
   "practiceDrills": { "defaultCountPerStep": 2, "skipWhenFirstAttemptScoreAtLeast": 4 },

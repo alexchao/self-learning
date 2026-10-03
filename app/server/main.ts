@@ -5,6 +5,7 @@ import { serveStatic } from "@hono/node-server/serve-static";
 import { Hono } from "hono";
 import { loadEnvironmentFileIfPresent, loadLearningConfig } from "./learningConfig.ts";
 import { REPOSITORY_ROOT, sessionDirectory, WEB_DIST_DIRECTORY } from "./repositoryPaths.ts";
+import { createLearningLlmClient } from "./learningLlmClientFactory.ts";
 import { createPracticeDrillApiRoutes } from "./practiceDrillApiRoutes.ts";
 import { createSessionApiRoutes } from "./sessionApiRoutes.ts";
 import { TopicRepository } from "./topicRepository.ts";
@@ -12,10 +13,11 @@ import { TopicRepository } from "./topicRepository.ts";
 loadEnvironmentFileIfPresent();
 const config = loadLearningConfig();
 const repository = new TopicRepository();
+const llmClient = createLearningLlmClient(config);
 
 const app = new Hono();
-app.route("/api", createSessionApiRoutes(repository, config));
-app.route("/api", createPracticeDrillApiRoutes(repository, config));
+app.route("/api", createSessionApiRoutes(repository, config, llmClient));
+app.route("/api", createPracticeDrillApiRoutes(repository, config, llmClient));
 
 // Session assets: /session-assets/<topic>/<session dir>/assets/<file>
 app.get("/session-assets/:topicId/:sessionDirName/*", (context) => {

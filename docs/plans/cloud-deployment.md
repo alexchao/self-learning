@@ -48,14 +48,14 @@ pulls *before* it writes anything, never as concurrent edits.
 
 Everything that needs you happens here, so the rest can run unattended.
 
-- [ ] **Fly.io account** with a payment method (expected cost ~$5–8/month: shared-cpu-1x, 1–2 GB RAM, always on,
+- [x] **Fly.io account** with a payment method (expected cost ~$5–8/month: shared-cpu-1x, 1–2 GB RAM, always on,
       1 GB volume). Then, in this Claude session: `! fly auth login`
-- [ ] **Decide the app name / URL**, e.g. `alexchao-study.fly.dev` (default suggestion; say if you want another).
-- [ ] After I create the Fly app (minutes after login), **in your own terminal, not through Claude** (so the token never
+- [x] **Decide the app name / URL**, **`quiet-lantern-4747`** (https://quiet-lantern-4747.fly.dev), created 2026-10-03.
+- [x] After I create the Fly app (minutes after login), **in your own terminal, not through Claude** (so the token never
       lands in a transcript):
       1. `claude setup-token` → copy the token
       2. `fly secrets set --stage -a <app> CLAUDE_CODE_OAUTH_TOKEN=<token>`
-- [ ] **Passphrase** for the site: either pick one and set it the same way
+- [x] **Passphrase** (generated, staged as a Fly secret) for the site: either pick one and set it the same way
       (`fly secrets set --stage -a <app> ACCESS_PASSPHRASE=<phrase>`), or let me generate one and tell you.
       Your browser remembers it, so you type it once per device.
 
@@ -68,18 +68,18 @@ The only other thing needing you is the phone test at the end (Phase 6).
 
 ## Phase 1: LLM calls on the subscription (local first; pays off even before the cloud)
 
-- [ ] New `app/server/structuredLlmClient.ts`: one interface, `requestStructuredOutput({ system, user, schema, model, effort })`.
-- [ ] New `app/server/claudeCliStructuredLlmClient.ts`: spawns `claude -p --output-format json --json-schema <zod→JSON
+- [x] New `app/server/learningLlmClient.ts`: one interface, `requestStructuredOutput({ system, user, schema, model, effort })`.
+- [x] New `app/server/claudeCliLlmClient.ts`: spawns `claude -p --output-format json --json-schema <zod→JSON
       schema> --model … --effort …`, with tools off, no project settings/CLAUDE.md loaded (run in a neutral cwd), the
       API-key env vars stripped, and a timeout. Parses `structured_output`, validates with zod, maps refusals to
       `ClaudeRefusalError`.
-- [ ] Move the existing SDK path into `anthropicApiStructuredLlmClient.ts`; choose via `learning.config.json` →
+- [x] Move the existing SDK path into `anthropicApiLlmClient.ts`; choose via `learning.config.json` →
       `llmBackend: "claude-cli" | "anthropic-api"` (default `claude-cli`).
-- [ ] Switch the four call sites: `answerGrader`, `tutorFollowUpResponder`, `practiceDrillGenerator`, `practiceDrillGrader`.
-- [ ] Home page: drop the "no API key" warning when the backend is `claude-cli`; check the CLI is logged in instead.
-- [ ] Verify: grade the same 0004 answers on both backends (same scores?), latency per call (measured ~4 s for a trivial
-      call vs ~11 s for an API grade), memory per concurrent CLI process (sizes the Fly machine).
-- [ ] Commit; SYSTEM.md decision log.
+- [x] Switch the four call sites: `answerGrader`, `tutorFollowUpResponder`, `practiceDrillGenerator`, `practiceDrillGrader`.
+- [x] Home page: drop the "no API key" warning when the backend is `claude-cli`; check the CLI is logged in instead.
+- [x] Verify (`app/scripts/compareLlmBackends.ts`): 5 recorded 0004 answers, same score on 4, one borderline 3 vs 2;
+      CLI ~20 s avg vs API ~15 s; ~250 MB RSS per CLI process → use a 2 GB machine.
+- [x] Commit; SYSTEM.md decision log.
 
 ## Phase 2: make the server safe and usable remotely
 

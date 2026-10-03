@@ -72,7 +72,7 @@ self-learning/
 │   ├── shared/                   # zod schemas shared by server, web, and CLI scripts
 │   └── scripts/                  # CLI: learn, status, validate, prepare-session
 ├── learning.config.json          # model, effort, port, auto-prepare toggle
-├── .env                          # API keys (learner-created; gitignored; agents never read it)
+├── .env                          # optional API key for the anthropic-api backend (gitignored; agents never read it)
 └── topics/
     └── <topic-id>/
         ├── topic.json            # id, title, goal, session length, status
@@ -93,7 +93,7 @@ self-learning/
 ### Division of labor
 - **Claude Code (the agent)** *authors* sessions: reads history, updates the learner model, writes `session.json`.
 - **The runtime (app/)** *delivers* sessions: renders steps, calls the Claude API to grade free-form answers
-  in real time, supports follow-up questions and grade disputes, saves every interaction, and updates
+  in real time (through `LearningLlmClient`), supports follow-up questions and grade disputes, saves every interaction, and updates
   spaced-repetition state deterministically when a session completes.
 - Sessions are **data** (`session.json`) rendered by a library of **exercise types**. If a session needs an
   interaction that doesn't exist yet (a game, a dialogue simulator, a voice conversation), the agent
@@ -134,8 +134,14 @@ credits actual elapsed time (a success after a long gap earns a long interval). 
 reviews per session so a week off doesn't create an avalanche; prioritize the most overdue and weakest.
 
 ### Grading
-Free-form answers are graded by the Claude API (model/effort in `learning.config.json`) using structured
-output: score, minimally corrected version of the learner's answer, model answers, specific issues,
+Free-form answers are graded by Claude (model/effort in `learning.config.json`) using structured output.
+All model calls go through `LearningLlmClient` with two backends, picked by `llmBackend`:
+- `claude-cli` (default): headless `claude -p --json-schema` on the learner's **subscription** (local login, or
+  `CLAUDE_CODE_OAUTH_TOKEN` in the cloud). Isolated per call: no tools, settings, hooks, MCP, or CLAUDE.md. ~250 MB per
+  process, at most 3 at once.
+- `anthropic-api`: the Messages API, pay-per-use with `ANTHROPIC_API_KEY` in `.env`.
+
+The grade contains: score, minimally corrected version of the learner's answer, model answers, specific issues,
 and an explanation. The prompt includes the topic's `grading.md`. The learner can **retry**, **ask a
 follow-up question**, or **dispute** a grade (re-graded with their argument). All of it is saved.
 
@@ -200,3 +206,4 @@ act on it, update this spec, and log the decision below.
 | 2026-09-13 | All results.json writes go through one locked read-modify-write | Concurrent requests (drill generation + follow-ups) could otherwise overwrite each other |
 | 2026-09-21 | zh-tw target 15–25 → 12–20 real min; "consolidate before expanding" rule (recent items recur in new contexts; 0–2 new items; review-only sessions allowed) | Learner process feedback after 0004, which took ~39 active min over three sittings against a label of 20. Content/docs change only; no runtime change |
 | 2026-09-13 | Grading effort `low` (was `medium`) | Measured one translate grade: 19.0s at medium vs 11.4s at low with the same score and correction. Future option: stream feedback so the verdict appears sooner |
+| 2026-10-03 | All in-app LLM calls default to Claude Code CLI on the subscription (`llmBackend: claude-cli`); API kept as a switch | Learner won't pay per-use API costs to run this in the cloud. Measured on 5 recorded 0004 answers: same score on 4, one borderline 3→2; CLI ~20 s avg vs API ~15 s. See docs/plans/cloud-deployment.md |

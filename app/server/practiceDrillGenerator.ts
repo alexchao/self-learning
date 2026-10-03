@@ -1,10 +1,9 @@
-import { betaZodOutputFormat } from "@anthropic-ai/sdk/helpers/beta/zod";
 import type { LearningItem } from "../shared/learningItemSchema.ts";
 import { LlmPracticeDrillGenerationOutputSchema, type PracticeDrill } from "../shared/practiceDrillSchema.ts";
 import type { StepAttempt } from "../shared/sessionResultsSchema.ts";
 import type { FreeResponseStep } from "../shared/sessionSchema.ts";
-import { ClaudeRefusalError, getClaudeClient, refusalFallbackRequestFields } from "./claudeClientFactory.ts";
-import { assertAnthropicCredentialsConfigured, type LearningConfig } from "./learningConfig.ts";
+import type { LearningConfig } from "./learningConfig.ts";
+import type { LearningLlmClient } from "./learningLlmClient.ts";
 import { describeStepForModel } from "./stepPromptDescriber.ts";
 import { readTopicGradingRubric } from "./topicGradingRubricReader.ts";
 
@@ -28,10 +27,12 @@ export interface PracticeDrillGenerationRequest {
 }
 
 export class PracticeDrillGenerator {
-  public constructor(private readonly config: LearningConfig) {}
+  public constructor(
+    private readonly config: LearningConfig,
+    private readonly llmClient: LearningLlmClient,
+  ) {}
 
   public async generateDrills(request: PracticeDrillGenerationRequest): Promise<PracticeDrill[]> {
-    assertAnthropicCredentialsConfigured();
     const { grade } = request.attempt;
     const feedbackSummary = [
       `Learner's answer: ${request.attempt.answer}`,
@@ -42,29 +43,16 @@ export class PracticeDrillGenerator {
       `Model answers shown: ${grade.modelAnswers.map((modelAnswer) => modelAnswer.chinese).join(" | ")}`,
     ].join("\n");
 
-    const response = await getClaudeClient().beta.messages.parse({
+    const { output } = await this.llmClient.requestStructuredOutput({
+      systemPromptSections: [DRILL_GENERATOR_INSTRUCTIONS, readTopicGradingRubric(request.topicId)],
+      userMessage: `<exercise>\n${describeStepForModel(request.step, request.targetItems)}\n</exercise>\n\n<feedback>\n${feedbackSummary}\n</feedback>\n\nWrite exactly ${request.drillCount} drills.`,
+      outputSchema: LlmPracticeDrillGenerationOutputSchema,
       model: this.config.grading.model,
-      max_tokens: 16000,
-      ...refusalFallbackRequestFields(),
-      thinking: { type: "adaptive" },
-      output_config: { effort: this.config.grading.effort, format: betaZodOutputFormat(LlmPracticeDrillGenerationOutputSchema) },
-      system: [
-        { type: "text", text: DRILL_GENERATOR_INSTRUCTIONS },
-        { type: "text", text: readTopicGradingRubric(request.topicId), cache_control: { type: "ephemeral" } },
-      ],
-      messages: [
-        {
-          role: "user",
-          content: `<exercise>\n${describeStepForModel(request.step, request.targetItems)}\n</exercise>\n\n<feedback>\n${feedbackSummary}\n</feedback>\n\nWrite exactly ${request.drillCount} drills.`,
-        },
-      ],
+      effort: this.config.grading.effort,
     });
 
-    if (response.stop_reason === "refusal") throw new ClaudeRefusalError(response.stop_details?.explanation);
-    if (!response.parsed_output) throw new Error(`Drill generator returned no parseable output (stop_reason: ${response.stop_reason})`);
-
     const generatedAt = new Date().toISOString();
-    return response.parsed_output.drills
+    return output.drills
       .filter((drill) => drill.english.trim() && drill.referenceAnswers.length > 0)
       .slice(0, request.drillCount)
       .map((drill, index) => ({
