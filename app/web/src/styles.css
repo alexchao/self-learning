@@ -1149,3 +1149,41 @@ a:focus-visible {
   color: var(--ink-faint);
   white-space: nowrap;
 }
+
+/* ---------- Login ---------- */
+
+.login-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.login-input {
+  flex: 1 1 14rem;
+  min-width: 0;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius);
+  background: var(--paper-raised);
+  padding: 0.7rem 0.9rem;
+  font-size: 1rem;
+  outline: none;
+}
+
+.login-input:focus {
+  border-color: var(--seal);
+  box-shadow: 0 0 0 3px var(--focus);
+}
+
+/* ---------- Touch devices and phones ---------- */
+
+@media (hover: none) and (pointer: coarse) {
+  /* Keyboard shortcuts don't exist on a phone. */
+  kbd {
+    display: none;
+  }
+  /* iOS Safari zooms the page when focusing a field under 16px. */
+  .follow-up-input-row .text-input {
+    font-size: 1rem;
+  }
+}

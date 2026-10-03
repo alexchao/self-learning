@@ -164,6 +164,21 @@ target caps it at 2). Drills are skipped when the first attempt scored 4 (`learn
 
 ---
 
+### Multi-topic readiness (known Chinese coupling)
+The learner will add topics beyond Chinese, and not all of them will be languages. Storage, scheduling, the session
+loop, prep, auth, and the cloud setup are topic-agnostic: everything topic-specific lives in `topics/<id>/`. But some
+runtime code still assumes the topic is Taiwanese Mandarin. Remove this before (or while) authoring a second topic,
+moving per-topic wording into `topic.json`/`grading.md` rather than adding `if (topic === …)` branches:
+- Prompts: `practiceDrillGenerator.ts` / `practiceDrillGrader.ts` ("translate into spoken Taiwanese Mandarin",
+  "Traditional characters"), `stepPromptDescriber.ts` (translate step), and "quote Chinese where relevant" in
+  `answerGrader.ts` / `tutorFollowUpResponder.ts`.
+- UI strings: "Say it in Chinese" (`FreeResponsePromptView.tsx`), placeholders `用中文回答…` / `用中文說…`,
+  "Show pinyin" (`TeachStepView.tsx`), `zh-TW` speech defaults (topics already set `speechLanguage`).
+- Schemas: `pinyin` fields and "Chinese" in doc comments; the char-level diff (fine for CJK, word-level is better for
+  alphabetic languages; irrelevant for non-language topics).
+- Step types `translate`/`respond` presuppose a language topic. A non-language topic (say, statistics) would mostly use
+  `teach`, `choice`, `cloze`, `free_production`, plus new types (SESSION-AUTHORING.md §E).
+
 ## 4. The session loop (operational)
 
 **"I'm ready for the next session"**
@@ -213,3 +228,4 @@ act on it, update this spec, and log the decision below.
 | 2026-09-21 | zh-tw target 15–25 → 12–20 real min; "consolidate before expanding" rule (recent items recur in new contexts; 0–2 new items; review-only sessions allowed) | Learner process feedback after 0004, which took ~39 active min over three sittings against a label of 20. Content/docs change only; no runtime change |
 | 2026-09-13 | Grading effort `low` (was `medium`) | Measured one translate grade: 19.0s at medium vs 11.4s at low with the same score and correction. Future option: stream feedback so the verdict appears sooner |
 | 2026-10-03 | All in-app LLM calls default to Claude Code CLI on the subscription (`llmBackend: claude-cli`); API kept as a switch | Learner won't pay per-use API costs to run this in the cloud. Measured on 5 recorded 0004 answers: same score on 4, one borderline 3→2; CLI ~20 s avg vs API ~15 s. See docs/plans/cloud-deployment.md |
+| 2026-10-03 | Passphrase gate (cookie = HMAC of `ACCESS_PASSPHRASE`) on `/api/*` and assets only; web shell public | The cloud server spends the learner's subscription; strangers must not reach the API. One shared secret is enough for one learner; the shell holds nothing private |

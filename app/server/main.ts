@@ -5,6 +5,7 @@ import { serveStatic } from "@hono/node-server/serve-static";
 import { Hono } from "hono";
 import { loadEnvironmentFileIfPresent, loadLearningConfig } from "./learningConfig.ts";
 import { REPOSITORY_ROOT, sessionDirectory, WEB_DIST_DIRECTORY } from "./repositoryPaths.ts";
+import { AccessGate } from "./accessGate.ts";
 import { createLearningLlmClient } from "./learningLlmClientFactory.ts";
 import { createPracticeDrillApiRoutes } from "./practiceDrillApiRoutes.ts";
 import { createSessionApiRoutes } from "./sessionApiRoutes.ts";
@@ -15,7 +16,14 @@ const config = loadLearningConfig();
 const repository = new TopicRepository();
 const llmClient = createLearningLlmClient(config);
 
+const accessGate = new AccessGate(process.env.ACCESS_PASSPHRASE);
+
 const app = new Hono();
+// Unauthenticated liveness check for the host (Fly health checks).
+app.get("/healthz", (context) => context.text("ok"));
+app.route("/api", accessGate.createRoutes());
+app.use("/api/*", accessGate.requireAccess());
+app.use("/session-assets/*", accessGate.requireAccess());
 app.route("/api", createSessionApiRoutes(repository, config, llmClient));
 app.route("/api", createPracticeDrillApiRoutes(repository, config, llmClient));
 
@@ -42,6 +50,9 @@ app.get("*", (context) => {
   return context.html(fs.readFileSync(indexPath, "utf8"));
 });
 
-serve({ fetch: app.fetch, port: config.port }, (info) => {
-  console.log(`[self-learning] serving ${REPOSITORY_ROOT} at http://localhost:${info.port}`);
+// The cloud sets PORT/HOST (it must listen on 0.0.0.0); locally the config port and Node's default address apply.
+const listeningPort = process.env.PORT ? Number(process.env.PORT) : config.port;
+serve({ fetch: app.fetch, port: listeningPort, hostname: process.env.HOST }, (info) => {
+  const gateDescription = accessGate.isEnabled() ? "passphrase gate on" : "no passphrase gate";
+  console.log(`[self-learning] serving ${REPOSITORY_ROOT} at http://localhost:${info.port} (${gateDescription})`);
 });

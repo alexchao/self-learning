@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import type { TopicStatus } from "../../server/topicStatusReporter.ts";
 import { LearningApiClient } from "./apiClient.ts";
+import { LoginPage } from "./LoginPage.tsx";
 import { CenteredMessage, SessionPlayer } from "./SessionPlayer.tsx";
 
 export function App() {
+  if (window.location.pathname === "/login") return <LoginPage />;
   const sessionRouteMatch = window.location.pathname.match(/^\/topics\/([^/]+)\/sessions\/([^/]+)\/?$/);
   if (sessionRouteMatch) {
     return <SessionPlayer topicId={decodeURIComponent(sessionRouteMatch[1]!)} sessionDirName={decodeURIComponent(sessionRouteMatch[2]!)} />;

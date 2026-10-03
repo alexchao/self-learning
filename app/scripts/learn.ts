@@ -42,7 +42,7 @@ function buildWebAppIfStale(): void {
 
 async function isServerHealthy(): Promise<boolean> {
   try {
-    const response = await fetch(`${baseUrl}/api/health`, { signal: AbortSignal.timeout(1000) });
+    const response = await fetch(`${baseUrl}/healthz`, { signal: AbortSignal.timeout(1000) });
     return response.ok;
   } catch {
     return false;

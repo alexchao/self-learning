@@ -67,8 +67,7 @@ The only other thing needing you is the phone test at the end (Phase 6).
 **State as of 2026-10-03:** Fly app exists (no machines, no volume yet). Secrets `CLAUDE_CODE_OAUTH_TOKEN` and
 `ACCESS_PASSPHRASE` are **staged** (`fly secrets list -a quiet-lantern-4747`); they take effect on the first deploy.
 The learner has the passphrase; it is deliberately not written anywhere in this repo. The laptop's `fly` and `gh` CLIs
-are logged in as the learner. An earlier setup token leaked and was replaced; if the learner hasn't confirmed revoking
-the old one, remind them.
+are logged in as the learner. An earlier setup token leaked; it was replaced and the learner confirmed the old one is dealt with.
 
 ---
 
@@ -100,13 +99,25 @@ Findings worth knowing (Phase 1):
 
 ## Phase 2: make the server safe and usable remotely
 
-- [ ] Passphrase gate (new `accessGateMiddleware.ts`): if `ACCESS_PASSPHRASE` is set, every route except `/login` and
-      `/healthz` needs a signed long-lived cookie. Unset locally = no gate.
-- [ ] `PORT`/`HOST` from env (Fly needs `0.0.0.0`), `/healthz`.
-- [ ] Home page leads with one big "Start next session" / "Continue session" button.
-- [ ] Phone pass on every step type at ~390px: tap targets, sticky submit, textarea vs. on-screen keyboard, hide
-      `⌘↵` hints on touch devices, check the in-page mic on iOS Safari (fallback: rely on keyboard dictation).
-- [ ] QA locally with `/browse` at phone viewport.
+- [x] Passphrase gate (`app/server/accessGate.ts`): when `ACCESS_PASSPHRASE` is set, `/api/*` and `/session-assets/*`
+      need a long-lived HttpOnly cookie (an HMAC of the passphrase, not the passphrase). The web shell stays public
+      (nothing private in it; the repo is public); the web app turns a 401 into `/login?next=…` (`LoginPage.tsx`).
+      Failed logins: 10 per 15 min per client IP (`Fly-Client-IP`), then 429. Changing the passphrase logs out all devices.
+      Unset locally = no gate.
+- [x] `PORT`/`HOST` from env (Fly needs `HOST=0.0.0.0`), unauthenticated `/healthz`.
+- [x] Home page: already leads with a Start/Resume button per topic; kept as is.
+- [x] Phone pass: `⌘↵` hints hidden on touch devices; follow-up input raised to 16px so iOS Safari doesn't zoom on
+      focus. Checked at 390px: login, home, respond, translate, teach, choice, grade feedback, practice drill + its
+      feedback; no horizontal overflow at 320px on any page.
+- [x] QA with `/browse` against a gated server on port 4848 running from a scratch copy of the repo (so the real
+      `results.json` files were never touched). curl checks: 401 without cookie, wrong passphrase 401, rate limit 429
+      on the 11th failure, assets gated, `/healthz` open.
+
+Not verifiable without a real phone (left for Phase 6): the in-page mic on iOS Safari (`webkitSpeechRecognition`;
+keyboard dictation is the fallback), and the on-screen keyboard covering the Check button. Session-summary textareas
+share the `.text-input` style that was checked elsewhere but weren't seen at phone width.
+Found, not fixed (out of scope): single-asterisk `*emphasis*` in authored text renders with literal asterisks
+(`RichText` only handles `**bold**`).
 
 ## Phase 3: git sync and admin endpoints
 

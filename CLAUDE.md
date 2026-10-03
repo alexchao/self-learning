@@ -42,5 +42,10 @@ The repo is on GitHub (`origin`, public; the learner is fine with their answers 
   `learning.config.json`; see SYSTEM.md → Grading). Don't add code that calls the Anthropic API directly: go through
   `LearningLlmClient`. Prep strips `ANTHROPIC_API_KEY` for the same reason. Secrets for the cloud (OAuth token, site
   passphrase) live only in Fly secrets; never write them into the repo.
+- Server env: `ACCESS_PASSPHRASE` turns on the login gate (unset locally = open); `PORT`/`HOST` override the listen
+  address (cloud). To test the gate locally without touching real results, run a second server from a scratch copy
+  of the repo (see the Phase 2 notes in the cloud plan).
+- Topics are not all Chinese. Keep new code topic-agnostic; known Chinese-specific spots are listed in SYSTEM.md →
+  "Multi-topic readiness".
 - Never edit a session that has `results.json`. Never hand-edit spaced-repetition fields in `items.json`.
 - Code: TypeScript, access modifiers on class methods, long descriptive names, new logic in new files.

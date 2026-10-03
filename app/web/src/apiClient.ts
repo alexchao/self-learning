@@ -4,6 +4,7 @@ import type { FollowUpExchange, SessionResults, StepAttempt } from "../../shared
 import type { SessionDefinition } from "../../shared/sessionSchema.ts";
 import type { TopicDefinition } from "../../shared/topicSchema.ts";
 import type { TopicStatus } from "../../server/topicStatusReporter.ts";
+import { redirectToLogin } from "./LoginPage.tsx";
 
 export interface SessionPayload {
   topic: TopicDefinition;
@@ -22,7 +23,11 @@ async function requestJson<ResponseBody>(url: string, init?: { method?: string; 
     headers: init?.body === undefined ? undefined : { "Content-Type": "application/json" },
     body: init?.body === undefined ? undefined : JSON.stringify(init.body),
   });
-  const payload = (await response.json().catch(() => ({}))) as { error?: string };
+  const payload = (await response.json().catch(() => ({}))) as { error?: string; loginRequired?: boolean };
+  if (response.status === 401 && payload.loginRequired) {
+    redirectToLogin();
+    throw new Error("Passphrase required");
+  }
   if (!response.ok) throw new Error(payload.error ?? `Request failed (${response.status})`);
   return payload as ResponseBody;
 }
