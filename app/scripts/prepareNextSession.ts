@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import readline from "node:readline";
 import { ClaudeStreamEventFormatter } from "../server/claudeStreamEventFormatter.ts";
+import { GitSyncService } from "../server/gitSyncService.ts";
 import { NEXT_SESSION_PREPARATION_ALLOWED_TOOLS, buildNextSessionPreparationPrompt } from "../server/nextSessionPreparationPrompt.ts";
 import { preparationLogsDirectory, REPOSITORY_ROOT } from "../server/repositoryPaths.ts";
 
@@ -12,6 +13,8 @@ import { preparationLogsDirectory, REPOSITORY_ROOT } from "../server/repositoryP
  * Runs headless Claude Code to prepare the next session and writes a live, human-readable log.
  * The server launches this detached after a session completes; it can also be run by hand.
  * Holds topics/<topic>/.prep/lock.json for its lifetime.
+ * In the cloud (GIT_SYNC=on) it also records the finished session to GitHub before starting (and pulls the laptop's
+ * latest docs), then pushes the new session when done. The server stays out of git while this lock is held.
  */
 
 const argumentsList = process.argv.slice(2);
@@ -53,10 +56,20 @@ const releaseLock = () => {
 
 appendToLog(formatter.stamp(`Preparing the session after ${completedSessionDirName} (topic ${topicId})`));
 
+const gitSync = new GitSyncService();
+const syncLearningDataAndLog = async (commitMessage: string): Promise<void> => {
+  if (!GitSyncService.isEnabled()) return;
+  const outcome = await gitSync.syncLearningData(commitMessage);
+  appendToLog(formatter.stamp(`git sync (${commitMessage}): ${outcome.error ? `FAILED: ${outcome.error}` : `committed=${outcome.committed} pushed=${outcome.pushed}`}`));
+};
+await syncLearningDataAndLog(`Record ${topicId} learning data (before preparing the session after ${completedSessionDirName})`);
+
 // Strip API credentials so the CLI uses the learner's Claude Code login, not the app's API key.
+// The site passphrase isn't needed for prep either.
 const childEnvironment = { ...process.env };
 delete childEnvironment.ANTHROPIC_API_KEY;
 delete childEnvironment.ANTHROPIC_AUTH_TOKEN;
+delete childEnvironment.ACCESS_PASSPHRASE;
 
 const claudeProcess = spawn(
   "claude",
@@ -89,8 +102,11 @@ claudeProcess.on("error", (error) => {
 });
 claudeProcess.on("close", (exitCode) => {
   appendToLog(formatter.stamp(`claude exited with code ${exitCode}`));
-  releaseLock();
-  process.exit(exitCode ?? 1);
+  // Push whatever prep wrote, even after a failed run, so the cloud and GitHub don't drift.
+  void syncLearningDataAndLog(`Prepare the ${topicId} session after ${completedSessionDirName}`).finally(() => {
+    releaseLock();
+    process.exit(exitCode ?? 1);
+  });
 });
 
 for (const signal of ["SIGINT", "SIGTERM"] as const) {

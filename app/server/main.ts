@@ -6,6 +6,9 @@ import { Hono } from "hono";
 import { loadEnvironmentFileIfPresent, loadLearningConfig } from "./learningConfig.ts";
 import { REPOSITORY_ROOT, sessionDirectory, WEB_DIST_DIRECTORY } from "./repositoryPaths.ts";
 import { AccessGate } from "./accessGate.ts";
+import { createAdminApiRoutes } from "./adminApiRoutes.ts";
+import { CloudUpdateService } from "./cloudUpdateService.ts";
+import { GitSyncService } from "./gitSyncService.ts";
 import { createLearningLlmClient } from "./learningLlmClientFactory.ts";
 import { createPracticeDrillApiRoutes } from "./practiceDrillApiRoutes.ts";
 import { createSessionApiRoutes } from "./sessionApiRoutes.ts";
@@ -17,10 +20,15 @@ const repository = new TopicRepository();
 const llmClient = createLearningLlmClient(config);
 
 const accessGate = new AccessGate(process.env.ACCESS_PASSPHRASE);
+const gitSync = new GitSyncService();
+const cloudUpdate = new CloudUpdateService(repository, gitSync);
 
 const app = new Hono();
+app.use("*", cloudUpdate.trackActiveRequests());
 // Unauthenticated liveness check for the host (Fly health checks).
 app.get("/healthz", (context) => context.text("ok"));
+// Loopback-only operator endpoints; mounted before the passphrase gate (see adminApiRoutes.ts).
+app.route("/api", createAdminApiRoutes(repository, gitSync, cloudUpdate));
 app.route("/api", accessGate.createRoutes());
 app.use("/api/*", accessGate.requireAccess());
 app.use("/session-assets/*", accessGate.requireAccess());
@@ -54,5 +62,7 @@ app.get("*", (context) => {
 const listeningPort = process.env.PORT ? Number(process.env.PORT) : config.port;
 serve({ fetch: app.fetch, port: listeningPort, hostname: process.env.HOST }, (info) => {
   const gateDescription = accessGate.isEnabled() ? "passphrase gate on" : "no passphrase gate";
-  console.log(`[self-learning] serving ${REPOSITORY_ROOT} at http://localhost:${info.port} (${gateDescription})`);
+  const syncDescription = GitSyncService.isEnabled() ? "git sync on" : "no git sync";
+  console.log(`[self-learning] serving ${REPOSITORY_ROOT} at http://localhost:${info.port} (${gateDescription}, ${syncDescription})`);
 });
+void cloudUpdate.startPolling();

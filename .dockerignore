@@ -1,0 +1,3 @@
+# The image only needs deploy/; the app itself is cloned from GitHub at boot. Never send .env to the builder.
+*
+!deploy/

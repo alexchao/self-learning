@@ -173,9 +173,9 @@ export class ClaudeCliLlmClient implements LearningLlmClient {
   }
 }
 
-/** Without these, the CLI would bill the API key instead of using the subscription. */
+/** Without the API keys, the CLI uses the subscription instead of billing the key. The site passphrase isn't its business. */
 function environmentWithoutApiKeys(): NodeJS.ProcessEnv {
-  const { ANTHROPIC_API_KEY: _apiKey, ANTHROPIC_AUTH_TOKEN: _authToken, ...environment } = process.env;
+  const { ANTHROPIC_API_KEY: _apiKey, ANTHROPIC_AUTH_TOKEN: _authToken, ACCESS_PASSPHRASE: _sitePassphrase, ...environment } = process.env;
   return environment;
 }
 

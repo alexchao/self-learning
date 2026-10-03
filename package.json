@@ -11,7 +11,8 @@
     "build:web": "vite build --config app/web/vite.config.ts",
     "dev:web": "vite --config app/web/vite.config.ts",
     "typecheck": "tsc --noEmit -p tsconfig.json",
-    "compare-llm-backends": "tsx app/scripts/compareLlmBackends.ts"
+    "compare-llm-backends": "tsx app/scripts/compareLlmBackends.ts",
+    "cloud": "tsx app/scripts/cloud.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.125.0",
