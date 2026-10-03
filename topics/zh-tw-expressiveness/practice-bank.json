@@ -227,6 +227,48 @@
         "answer": "說新框架比較快的人是你，所以要拿出數據也應該是你吧，而不是我需要否認",
         "score": 2
       }
+    },
+    {
+      "id": "0005-says-who--translate-review-fan-er-lending-money--drill-1",
+      "createdAt": "2026-09-25T04:34:23.540Z",
+      "sourceSessionDirName": "0005-says-who",
+      "sourceStepId": "translate-review-fan-er-lending-money",
+      "itemIds": [
+        "fan-er-contrary"
+      ],
+      "lesson": "set up an expectation first, then land the reversal (adverb goes after the subject, before the verb)",
+      "targetExpression": "本來想說／本來以為…，結果／沒想到…反而…",
+      "english": "We added two more engineers thinking the release would speed up, but if anything it slowed everything down.",
+      "context": "Complaining to a friend about your software team",
+      "referenceAnswers": [
+        "我們本來想說多加兩個工程師可以快一點，結果整個進度反而更慢。",
+        "本來以為多兩個人release會比較快，沒想到反而拖得更久。"
+      ],
+      "firstAttempt": {
+        "answer": "我們本來想說加兩個工程人可以幫我們加速release，結果事情反而全部都慢下來了。",
+        "score": 3
+      }
+    },
+    {
+      "id": "0005-says-who--respond-vendor-ten-times-productivity--drill-1",
+      "createdAt": "2026-09-25T04:43:15.986Z",
+      "sourceSessionDirName": "0005-says-who",
+      "sourceStepId": "respond-vendor-ten-times-productivity",
+      "itemIds": [
+        "claim-evidence-strength"
+      ],
+      "lesson": "scale evidence to the size of the claim, predicated with 就; dismiss weak evidence as a category with 這種",
+      "targetExpression": "說法越誇張，證據就要越夠力／這種根本不算證據",
+      "english": "He says this supplement cures insomnia in three days. The bigger the claim, the stronger the evidence has to be — one friend's Facebook post really doesn't count as evidence.",
+      "context": "To your sister, who's about to buy a health supplement",
+      "referenceAnswers": [
+        "他說這個保健食品三天就能治好失眠？說法越誇張，證據就要越夠力啊。你朋友在臉書上po一篇，這種根本不算證據。",
+        "三天治好失眠喔？主張越大，證據就要越扎實。一個朋友在臉書上講的，這種根本沒什麼說服力啦。"
+      ],
+      "firstAttempt": {
+        "answer": "她說這個supplement可以讓睡眠不足在三天內就好，說法越誇張，證據就要越紮實，facebook上某一個朋友的po文不太算什麼證據。\n\nI forgot what other words to use for \"strong\" when referring to evidence.",
+        "score": 3
+      }
     }
   ]
 }

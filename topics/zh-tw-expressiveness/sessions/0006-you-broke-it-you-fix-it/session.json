@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 1,
+  "topicId": "zh-tw-expressiveness",
+  "sessionNumber": 6,
+  "kind": "review",
+  "title": "You broke it, you fix it",
+  "subtitle": "Short pairs on three moves, then one long answer about why a 'simple' change takes two weeks",
+  "estimatedMinutes": 20,
+  "createdAt": "2026-09-25T05:10:00.000Z",
+  "authorRationale": "PROCESS FEEDBACK after 0005 (the governing constraint): the learner likes the long, rich sentences but wants to alternate them with '2 exercises on the same page that are each a simpler, shorter sentence … more repetition on whatever the construct is'. 'Same page' needs a runtime change (a paired step type, or rendering two consecutive steps together), and this headless run can't make it, so I've left that feedback OPEN in docs/process-feedback.md with a note for the interactive agent. The content half is done here: three PAIRS of consecutive short single-sentence steps on the same construct, in two different situations each, with 0 drills (the pair is the repetition), followed by ONE long, rich respond with 1 drill. That's 7 answers plus 1 drill. REAL PACE: 0005 took 26 min in one sitting against a label of 20 (review translate + retry ~3.3–3.5 min, long respond + drill ~11, drill answers 1.2–2.6 min). Short steps with no drill should run ~1.5–2 min each, so 6 × ~1.8 ≈ 11, plus the long respond with 1 drill ≈ 9–11, for roughly 20–22 real minutes. I labelled it 20; if it overruns, cut the long step's drill next time, not the pairs. NO NEW ITEMS: the consolidation rule still applies. 光是 and claim-evidence have now been seen in 2–3 contexts, but 反而 and the cleft are still failing on first attempt, so this isn't the moment to add anything. STEPS: (1–2) 光是…就… at its current stage 5 (due 09-28): two SHORT responds (road trip to 墾丁, a wedding venue with 媽), neither domain seen before. The task gives the concrete cost but never says 'alone' or 'just'. The learner has to reach for 光是 unprompted. The wedding one invites 更不用說…了 from their own 0005 correction. (3–4) The double 的是 cleft, UNTAGGED: burden-of-proof sits at stage 6 in items.json, but the learner has never produced the second-half cleft (dropped 的 in 0003/0004, avoided it with 舉證責任在你身上 in 0005). Tagging stage-4 translates would break the ladder rule. Two short 'you X-ed, so you Y' sentences where only a double cleft sounds right (dog walking at home, a broken build in Slack), and they recycle 又不是我… from 0005. (5–6) 反而, stage 4, due 10-01, reviewed ~5 days early on purpose: it has scored 2 on first attempt three times running, and the corrected frame is right each time. Pair: (5) the 0005 drill verbatim (bank entry …lending-money--drill-1, scored 3, 工程人 → 工程師), which the learner wants back; (6) a new social context (trying to smooth things over between two coworkers), which recycles 搞得…更僵 from 0005's correction. (7) The long step: tech-debt-cut-corners at stage 5 (due 09-27, the soonest). A PM asks why a promo-code field on checkout is estimated at two weeks. The English task deliberately invites 光是 (just figuring out where the price is calculated takes days) and 反而 (rushing would mean more bugs, not fewer) as untagged bonuses, so the learner uses all three moves from today in one rich answer. claim-evidence-strength (due 09-28) is NOT tagged here, so the session stays at 4 review items. Its stage 6 is overstated (promoted on a score-3 stretch where the grader said the item wasn't used), and it should be 0007's long step. RUNTIME ISSUE, still unfixed and seen again: stretch promotion ignores targetItemIdsUsedCorrectly (claim-evidence 5→6 in 0005). Worth gating per item in sessionCompletionService.ts; for the interactive agent. STEERING: the 0005 note was difficulty-only ('about right'), so the difficulty is unchanged. The standing 'software vocab grounded in real usage' is honored by steps 4, 5 and 7. The learner also said in a drill 'I forgot what other words to use for strong evidence', which is another vote for the open vocabulary-record request.",
+  "intro": {
+    "heading": "Two short, one long",
+    "body": "You asked for shorter sentences in pairs to go with the long ones, so today opens with three quick pairs. Each pair is one move you've already met, used in two different situations. Nothing new.\n\nThen one longer answer: a PM wants to know why a 'simple' checkout change takes two weeks."
+  },
+  "steps": [
+    {
+      "id": "respond-guang-shi-pair-kenting-drive",
+      "type": "respond",
+      "itemIds": [
+        "guang-shi-jiu-alone"
+      ],
+      "stage": 5,
+      "scenario": "Friday afternoon. Your friend 阿凱 texts you, very spontaneous as usual.",
+      "dialogue": [
+        {
+          "speaker": "阿凱",
+          "chinese": "欸這週末要不要去墾丁？說走就走啊！",
+          "english": "Hey, want to go to Kenting this weekend? Let's just go!"
+        }
+      ],
+      "task": "Turn him down for this weekend. It's a five-hour drive each way from Taipei, so you'd barely get a day there. One or two sentences.",
+      "referenceAnswers": [
+        "墾丁喔？光是開車下去就要五個小時耶，週末去根本玩不到什麼啦。",
+        "不要啦，光開車就要五個鐘頭，來回十個小時，到那邊玩不到一天就要回來了。",
+        "這週末太趕了啦，光是單程就五個小時跑不掉，下次排個連假再去。"
+      ],
+      "hints": [],
+      "gradingNotes": "Stage 5 short respond for 光是…就…; the item is not named, and the task deliberately avoids 'just' / 'alone'. Core move: isolate the drive (光是開車下去／光開車／光是單程) and put 就 right before the concrete cost (就要五個小時). Flag 就 dropped or placed after the amount. A natural refusal without 光是 (e.g. 開車要五個小時耶，太遠了啦) conveys the meaning and is a 3; name 光是…就… as the upgrade. 五個小時跑不掉, 來回十個小時, and 玩不到一天 are nice touches. It's a text to a friend, so particles (啦/耶/喔) fit. Keep feedback short; this is a quick step.",
+      "practiceDrillCount": 0
+    },
+    {
+      "id": "respond-guang-shi-pair-wedding-venue",
+      "type": "respond",
+      "itemIds": [
+        "guang-shi-jiu-alone"
+      ],
+      "stage": 5,
+      "scenario": "Your mom thinks you're overspending on your wedding.",
+      "dialogue": [
+        {
+          "speaker": "媽媽",
+          "chinese": "婚禮簡單辦一辦就好了啦，哪需要花到那麼多錢？",
+          "english": "Just keep the wedding simple. Why would it need to cost that much?"
+        }
+      ],
+      "task": "Tell her it isn't cheap even when it's simple: the venue is NT$300,000, and that's before you've even got to food or the photographer. One or two sentences.",
+      "referenceAnswers": [
+        "媽，就算簡單辦也不便宜啦，光是場地就要三十萬了，更不用說吃的跟攝影師了。",
+        "妳不知道現在行情啦，光場地就三十萬，餐跟攝影都還沒算咧。",
+        "已經很簡單了耶，光是租場地就要三十萬，其他吃的、拍照的都還沒開始算。"
+      ],
+      "hints": [
+        "photographer ≈ 攝影師 · venue ≈ 場地"
+      ],
+      "gradingNotes": "Stage 5 short respond for 光是…就… in a family context; the item is not named. Core move: 光是／光 + 場地 (or 租場地), then 就 + the concrete amount (就要三十萬). The 'and that's before…' tail is the chance to reuse 更不用說…了 (a correction from their own 0005 answer: close it with 了) or …都還沒算. Reward either. 三十萬 is the natural way to say NT$300,000; flag 三百千 or English numbers. Talking to their mom, so 媽／啦／耶 make it warm; flag anything that sounds like a lecture. Without 光是 but natural and complete is a 3, with 光是 named as the upgrade.",
+      "practiceDrillCount": 0
+    },
+    {
+      "id": "translate-cleft-pair-dog-walking",
+      "type": "translate",
+      "itemIds": [],
+      "context": "To your partner at 7 a.m., when the dog is scratching at the door.",
+      "english": "You're the one who wanted a dog, so you're the one who walks it.",
+      "referenceAnswers": [
+        "說要養狗的是你，那要去遛狗的也是你啊。",
+        "吵著要養狗的是你耶，去遛牠的當然也是你啊。",
+        "當初說要養狗的是你欸，遛狗的也應該是你吧。"
+      ],
+      "hints": [],
+      "gradingNotes": "Short drill of the DOUBLE 的是 cleft (untagged). The learner gets the first half right but, in the second half, has dropped 的 twice (要拿出數據也應該是你) and avoided the cleft once (舉證責任在你身上). Here there's no burden-of-proof escape hatch, so the second half has to be a cleft too: 要去遛狗的(也)是你 / 遛狗的(當然)也是你. Missing 的 in the second half (遛狗也是你) is a 2; name it plainly. 也 in the second half and a particle (啊/吧/耶) make it sound spoken. 的人是你 is fine in either half. Keep feedback to two or three lines.",
+      "practiceDrillCount": 0
+    },
+    {
+      "id": "translate-cleft-pair-broken-build",
+      "type": "translate",
+      "itemIds": [],
+      "context": "Messaging your lead on Slack, mildly annoyed.",
+      "english": "He's the one who broke the build, so he should be the one fixing it. It's not like it's my job.",
+      "referenceAnswers": [
+        "把 build 弄壞的是他，要修的也應該是他吧，又不是我的工作。",
+        "弄壞 build 的是他耶，那修的人當然也是他啊，又不是我負責的。",
+        "build 是他搞壞的，該去修的也是他啦，又不是我弄的。"
+      ],
+      "hints": [],
+      "gradingNotes": "Second short drill of the double 的是 cleft (untagged), now in software. Core move: 把 build 弄壞的是他 / 弄壞 build 的是他, then 要修的(也應該)是他 / 修的人也是他 — 的 must be there in BOTH halves; missing it in the second half is a 2. 'build 是他搞壞的' (a 是…的 focus) is an acceptable first half. For 'It's not like it's my job', 又不是我的工作／又不是我負責的 is the spoken move the learner produced on the 0005 retry; 而不是 or 不是我的責任 is written/stiff, so name 又不是. 弄壞／搞壞／弄掛 are all natural for breaking a build; 打破 is wrong (that's for physical objects). Keep feedback short.",
+      "practiceDrillCount": 0
+    },
+    {
+      "id": "translate-fan-er-pair-extra-engineers",
+      "type": "translate",
+      "itemIds": [
+        "fan-er-contrary"
+      ],
+      "stage": 4,
+      "sourcePracticeBankEntryId": "0005-says-who--translate-review-fan-er-lending-money--drill-1",
+      "context": "Complaining to a friend about your software team",
+      "english": "We added two more engineers thinking the release would speed up, but if anything it slowed everything down.",
+      "referenceAnswers": [
+        "我們本來想說多加兩個工程師可以快一點，結果整個進度反而更慢。",
+        "本來以為多兩個人 release 會比較快，沒想到反而拖得更久。",
+        "我們本來是想多找兩個工程師來加速 release，結果進度反而整個拖慢了。"
+      ],
+      "hints": [],
+      "gradingNotes": "Verbatim rerun of a 0005 drill (scored 3: they wrote 工程人 for 工程師, and 事情反而全部都慢下來了 was wordy). Core move: expectation first (本來想說／本來以為／本來是想…), then 結果／沒想到, then 反而 AFTER the subject and BEFORE the predicate (進度反而更慢 / 反而拖得更久). 反而 at the head of the clause, 因為 in place of 本來, or 可是 with no 反而 are the known slips; any of them caps it at 2. Check 工程師 specifically. 進度反而更慢／反而整個拖慢／反而拖更久 are all natural. Keep feedback short.",
+      "practiceDrillCount": 0
+    },
+    {
+      "id": "translate-fan-er-pair-coworkers-feud",
+      "type": "translate",
+      "itemIds": [
+        "fan-er-contrary"
+      ],
+      "stage": 4,
+      "context": "Telling a friend about two coworkers who've stopped speaking to each other.",
+      "english": "I tried to smooth things over between the two of them, but if anything it just made things more tense.",
+      "referenceAnswers": [
+        "我本來想說幫他們兩個緩和一下，結果反而搞得更僵。",
+        "本來想當和事佬，沒想到他們兩個反而更僵了。",
+        "我本來以為出來打個圓場會好一點，結果氣氛反而更尷尬。"
+      ],
+      "hints": [
+        "smooth things over ≈ 緩和一下 / 打圓場"
+      ],
+      "gradingNotes": "Second short 反而 step, in the social/emotional context where it has failed on first attempt twice (0004 clearing the air, 0005 sister). Core move: 本來想說／本來以為… for the intention, then 結果／沒想到 + 反而 before the predicate (反而搞得更僵 / 他們反而更僵了). If there's a subject in the second clause, 反而 goes after it (他們兩個反而…, 氣氛反而…), never before it. 'Tried to' as 試著… is a calque here; 本來想說 carries it. 搞得更僵 was a correction in 0005, so reward it. 更尷尬／更緊繃 are fine too. 反而 in the wrong slot or missing is a 2. Keep feedback short.",
+      "practiceDrillCount": 0
+    },
+    {
+      "id": "respond-tech-debt-promo-code-estimate",
+      "type": "respond",
+      "itemIds": [
+        "tech-debt-cut-corners"
+      ],
+      "stage": 5,
+      "scenario": "Sprint planning. 雅婷, the PM, is looking at your estimate for adding a promo-code field to the checkout page. She's friendly but under pressure from above.",
+      "dialogue": [
+        {
+          "speaker": "雅婷",
+          "chinese": "欸我想問一下，結帳頁加一個優惠碼的欄位，為什麼估兩個禮拜啊？不就是改個畫面而已嗎？老闆那邊是希望下禮拜就能上線耶。",
+          "english": "Hey, can I ask: why is adding a promo-code field to the checkout page estimated at two weeks? Isn't it just a UI change? The boss wants it live next week."
+        }
+      ],
+      "task": "Explain, without getting defensive, why it isn't 'just a field'. When checkout was built two years ago, the team cut a lot of corners to hit the launch date, and you're paying for that now: the pricing logic is tangled, and figuring out where the price actually gets calculated takes a couple of days on its own. If you rush it into next week, you'll probably end up with more bugs and a slower launch, not a faster one.",
+      "referenceAnswers": [
+        "我知道看起來只是加一個欄位啦，可是結帳那塊當初為了趕上線抄了很多捷徑，現在一堆技術債。光是搞清楚價格到底在哪裡算的就要兩三天，硬要下禮拜上的話，反而會多出更多 bug，最後更慢。",
+        "不是只改畫面那麼簡單耶。那時候為了趕 deadline 先求有再求好，結帳的程式碼寫得很亂，我們現在就是在還那時候欠的技術債。光要找出折扣會影響到哪些地方就要好幾天了，趕的話搞不好反而拖更久。",
+        "這個真的不是我們在拖啦。結帳系統兩年前是趕出來的，很多地方都寫死，一動就壞，技術債越滾越大。光是看懂價格怎麼算就要兩天，如果硬壓到一個禮拜，反而會出更多問題，到時候修 bug 的時間更長。"
+      ],
+      "hints": [
+        "promo code ≈ 優惠碼 · pricing logic ≈ 價格計算的邏輯"
+      ],
+      "gradingNotes": "Stage 5 for tech-debt-cut-corners; the item is not named. It's also today's one long, rich answer. Three goals: (1) The history, in natural dev phrasing: 當初為了趕上線／趕 deadline 抄了很多捷徑 / 先求有再求好, and paying for it now: 在還技術債 / 技術債一堆 / 越滾越大. The target counts as used if 趕 + deadline/上線 and a natural 技術債 or 抄捷徑 collocation appear. Traps: 達到期限, 為了…而…, 部署 for launch (上線 is the everyday word), 代碼 (use 程式碼). (2) Price one sub-task concretely: 光是搞清楚價格在哪裡算就要兩三天 is the ideal (an untagged bonus); any concrete amount of time works. (3) Rushing backfires: 硬趕反而會多出更多 bug (反而 after any subject, before the predicate). Also an untagged bonus, and the learner has just practiced it in the previous two steps. Grade communicative success first: all three goals landing naturally is a 3 even without 光是/反而. A 4 hits all three in short spoken chunks, stays non-defensive toward a PM who's under pressure (我知道…啦 / 不是我們在拖啦), and uses the tech-debt collocations. Flag anything that sounds like a lecture. English code-switching (bug, deadline, release, PR) is fine.",
+      "authorNotes": "The long half of the short/long alternation the learner asked for. When preparing 0007, check whether 光是 and 反而 showed up unprompted here right after their short pairs, and whether the second-half 的是 cleft appeared in steps 3–4 with 的. That's the evidence for whether the pair format helps.",
+      "practiceDrillCount": 1
+    }
+  ]
+}

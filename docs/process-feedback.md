@@ -44,3 +44,15 @@ It would be cool because if we're doing repetition on those in later sessions, t
   Consider gating promotion per item on that list in `sessionCompletionService.ts`.
 - Status: addressed (zh-tw `targetSessionMinutes` 15–25 → 12–20; "consolidate before expanding" rule in SESSION-AUTHORING.md §A.6;
   SYSTEM.md requirements + decision log; 0005-says-who is a 4-step, no-new-items review session built on it)
+
+## 2026-09-25 · zh-tw-expressiveness/0005-says-who
+- Feedback: the exercises all require translating a pretty long and rich sentence, which I like. but maybe try alternating between doing 1 long and rich sentence like now vs 2 exercises on the same page that are each a simpler, shorter sentence. that's more repetition on whatever the construct is.
+- Note (headless prep agent, 2026-09-25): content half done. 0006-you-broke-it-you-fix-it has three pairs of consecutive
+  short single-sentence steps (same construct, two situations, 0 drills each) and one long respond with 1 drill. The
+  "same page" half needs a runtime change, so it's left open. For the interactive agent: either a paired step type
+  (e.g. `translate_pair` / `respond_pair` with 2 sub-prompts, graded separately so SRS and the practice bank still get one
+  record per sentence), or have `SessionPlayer` render consecutive steps that share a `pairGroupId` on one screen. Then
+  document the alternation (one long rich step ↔ a pair of short ones) in SESSION-AUTHORING.md §C and log it in SYSTEM.md.
+  Still unfixed too: stretch promotion ignores `targetItemIdsUsedCorrectly` (claim-evidence-strength went 5→6 in 0005 on
+  a score-3 respond where the grader listed no items used).
+- Status: open

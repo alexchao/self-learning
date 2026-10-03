@@ -1,0 +1,461 @@
+{
+  "schemaVersion": 1,
+  "sessionDirName": "0005-says-who",
+  "startedAt": "2026-09-25T04:25:13.029Z",
+  "completedAt": "2026-09-25T04:51:26.408Z",
+  "steps": {
+    "translate-review-cleft-new-framework": {
+      "attempts": [
+        {
+          "answer": "講新框架比較快的人是你，所以證據責任也應該在你身上，而不是我要證明它不快",
+          "inputMode": "typed",
+          "hintsRevealed": 0,
+          "submittedAt": "2026-09-25T04:27:11.112Z",
+          "timeSpentMs": 103673,
+          "grade": {
+            "score": 3,
+            "headline": "Good clefts and a solid pivot to \"burden of proof\" — just 舉證責任, not 證據責任, and 而不是 is a bit written.",
+            "correctedLearnerAnswer": "講新框架比較快的人是你，所以舉證責任也在你身上啊，又不是我要證明它不快。",
+            "modelAnswers": [
+              {
+                "chinese": "說新框架比較快的是你，那要拿出數據的也是你啊，又不是我要證明它不快。",
+                "note": "Both halves as 的是 clefts — the tightest, most idiomatic pairing."
+              },
+              {
+                "chinese": "欸，舉證責任在你身上啦，你說它比較快，那要拿數字出來的就是你，不是我。",
+                "note": "Half-joking 欸…啦 with the legal-ish 舉證責任."
+              }
+            ],
+            "issues": [
+              {
+                "learnerExcerpt": "證據責任",
+                "problem": "Not the set phrase; the fixed collocation in Chinese is 舉證責任 (burden of proof).",
+                "suggestion": "舉證責任",
+                "category": "word_choice"
+              },
+              {
+                "learnerExcerpt": "而不是我要證明它不快",
+                "problem": "而不是 is written/formal register; in a half-joking spoken jab 又不是 carries the \"it's not like it's me who…\" flavour.",
+                "suggestion": "又不是我要證明它不快",
+                "category": "naturalness"
+              },
+              {
+                "learnerExcerpt": "所以證據責任也應該在你身上",
+                "problem": "Fine, but no spoken particle anywhere — the half-joking tone gets lost. Add 啊/啦/吧.",
+                "suggestion": "所以舉證責任也在你身上啊",
+                "category": "naturalness"
+              }
+            ],
+            "strengths": [
+              "First cleft 講…的人是你 is exactly right",
+              "Shifting to 責任在你身上 is a legitimate alternative to a second cleft — it pins the burden just as well"
+            ],
+            "explanation": "You fixed last time's problem by avoiding the second cleft altogether, and 責任在你身上 is a valid solution — just get the fixed term right: 舉證責任, not 證據責任. The other upgrade is register: 而不是 and 我需要否認 read like a written argument, whereas spoken Taiwanese Mandarin jabs with 又不是我要證明它不快 plus a particle (啊/啦/耶). For the record, the double-cleft version is worth drilling: 說它比較快的是你，要拿出數據的也是你 — the parallel 的是 is what makes it land.",
+            "targetItemIdsUsedCorrectly": [],
+            "gradedBy": "llm",
+            "model": "claude-opus-5",
+            "gradedAt": "2026-09-25T04:27:11.112Z"
+          }
+        },
+        {
+          "answer": "講新框架比較快的人是你，所以舉證責任也在你身上，又不是我要證明它不快。",
+          "inputMode": "typed",
+          "hintsRevealed": 0,
+          "submittedAt": "2026-09-25T04:28:38.702Z",
+          "timeSpentMs": 33795,
+          "grade": {
+            "score": 4,
+            "headline": "Natural, idiomatic, and the joking tone lands.",
+            "correctedLearnerAnswer": "講新框架比較快的人是你，所以舉證責任也在你身上，又不是我要證明它不快。",
+            "modelAnswers": [
+              {
+                "chinese": "說新框架比較快的是你，那要拿出數據的也是你啊，又不是我要證明它不快。",
+                "note": "Both halves as 的是 clefts — the most parallel, punchy version."
+              },
+              {
+                "chinese": "欸，舉證責任在你身上啦，你說它比較快，那要拿數字出來的就是你，不是我。",
+                "note": "Leads with the 舉證責任 frame, very natural half-joking."
+              }
+            ],
+            "issues": [],
+            "strengths": [
+              "講…的人是你 cleft used correctly",
+              "舉證責任在你身上 is an idiomatic way to pin the burden",
+              "又不是我要證明它不快 fixes last attempt's written-sounding 而不是…需要否認"
+            ],
+            "explanation": "This is exactly the upgrade from last time: you swapped the stiff 而不是我要證明 for the spoken 又不是我…, and 舉證責任也在你身上 neatly sidesteps the missing-的 problem. If you want the fully parallel version, keep both halves as clefts: 說…的是你，要拿出數據的也是你. A final particle (…在你身上啊/啦) would push the half-joking tone even further.",
+            "targetItemIdsUsedCorrectly": [],
+            "gradedBy": "llm",
+            "model": "claude-opus-5",
+            "gradedAt": "2026-09-25T04:28:38.702Z"
+          }
+        }
+      ],
+      "followUps": [],
+      "practiceDrills": {
+        "drills": []
+      },
+      "completedAt": "2026-09-25T04:28:45.936Z"
+    },
+    "translate-review-guang-shi-jiu-kitchen": {
+      "attempts": [
+        {
+          "answer": "一個月而已？拜託，光是建築管理會同意就要三個禮拜，更不用說找一個願意接電話的contractor",
+          "inputMode": "typed",
+          "hintsRevealed": 0,
+          "submittedAt": "2026-09-25T04:31:02.314Z",
+          "timeSpentMs": 122539,
+          "grade": {
+            "score": 3,
+            "headline": "Structure is spot on; the vocabulary for 管委會 and 師傅 lets it down.",
+            "correctedLearnerAnswer": "一個月而已？拜託，光是等管委會同意就要三個禮拜，更不用說找一個願意接電話的師傅了。",
+            "modelAnswers": [
+              {
+                "chinese": "一個月？不可能啦。光是等管委會點頭就要三個禮拜，更不用說找一個真的會接電話的師傅了。",
+                "note": "管委會 is the fixed Taiwan term; 點頭 is a nice colloquial 'sign off'."
+              },
+              {
+                "chinese": "哪有可能一個月，光管委會那關就要三週，更何況還要找到肯接電話的工班。",
+                "note": "光 alone + 那關 ('that hurdle') is very idiomatic in speech."
+              }
+            ],
+            "issues": [
+              {
+                "learnerExcerpt": "建築管理會",
+                "problem": "Not a real term in Taiwan; the standard word is 管委會 (管理委員會).",
+                "suggestion": "光是等管委會同意",
+                "category": "word_choice"
+              },
+              {
+                "learnerExcerpt": "contractor",
+                "problem": "'Contractor' isn't a word Taiwanese speakers code-switch on — 師傅／工班／包商 are the everyday terms for renovation workers.",
+                "suggestion": "願意接電話的師傅",
+                "category": "word_choice"
+              },
+              {
+                "learnerExcerpt": "更不用說找一個願意接電話的contractor",
+                "problem": "更不用說 in speech usually closes with 了.",
+                "suggestion": "更不用說找一個願意接電話的師傅了",
+                "category": "naturalness"
+              }
+            ],
+            "strengths": [
+              "光是…就要三個禮拜 — 就 correctly placed right before the concrete cost.",
+              "更不用說… is exactly the 'never mind' move needed here, cleanly done.",
+              "一個月而已？拜託 is a natural, punchy spoken opener."
+            ],
+            "explanation": "Your 光是…就要三個禮拜 pattern is textbook: the isolated sub-task first, then 就 immediately before a concrete amount, which is what makes the implication bite. Two vocabulary fixes: in Taiwan the building committee is always 管委會 (never 建築管理會), and renovation contractors are 師傅／工班／包商 — English 'contractor' isn't part of the usual code-switching repertoire (unlike deadline, bug). Adding the final 了 to 更不用說…了 rounds the sentence off the way a native speaker would.",
+            "targetItemIdsUsedCorrectly": [],
+            "gradedBy": "llm",
+            "model": "claude-opus-5",
+            "gradedAt": "2026-09-25T04:31:02.314Z"
+          }
+        }
+      ],
+      "followUps": [],
+      "practiceDrills": {
+        "drills": []
+      },
+      "completedAt": "2026-09-25T04:32:03.581Z"
+    },
+    "translate-review-fan-er-lending-money": {
+      "attempts": [
+        {
+          "answer": "那筆錢我有借給我姐用，因為我以為會減輕她的壓力，反而我們之間變得更尷尬了，她現在有點不理我了",
+          "inputMode": "typed",
+          "hintsRevealed": 0,
+          "submittedAt": "2026-09-25T04:34:18.207Z",
+          "timeSpentMs": 117319,
+          "grade": {
+            "score": 2,
+            "headline": "You reached for 反而, but it's in the wrong slot and the reversal needs a 結果／沒想到 to land.",
+            "correctedLearnerAnswer": "我本來想說借我姐錢可以減輕她的壓力，結果我們之間反而變得更尷尬，她現在好像有點在躲我。",
+            "modelAnswers": [
+              {
+                "chinese": "我借她錢本來是想說讓她壓力小一點，結果反而搞得我們之間更僵，她現在好像有點在躲我。",
+                "note": "Expectation first (本來是想說…), then 結果反而 + result. Most idiomatic spoken frame."
+              },
+              {
+                "chinese": "我本來以為借錢給我姐她會輕鬆一點，沒想到我們反而變得怪怪的，她最近都有點避著我。",
+                "note": "沒想到…反而… is an equally natural way to mark the reversal."
+              }
+            ],
+            "issues": [
+              {
+                "learnerExcerpt": "反而我們之間變得更尷尬了",
+                "problem": "反而 goes after the subject, right before the verb/predicate — not at the head of the clause. Also, with no 結果／沒想到 the reversal isn't signposted.",
+                "suggestion": "結果我們之間反而變得更尷尬",
+                "category": "target_item"
+              },
+              {
+                "learnerExcerpt": "因為我以為會減輕她的壓力",
+                "problem": "The 因為 frame states a reason rather than setting up an expectation, which is what 反而 needs to push against. 本來想說／本來以為 does that job.",
+                "suggestion": "本來想說可以減輕她的壓力",
+                "category": "naturalness"
+              },
+              {
+                "learnerExcerpt": "她現在有點不理我了",
+                "problem": "不理我 = 'ignores me / gives me the silent treatment', stronger and different from 'kind of avoids me'.",
+                "suggestion": "她現在好像有點在躲我／有點避著我",
+                "category": "meaning"
+              },
+              {
+                "learnerExcerpt": "那筆錢我有借給我姐用",
+                "problem": "Topicalising 那筆錢 presupposes a specific sum already mentioned, and 借…用 sounds like lending an object. Slightly off for introducing the situation.",
+                "suggestion": "我借我姐錢",
+                "category": "naturalness"
+              }
+            ],
+            "strengths": [
+              "You did reach for 反而 rather than a flat 可是 — right instinct.",
+              "Short chunked clauses, good spoken rhythm.",
+              "更尷尬 is a fine rendering of 'more tense'."
+            ],
+            "explanation": "反而 is a preverbal adverb: it sits after the subject and before the predicate — 我們之間反而變得更尷尬, not 反而我們之間變得更尷尬. Just as important, 反而 needs an expectation planted first; 因為我以為會… gives a reason, whereas 本來想說／本來以為… sets up the thing that then gets reversed, and 結果／沒想到 hands off to 反而: 我本來想說借她錢可以讓她壓力小一點，結果反而搞得我們更僵。Also watch 不理我 (actively ignoring) vs 躲我／避著我 (quietly avoiding) — the English 'kind of avoids me' is the latter, usually softened with 好像有點在…。",
+            "targetItemIdsUsedCorrectly": [],
+            "gradedBy": "llm",
+            "model": "claude-opus-5",
+            "gradedAt": "2026-09-25T04:34:18.207Z"
+          }
+        },
+        {
+          "answer": "我本來想說借我姐錢可以減輕她的壓力，結果我們之間反而變得更尷尬，現在她好像有點在躲我了。",
+          "inputMode": "typed",
+          "hintsRevealed": 0,
+          "submittedAt": "2026-09-25T04:36:18.836Z",
+          "timeSpentMs": 58028,
+          "grade": {
+            "score": 4,
+            "headline": "Natural, well-chunked, and 反而 is placed exactly right this time.",
+            "correctedLearnerAnswer": "我本來想說借我姐錢可以減輕她的壓力，結果我們之間反而變得更尷尬，現在她好像有點在躲我了。",
+            "modelAnswers": [
+              {
+                "chinese": "我本來想說借我姐錢可以讓她壓力小一點，結果反而搞得我們之間更僵，她現在好像有點在躲我。",
+                "note": "搞得…更僵 is very idiomatic for relationships turning tense."
+              },
+              {
+                "chinese": "我借她錢本來是想幫她減輕一點壓力，沒想到反而變得怪怪的，她最近都有點避著我。",
+                "note": "沒想到 as an alternative reversal marker."
+              }
+            ],
+            "issues": [],
+            "strengths": [
+              "本來想說…，結果…反而… — the expectation-then-reversal frame is exactly the target pattern",
+              "反而 correctly placed after the subject 我們之間 and before 變得",
+              "好像有點在躲我了 nails the hedged 'kind of avoids me'",
+              "借我姐錢 is natural spoken chunking"
+            ],
+            "explanation": "This is a clear upgrade on your previous attempt. Last time 反而 sat at the front of the clause (反而我們之間變得…), which sounds off — 反而 is an adverb that belongs after the subject and before the verb. Here 我們之間反而變得更尷尬 is correct, and crucially you set the expectation up first with 本來想說…，結果…, which is what gives 反而 something to reverse. If you want one more notch of colloquial colour, try 搞得我們之間更僵 — 僵 is the go-to word in Taiwan for a relationship that's gone stiff.",
+            "targetItemIdsUsedCorrectly": [
+              "fan-er-contrary"
+            ],
+            "gradedBy": "llm",
+            "model": "claude-opus-5",
+            "gradedAt": "2026-09-25T04:36:18.836Z"
+          }
+        }
+      ],
+      "followUps": [],
+      "practiceDrills": {
+        "drills": [
+          {
+            "id": "drill-1",
+            "lesson": "set up an expectation first, then land the reversal (adverb goes after the subject, before the verb)",
+            "targetExpression": "本來想說／本來以為…，結果／沒想到…反而…",
+            "english": "We added two more engineers thinking the release would speed up, but if anything it slowed everything down.",
+            "context": "Complaining to a friend about your software team",
+            "referenceAnswers": [
+              "我們本來想說多加兩個工程師可以快一點，結果整個進度反而更慢。",
+              "本來以為多兩個人release會比較快，沒想到反而拖得更久。"
+            ],
+            "generatedAt": "2026-09-25T04:34:23.540Z",
+            "generatedFromAttemptIndex": 0,
+            "attempts": [
+              {
+                "answer": "我們本來想說加兩個工程人可以幫我們加速release，結果事情反而全部都慢下來了。",
+                "inputMode": "typed",
+                "submittedAt": "2026-09-25T04:37:55.301Z",
+                "timeSpentMs": 73009,
+                "grade": {
+                  "score": 3,
+                  "headline": "Target construction used correctly; just one wrong word and a slightly clunky second half.",
+                  "correctedLearnerAnswer": "我們本來想說加兩個工程師可以幫我們加速release，結果整個進度反而更慢。",
+                  "modelAnswers": [
+                    {
+                      "chinese": "我們本來想說多加兩個工程師，release可以快一點，結果進度反而整個拖慢了。",
+                      "note": ""
+                    }
+                  ],
+                  "issues": [],
+                  "strengths": [],
+                  "explanation": "「工程人」should be 「工程師」. 「事情反而全部都慢下來了」is understandable but wordy — Taiwanese speakers would say 「進度反而更慢」or「反而整個拖慢」.",
+                  "targetItemIdsUsedCorrectly": [
+                    "fan-er-contrary"
+                  ],
+                  "gradedBy": "llm",
+                  "model": "claude-opus-5",
+                  "gradedAt": "2026-09-25T04:37:55.301Z"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "completedAt": "2026-09-25T04:38:12.655Z"
+    },
+    "respond-vendor-ten-times-productivity": {
+      "attempts": [
+        {
+          "answer": "等一下，你乳頭冷靜一點，效率提升十倍是蠻誇張的說法，證據必須配得上這個說法，廠商自己的demo加上隨便一個人的linkedin po文當作證據再弱也不過了，不如兩三個人先花幾個禮拜的時間試一試再說吧",
+          "inputMode": "typed",
+          "hintsRevealed": 0,
+          "submittedAt": "2026-09-25T04:43:10.671Z",
+          "timeSpentMs": 280615,
+          "grade": {
+            "score": 3,
+            "headline": "All three moves land and it sounds collegial — a couple of phrasings are a bit written, plus one memorable typo.",
+            "correctedLearnerAnswer": "等一下，你先冷靜一點，效率提升十倍這個說法也太誇張了吧，說法越誇張，證據就要越扎實。廠商自己的 demo，加上 LinkedIn 上隨便一個人的 po 文，這種根本不算什麼證據。不然先找兩三個人試用兩個禮拜，再決定要不要全組買？",
+            "modelAnswers": [
+              {
+                "chinese": "欸等一下啦，我不是反對，只是十倍這種說法太大了，說法越誇張，證據就要越夠力。廠商自己做的 demo、網路上隨便一個人的貼文，這種根本沒什麼說服力。不然先讓兩三個人試用兩週，有數字再決定全組買不買？",
+                "note": "Predicated 越…就要越… plus 這種 dismissal — the most idiomatic shape."
+              },
+              {
+                "chinese": "十倍耶？demo 本來就是挑最好看的給你看的啦。主張越大，證據就要越扎實，現在這些根本不算證據。先抓兩三個人試兩個禮拜，看實際差多少再說？",
+                "note": "Adds the 'demos are cherry-picked' jab."
+              }
+            ],
+            "issues": [
+              {
+                "learnerExcerpt": "你乳頭冷靜一點",
+                "problem": "IME typo — 乳頭 is 'nipple'. Presumably 你先.",
+                "suggestion": "你先冷靜一點",
+                "category": "characters"
+              },
+              {
+                "learnerExcerpt": "證據必須配得上這個說法",
+                "problem": "Understandable and the logic is right, but 必須配得上 sounds written/formal in speech.",
+                "suggestion": "說法越誇張，證據就要越扎實／越夠力",
+                "category": "target_item"
+              },
+              {
+                "learnerExcerpt": "當作證據再弱也不過了",
+                "problem": "再…也不過了 isn't a natural pattern here; it reads as a calque of 'about as weak as it gets'.",
+                "suggestion": "這種根本不算證據／根本沒什麼說服力",
+                "category": "naturalness"
+              },
+              {
+                "learnerExcerpt": "蠻誇張的說法",
+                "problem": "蠻 undersells it — you're arguing 十倍 is an enormous claim.",
+                "suggestion": "這個說法也太誇張了吧",
+                "category": "word_choice"
+              },
+              {
+                "learnerExcerpt": "花幾個禮拜的時間試一試",
+                "problem": "Vaguer than the task asks; a concrete window makes the proposal easier to say yes to.",
+                "suggestion": "先試用兩個禮拜",
+                "category": "meaning"
+              }
+            ],
+            "strengths": [
+              "隨便一個人的 LinkedIn po 文 — exactly the dismissive register you wanted",
+              "Fronted the evidence category before judging it",
+              "先…再說吧 keeps the proposal soft and collegial rather than lecturing the lead"
+            ],
+            "explanation": "Communicatively this works: you scaled evidence to claim, dumped the vendor demo and the LinkedIn post as a category, and proposed a trial. The upgrade is the spoken shape of the scaling point — predicate both halves with 就 in the second: 說法越誇張，證據就要越扎實/越夠力, rather than the more written 證據必須配得上這個說法. And when evidence is weak, Taiwanese speakers judge it with 這種: 這種根本不算證據／沒什麼說服力 (note 證據 collocates with 有力／夠力／扎實／薄弱, never 強大).",
+            "targetItemIdsUsedCorrectly": [],
+            "gradedBy": "llm",
+            "model": "claude-opus-5",
+            "gradedAt": "2026-09-25T04:43:10.671Z"
+          }
+        }
+      ],
+      "followUps": [],
+      "practiceDrills": {
+        "drills": [
+          {
+            "id": "drill-1",
+            "lesson": "scale evidence to the size of the claim, predicated with 就; dismiss weak evidence as a category with 這種",
+            "targetExpression": "說法越誇張，證據就要越夠力／這種根本不算證據",
+            "english": "He says this supplement cures insomnia in three days. The bigger the claim, the stronger the evidence has to be — one friend's Facebook post really doesn't count as evidence.",
+            "context": "To your sister, who's about to buy a health supplement",
+            "referenceAnswers": [
+              "他說這個保健食品三天就能治好失眠？說法越誇張，證據就要越夠力啊。你朋友在臉書上po一篇，這種根本不算證據。",
+              "三天治好失眠喔？主張越大，證據就要越扎實。一個朋友在臉書上講的，這種根本沒什麼說服力啦。"
+            ],
+            "generatedAt": "2026-09-25T04:43:15.986Z",
+            "generatedFromAttemptIndex": 0,
+            "attempts": [
+              {
+                "answer": "她說這個supplement可以讓睡眠不足在三天內就好，說法越誇張，證據就要越紮實，facebook上某一個朋友的po文不太算什麼證據。\n\nI forgot what other words to use for \"strong\" when referring to evidence.",
+                "inputMode": "typed",
+                "submittedAt": "2026-09-25T04:48:00.079Z",
+                "timeSpentMs": 155408,
+                "grade": {
+                  "score": 3,
+                  "headline": "Target pattern used well; the first clause and the dismissal are a bit off.",
+                  "correctedLearnerAnswer": "她說這個保健食品三天內就能治好失眠，說法越誇張，證據就要越紮實，臉書上某個朋友的一篇po文，這種根本不算證據。",
+                  "modelAnswers": [
+                    {
+                      "chinese": "她說這個保健食品三天就能治好失眠？說法越誇張，證據就要越夠力啊。朋友在臉書上po一篇，這種根本不算證據。",
+                      "note": ""
+                    }
+                  ],
+                  "issues": [],
+                  "strengths": [],
+                  "explanation": "「讓睡眠不足在三天內就好」is a calque — say 治好失眠 (insomnia, not 睡眠不足), and use 保健食品 instead of English \"supplement\". For the dismissal, the taught frame 「這種根本不算證據」lands much harder than 不太算什麼證據; other options for strong evidence: 夠力、扎實、有力.\n",
+                  "targetItemIdsUsedCorrectly": [
+                    "claim-evidence-strength"
+                  ],
+                  "gradedBy": "llm",
+                  "model": "claude-opus-5",
+                  "gradedAt": "2026-09-25T04:48:00.079Z"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "completedAt": "2026-09-25T04:49:16.296Z"
+    }
+  },
+  "endOfSessionFeedback": {
+    "difficulty": "about_right",
+    "steeringNote": "",
+    "processFeedback": "the exercises all require translating a pretty long and rich sentence, which I like. but maybe try alternating between doing 1 long and rich sentence like now vs 2 exercises on the same page that are each a simpler, shorter sentence. that's more repetition on whatever the construct is.",
+    "submittedAt": "2026-09-25T04:51:26.408Z"
+  },
+  "itemScheduleChanges": [
+    {
+      "itemId": "fan-er-contrary",
+      "score": 2,
+      "stageBefore": 4,
+      "stageAfter": 4,
+      "intervalDaysBefore": 5.9,
+      "intervalDaysAfter": 6,
+      "dueAt": "2026-10-01T04:51:26.408Z"
+    },
+    {
+      "itemId": "guang-shi-jiu-alone",
+      "score": 3,
+      "stageBefore": 4,
+      "stageAfter": 5,
+      "intervalDaysBefore": 1,
+      "intervalDaysAfter": 3,
+      "dueAt": "2026-09-28T04:51:26.408Z"
+    },
+    {
+      "itemId": "claim-evidence-strength",
+      "score": 3,
+      "stageBefore": 5,
+      "stageAfter": 6,
+      "intervalDaysBefore": 3,
+      "intervalDaysAfter": 3,
+      "dueAt": "2026-09-28T04:51:26.408Z"
+    }
+  ],
+  "nextSessionPreparation": {
+    "triggeredAt": "2026-09-25T04:51:26.416Z",
+    "logPath": "topics/zh-tw-expressiveness/.prep/2026-09-25T04-51-26-414Z-after-0005-says-who.log"
+  }
+}
