@@ -34,4 +34,4 @@ For now, let's keep the pace slow and reiterate or rehash this content, because 
 
 ## 2026-10-08 · after 0006-you-broke-it-you-fix-it
 - Difficulty: about right
-- Status: open
+- Status: addressed in 0007-forwarded-by-dad (difficulty kept; still no new items; four steps and one drill to keep the length near the label)

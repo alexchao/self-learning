@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "topicId": "zh-tw-expressiveness",
+  "sessionNumber": 7,
+  "kind": "review",
+  "title": "Forwarded by Dad",
+  "subtitle": "A pair of short ones, a family group chat, and a roommate who blames the air conditioner",
+  "estimatedMinutes": 20,
+  "createdAt": "2026-10-08T04:30:00.000Z",
+  "authorRationale": "REVIEW SESSION, NO NEW ITEMS (consolidation rule). EVIDENCE FROM 0006 (rated 'about right', no steering text, no process feedback): 光是 held at stage 5 in two new domains (3, 3); the double 的是 cleft came out with 的 in BOTH halves twice (4 and 3), the first time the second half has been produced, so that gap is closing; 反而 scored 2 on first attempt for the FOURTH time (engineers: 什麼反而都慢下來了 / 可是; coworkers: 試著… calque), but the retry went straight to 4 (本來想說…，結果反而搞得更僵); the long tech-debt respond was a 3 with 光是 produced unprompted and the whole 趕上線／走捷徑／還技術債 chain right, and 反而 missing from the backfire. REAL PACE: 0006 had 7 answers + 1 drill. Summed answer time was ~23 min (pair steps 1–4 min each, long respond 6.5 min typed, drill 1.7), and it was spread over a 4-day gap and a second sitting. Label was 20, so 0006 ran over; for 0007 I kept 4 steps and dropped to ONE drill, budgeting: pair 2 × ~1.8 = ~3.5 · long respond + 1 drill ~10 · stage-6 free production, no drill, ~4–5 = ~18–19 min. If it overruns again, cut the respond's drill, not the pair. STEPS: (1–2) 反而 as a short pair at stage 4, in two NEW situations (exam all-nighter, a retry mechanism that makes an outage worse). It's due 10-23, so this is ~2 weeks early on purpose: four first attempts in a row have scored 2 and the SRS gave it a 15.6-day interval anyway (a 2 after a long gap earns a long interval; I haven't touched it). The frame is known after correction, so the aim is automatic 本來想說／以為…，結果／沒想到…反而 outside the one context it keeps succeeding in. (3) claim-evidence-strength as the long respond at stage 5 (overdue since 09-28; its stage 6 was an over-promotion in 0005, see below). New domain: Dad forwards a 'this water cures cancer' 長輩圖 into the family LINE group. The learner has to push back gently on the size of the claim and the quality of the evidence, without lecturing a parent. Vocabulary recycled from their own corrections: 夠力／扎實／有力, 這種根本不算證據, 說服力, 隨便一個人, 保健食品, 啦/耶 for warmth. The task never says 'evidence' as a Chinese word, nor 越…越…. (4) STAGE-6 free_production tagged with benlai-jiu-anyway, burden-of-proof and lian-dou-not-even (all due 10-04, all at stage 6 after 0004). A roommate blames your AC for a doubled electric bill; it's July, and he hasn't looked at last July's bill. The scenario supplies facts for all three moves but never the moves, and in daily life rather than software or debate, which is a domain none of the three have been tested in at stage 5–6 (they were tested in the cousin-supplement respond). Reviewing three stage-6 items in one answer saves a step and the answer is naturally short. CAVEAT for the interactive agent: stretch promotion ignores targetItemIdsUsedCorrectly, so these three can be advanced even if the grader lists only one or two; check the grade's targetItemIdsUsedCorrectly when preparing 0008, and treat the double cleft as stage 5, not 6, until it shows up again (it was a 4 and a 3 in short translates in 0006, which are stage-4 evidence). The cleft is not tagged with a short pair this time because it came out correctly twice; the roommate prompt gives it a natural slot again. STEERING: the 2026-10-08 note is difficulty-only ('about right'); difficulty is unchanged. The standing 'software vocab grounded in real usage' is honored by step 2; the rest rotates to exam/family/housemate life so this isn't the fourth all-software session. PROCESS FEEDBACK: the 0005 'same page' pairing request is still open (needs a runtime change), as are paging back, imagery, a vocabulary record and the stretch-promotion gate; I can't do those headless. Pairs are again built as two consecutive short steps.",
+  "intro": {
+    "heading": "Two short, then two longer",
+    "body": "Today starts with a quick pair on one move you keep meeting, in two fresh situations. Then two longer answers: your dad forwards something to the family group chat, and your roommate blames the air conditioner.\n\nNothing new to learn. Just the same tools in new places."
+  },
+  "steps": [
+    {
+      "id": "translate-fan-er-pair-all-nighter",
+      "type": "translate",
+      "itemIds": [
+        "fan-er-contrary"
+      ],
+      "stage": 4,
+      "context": "Telling a friend how your exam went.",
+      "english": "I pulled an all-nighter to cram, figuring it would help, but I was so wiped out during the exam that I actually did worse.",
+      "referenceAnswers": [
+        "我本來想說通宵 K 書會考得比較好，結果考試的時候累到不行，成績反而更差。",
+        "本來以為熬夜拚一下會有幫助，沒想到我整個人昏昏沉沉的，反而考砸了。",
+        "我為了考試熬了一整晚，本來是想多拿幾分，結果人在考場上根本撐不住，反而考得更差。"
+      ],
+      "hints": [],
+      "gradingNotes": "Short 反而 step at stage 4 in a new situation (exam). Core move: expectation first (本來想說／本來以為／本來是想…), then 結果／沒想到, then 反而 AFTER the subject and BEFORE the predicate (成績反而更差 / 我反而考砸了). Known slips, any of which caps it at 2: 反而 at the head of the clause before a subject (反而我考得更差), 因為 in place of 本來, 可是／但 with no 結果／沒想到, 什麼…都 split by 反而, and a 試著-style calque for 'figuring it would help'. 熬夜／通宵 for the all-nighter and K 書／衝刺／拚一下 are natural; flag 讀書一整個晚上 as stiff but understandable. Accept 反而考得更差／反而考砸了／成績反而退步. Keep feedback to two or three lines.",
+      "practiceDrillCount": 0
+    },
+    {
+      "id": "translate-fan-er-pair-retry-outage",
+      "type": "translate",
+      "itemIds": [
+        "fan-er-contrary"
+      ],
+      "stage": 4,
+      "context": "Explaining to a teammate what went wrong in last night's outage.",
+      "english": "We added retries to make the service more reliable, but all the retries piling onto the server actually made the outage worse.",
+      "referenceAnswers": [
+        "我們本來想說加 retry 可以讓服務穩一點，結果大家一起重試，伺服器反而被打得更慘，掛得更久。",
+        "加 retry 本來是想提高穩定度，沒想到流量全都灌進來，整個服務反而掛更久。",
+        "我們加 retry 本來是為了讓服務比較穩，結果請求一直疊上去，伺服器反而撐不住。"
+      ],
+      "hints": [
+        "retry can stay in English · piling onto ≈ 灌進來／一直疊上去／打爆"
+      ],
+      "gradingNotes": "Second short 反而 step, now in software where it works best, to see whether the frame survives the move. Core move as in the previous step: 本來想說／本來是為了… for the intention, 結果／沒想到, then 反而 after the subject and before the predicate (伺服器反而撐不住 / 服務反而掛更久). Code-switching (retry, request, server, outage) is fine; 當機／掛掉／掛更久 are natural for an outage, 部署 is not needed. 機率／重新嘗試機制 for retry is stiff; the English word is what engineers say. Missing 反而, or 反而 in front of the subject, is a 2. Keep feedback short.",
+      "practiceDrillCount": 0
+    },
+    {
+      "id": "respond-claim-evidence-forwarded-water",
+      "type": "respond",
+      "itemIds": [
+        "claim-evidence-strength"
+      ],
+      "stage": 5,
+      "scenario": "The family LINE group. Your dad has just forwarded one of those 長輩圖: a photo of a glass of water with the caption 'Drink this every morning and it prevents cancer. Hundreds of people say it works!' Your mom and aunt have already replied with a thumbs-up.",
+      "dialogue": [
+        {
+          "speaker": "爸爸",
+          "chinese": "你們看！這個水每天早上喝可以抗癌耶，很多人都說有效，我先轉給大家喔！",
+          "english": "Look at this! Drinking this water every morning prevents cancer, and lots of people say it works. I'll forward it to everyone!"
+        }
+      ],
+      "task": "Gently talk your dad out of forwarding it. A claim this big needs much stronger evidence than this, and a post that's been passed around from person to person is not evidence. Keep it warm; he's your dad, not a debate opponent. Two or three sentences.",
+      "referenceAnswers": [
+        "爸，喝個水就能抗癌，這個說法也太誇張了吧。說法越誇張，證據就要越扎實，這種在 LINE 上轉來轉去的文章，根本不算證據啦。",
+        "這個我不太敢信耶。講到抗癌是很大的說法，要有很夠力的證據才行，不是一堆人說有效就算數。你先看看有沒有醫生或研究報告在講，再決定要不要轉好不好？",
+        "爸，你先別轉啦。講得這麼誇張，證據就得越有力才行，可是這篇連是誰寫的都不知道，這種沒什麼說服力耶。"
+      ],
+      "hints": [
+        "cancer prevention ≈ 抗癌 · passed around ≈ 轉來轉去"
+      ],
+      "gradingNotes": "Stage 5 for claim-evidence-strength; the item is not named and the task never gives the Chinese words. The target counts as used when the learner ties the size of the claim to the strength of the evidence AND dismisses forwarded posts as evidence. Ideal and predicated, spoken form: 說法越誇張，證據就要越扎實／夠力／有力 (put 就 in the second clause); 這種(在 LINE 上轉來轉去的)根本不算證據／沒什麼說服力 is the second goal. Written or calqued forms the learner has produced before: 證據必須配得上這個說法, 再弱也不過了, the prenominal 越誇張的說法，需要越有力的證據 (correct but written), and 強大 as an evidence adjective (it doesn't collocate; 扎實／夠力／有力 do). A fully natural answer without the 越…越… frame but with the idea clearly stated (這個說法太誇張了，要有很夠力的證據才行) is a 3, with the frame named as the upgrade. Tone matters: it's a parent in a family chat, so 爸／啦／耶／吧 and a soft ask (你先看看…好不好) fit; lecturing, 你這樣是錯的, or 這是假的 stated flatly sounds harsh; flag it. 長輩圖, 轉傳／轉發 are fine. Bonus, not required: 隨便一個人說的, 本來就, 又不是…. Accept 抗癌／預防癌症／防癌.",
+      "authorNotes": "claim-evidence-strength has been at the same level since 0005, and the grader's targetItemIdsUsedCorrectly was empty then. Check it here: if it is empty again, treat the item as stage 5 in the next prep.",
+      "practiceDrillCount": 1
+    },
+    {
+      "id": "free-production-roommate-electric-bill",
+      "type": "free_production",
+      "itemIds": [
+        "benlai-jiu-anyway",
+        "burden-of-proof",
+        "lian-dou-not-even"
+      ],
+      "stage": 6,
+      "prompt": "Your roommate 小威 just slid the electric bill across the table. It has nearly doubled, and he says it's because you leave the AC on all night. But it's July, and it's always expensive in summer. He also hasn't looked at last July's bill, and he hasn't checked anything beyond the total. His accusation is that it's your fault; he gives no proof, and you can tell he's already decided. Defend yourself: explain why his accusation doesn't hold up, make it clear that backing it up is his job, not yours, and let him know it stings that he accused you without even checking.",
+      "lengthGuidance": "Three or four spoken sentences, the way you'd actually say it to a roommate.",
+      "referenceAnswers": [
+        "夏天電費本來就會變高啊，七月誰家不是這樣。說我冷氣開太兇的是你，要拿出證據的也是你，不是我要證明我沒有吧。而且你連去年七月的帳單都沒翻出來看，就直接怪我，我是有點不舒服耶。",
+        "等一下，電費變多不代表是我害的，這幾個月本來就是用電旺季。舉證責任在你身上，你連去年同期的帳單都沒比，就說是我冷氣開太久，這樣有點冤枉我欸。",
+        "七月電費本來就比較高啦，這很正常。是你說我冷氣開太久的，那該拿帳單出來比的也是你吧。你連去年的都沒看就先怪我，我會覺得有點受傷耶。"
+      ],
+      "hints": [],
+      "gradingNotes": "Stage 6 free production for three items at once: benlai-jiu-anyway (the baseline: 夏天電費本來就會變高), burden-of-proof (he made the claim, so 說…的是你，要拿出證據的(也)是你 / 舉證責任在你身上), lian-dou-not-even (he didn't even check: 你連去年的帳單都沒看／沒比). The prompt gives the facts but never the moves; none of the three Chinese expressions are named. Grade the move, not the exact words: a spontaneous 本來就 on the premise, a 的是 cleft with 的 in BOTH halves (the second half has been dropped, avoided, then produced correctly twice in 0006; credit it, flag a missing 的), and 連 + object + 都沒 V with the object right after 連 (連去年的帳單都沒看; 連…都沒有 without a verb is weak). List in targetItemIdsUsedCorrectly ONLY the items that really appeared and were right; leave out any that were avoided (e.g. 你應該證明 or 證據在哪 instead of a cleft or 舉證責任). Four spoken sentences with the key moves in the right order is a 3; a 4 also sounds like someone defending themselves to a housemate rather than arguing a case: 啦／耶／欸／吧, 我是有點不舒服／受傷, no written 必須／澄清／否認. Known traps: 證據責任 (it's 舉證責任), 不代表 is fine and welcome, 而不是 for 'not' at the start of a clause is stiff (又不是 is the spoken form), 電費 for the bill amount and 帳單 for the bill document are both fine, 度數 is correct for kWh. Accept 冷氣 or AC.",
+      "authorNotes": "The learner has not produced the 的是 cleft unprompted at stage 6 in an everyday domain. If it comes out with 的 in both halves here, it can be treated as stage 6 for real.",
+      "practiceDrillCount": 0
+    }
+  ]
+}
