@@ -269,6 +269,27 @@
         "answer": "她說這個supplement可以讓睡眠不足在三天內就好，說法越誇張，證據就要越紮實，facebook上某一個朋友的po文不太算什麼證據。\n\nI forgot what other words to use for \"strong\" when referring to evidence.",
         "score": 3
       }
+    },
+    {
+      "id": "0006-you-broke-it-you-fix-it--respond-tech-debt-promo-code-estimate--drill-1",
+      "createdAt": "2026-10-08T04:12:42.332Z",
+      "sourceSessionDirName": "0006-you-broke-it-you-fix-it",
+      "sourceStepId": "respond-tech-debt-promo-code-estimate",
+      "itemIds": [
+        "tech-debt-cut-corners"
+      ],
+      "lesson": "Concede first, then explain — and use 反而 for the counterintuitive backfire",
+      "targetExpression": "我知道…啦，可是… ／ 反而…",
+      "english": "I know it looks like a small change, but if we squeeze it into this release, we'll actually slow the whole team down.",
+      "context": "To your tech lead, who wants one more feature in Friday's release",
+      "referenceAnswers": [
+        "我知道看起來只是個小改動啦，可是硬塞進這次 release 的話，反而會拖累整個團隊的進度。",
+        "我知道這個改動看起來不大啦，可是如果硬要擠進這次上線，反而會讓大家都變慢。"
+      ],
+      "firstAttempt": {
+        "answer": "我知道看起來像是小的改變，但如果硬壓在這個release裡面，反而會讓整個team變慢",
+        "score": 3
+      }
     }
   ]
 }

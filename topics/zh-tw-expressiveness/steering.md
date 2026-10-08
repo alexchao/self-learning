@@ -31,3 +31,7 @@ For now, let's keep the pace slow and reiterate or rehash this content, because 
 - Difficulty: about right
 - Status: addressed in 0006-you-broke-it-you-fix-it (difficulty kept; still no new items; built as short pairs plus one
   long respond, per the same-day process feedback)
+
+## 2026-10-08 · after 0006-you-broke-it-you-fix-it
+- Difficulty: about right
+- Status: open

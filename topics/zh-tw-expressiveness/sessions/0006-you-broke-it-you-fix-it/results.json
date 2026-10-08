@@ -1,0 +1,568 @@
+{
+  "schemaVersion": 1,
+  "sessionDirName": "0006-you-broke-it-you-fix-it",
+  "startedAt": "2026-10-04T04:19:11.418Z",
+  "completedAt": "2026-10-08T04:17:40.603Z",
+  "steps": {
+    "respond-guang-shi-pair-kenting-drive": {
+      "attempts": [
+        {
+          "answer": "不行啦，光是單程開車去墾丁就要五個小時，這樣玩一天就要走了",
+          "inputMode": "typed",
+          "hintsRevealed": 0,
+          "submittedAt": "2026-10-04T04:22:17.329Z",
+          "timeSpentMs": 160286,
+          "grade": {
+            "score": 3,
+            "headline": "Solid refusal with 光是…就… used correctly; only the last clause sounds slightly off.",
+            "correctedLearnerAnswer": "不行啦，光是單程開車去墾丁就要五個小時，這樣玩不到一天就要回來了啦。",
+            "modelAnswers": [
+              {
+                "chinese": "不行啦，光是開車下去就要五個小時，週末去根本玩不到什麼。",
+                "note": "墾丁 is south, so 開車下去 is the idiomatic framing from Taipei."
+              },
+              {
+                "chinese": "這週末太趕了啦，光單程就五個鐘頭，來回十個小時，到那邊玩不到一天就要回來了。",
+                "note": "Spells out the round trip so the cost really bites."
+              }
+            ],
+            "issues": [
+              {
+                "learnerExcerpt": "這樣玩一天就要走了",
+                "problem": "Reads as 'play a whole day and then leave', which weakens your point — you want to stress you'd get less than a day.",
+                "suggestion": "這樣玩不到一天就要回來了",
+                "category": "naturalness"
+              }
+            ],
+            "strengths": [
+              "光是單程…就要五個小時 — 就 sits right before the concrete amount, exactly the target pattern",
+              "單程 is a precise way to isolate one leg of the trip",
+              "不行啦 fits texting a friend"
+            ],
+            "explanation": "Your 光是…就… is textbook: 光是單程開車去墾丁就要五個小時 — isolated thing after 光是, 就 right before the price. The one fix is the payoff clause: use 玩不到一天 instead of 玩一天, since 不到 carries the 'barely' nuance. Also, from Taipei people usually say 開車下去墾丁 (下去 for heading south), which sounds more local than plain 開車去.",
+            "targetItemIdsUsedCorrectly": [
+              "guang-shi-jiu-alone"
+            ],
+            "gradedBy": "llm",
+            "model": "claude-opus-5",
+            "gradedAt": "2026-10-04T04:22:17.329Z"
+          }
+        }
+      ],
+      "followUps": [],
+      "practiceDrills": {
+        "drills": []
+      },
+      "completedAt": "2026-10-04T04:23:11.794Z"
+    },
+    "respond-guang-shi-pair-wedding-venue": {
+      "attempts": [
+        {
+          "answer": "簡單也不代表便宜啦，光是訂場就要三十萬塊，更不用說食物或拍攝的部分",
+          "inputMode": "typed",
+          "hintsRevealed": 0,
+          "submittedAt": "2026-10-04T04:25:13.719Z",
+          "timeSpentMs": 106782,
+          "grade": {
+            "score": 3,
+            "headline": "Great use of 光是…就…；just a couple of word-choice tweaks to sound more like home.",
+            "correctedLearnerAnswer": "簡單也不代表便宜啦，光是場地就要三十萬了，更不用說吃的跟攝影的部分了。",
+            "modelAnswers": [
+              {
+                "chinese": "媽，就算簡單辦也不便宜啦，光是場地就要三十萬，更不用說吃的跟攝影師了。",
+                "note": "Most idiomatic: 媽+啦 keeps it warm, 光是…就 prices one piece, 更不用說…了 closes it."
+              },
+              {
+                "chinese": "已經很簡單了耶，光租場地就三十萬，吃的、拍照的都還沒算咧。",
+                "note": "Chattier alternative using 都還沒算 for the 'before you even get to…' tail."
+              }
+            ],
+            "issues": [
+              {
+                "learnerExcerpt": "訂場",
+                "problem": "Sounds clipped/Mainland-ish; in Taiwan you'd say 場地 or 租場地／訂場地.",
+                "suggestion": "光是場地就要三十萬 / 光租場地就三十萬",
+                "category": "word_choice"
+              },
+              {
+                "learnerExcerpt": "食物或拍攝的部分",
+                "problem": "食物 is a bit clinical for wedding talk, and 或 makes it sound like a written list of options.",
+                "suggestion": "吃的跟攝影（師）",
+                "category": "naturalness"
+              },
+              {
+                "learnerExcerpt": "更不用說食物或拍攝的部分",
+                "problem": "更不用說 normally closes with 了 in speech — this was your correction point from before.",
+                "suggestion": "更不用說吃的跟攝影師了",
+                "category": "target_item"
+              }
+            ],
+            "strengths": [
+              "光是場地就要三十萬塊 — exactly the right frame with a concrete amount",
+              "簡單也不代表便宜啦 is a nice natural rebuttal with warm 啦",
+              "三十萬 said correctly"
+            ],
+            "explanation": "The 光是…就… structure landed perfectly — one isolated item plus a hard number is what makes it bite. Two polish points: use 場地 (or 租場地) rather than 訂場, and remember 更不用說 likes a closing 了: 更不用說吃的跟攝影師了。 For food in everyday talk, 吃的 beats 食物 (吃的、喝的、拍照的 are how people list wedding costs).",
+            "targetItemIdsUsedCorrectly": [
+              "guang-shi-jiu-alone"
+            ],
+            "gradedBy": "llm",
+            "model": "claude-opus-5",
+            "gradedAt": "2026-10-04T04:25:13.719Z"
+          }
+        },
+        {
+          "answer": "簡單也不代表便宜啦 光是場地就要三十萬了，更不用說吃的跟攝影",
+          "inputMode": "typed",
+          "hintsRevealed": 0,
+          "submittedAt": "2026-10-04T04:29:52.386Z",
+          "timeSpentMs": 98160,
+          "grade": {
+            "score": 3,
+            "headline": "Very natural — 光是…就要三十萬了 lands perfectly; just close the 更不用說 clause with 了.",
+            "correctedLearnerAnswer": "媽，簡單也不代表便宜啦，光是場地就要三十萬了，更不用說吃的跟攝影師了。",
+            "modelAnswers": [
+              {
+                "chinese": "媽，就算簡單辦也不便宜啦，光是場地就要三十萬了，更不用說吃的跟攝影師了。",
+                "note": "就算…也 makes the concession to her suggestion explicit."
+              },
+              {
+                "chinese": "妳不知道現在行情啦，光場地就三十萬，吃的、攝影都還沒算咧。",
+                "note": "都還沒算咧 is a very colloquial alternative to 更不用說."
+              }
+            ],
+            "issues": [
+              {
+                "learnerExcerpt": "更不用說吃的跟攝影",
+                "problem": "更不用說 is normally bracketed with a final 了 in speech; without it the sentence feels cut off. Also 攝影 (photography) is slightly off here — the cost item you listed with 吃的 is the person, 攝影師.",
+                "suggestion": "更不用說吃的跟攝影師了",
+                "category": "naturalness"
+              },
+              {
+                "learnerExcerpt": "簡單也不代表便宜啦",
+                "problem": "Understandable, but 不代表 is a bit abstract/argumentative for chatting with mom; 就算簡單辦也不便宜 ties back to her 簡單辦一辦 more directly.",
+                "suggestion": "就算簡單辦也不便宜啦",
+                "category": "naturalness"
+              }
+            ],
+            "strengths": [
+              "光是場地就要三十萬了 — textbook use: isolated noun phrase, 就 before the cost, concrete amount",
+              "三十萬 is the right way to say NT$300,000",
+              "啦 keeps it warm rather than lecturing"
+            ],
+            "explanation": "The 光是…就… half is exactly right, and switching from 訂場 to 場地 reads more naturally. The one thing still missing from last time: 更不用說 is a paired frame in spoken Mandarin — 更不用說 X 了. The 了 is what signals the clause is done, e.g. 光是房租就兩萬了，更不用說水電了。Also keep the listed items parallel as cost categories: 吃的跟攝影師 (or 吃的、拍照的).",
+            "targetItemIdsUsedCorrectly": [
+              "guang-shi-jiu-alone"
+            ],
+            "gradedBy": "llm",
+            "model": "claude-opus-5",
+            "gradedAt": "2026-10-04T04:29:52.386Z"
+          }
+        }
+      ],
+      "followUps": [],
+      "practiceDrills": {
+        "drills": []
+      },
+      "completedAt": "2026-10-04T04:30:15.498Z"
+    },
+    "translate-cleft-pair-dog-walking": {
+      "attempts": [
+        {
+          "answer": "想要養狗的人是你，所以要遛牠的也應該是你吧",
+          "inputMode": "typed",
+          "hintsRevealed": 0,
+          "submittedAt": "2026-10-04T04:34:23.432Z",
+          "timeSpentMs": 228352,
+          "grade": {
+            "score": 4,
+            "headline": "Both halves are proper clefts and it sounds genuinely spoken.",
+            "correctedLearnerAnswer": "想要養狗的人是你，所以要遛牠的也應該是你吧",
+            "modelAnswers": [
+              {
+                "chinese": "說要養狗的是你，那要去遛狗的也是你啊。",
+                "note": "Bare 的 cleft twice, with 那…啊 for the accusatory tone."
+              },
+              {
+                "chinese": "當初吵著要養狗的是你耶，遛狗的當然也是你吧。",
+                "note": "當初 + 吵著要 adds the 'you begged for it' flavour."
+              }
+            ],
+            "issues": [],
+            "strengths": [
+              "Double 的是 cleft done correctly — 的人是你 then 的也應該是你",
+              "也 + 吧 make it sound like real morning grumbling",
+              "所以 and 牠 are natural touches"
+            ],
+            "explanation": "This is exactly the pattern: both halves pivot on 的…是你, which is what pins the responsibility on the other person. Keeping 的 in the second half is the whole point — 遛牠也是你 wouldn't work. One upgrade for flavour: Taiwanese speakers often front 當初 or say 吵著要養狗, e.g. 當初說要養狗的是你欸。",
+            "targetItemIdsUsedCorrectly": [],
+            "gradedBy": "llm",
+            "model": "claude-opus-5",
+            "gradedAt": "2026-10-04T04:34:23.432Z"
+          }
+        }
+      ],
+      "followUps": [],
+      "practiceDrills": {
+        "drills": []
+      },
+      "completedAt": "2026-10-04T04:35:04.371Z"
+    },
+    "translate-cleft-pair-broken-build": {
+      "attempts": [
+        {
+          "answer": "打壞build的人是他，所以要修的也應該是他吧，又不是我的工作",
+          "inputMode": "typed",
+          "hintsRevealed": 0,
+          "submittedAt": "2026-10-04T04:36:13.292Z",
+          "timeSpentMs": 56624,
+          "grade": {
+            "score": 3,
+            "headline": "Both halves of the 的是 cleft are correct; just the verb 打壞 is off.",
+            "correctedLearnerAnswer": "弄壞 build 的是他，所以要修的也應該是他吧，又不是我的工作",
+            "modelAnswers": [
+              {
+                "chinese": "弄壞 build 的是他，要修的也應該是他吧，又不是我的工作。",
+                "note": "Cleanest version of what you wrote."
+              },
+              {
+                "chinese": "build 是他搞壞的，那要修的當然也是他啊，又不是我負責的。",
+                "note": "是…的 focus in the first half, 負責 instead of 工作 — very natural on Slack."
+              }
+            ],
+            "issues": [
+              {
+                "learnerExcerpt": "打壞build的人是他",
+                "problem": "打壞 isn't used for a build; 打 implies striking/physical breakage. Also 的人 is fine but the bare 的 is punchier.",
+                "suggestion": "弄壞 build 的是他／build 是他搞壞的／他把 build 弄掛了",
+                "category": "word_choice"
+              }
+            ],
+            "strengths": [
+              "的 present in both halves: 弄壞…的是他 / 要修的也應該是他",
+              "又不是我的工作 — exactly the spoken concessive move, not the stiff 不是我的責任",
+              "吧 adds just the right mildly annoyed softening"
+            ],
+            "explanation": "The double cleft is solid — you kept 的 in both halves, which is what makes the blame-assignment feel pointed rather than just descriptive. The only fix is collocation: for software, breakage is 弄壞／搞壞／弄掛 (他把 build 弄掛了), while 打壞 and 打破 belong to physical objects (打破杯子). Also note 的人是他 → 的是他 is slightly tighter and more idiomatic in this cleft.",
+            "targetItemIdsUsedCorrectly": [],
+            "gradedBy": "llm",
+            "model": "claude-opus-5",
+            "gradedAt": "2026-10-04T04:36:13.292Z"
+          }
+        }
+      ],
+      "followUps": [],
+      "practiceDrills": {
+        "drills": []
+      },
+      "completedAt": "2026-10-04T04:36:46.641Z"
+    },
+    "translate-fan-er-pair-extra-engineers": {
+      "attempts": [
+        {
+          "answer": "我們以為加了兩個工程師之後進度就會變快，可是什麼反而都慢下來了",
+          "inputMode": "typed",
+          "hintsRevealed": 0,
+          "submittedAt": "2026-10-04T04:38:39.765Z",
+          "timeSpentMs": 98086,
+          "grade": {
+            "score": 2,
+            "headline": "Good setup with 以為, but the final clause's word order breaks and 可是 loses the \"結果\" punch.",
+            "correctedLearnerAnswer": "我們以為加了兩個工程師之後進度就會變快，結果反而什麼都慢下來了",
+            "modelAnswers": [
+              {
+                "chinese": "我們本來想說多加兩個工程師，release 可以快一點，結果進度反而更慢。",
+                "note": "The most idiomatic frame: 本來想說… + 結果 + 主語反而…"
+              },
+              {
+                "chinese": "我們以為多兩個工程師會比較快，沒想到反而整個拖得更久。",
+                "note": "沒想到 carries the surprise; 拖得更久 is very natural for schedules."
+              }
+            ],
+            "issues": [
+              {
+                "learnerExcerpt": "什麼反而都慢下來了",
+                "problem": "Broken word order — 什麼…都 is a fixed pair and can't be split by 反而. 反而 goes before the whole predicate.",
+                "suggestion": "反而什麼都慢下來了 / 進度反而更慢",
+                "category": "grammar"
+              },
+              {
+                "learnerExcerpt": "可是",
+                "problem": "可是 is a flat contrast; here you want the \"and then the result was…\" flavour that sets up 反而.",
+                "suggestion": "結果／沒想到",
+                "category": "naturalness"
+              },
+              {
+                "learnerExcerpt": "什麼都慢下來了",
+                "problem": "Vague for a software complaint; Taiwanese speakers name the thing that slowed — 進度.",
+                "suggestion": "進度反而整個拖慢了",
+                "category": "word_choice"
+              }
+            ],
+            "strengths": [
+              "以為 correctly sets up the dashed expectation",
+              "工程師 written correctly this time (last attempt had 工程人)"
+            ],
+            "explanation": "The expectation-setup half is solid. Two fixes: use 結果／沒想到 (not 可是) to land the reversal, and keep 反而 immediately before the full predicate — it can't slot inside 什麼…都. Safest spoken template: 本來想說…，結果 + 主語 + 反而 + …，e.g. 結果進度反而更慢 or 結果反而拖得更久.",
+            "targetItemIdsUsedCorrectly": [],
+            "gradedBy": "llm",
+            "model": "claude-opus-5",
+            "gradedAt": "2026-10-04T04:38:39.765Z"
+          }
+        }
+      ],
+      "followUps": [],
+      "practiceDrills": {
+        "drills": []
+      },
+      "completedAt": "2026-10-04T04:39:19.920Z"
+    },
+    "translate-fan-er-pair-coworkers-feud": {
+      "attempts": [
+        {
+          "answer": "我試著讓他們之間的事沒那麼緊繃，但反而搞得更緊繃了",
+          "inputMode": "typed",
+          "hintsRevealed": 0,
+          "submittedAt": "2026-10-08T04:03:34.900Z",
+          "timeSpentMs": 97475,
+          "grade": {
+            "score": 2,
+            "headline": "反而 is in the right slot, but the first half is a wordy calque and 緊繃 repeats awkwardly.",
+            "correctedLearnerAnswer": "我本來想說幫他們兩個緩和一下，結果反而搞得更僵。",
+            "modelAnswers": [
+              {
+                "chinese": "我本來想說幫他們兩個緩和一下，結果反而搞得更僵。",
+                "note": "Most idiomatic: 本來想說 sets the expectation, 結果反而 flips it, 搞得更僵 is the standard collocation for strained relations."
+              },
+              {
+                "chinese": "本來想當和事佬，沒想到他們兩個反而更僵了。",
+                "note": "和事佬 = peacemaker; here 反而 sits after the subject 他們兩個."
+              }
+            ],
+            "issues": [
+              {
+                "learnerExcerpt": "我試著讓他們之間的事沒那麼緊繃",
+                "problem": "Word-by-word rendering of 'I tried to... between the two of them'. 試著 + 讓…的事沒那麼… is clunky; spoken Taiwanese Mandarin front-loads the intention with 本來想說／本來以為.",
+                "suggestion": "我本來想說幫他們兩個緩和一下",
+                "category": "naturalness"
+              },
+              {
+                "learnerExcerpt": "但反而搞得更緊繃了",
+                "problem": "但 is weak here — 結果／沒想到 pairs much better with 反而 for a thwarted expectation. Repeating 緊繃 also sounds flat.",
+                "suggestion": "結果反而搞得更僵",
+                "category": "word_choice"
+              }
+            ],
+            "strengths": [
+              "反而 placed correctly before the predicate",
+              "搞得更… is exactly the right collocation"
+            ],
+            "explanation": "The 反而 slot is right — the problem is the setup. English \"I tried to X\" becomes 本來想說… in spoken Mandarin, not 試著…; 本來 already carries the \"I meant to, but it didn't work out\" flavour, and it builds the expectation that 反而 then reverses. Pair it with 結果／沒想到 rather than 但: 本來想說幫他們緩和一下，結果反而搞得更僵。 For a rift between people, 僵 is the native word (關係很僵／搞得更僵); 緊繃 leans more toward atmosphere or nerves.",
+            "targetItemIdsUsedCorrectly": [
+              "fan-er-contrary"
+            ],
+            "gradedBy": "llm",
+            "model": "claude-opus-5",
+            "gradedAt": "2026-10-08T04:03:34.899Z"
+          }
+        },
+        {
+          "answer": "我本來想說幫他們緩和一下，結果反而搞得更僵",
+          "inputMode": "typed",
+          "hintsRevealed": 0,
+          "submittedAt": "2026-10-08T04:05:34.197Z",
+          "timeSpentMs": 29298,
+          "grade": {
+            "score": 4,
+            "headline": "Spot on — exactly how a Taiwanese speaker would put it.",
+            "correctedLearnerAnswer": "我本來想說幫他們兩個緩和一下，結果反而搞得更僵。",
+            "modelAnswers": [
+              {
+                "chinese": "我本來想說幫他們兩個緩和一下，結果反而搞得更僵。",
+                "note": "The core frame: 本來想說… for the intention, 結果反而… for the reversal."
+              },
+              {
+                "chinese": "本來想當和事佬，沒想到他們兩個反而更僵了。",
+                "note": "和事佬 = peacemaker; note 反而 after the subject 他們兩個."
+              }
+            ],
+            "issues": [],
+            "strengths": [
+              "本來想說…，結果反而… frame used perfectly",
+              "搞得更僵 — idiomatic collocation for a relationship going stiff/awkward",
+              "Dropped the 試著 calque from your first attempt"
+            ],
+            "explanation": "This is the portable frame to keep: 本來想說 sets up the expectation, 結果反而 flips it. Note that 反而 here sits before the verb with no second-clause subject; if you add one it goes after it (他們兩個反而更僵了), never before. Optional polish: 他們兩個 sounds slightly fuller than 他們 when referring to a specific pair.",
+            "targetItemIdsUsedCorrectly": [
+              "fan-er-contrary"
+            ],
+            "gradedBy": "llm",
+            "model": "claude-opus-5",
+            "gradedAt": "2026-10-08T04:05:34.197Z"
+          }
+        }
+      ],
+      "followUps": [],
+      "practiceDrills": {
+        "drills": []
+      },
+      "completedAt": "2026-10-08T04:05:40.242Z"
+    },
+    "respond-tech-debt-promo-code-estimate": {
+      "attempts": [
+        {
+          "answer": "加個欄位才不是你想的那麼簡單吧，當初兩年前架的時候他們為了趕上線日期而走了很多捷徑，現在正在還技術債，價位邏輯很複雜，還有光是弄清楚價錢到底在哪裡算出來就要兩天，如果試著一個禮拜內完成，恐怕會造成多一點bug，上線也比較慢",
+          "inputMode": "typed",
+          "hintsRevealed": 0,
+          "submittedAt": "2026-10-08T04:12:35.673Z",
+          "timeSpentMs": 390232,
+          "grade": {
+            "score": 3,
+            "headline": "All three goals land and the tech-debt collocations are right — but the opening sounds a bit combative and a few word choices are off.",
+            "correctedLearnerAnswer": "我知道看起來只是加個欄位啦，可是這個真的沒那麼簡單。結帳是兩年前趕出來的，當初為了趕上線抄了很多捷徑，我們現在就是在還技術債。價格計算的邏輯很亂，光是搞清楚價錢到底在哪裡算的就要兩天。如果硬壓在一個禮拜內做完，反而會多出更多 bug，上線搞不好更慢。",
+            "modelAnswers": [
+              {
+                "chinese": "我知道看起來只是加一個欄位啦，可是結帳那塊兩年前為了趕上線抄了很多捷徑，我們現在就是在還技術債。光是搞清楚價格到底在哪裡算的就要兩三天，硬要下禮拜上的話，反而會多出更多 bug，最後更慢。",
+                "note": "Opens by validating her view (…啦) so it doesn't sound defensive, then 光是…就要 + 反而."
+              },
+              {
+                "chinese": "這個真的不是我們在拖啦。結帳的程式碼當初是趕出來的，先求有再求好，技術債越滾越大，一動就壞。光找出折扣會影響到哪些地方就要兩天，趕的話搞不好反而拖更久。",
+                "note": "Alternative with 先求有再求好 and 技術債越滾越大."
+              }
+            ],
+            "issues": [
+              {
+                "learnerExcerpt": "加個欄位才不是你想的那麼簡單吧",
+                "problem": "To a PM under pressure this lands as a pushback (才不是你想的… + 吧 ≈ 'it's not what YOU think'). The task was to explain without getting defensive.",
+                "suggestion": "我知道看起來只是加個欄位啦，可是真的沒那麼簡單",
+                "category": "naturalness"
+              },
+              {
+                "learnerExcerpt": "價位邏輯",
+                "problem": "價位 means 'price point / price range', not the computed price. Also 價位邏輯 isn't a collocation.",
+                "suggestion": "價格計算的邏輯很亂 / 算價格的邏輯很亂",
+                "category": "word_choice"
+              },
+              {
+                "learnerExcerpt": "為了趕上線日期而走了很多捷徑",
+                "problem": "趕上線 is already complete — 上線日期 is wordy, and the 而 is written register. Spoken: drop both.",
+                "suggestion": "為了趕上線抄了很多捷徑",
+                "category": "target_item"
+              },
+              {
+                "learnerExcerpt": "恐怕會造成多一點bug，上線也比較慢",
+                "problem": "Two things: 多一點 understates it (you mean *more* bugs than otherwise), and the backfire nuance needs 反而. 造成 bug is also a bit stiff — 多出 bug / 出更多問題 is what devs say.",
+                "suggestion": "反而會多出更多 bug，上線搞不好更慢",
+                "category": "naturalness"
+              },
+              {
+                "learnerExcerpt": "如果試著一個禮拜內完成",
+                "problem": "試著 sounds like a tentative experiment; here the point is being forced to rush.",
+                "suggestion": "如果硬壓在一個禮拜內做完 / 硬要下禮拜上的話",
+                "category": "word_choice"
+              }
+            ],
+            "strengths": [
+              "趕上線 + 走了很多捷徑 + 現在正在還技術債 — the whole tech-debt chain is correct and idiomatic",
+              "光是弄清楚價錢到底在哪裡算出來就要兩天 — exactly the concrete sub-task pricing the reference wants",
+              "Natural spoken flow overall; no 代碼/部署 traps"
+            ],
+            "explanation": "Your technical content was all there — 趕上線, 走捷徑, 還技術債, and the 光是…就要兩天 cost estimate. Two upgrades: (1) frame-setting. Starting with 才不是你想的那麼簡單吧 puts her on the defensive; conceding first (我知道看起來只是加個欄位啦，可是…) buys you the right to explain. (2) 反而 is the word that carries 'rushing backfires': 硬趕反而會多出更多 bug — without it, 恐怕會造成多一點 bug 上線也比較慢 reads as two separate mild predictions instead of one counterintuitive consequence. Also watch 價位 (price point) vs 價格 (the price itself).",
+            "targetItemIdsUsedCorrectly": [
+              "tech-debt-cut-corners"
+            ],
+            "gradedBy": "llm",
+            "model": "claude-opus-5",
+            "gradedAt": "2026-10-08T04:12:35.673Z"
+          }
+        }
+      ],
+      "followUps": [],
+      "practiceDrills": {
+        "drills": [
+          {
+            "id": "drill-1",
+            "lesson": "Concede first, then explain — and use 反而 for the counterintuitive backfire",
+            "targetExpression": "我知道…啦，可是… ／ 反而…",
+            "english": "I know it looks like a small change, but if we squeeze it into this release, we'll actually slow the whole team down.",
+            "context": "To your tech lead, who wants one more feature in Friday's release",
+            "referenceAnswers": [
+              "我知道看起來只是個小改動啦，可是硬塞進這次 release 的話，反而會拖累整個團隊的進度。",
+              "我知道這個改動看起來不大啦，可是如果硬要擠進這次上線，反而會讓大家都變慢。"
+            ],
+            "generatedAt": "2026-10-08T04:12:42.332Z",
+            "generatedFromAttemptIndex": 0,
+            "attempts": [
+              {
+                "answer": "我知道看起來像是小的改變，但如果硬壓在這個release裡面，反而會讓整個team變慢",
+                "inputMode": "typed",
+                "submittedAt": "2026-10-08T04:16:00.810Z",
+                "timeSpentMs": 101238,
+                "grade": {
+                  "score": 3,
+                  "headline": "反而 lands well; a few collocations sound translated.",
+                  "correctedLearnerAnswer": "我知道看起來只是個小改動啦，但如果硬塞進這個 release，反而會讓整個 team 變慢。",
+                  "modelAnswers": [
+                    {
+                      "chinese": "我知道這看起來只是個小改動啦，可是硬塞進這次 release，反而會拖累整個 team 的進度。",
+                      "note": ""
+                    }
+                  ],
+                  "issues": [],
+                  "strengths": [],
+                  "explanation": "「小的改變」is calque-ish — Taiwanese devs say 小改動/小改一下; and 硬壓在…裡面 → 硬塞進/硬擠進. Add the 啦 after 我知道…, which is what makes the concession sound soft rather than defensive.",
+                  "targetItemIdsUsedCorrectly": [
+                    "tech-debt-cut-corners"
+                  ],
+                  "gradedBy": "llm",
+                  "model": "claude-opus-5",
+                  "gradedAt": "2026-10-08T04:16:00.810Z"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "completedAt": "2026-10-08T04:16:41.382Z"
+    }
+  },
+  "endOfSessionFeedback": {
+    "difficulty": "about_right",
+    "steeringNote": "",
+    "processFeedback": "",
+    "submittedAt": "2026-10-08T04:17:40.603Z"
+  },
+  "itemScheduleChanges": [
+    {
+      "itemId": "tech-debt-cut-corners",
+      "score": 3,
+      "stageBefore": 5,
+      "stageAfter": 6,
+      "intervalDaysBefore": 6,
+      "intervalDaysAfter": 45.1,
+      "dueAt": "2026-11-22T06:41:40.603Z"
+    },
+    {
+      "itemId": "fan-er-contrary",
+      "score": 2,
+      "stageBefore": 4,
+      "stageAfter": 4,
+      "intervalDaysBefore": 6,
+      "intervalDaysAfter": 15.6,
+      "dueAt": "2026-10-23T18:41:40.603Z"
+    },
+    {
+      "itemId": "guang-shi-jiu-alone",
+      "score": 3,
+      "stageBefore": 5,
+      "stageAfter": 6,
+      "intervalDaysBefore": 3,
+      "intervalDaysAfter": 32.4,
+      "dueAt": "2026-11-09T13:53:40.603Z"
+    }
+  ],
+  "nextSessionPreparation": {
+    "triggeredAt": "2026-10-08T04:17:40.614Z",
+    "logPath": "topics/zh-tw-expressiveness/.prep/2026-10-08T04-17-40-610Z-after-0006-you-broke-it-you-fix-it.log"
+  }
+}

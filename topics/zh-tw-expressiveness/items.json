@@ -232,14 +232,14 @@
       ],
       "createdAt": "2026-09-15T05:05:00.000Z",
       "introducedInSession": "0003-paying-for-it-later",
-      "stage": 5,
+      "stage": 6,
       "spacedRepetition": {
-        "dueAt": "2026-09-27T04:02:33.240Z",
-        "intervalDays": 6,
+        "dueAt": "2026-11-22T06:41:40.603Z",
+        "intervalDays": 45.1,
         "ease": 2.65,
-        "reps": 2,
+        "reps": 3,
         "lapses": 0,
-        "lastReviewedAt": "2026-09-21T04:02:33.240Z"
+        "lastReviewedAt": "2026-10-08T04:17:40.603Z"
       },
       "history": [
         {
@@ -263,6 +263,17 @@
           "reviewedAt": "2026-09-21T04:02:33.240Z",
           "stageAfter": 5,
           "intervalDaysAfter": 6
+        },
+        {
+          "sessionDirName": "0006-you-broke-it-you-fix-it",
+          "stepIds": [
+            "respond-tech-debt-promo-code-estimate"
+          ],
+          "stageTested": 5,
+          "score": 3,
+          "reviewedAt": "2026-10-08T04:17:40.603Z",
+          "stageAfter": 6,
+          "intervalDaysAfter": 45.1
         }
       ]
     },
@@ -296,12 +307,12 @@
       "introducedInSession": "0003-paying-for-it-later",
       "stage": 4,
       "spacedRepetition": {
-        "dueAt": "2026-10-01T04:51:26.408Z",
-        "intervalDays": 6,
-        "ease": 2.35,
-        "reps": 3,
+        "dueAt": "2026-10-23T18:41:40.603Z",
+        "intervalDays": 15.6,
+        "ease": 2.2,
+        "reps": 4,
         "lapses": 0,
-        "lastReviewedAt": "2026-09-25T04:51:26.408Z"
+        "lastReviewedAt": "2026-10-08T04:17:40.603Z"
       },
       "history": [
         {
@@ -337,6 +348,18 @@
           "reviewedAt": "2026-09-25T04:51:26.408Z",
           "stageAfter": 4,
           "intervalDaysAfter": 6
+        },
+        {
+          "sessionDirName": "0006-you-broke-it-you-fix-it",
+          "stepIds": [
+            "translate-fan-er-pair-extra-engineers",
+            "translate-fan-er-pair-coworkers-feud"
+          ],
+          "stageTested": 4,
+          "score": 2,
+          "reviewedAt": "2026-10-08T04:17:40.603Z",
+          "stageAfter": 4,
+          "intervalDaysAfter": 15.6
         }
       ]
     },
@@ -368,14 +391,14 @@
       ],
       "createdAt": "2026-09-16T05:10:00.000Z",
       "introducedInSession": "0004-how-big-is-the-claim",
-      "stage": 5,
+      "stage": 6,
       "spacedRepetition": {
-        "dueAt": "2026-09-28T04:51:26.408Z",
-        "intervalDays": 3,
+        "dueAt": "2026-11-09T13:53:40.603Z",
+        "intervalDays": 32.4,
         "ease": 2.5,
-        "reps": 2,
+        "reps": 3,
         "lapses": 0,
-        "lastReviewedAt": "2026-09-25T04:51:26.408Z"
+        "lastReviewedAt": "2026-10-08T04:17:40.603Z"
       },
       "history": [
         {
@@ -399,6 +422,18 @@
           "reviewedAt": "2026-09-25T04:51:26.408Z",
           "stageAfter": 5,
           "intervalDaysAfter": 3
+        },
+        {
+          "sessionDirName": "0006-you-broke-it-you-fix-it",
+          "stepIds": [
+            "respond-guang-shi-pair-kenting-drive",
+            "respond-guang-shi-pair-wedding-venue"
+          ],
+          "stageTested": 5,
+          "score": 3,
+          "reviewedAt": "2026-10-08T04:17:40.603Z",
+          "stageAfter": 6,
+          "intervalDaysAfter": 32.4
         }
       ]
     },
