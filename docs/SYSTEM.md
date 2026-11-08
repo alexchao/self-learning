@@ -121,17 +121,19 @@ Ran 2026-10-03 → 2026-11-06 at https://quiet-lantern-4747.fly.dev; paused beca
 for ~$15/month. Everything below describes how it works when running. Plan, history, and setup details:
 `docs/plans/cloud-deployment.md`.
 
-**Paused state:** no machine (`fly scale count 0`). Kept: the Fly app, its secrets (`CLAUDE_CODE_OAUTH_TOKEN`,
-`ACCESS_PASSPHRASE`, `GIT_DEPLOY_KEY_BASE64`; they show as "Staged" with no machine), the 1 GB volume `data`
-(unattached, ~$0.15/month; its repo copy had nothing GitHub lacks), and the GitHub deploy key. The code is unchanged and
+**Paused state (costs nothing):** no machine and no volume (both deleted 2026-11-06/07; the volume's repo copy had
+nothing GitHub lacks). Kept: the Fly app and its name/URL, its secrets (`CLAUDE_CODE_OAUTH_TOKEN`, `ACCESS_PASSPHRASE`,
+`GIT_DEPLOY_KEY_BASE64`; they show as "Staged" with no machine), and the GitHub deploy key. The code is unchanged and
 dormant locally (`GIT_SYNC` is off). **To resume:**
 1. Commit and push any local learning data; never run sessions both locally and in the cloud.
-2. `fly deploy --ha=false` from the repo root. It creates one machine on the existing volume, which pulls `main` at boot.
+2. `fly volumes create data -a quiet-lantern-4747 -r sjc -s 1 -y`, then `fly deploy --ha=false` from the repo root.
+   The first boot clones the repo onto the new volume, installs, and builds (~15 s).
 3. The OAuth token may have expired: if grading fails, the learner runs `claude setup-token` and
    `fly secrets set -a quiet-lantern-4747 CLAUDE_CODE_OAUTH_TOKEN=<token>` in their own terminal.
 4. Restore the cloud-mode loop in CLAUDE.md (git history: commit 9ec5afa) and the §4 loop below, and mark this un-paused.
 
-If the volume was deleted, the first boot simply clones the repo again (create a new 1 GB volume named `data` in sjc first).
+If the app itself is ever deleted, `fly apps create <name>`, update `app` in `fly.toml`, and set the three secrets again
+(passphrase: the learner keeps it; deploy key: generate a new one, see the plan's Phase 4 rotation note).
 - **One always-on machine** (shared-cpu-1x, 2 GB, region sjc) runs the same server plus next-session prep. All LLM
   calls use the learner's subscription (`CLAUDE_CODE_OAUTH_TOKEN`, a Fly secret).
 - **The app runs from a git clone on the volume** (`/data/repo`), not from the image. The image (`Dockerfile`) only
@@ -276,4 +278,4 @@ act on it, update this spec, and log the decision below.
 | 2026-10-03 | Ownership split: cloud commits learning data (`topics/**`, `process-feedback.md`), laptop commits code/docs/topic config | Two writers on one branch without conflicts. The cloud never commits an unfinished session's `results.json` |
 | 2026-10-03 | Cloud polls `main` every 2 min instead of a GitHub Action calling it | No Fly token in GitHub, no public trigger endpoint; ≤2 min lag is fine, and `npm run cloud -- update` is immediate |
 | 2026-10-03 | Admin endpoints are loopback-only, reached via `fly ssh console` | Nothing operator-facing on the public URL; auth is the laptop's existing `fly` login |
-| 2026-11-06 | Cloud paused: machine destroyed, volume/secrets/app kept; sessions back to local `npm run learn` | Learner used it less than expected; ~$15/month wasn't worth it. Resuming is one `fly deploy` (see "Running in the cloud") |
+| 2026-11-06 | Cloud paused: machine and volume deleted, app and secrets kept (zero cost); sessions back to local `npm run learn` | Learner used it less than expected; ~$15/month wasn't worth it. Resuming is a volume create + `fly deploy` (see "Running in the cloud") |

@@ -1,8 +1,8 @@
 # Plan: run the learning system in the cloud, on the Claude subscription
 
 Status: **paused** 2026-11-06 (was live 2026-10-03 → 2026-11-06; phases 0–5 done). The learner did session 0006 in the
-cloud; the first real prep + push worked (commits 5e3609b, 1a23f24 on 2026-10-08). Paused for cost; the machine was
-destroyed, everything else kept. How to resume: SYSTEM.md → "Running in the cloud".
+cloud; the first real prep + push worked (commits 5e3609b, 1a23f24 on 2026-10-08). Paused for cost; the machine and volume were
+deleted, the app and its secrets kept. How to resume: SYSTEM.md → "Running in the cloud".
 
 ## Goal
 

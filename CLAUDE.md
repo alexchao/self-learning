@@ -6,7 +6,7 @@ This repo is a personal learning system. The learner drives it through Claude Co
 **To create sessions:** `docs/SESSION-AUTHORING.md`.
 **Cloud: paused since 2026-11-06** (learner wasn't using it enough for the ~$15/month). Sessions run locally again
 (`npm run learn`), and this laptop owns all files, learning data included. The Fly app `quiet-lantern-4747` still exists
-with its secrets and an unattached volume, but no machine. To resume: SYSTEM.md → "Running in the cloud" → "Paused".
+with its secrets, but no machine or volume (costs nothing). To resume: SYSTEM.md → "Running in the cloud" → "Paused".
 
 ## The loop
 
